@@ -15,7 +15,7 @@ namespace TravelCatalog.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "TEST!Your application description page.";
+            ViewBag.Message = "TEST!2Your application description page.";
 
             return View();
         }
