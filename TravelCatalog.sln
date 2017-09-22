@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelCatalog.Data", "Trave
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelCatalog.UnitTests", "TravelCatalog.UnitTests\TravelCatalog.UnitTests.csproj", "{C5F7E18D-F823-4BC5-8E26-C32FB87A1D2E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelCatalog.IntegrationTests", "TravelCatalog.IntegrationTests\TravelCatalog.IntegrationTests.csproj", "{3E500A69-EBB7-4980-89B3-A4203FF64E79}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{C5F7E18D-F823-4BC5-8E26-C32FB87A1D2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5F7E18D-F823-4BC5-8E26-C32FB87A1D2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5F7E18D-F823-4BC5-8E26-C32FB87A1D2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E500A69-EBB7-4980-89B3-A4203FF64E79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E500A69-EBB7-4980-89B3-A4203FF64E79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E500A69-EBB7-4980-89B3-A4203FF64E79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E500A69-EBB7-4980-89B3-A4203FF64E79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
