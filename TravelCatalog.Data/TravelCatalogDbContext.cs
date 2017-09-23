@@ -12,7 +12,7 @@ namespace TravelCatalog.Data
     {
 
         public TravelCatalogDbContext()
-            : base("TravelCatalogDb")
+            : base("TravelCatalog")
         {
         }
 
