@@ -6,14 +6,14 @@ namespace TravelCatalog.Data.Migrations
     using System.Linq;
     using TravelCatalog.Models;
 
-    public sealed class Configuration : DbMigrationsConfiguration<TravelCatalogDbContext>
+    public sealed class Configuration : DbMigrationsConfiguration<TravelCatalogEfDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(TravelCatalogDbContext context)
+        protected override void Seed(TravelCatalogEfDbContext context)
         {
             context.Travels.AddOrUpdate(x => x.Title, new Travel
             {

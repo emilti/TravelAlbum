@@ -1,21 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.Entity;
 using TravelCatalog.Models;
 
 namespace TravelCatalog.Data
 {
-    public class TravelCatalogDbContext : DbContext
+    public class TravelCatalogEfDbContext : DbContext// , ILiveDemoEfDbContextSaveChanges
     {
 
-        public TravelCatalogDbContext()
+        public TravelCatalogEfDbContext()
             : base("TravelCatalog")
         {
         }
 
+
+        public static TravelCatalogEfDbContext Create()
+        {
+            return new TravelCatalogEfDbContext();
+        }
+
         public virtual IDbSet<Travel> Travels { get; set; }
+
+        public new IDbSet<T> Set<T>()
+         where T : class
+        {
+            return base.Set<T>();
+        }
+
     }
 }

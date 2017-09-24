@@ -284,6 +284,10 @@
       <Project>{b089a7ee-2f93-4921-9a56-10fcd37914ca}</Project>
       <Name>TravelCatalog.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TravelCatalog.Models\TravelCatalog.Models.csproj">
+      <Project>{51a4d86b-6c8e-493a-8883-f316f8983274}</Project>
+      <Name>TravelCatalog.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
