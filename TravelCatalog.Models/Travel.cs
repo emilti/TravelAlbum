@@ -9,11 +9,11 @@ namespace TravelCatalog.Models
 {
     public class Travel
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
-        public DateTime StartDate { get; set; }
+        public DateTime? StartDate { get; set; }
 
-        public DateTime EndDate { get; set; }
+        public DateTime? EndDate { get; set; }
 
 
 

@@ -17,6 +17,7 @@ namespace TravelCatalog.Data.Migrations
         {
             context.Travels.AddOrUpdate(x => x.Title, new Travel
             {
+                Id = Guid.NewGuid(),
                 Title = "Malyovitsa",
                 Description = "Veliko mqsto"
             });

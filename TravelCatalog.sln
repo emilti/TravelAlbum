@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelCatalog.UnitTests", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelCatalog.IntegrationTests", "TravelCatalog.IntegrationTests\TravelCatalog.IntegrationTests.csproj", "{3E500A69-EBB7-4980-89B3-A4203FF64E79}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelCatalog.Data.Contracts", "TravelCatalog.Data.Contracts\TravelCatalog.Data.Contracts.csproj", "{2357D8DB-7819-4951-9585-AE71D121E068}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelCatalog.DataServices", "TravelCatalog.DataServices\TravelCatalog.DataServices.csproj", "{08A83DA2-E768-4F78-8526-A87B0D441DDE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{3E500A69-EBB7-4980-89B3-A4203FF64E79}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E500A69-EBB7-4980-89B3-A4203FF64E79}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E500A69-EBB7-4980-89B3-A4203FF64E79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2357D8DB-7819-4951-9585-AE71D121E068}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2357D8DB-7819-4951-9585-AE71D121E068}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2357D8DB-7819-4951-9585-AE71D121E068}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2357D8DB-7819-4951-9585-AE71D121E068}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08A83DA2-E768-4F78-8526-A87B0D441DDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08A83DA2-E768-4F78-8526-A87B0D441DDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08A83DA2-E768-4F78-8526-A87B0D441DDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08A83DA2-E768-4F78-8526-A87B0D441DDE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

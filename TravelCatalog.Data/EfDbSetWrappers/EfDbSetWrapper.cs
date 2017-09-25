@@ -10,10 +10,8 @@ using System.Threading.Tasks;
 using TravelCatalog.Data.Contracts;
 
 namespace TravelCatalog.Data.EfDbSetWrappers
-{
-   
-        public class EfDbSetWrapper<T> : IEfDbSetWrapper<T>
-       where T : class
+{   
+        public class EfDbSetWrapper<T> : IEfDbSetWrapper<T> where T : class
         {
             private readonly TravelCatalogEfDbContext efDbContext;
             private readonly IDbSet<T> dbSet;
@@ -25,6 +23,7 @@ namespace TravelCatalog.Data.EfDbSetWrappers
                 this.efDbContext = efDbContext;
                 this.dbSet = efDbContext.Set<T>();
             }
+
 
             public IQueryable<T> All
             {

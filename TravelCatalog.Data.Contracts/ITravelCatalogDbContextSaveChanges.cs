@@ -1,6 +1,6 @@
 ﻿namespace TravelCatalog.Data.Contracts
 {
-    interface ITravelCatalogDbContextSaveChanges
+    public interface ITravelCatalogDbContextSaveChanges
     {
         int SaveChanges();
     }

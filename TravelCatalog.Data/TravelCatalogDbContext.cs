@@ -1,9 +1,10 @@
 ﻿using System.Data.Entity;
+using TravelCatalog.Data.Contracts;
 using TravelCatalog.Models;
 
 namespace TravelCatalog.Data
 {
-    public class TravelCatalogEfDbContext : DbContext// , ILiveDemoEfDbContextSaveChanges
+    public class TravelCatalogEfDbContext : DbContext, ITravelCatalogDbContextSaveChanges
     {
 
         public TravelCatalogEfDbContext()

@@ -29,3 +29,10 @@
         <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
     </div>
 </div>
+
+
+@using (Html.BeginForm("SearchTravels", "Travels", new { area = string.Empty }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken();
+    <input type="text" class="search_box" width:150px;" name="search" placeholder="Търси пътувания">
+}
