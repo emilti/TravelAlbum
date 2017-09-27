@@ -41,11 +41,13 @@ namespace TravelCatalog.DataServices
             return result;
         }
 
-        public Travel GetTravelByTitle(string searchTerm)
+        public TravelTranslationalInfo GetTravelByTitle(string searchTerm)
         {
             IQueryable<Travel> travels = travelSetWrapper.All;
-            Travel travelByTitle= travels.FirstOrDefault(a => a.Title.Contains(searchTerm));
-            return travelByTitle;
+            var trnaslatedTravels = travels.SelectMany(x => x.TranslatedTravels);
+            TravelTranslationalInfo translatedTravelByTitle= trnaslatedTravels.FirstOrDefault(a => a.Title.Contains(searchTerm));
+            // Travel travel = translatedTravelByTitle.Travel;
+            return translatedTravelByTitle;
         }
     }
 }

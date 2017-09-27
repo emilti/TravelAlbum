@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TravelCatalog.Models
 {
@@ -11,5 +8,10 @@ namespace TravelCatalog.Models
         public Guid Id { get; set; }
 
         public int Content { get; set; }
+
+        public Guid? TravelId { get; set; }
+
+        [ForeignKey("TravelId")]
+        public virtual Travel Travel { get; set; }
     }
 }

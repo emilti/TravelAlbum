@@ -6,7 +6,7 @@ namespace TravelCatalog.Models
 {
     public class Travel
     {
-        private ICollection<Travel_Translated> translatedTravels;
+        private ICollection<TravelTranslationalInfo> translatedTravels;
 
         private ICollection<Image> images;
 
@@ -14,7 +14,7 @@ namespace TravelCatalog.Models
 
         public Travel()
         {
-            this.translatedTravels = new HashSet<Travel_Translated>();
+            this.translatedTravels = new HashSet<TravelTranslationalInfo>();
             this.images = new HashSet<Image>();
             this.UsersLiked = new HashSet<ApplicationUser>();
         }
@@ -35,13 +35,9 @@ namespace TravelCatalog.Models
         {
             get { return this.usersLiked; }
             set { this.usersLiked = value; }
-        }
+        }        
 
-        public string Title { get; set; }
-        
-        public string Description { get; set; }
-
-        public virtual ICollection<Travel_Translated> TranslatedTravels
+        public virtual ICollection<TravelTranslationalInfo> TranslatedTravels
         {
             get { return this.translatedTravels; }
             set { this.translatedTravels = value; }

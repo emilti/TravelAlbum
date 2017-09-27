@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TravelCatalog.Models
 {
-    public class Travel_Translated
+    public class TravelTranslationalInfo
     {
         public Guid Id { get; set; }
 
@@ -12,10 +12,11 @@ namespace TravelCatalog.Models
 
         [ForeignKey("TravelId")]
         public virtual Travel Travel { get; set; }
+        
+        public Languages Language { get; set; }
 
-        public Guid LanguageId { get; set; }
+        public string Title { get; set; }
 
-        [ForeignKey("LanguageId")]
-        public virtual Language Language { get; set; }
+        public string Description { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace TravelCatalog.DataServices.Contracts
         {
             Travel GetById(Guid? id);
 
-            Travel GetTravelByTitle(string searchTerm);
+            TravelTranslationalInfo GetTravelByTitle(string searchTerm);
         
     }
 }

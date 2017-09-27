@@ -11,6 +11,7 @@ namespace TravelCatalog.Data
         public TravelCatalogEfDbContext()
             : base("TravelCatalog")
         {
+            
         }
 
 
@@ -21,13 +22,11 @@ namespace TravelCatalog.Data
 
         public virtual IDbSet<Travel> Travels { get; set; }
 
-        public virtual IDbSet<Travel_Translated> TranslatedTravels { get; set; }
+        public virtual IDbSet<TravelTranslationalInfo> TranslatedTravels { get; set; }
 
         public virtual IDbSet<Image> Images { get; set; }
 
         public virtual IDbSet<Mountain> Mountains { get; set; }
-
-        public virtual IDbSet<Language> Languages { get; set; }
 
         public new IDbSet<T> Set<T>() where T : class
         {

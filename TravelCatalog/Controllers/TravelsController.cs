@@ -3,6 +3,7 @@ using System;
 using System.Web.Mvc;
 using TravelCatalog.DataServices.Contracts;
 using TravelCatalog.Models;
+using System.Linq;
 
 namespace TravelCatalog.Controllers
 {
@@ -26,8 +27,8 @@ namespace TravelCatalog.Controllers
         [ValidateAntiForgeryTokenAttribute]
         public ActionResult SearchTravels(TravelSearchInputViewModel inputModel)
         {
-            Travel travelByTitle = travelService.GetTravelByTitle(inputModel.Search);
-            return RedirectToAction("Details", "Travels", new { id = travelByTitle.Id });
+            TravelTranslationalInfo travelByTitle = travelService.GetTravelByTitle(inputModel.Search);
+            return RedirectToAction("Details", "Travels", new { id = travelByTitle.TravelId });
             // Travel travel = this.travelService.GetById(id);
         }
 
@@ -35,10 +36,17 @@ namespace TravelCatalog.Controllers
         public ActionResult Details(Guid? id)
         {
             Travel travel = this.travelService.GetById(id);
-
+            TravelTranslationalInfo travelTranslationalInfo = travel.TranslatedTravels.FirstOrDefault(x => x.TravelId == travel.Id);
+            TravelViewModel travelViewModel = new TravelViewModel()
+            {
+                Title = travelTranslationalInfo.Title,
+                Description = travelTranslationalInfo.Description,
+                Language = travelTranslationalInfo.Language
+            };
+            
             // BookViewModel viewModel = new BookViewModel(book);
 
-            return this.View(travel);
+            return this.View(travelViewModel);
         }
 
         [HttpGet]
