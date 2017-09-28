@@ -7,16 +7,16 @@ using Microsoft.AspNet.Identity.EntityFramework;
 namespace TravelAlbum.Models
 {
 
-    // public class TravelCatalogEfDbContext : IdentityDbContext<ApplicationUser>
+    // public class TravelAlbumEfDbContext : IdentityDbContext<ApplicationUser>
     // {
-    //     public TravelCatalogEfDbContext()
+    //     public TravelAlbumEfDbContext()
     //         : base("DefaultConnection", throwIfV1Schema: false)
     //     {
     //     }
     // 
-    //     public static TravelCatalogEfDbContext Create()
+    //     public static TravelAlbumEfDbContext Create()
     //     {
-    //         return new TravelCatalogEfDbContext();
+    //         return new TravelAlbumEfDbContext();
     //     }
     // }
 }

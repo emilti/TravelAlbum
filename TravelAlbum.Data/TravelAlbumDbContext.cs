@@ -5,19 +5,19 @@ using TravelAlbum.Models;
 
 namespace TravelAlbum.Data
 {
-    public class TravelCatalogEfDbContext : IdentityDbContext<ApplicationUser>, ITravelCatalogDbContextSaveChanges
+    public class TravelAlbumEfDbContext : IdentityDbContext<ApplicationUser>, ITravelAlbumDbContextSaveChanges
     {
          
-        public TravelCatalogEfDbContext()
+        public TravelAlbumEfDbContext()
             : base("TravelAlbum")
         {
             
         }
 
 
-        public static TravelCatalogEfDbContext Create()
+        public static TravelAlbumEfDbContext Create()
         {
-            return new TravelCatalogEfDbContext();
+            return new TravelAlbumEfDbContext();
         }
 
         public virtual IDbSet<Travel> Travels { get; set; }

@@ -19,7 +19,7 @@ namespace TravelAlbum
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<TravelCatalogEfDbContext, Configuration>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<TravelAlbumEfDbContext, Configuration>());
         }
     }
 }

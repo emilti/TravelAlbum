@@ -6,7 +6,7 @@
     using System.Linq;
     using TravelAlbum.Models;
 
-    public sealed class Configuration : DbMigrationsConfiguration<TravelCatalogEfDbContext>
+    public sealed class Configuration : DbMigrationsConfiguration<TravelAlbumEfDbContext>
     {
         public Configuration()
         {
@@ -14,7 +14,7 @@
             AutomaticMigrationDataLossAllowed = true;
         }
 
-        protected override void Seed(TravelCatalogEfDbContext context)
+        protected override void Seed(TravelAlbumEfDbContext context)
         {
             Mountain rila = new Mountain()
             {

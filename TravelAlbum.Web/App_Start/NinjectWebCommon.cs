@@ -66,7 +66,7 @@ namespace TravelAlbum.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<ITravelCatalogDbContextSaveChanges>().To<TravelCatalogEfDbContext>().InRequestScope();
+            kernel.Bind<ITravelAlbumDbContextSaveChanges>().To<TravelAlbumEfDbContext>().InRequestScope();
 
             // kernel.Bind<ISignInService>().ToMethod(_ => HttpContext.Current.GetOwinContext().Get<ApplicationSignInManager>());
             // kernel.Bind<IUserService>().ToMethod(_ => HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>());

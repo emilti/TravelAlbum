@@ -13,10 +13,10 @@ namespace TravelAlbum.Data.EfDbSetWrappers
 {   
         public class EfDbSetWrapper<T> : IEfDbSetWrapper<T> where T : class
         {
-            private readonly TravelCatalogEfDbContext efDbContext;
+            private readonly TravelAlbumEfDbContext efDbContext;
             private readonly IDbSet<T> dbSet;
 
-            public EfDbSetWrapper(TravelCatalogEfDbContext efDbContext)
+            public EfDbSetWrapper(TravelAlbumEfDbContext efDbContext)
             {
                 Guard.WhenArgument(efDbContext, "efDbContext").IsNull().Throw();
 

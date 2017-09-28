@@ -60,7 +60,7 @@
   <ItemGroup>
     <Compile Include="EfDbSetWrappers\EfDbSetWrapper.cs" />
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="TravelCatalogDbContext.cs" />
+    <Compile Include="TravelAlbumDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

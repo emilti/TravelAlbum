@@ -14,9 +14,9 @@ namespace TravelAlbum.DataServices
     {
         private readonly IEfDbSetWrapper<Travel> travelSetWrapper;
 
-        private readonly ITravelCatalogDbContextSaveChanges dbContext;
+        private readonly ITravelAlbumDbContextSaveChanges dbContext;
 
-        public TravelService(IEfDbSetWrapper<Travel> travelSetWrapper, ITravelCatalogDbContextSaveChanges dbContext)
+        public TravelService(IEfDbSetWrapper<Travel> travelSetWrapper, ITravelAlbumDbContextSaveChanges dbContext)
         {
             Guard.WhenArgument(travelSetWrapper, "travelSetWrapper").IsNull().Throw();
             Guard.WhenArgument(dbContext, "dbContext").IsNull().Throw();
