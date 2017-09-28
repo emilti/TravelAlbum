@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelAlbum.Data", "TravelAlbum.Data\TravelAlbum.Data.csproj", "{B089A7EE-2F93-4921-9A56-10FCD37914CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelAlbum.Data.Contracts", "TravelAlbum.Data.Contracts\TravelAlbum.Data.Contracts.csproj", "{2357D8DB-7819-4951-9585-AE71D121E068}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelAlbum.DataServices", "TravelAlbum.DataServices\TravelAlbum.DataServices.csproj", "{08A83DA2-E768-4F78-8526-A87B0D441DDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelAlbum.IntegrationTests", "TravelAlbum.IntegrationTests\TravelAlbum.IntegrationTests.csproj", "{3E500A69-EBB7-4980-89B3-A4203FF64E79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelAlbum.Models", "TravelAlbum.Models\TravelAlbum.Models.csproj", "{51A4D86B-6C8E-493A-8883-F316F8983274}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelAlbum.UnitTests", "TravelAlbum.UnitTests\TravelAlbum.UnitTests.csproj", "{C5F7E18D-F823-4BC5-8E26-C32FB87A1D2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelAlbum.Web", "TravelAlbum.Web\TravelAlbum.Web.csproj", "{30189BC8-7D3E-4E5F-80ED-363AFE591711}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B089A7EE-2F93-4921-9A56-10FCD37914CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B089A7EE-2F93-4921-9A56-10FCD37914CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B089A7EE-2F93-4921-9A56-10FCD37914CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B089A7EE-2F93-4921-9A56-10FCD37914CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2357D8DB-7819-4951-9585-AE71D121E068}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2357D8DB-7819-4951-9585-AE71D121E068}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2357D8DB-7819-4951-9585-AE71D121E068}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2357D8DB-7819-4951-9585-AE71D121E068}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08A83DA2-E768-4F78-8526-A87B0D441DDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08A83DA2-E768-4F78-8526-A87B0D441DDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08A83DA2-E768-4F78-8526-A87B0D441DDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08A83DA2-E768-4F78-8526-A87B0D441DDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E500A69-EBB7-4980-89B3-A4203FF64E79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E500A69-EBB7-4980-89B3-A4203FF64E79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E500A69-EBB7-4980-89B3-A4203FF64E79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E500A69-EBB7-4980-89B3-A4203FF64E79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51A4D86B-6C8E-493A-8883-F316F8983274}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51A4D86B-6C8E-493A-8883-F316F8983274}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51A4D86B-6C8E-493A-8883-F316F8983274}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51A4D86B-6C8E-493A-8883-F316F8983274}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5F7E18D-F823-4BC5-8E26-C32FB87A1D2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5F7E18D-F823-4BC5-8E26-C32FB87A1D2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5F7E18D-F823-4BC5-8E26-C32FB87A1D2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5F7E18D-F823-4BC5-8E26-C32FB87A1D2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30189BC8-7D3E-4E5F-80ED-363AFE591711}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30189BC8-7D3E-4E5F-80ED-363AFE591711}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30189BC8-7D3E-4E5F-80ED-363AFE591711}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30189BC8-7D3E-4E5F-80ED-363AFE591711}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
