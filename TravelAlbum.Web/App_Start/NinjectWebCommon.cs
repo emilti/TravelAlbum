@@ -1,7 +1,7 @@
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(TravelAlbum.App_Start.NinjectWebCommon), "Start")]
-[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(TravelAlbum.App_Start.NinjectWebCommon), "Stop")]
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(TravelAlbum.Web.App_Start.NinjectWebCommon), "Start")]
+[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(TravelAlbum.Web.App_Start.NinjectWebCommon), "Stop")]
 
-namespace TravelAlbum.App_Start
+namespace TravelAlbum.Web.App_Start
 {
     using System;
     using System.Web;
@@ -15,6 +15,7 @@ namespace TravelAlbum.App_Start
     using TravelAlbum.Data.EfDbSetWrappers;
     using TravelAlbum.DataServices.Contracts;
     using TravelAlbum.DataServices;
+    using System.Data.Entity;
 
     public static class NinjectWebCommon 
     {
@@ -66,13 +67,17 @@ namespace TravelAlbum.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<ITravelAlbumDbContextSaveChanges>().To<TravelAlbumEfDbContext>().InRequestScope();
+            // kernel.Bind<ITravelAlbumDbContextSaveChanges>().To<TravelAlbumEfDbContext>().InRequestScope();
 
-            // kernel.Bind<ISignInService>().ToMethod(_ => HttpContext.Current.GetOwinContext().Get<ApplicationSignInManager>());
-            // kernel.Bind<IUserService>().ToMethod(_ => HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>());
+            kernel.Bind<TravelAlbumEfDbContext>().ToSelf().InRequestScope();
+            kernel.Bind<ITravelAlbumDbContextSaveChanges>().ToMethod(ctx => ctx.Kernel.Get<TravelAlbumEfDbContext>());
+            kernel.Bind<DbContext>().ToMethod(ctx => ctx.Kernel.Get<TravelAlbumEfDbContext>());
 
             kernel.Bind(typeof(IEfDbSetWrapper<>)).To(typeof(EfDbSetWrapper<>));
-            kernel.Bind<ITravelService>().To<TravelService>();           
+            kernel.Bind<ITravelService>().To<TravelService>();
+            kernel.Bind<ITravelTranslationalInfoService>().To<TravelTranslationalInfoService>();
+
+      
         }        
     }
 }

@@ -7,12 +7,13 @@ using TravelAlbum.Models;
 
 namespace TravelAlbum.DataServices.Contracts
 {
-   
-        public interface ITravelService
-        {
-            Travel GetById(Guid? id);
 
-            TravelTranslationalInfo GetTravelByTitle(string searchTerm);
-        
+    public interface ITravelService
+    {
+        Travel GetById(Guid? id);
+
+        TravelTranslationalInfo GetTravelByTitle(string searchTerm);
+
+        void Add(Travel travel);
     }
 }

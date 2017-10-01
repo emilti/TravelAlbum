@@ -49,5 +49,11 @@ namespace TravelAlbum.DataServices
             // Travel travel = translatedTravelByTitle.Travel;
             return translatedTravelByTitle;
         }
+
+        public void Add(Travel travel)
+        {
+            travelSetWrapper.Add(travel);
+            this.dbContext.Commit();
+        }
     }
 }

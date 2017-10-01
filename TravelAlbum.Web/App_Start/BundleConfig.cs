@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace TravelAlbum
+namespace TravelAlbum.Web
 {
     public class BundleConfig
     {

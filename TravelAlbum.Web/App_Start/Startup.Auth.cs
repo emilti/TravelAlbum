@@ -8,7 +8,7 @@ using Owin;
 using TravelAlbum.Models;
 using TravelAlbum.Data;
 
-namespace TravelAlbum
+namespace TravelAlbum.Web
 {
     public partial class Startup
     {

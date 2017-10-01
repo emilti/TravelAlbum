@@ -21,35 +21,35 @@
                 Id = Guid.NewGuid()
             };
 
-            context.Mountains.AddOrUpdate(rila);
+            //context.Mountains.AddOrUpdate(rila);
 
-            Travel malyovitsaTravel = new Travel
-            {
-                Id = Guid.NewGuid(),
-                StartDate = new DateTime(2017, 08, 10),
-                EndDate = new DateTime(2017, 08, 11),
-                Mountain = rila
-            };
+            //Travel malyovitsaTravel = new Travel
+            //{
+            //    Id = Guid.NewGuid(),
+            //    StartDate = new DateTime(2017, 08, 10),
+            //    EndDate = new DateTime(2017, 08, 11),
+            //    Mountain = rila
+            //};
 
-            context.Travels.AddOrUpdate(malyovitsaTravel);
+            //context.Travels.AddOrUpdate(malyovitsaTravel);
 
-            context.TranslatedTravels.AddOrUpdate(new TravelTranslationalInfo
-            {                
-                Id = Guid.NewGuid(),
-                Title = "Malyovitsa",
-                Description = "Veliko mqsto",
-                Language = Languages.English,
-                Travel = malyovitsaTravel
-            });
+            //context.TranslatedTravels.AddOrUpdate(new TravelTranslationalInfo
+            //{                
+            //    Id = Guid.NewGuid(),
+            //    Title = "Malyovitsa",
+            //    Description = "Veliko mqsto",
+            //    Language = Languages.English,
+            //    Travel = malyovitsaTravel
+            //});
 
-            context.TranslatedTravels.AddOrUpdate(new TravelTranslationalInfo
-            {
-                Id = Guid.NewGuid(),
-                Title = "Мальовица",
-                Description = "Велико място",
-                Language = Languages.Bulgarian,
-                Travel = malyovitsaTravel
-            });
+            //context.TranslatedTravels.AddOrUpdate(new TravelTranslationalInfo
+            //{
+            //    Id = Guid.NewGuid(),
+            //    Title = "Мальовица",
+            //    Description = "Велико място",
+            //    Language = Languages.Bulgarian,
+            //    Travel = malyovitsaTravel
+            //});
         }
     }
 }

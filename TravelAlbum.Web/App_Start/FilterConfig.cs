@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace TravelAlbum
+namespace TravelAlbum.Web
 {
     public class FilterConfig
     {

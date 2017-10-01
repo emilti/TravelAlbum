@@ -2,6 +2,6 @@
 {
     public interface ITravelAlbumDbContextSaveChanges
     {
-        int SaveChanges();
+        void Commit();
     }
 }

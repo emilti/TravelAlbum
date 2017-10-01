@@ -10,7 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using TravelAlbum.Models;
 
-namespace TravelAlbum.Controllers
+namespace TravelAlbum.Web.Controllers
 {
     [Authorize]
     public class AccountController : Controller

@@ -13,7 +13,7 @@ using Microsoft.Owin.Security;
 using TravelAlbum.Models;
 using TravelAlbum.Data;
 
-namespace TravelAlbum
+namespace TravelAlbum.Web
 {
     public class EmailService : IIdentityMessageService
     {

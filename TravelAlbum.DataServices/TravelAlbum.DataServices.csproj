@@ -45,8 +45,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\ITravelService.cs" />
+    <Compile Include="Contracts\ITravelTranslationalInfoService.cs" />
     <Compile Include="TravelService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TravelTranslationalInfoService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TravelAlbum.Data.Contracts\TravelAlbum.Data.Contracts.csproj">

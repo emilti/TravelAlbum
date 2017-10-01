@@ -9,7 +9,7 @@ using System.Web.Routing;
 using TravelAlbum.Data;
 using TravelAlbum.Data.Migrations;
 
-namespace TravelAlbum
+namespace TravelAlbum.Web
 {
     public class MvcApplication : System.Web.HttpApplication
     {
