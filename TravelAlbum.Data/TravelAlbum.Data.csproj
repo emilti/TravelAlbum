@@ -59,6 +59,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EfDbSetWrappers\EfDbSetWrapper.cs" />
+    <Compile Include="Migrations\201710011541192_files.cs" />
+    <Compile Include="Migrations\201710011541192_files.Designer.cs">
+      <DependentUpon>201710011541192_files.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="TravelAlbumDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -83,6 +87,11 @@
       <Project>{51a4d86b-6c8e-493a-8883-f316f8983274}</Project>
       <Name>TravelAlbum.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201710011541192_files.resx">
+      <DependentUpon>201710011541192_files.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

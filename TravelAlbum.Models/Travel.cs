@@ -8,14 +8,14 @@ namespace TravelAlbum.Models
     {
         private ICollection<TravelTranslationalInfo> translatedTravels;
 
-        private ICollection<Image> images;
+        private ICollection<TravelImage> travelImages;
 
         private ICollection<ApplicationUser> usersLiked;
 
         public Travel()
         {
             this.translatedTravels = new HashSet<TravelTranslationalInfo>();
-            this.images = new HashSet<Image>();
+            this.travelImages = new HashSet<TravelImage>();
             this.UsersLiked = new HashSet<ApplicationUser>();
         }
         
@@ -43,10 +43,10 @@ namespace TravelAlbum.Models
             set { this.translatedTravels = value; }
         }
 
-        public virtual ICollection<Image> Images
+        public virtual ICollection<TravelImage> TravelImages
         {
-            get { return this.images; }
-            set { this.images = value; }
+            get { return this.travelImages; }
+            set { this.travelImages = value; }
         }
     }
 }
