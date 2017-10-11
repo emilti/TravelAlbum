@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TravelAlbum.Models
 {
-    public enum Languages
+    public enum Language
     {
         English = 1,
         Bulgarian = 2

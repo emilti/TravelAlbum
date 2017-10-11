@@ -15,7 +15,7 @@ namespace TravelAlbum.Models
         [ForeignKey("TravelId")]
         public virtual Travel Travel { get; set; }
         
-        // public enum Language { get; set; }
+        public Language Language { get; set; }
 
         public string Title { get; set; }
 

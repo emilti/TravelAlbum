@@ -54,7 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationUser.cs" />
-    <Compile Include="Languages.cs" />
+    <Compile Include="Language.cs" />
     <Compile Include="Mountain.cs" />
     <Compile Include="Travel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

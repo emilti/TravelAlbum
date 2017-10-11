@@ -77,7 +77,8 @@ namespace TravelAlbum.Web.Controllers
                 TravelTranslationalInfoId = Guid.NewGuid(),
                 Title = travelForAdding.Title,
                 Description = travelForAdding.Description,
-                Travel = newTravel                
+                Travel = newTravel,
+                Language = travelForAdding.Language
             };
        
             travelTranslationalService.Add(newTravelInfo);

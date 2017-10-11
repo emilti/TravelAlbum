@@ -9,7 +9,7 @@ namespace TravelAlbum.Models
     {
         public Guid Id { get; set; }      
 
-        public Languages Language { get; set; }
+        public Language Language { get; set; }
 
         public string Title { get; set; }
 
