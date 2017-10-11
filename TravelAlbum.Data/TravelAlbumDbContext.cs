@@ -6,13 +6,12 @@ using System;
 
 namespace TravelAlbum.Data
 {
-    public class TravelAlbumEfDbContext : IdentityDbContext<ApplicationUser>, ITravelAlbumDbContextSaveChanges
+    public class TravelAlbumEfDbContext : IdentityDbContext<ApplicationUser>
     {
-         
+
         public TravelAlbumEfDbContext()
-            : base("TravelAlbum")
+            : base("DefaultConnection", throwIfV1Schema: false)
         {
-            
         }
 
 
@@ -23,10 +22,9 @@ namespace TravelAlbum.Data
 
         public virtual IDbSet<Travel> Travels { get; set; }
 
-        public virtual IDbSet<TravelTranslationalInfo> TranslatedTravels { get; set; }
+        public virtual IDbSet<TravelTranslationalInfo> TravelTranslatinalInfoes { get; set; }
 
-        public virtual IDbSet<TravelImage> Images { get; set; }
-        
+        // public virtual IDbSet<TravelImage> Images { get; set; }        
 
         public virtual IDbSet<Mountain> Mountains { get; set; }
 
@@ -35,9 +33,9 @@ namespace TravelAlbum.Data
             return base.Set<T>();
         }
 
-        public void Commit()
-        {
-            base.SaveChanges();
+        public override int SaveChanges()
+        {           
+            return base.SaveChanges();
         }
 
         //Identity and Authorization

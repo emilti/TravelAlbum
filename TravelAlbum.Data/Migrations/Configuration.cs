@@ -4,52 +4,29 @@
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
-    using TravelAlbum.Models;
 
-    public sealed class Configuration : DbMigrationsConfiguration<TravelAlbumEfDbContext>
+    public sealed class Configuration : DbMigrationsConfiguration<TravelAlbum.Data.TravelAlbumEfDbContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;            
+            AutomaticMigrationsEnabled = true;
             AutomaticMigrationDataLossAllowed = true;
         }
 
-        protected override void Seed(TravelAlbumEfDbContext context)
+        protected override void Seed(TravelAlbum.Data.TravelAlbumEfDbContext context)
         {
-            Mountain rila = new Mountain()
-            {
-                Id = Guid.NewGuid()
-            };
+            //  This method will be called after migrating to the latest version.
 
-            //context.Mountains.AddOrUpdate(rila);
-
-            //Travel malyovitsaTravel = new Travel
-            //{
-            //    Id = Guid.NewGuid(),
-            //    StartDate = new DateTime(2017, 08, 10),
-            //    EndDate = new DateTime(2017, 08, 11),
-            //    Mountain = rila
-            //};
-
-            //context.Travels.AddOrUpdate(malyovitsaTravel);
-
-            //context.TranslatedTravels.AddOrUpdate(new TravelTranslationalInfo
-            //{                
-            //    Id = Guid.NewGuid(),
-            //    Title = "Malyovitsa",
-            //    Description = "Veliko mqsto",
-            //    Language = Languages.English,
-            //    Travel = malyovitsaTravel
-            //});
-
-            //context.TranslatedTravels.AddOrUpdate(new TravelTranslationalInfo
-            //{
-            //    Id = Guid.NewGuid(),
-            //    Title = "Мальовица",
-            //    Description = "Велико място",
-            //    Language = Languages.Bulgarian,
-            //    Travel = malyovitsaTravel
-            //});
+            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
+            //  to avoid creating duplicate seed data. E.g.
+            //
+            //    context.People.AddOrUpdate(
+            //      p => p.FullName,
+            //      new Person { FullName = "Andrew Peters" },
+            //      new Person { FullName = "Brice Lambson" },
+            //      new Person { FullName = "Rowan Miller" }
+            //    );
+            //
         }
     }
 }

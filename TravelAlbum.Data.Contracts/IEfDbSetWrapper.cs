@@ -18,5 +18,7 @@ namespace TravelAlbum.Data.Contracts
         void Update(T entity);
 
         void Delete(T entity);
+
+        // void SaveChanges();
     }
 }

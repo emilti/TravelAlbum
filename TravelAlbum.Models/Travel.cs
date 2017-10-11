@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TravelAlbum.Models
@@ -19,7 +20,8 @@ namespace TravelAlbum.Models
             this.UsersLiked = new HashSet<ApplicationUser>();
         }
         
-        public Guid Id { get; set; }
+        [Key]
+        public Guid TravelId { get; set; }
 
         public DateTime? StartDate { get; set; }
 

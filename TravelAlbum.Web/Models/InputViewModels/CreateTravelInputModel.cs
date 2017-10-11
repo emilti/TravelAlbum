@@ -11,6 +11,6 @@ namespace TravelAlbum.Web.Models.InputViewModels
 
         public string Description { get; set; }
 
-        private HttpPostedFileBase uploadImage { get; set; }    
+        public HttpPostedFileBase UploadedImage { get; set; }    
     }
 }

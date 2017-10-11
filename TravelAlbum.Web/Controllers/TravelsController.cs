@@ -5,6 +5,8 @@ using TravelAlbum.DataServices.Contracts;
 using TravelAlbum.Models;
 using System.Linq;
 using TravelAlbum.Web.Models.InputViewModels;
+using System.IO;
+using TravelAlbum.Data.Contracts;
 
 namespace TravelAlbum.Web.Controllers
 {
@@ -14,43 +16,41 @@ namespace TravelAlbum.Web.Controllers
 
         private readonly ITravelTranslationalInfoService travelTranslationalService;
 
+        private readonly ITravelImageService travelImageService;
 
-
-        public TravelsController(ITravelService travelService, ITravelTranslationalInfoService travelTranslationalService)
+        public TravelsController(ITravelService travelService, ITravelTranslationalInfoService travelTranslationalService, ITravelImageService travelImageService)
         {
             Guard.WhenArgument(travelService, "travelService").IsNull().Throw();
-            Guard.WhenArgument(travelService, "travelTranslationalService").IsNull().Throw();
+            Guard.WhenArgument(travelTranslationalService, "travelTranslationalService").IsNull().Throw();
+            Guard.WhenArgument(travelImageService, "travelImageService").IsNull().Throw();
 
             this.travelService = travelService;
             this.travelTranslationalService = travelTranslationalService;
+            this.travelImageService = travelImageService;
         }
-
-        // public ActionResult SearchTravels()
-        // {
-        //     return this.View();
-        // }
 
         [ValidateAntiForgeryTokenAttribute]
         public ActionResult SearchTravels(TravelSearchInputViewModel inputModel)
         {
             TravelTranslationalInfo travelByTitle = travelService.GetTravelByTitle(inputModel.Search);
+
             return RedirectToAction("Details", "Travels", new { id = travelByTitle.TravelId });
-            // Travel travel = this.travelService.GetById(id);
         }
 
         [HttpGet]
-        public ActionResult Details(Guid? id)
+        public ActionResult Details(Guid id)
         {
             Travel travel = this.travelService.GetById(id);
-            TravelTranslationalInfo travelTranslationalInfo = travel.TranslatedTravels.FirstOrDefault(x => x.TravelId == travel.Id);
+            TravelTranslationalInfo travelTranslationalInfo = travel.TranslatedTravels.FirstOrDefault(x => x.TravelId == travel.TravelId);
+            TravelImage travelImage = travel.TravelImages.FirstOrDefault();
+
+            String imageData = Convert.ToBase64String(travelImage.Content);
             TravelViewModel travelViewModel = new TravelViewModel()
             {
                 Title = travelTranslationalInfo.Title,
                 Description = travelTranslationalInfo.Description,
-                Language = travelTranslationalInfo.Language
-            };
-            
-            // BookViewModel viewModel = new BookViewModel(book);
+                ImageData = imageData
+            };            
 
             return this.View(travelViewModel);
         }
@@ -66,27 +66,42 @@ namespace TravelAlbum.Web.Controllers
         {
             Travel newTravel = new Travel
             {
-                Id = Guid.NewGuid(),
+                TravelId = Guid.NewGuid(),
                 StartDate = new DateTime(2017, 08, 10),
-                EndDate = new DateTime(2017, 08, 11)             
-            };
-
-
+                EndDate = DateTime.Now
+            };      
+            
             travelService.Add(newTravel);
-
-            TravelTranslationalInfo newTravelTranslationalInfo = new TravelTranslationalInfo
+            TravelTranslationalInfo newTravelInfo = new TravelTranslationalInfo()
             {
-                Id = Guid.NewGuid(),
+                TravelTranslationalInfoId = Guid.NewGuid(),
                 Title = travelForAdding.Title,
                 Description = travelForAdding.Description,
-                Language = Languages.English,
+                Travel = newTravel                
+            };
+       
+            travelTranslationalService.Add(newTravelInfo);
+
+
+            var imageContent = new byte[travelForAdding.UploadedImage.ContentLength];
+
+            byte[] imageData = null;
+            
+            using (var binaryReader = new BinaryReader(travelForAdding.UploadedImage.InputStream))
+            {
+                imageData = binaryReader.ReadBytes(travelForAdding.UploadedImage.ContentLength);
+            }
+
+            TravelImage newTravelImage = new TravelImage
+            {
+                TravelImageId = Guid.NewGuid(),
+                Content = imageData,
                 Travel = newTravel
             };
-
             
-            travelTranslationalService.Add(newTravelTranslationalInfo);
+            travelImageService.Add(newTravelImage); 
 
-            return this.RedirectToAction("Details", "Travels", new { id = newTravel.Id });
+            return this.RedirectToAction("Details", "Travels", new { id = newTravel.TravelId });
         }
 
         [HttpGet]

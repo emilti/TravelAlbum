@@ -1,7 +1,7 @@
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(TravelAlbum.Web.App_Start.NinjectWebCommon), "Start")]
-[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(TravelAlbum.Web.App_Start.NinjectWebCommon), "Stop")]
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(TravelAlbum.App_Start.NinjectWebCommon), "Start")]
+[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(TravelAlbum.App_Start.NinjectWebCommon), "Stop")]
 
-namespace TravelAlbum.Web.App_Start
+namespace TravelAlbum.App_Start
 {
     using System;
     using System.Web;
@@ -10,16 +10,28 @@ namespace TravelAlbum.Web.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
-    using TravelAlbum.Data.Contracts;
-    using TravelAlbum.Data;
     using TravelAlbum.Data.EfDbSetWrappers;
+    using System.Data.Entity;
+    using TravelAlbum.Data;
     using TravelAlbum.DataServices.Contracts;
     using TravelAlbum.DataServices;
-    using System.Data.Entity;
+    using TravelAlbum.Data.Contracts;
 
     public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
+
+        public static Action<IKernel> DependenciesRegistration = kernel =>
+        {
+            // kernel.Bind<ITeleimotDbContext>().To<TeleimotDbContext>();
+            // kernel.Bind(typeof(IRepository<>)).To(typeof(GenericRepository<>));
+
+            kernel.Bind<TravelAlbumEfDbContext>().ToSelf().InRequestScope();
+            kernel.Bind<IUnitOfWork>().To<UnitOfWork>();
+            kernel.Bind(typeof(IEfDbSetWrapper<>)).To(typeof(EfDbSetWrapper<>));
+            
+        };
+
 
         /// <summary>
         /// Starts the application
@@ -67,17 +79,10 @@ namespace TravelAlbum.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            // kernel.Bind<ITravelAlbumDbContextSaveChanges>().To<TravelAlbumEfDbContext>().InRequestScope();
-
-            kernel.Bind<TravelAlbumEfDbContext>().ToSelf().InRequestScope();
-            kernel.Bind<ITravelAlbumDbContextSaveChanges>().ToMethod(ctx => ctx.Kernel.Get<TravelAlbumEfDbContext>());
-            kernel.Bind<DbContext>().ToMethod(ctx => ctx.Kernel.Get<TravelAlbumEfDbContext>());
-
-            kernel.Bind(typeof(IEfDbSetWrapper<>)).To(typeof(EfDbSetWrapper<>));
+            DependenciesRegistration(kernel);
             kernel.Bind<ITravelService>().To<TravelService>();
             kernel.Bind<ITravelTranslationalInfoService>().To<TravelTranslationalInfoService>();
-
-      
+            kernel.Bind<ITravelImageService>().To<TravelImageService>();
         }        
     }
 }
