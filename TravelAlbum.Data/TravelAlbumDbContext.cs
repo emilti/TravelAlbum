@@ -24,7 +24,7 @@ namespace TravelAlbum.Data
 
         public virtual IDbSet<TravelTranslationalInfo> TravelTranslatinalInfoes { get; set; }
 
-        // public virtual IDbSet<TravelImage> Images { get; set; }        
+        public virtual IDbSet<TravelImage> Images { get; set; }        
 
         public virtual IDbSet<Mountain> Mountains { get; set; }
 
