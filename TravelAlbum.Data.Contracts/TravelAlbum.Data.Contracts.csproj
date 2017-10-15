@@ -55,7 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IEfDbSetWrapper.cs" />
-    <Compile Include="IUnitOfWork.cs" />
+    <Compile Include="ITravelAlbumEfDbContextSaveChanges.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

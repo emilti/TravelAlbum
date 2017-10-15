@@ -7,11 +7,11 @@ using TravelAlbum.Data.Contracts;
 
 namespace TravelAlbum.Data
 {
-    public class UnitOfWork : IUnitOfWork
+    public class TravelAlbumEfDbContextSaveChanges : ITravelAlbumEfDbContextSaveChanges
     {
         private readonly TravelAlbumEfDbContext travelAlbumDbContext;
        
-        public UnitOfWork(TravelAlbumEfDbContext travelAlbumDbContext)
+        public TravelAlbumEfDbContextSaveChanges(TravelAlbumEfDbContext travelAlbumDbContext)
         {
             this.travelAlbumDbContext = travelAlbumDbContext;
         }

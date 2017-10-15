@@ -1,6 +1,4 @@
-﻿using Bytes2you.Validation;
-using TravelAlbum.Data.Contracts;
-using TravelAlbum.Data.EfDbSetWrappers;
+﻿using TravelAlbum.Data.Contracts;
 using TravelAlbum.DataServices.Contracts;
 using TravelAlbum.Models;
 
@@ -10,21 +8,21 @@ namespace TravelAlbum.DataServices
     {
        private readonly IEfDbSetWrapper<TravelImage> travelImageSetWrapper;
 
-       private readonly IUnitOfWork unitOfWork;
+       private readonly ITravelAlbumEfDbContextSaveChanges travelAlbumEfDbContextSaveChanges;
        
-       public TravelImageService(IEfDbSetWrapper<TravelImage> travelImageSetWrapper, IUnitOfWork unitOfWork)
+       public TravelImageService(IEfDbSetWrapper<TravelImage> travelImageSetWrapper, ITravelAlbumEfDbContextSaveChanges travelAlbumEfDbContextSaveChanges)
        {
           //  Guard.WhenArgument(travelImageSetWrapper, "travelImageSetWrapper").IsNull().Throw();
           //  Guard.WhenArgument(dbContext, "dbContext").IsNull().Throw();
           // 
            this.travelImageSetWrapper = travelImageSetWrapper;
-           this.unitOfWork = unitOfWork;
+           this.travelAlbumEfDbContextSaveChanges = travelAlbumEfDbContextSaveChanges;
        }
        
        public void Add(TravelImage travelImage)
        {
            this.travelImageSetWrapper.Add(travelImage);
-           this.unitOfWork.SaveChanges();
+           this.travelAlbumEfDbContextSaveChanges.SaveChanges();
        }
     }
 }

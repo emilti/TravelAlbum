@@ -27,7 +27,7 @@ namespace TravelAlbum.App_Start
             // kernel.Bind(typeof(IRepository<>)).To(typeof(GenericRepository<>));
 
             kernel.Bind<TravelAlbumEfDbContext>().ToSelf().InRequestScope();
-            kernel.Bind<IUnitOfWork>().To<UnitOfWork>();
+            kernel.Bind<ITravelAlbumEfDbContextSaveChanges>().To<TravelAlbumEfDbContextSaveChanges>();
             kernel.Bind(typeof(IEfDbSetWrapper<>)).To(typeof(EfDbSetWrapper<>));
             
         };

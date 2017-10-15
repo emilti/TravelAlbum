@@ -1,10 +1,4 @@
-﻿using Bytes2you.Validation;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using TravelAlbum.Data.Contracts;
 using TravelAlbum.Data.EfDbSetWrappers;
 using TravelAlbum.DataServices.Contracts;
@@ -16,15 +10,15 @@ namespace TravelAlbum.DataServices
     {
         private readonly IEfDbSetWrapper<Travel> travelSetWrapper;
 
-        private readonly IUnitOfWork unitOfWork;
+        private readonly ITravelAlbumEfDbContextSaveChanges travelAlbumEfDbContextSaveChanges;
 
-        public TravelService(EfDbSetWrapper<Travel> travelSetWrapper, IUnitOfWork unitOfWork)
+        public TravelService(EfDbSetWrapper<Travel> travelSetWrapper, ITravelAlbumEfDbContextSaveChanges travelAlbumEfDbContextSaveChanges)
         {
             //Guard.WhenArgument(travelSetWrapper, "travelSetWrapper").IsNull().Throw();
             //Guard.WhenArgument(dbContext, "dbContext").IsNull().Throw();
 
             this.travelSetWrapper = travelSetWrapper;
-            this.unitOfWork = unitOfWork;
+            this.travelAlbumEfDbContextSaveChanges = travelAlbumEfDbContextSaveChanges;
         }
 
         public Travel GetById(Guid id)
@@ -54,7 +48,7 @@ namespace TravelAlbum.DataServices
         {
             travelSetWrapper.Add(travel);
             //this.dbContext.SaveChanges();
-            this.unitOfWork.SaveChanges();
+            this.travelAlbumEfDbContextSaveChanges.SaveChanges();
         }
     }
 }

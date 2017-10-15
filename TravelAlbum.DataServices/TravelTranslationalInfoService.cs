@@ -12,22 +12,22 @@ namespace TravelAlbum.DataServices
     {
         private readonly IEfDbSetWrapper<TravelTranslationalInfo> travelTranslationalInfoSetWrapper;
 
-        private readonly IUnitOfWork unitOfWork;
+        private readonly ITravelAlbumEfDbContextSaveChanges travelAlbumEfDbContextSaveChanges;
 
-        public TravelTranslationalInfoService(IEfDbSetWrapper<TravelTranslationalInfo> travelTranslationalInfoSetWrapper, IUnitOfWork unitOfWork)
+        public TravelTranslationalInfoService(IEfDbSetWrapper<TravelTranslationalInfo> travelTranslationalInfoSetWrapper, ITravelAlbumEfDbContextSaveChanges travelAlbumEfDbContextSaveChanges)
         {
             // Guard.WhenArgument(travelTranslationalInfoSetWrapper, "travelTranslationalInfoSetWrapper").IsNull().Throw();
             // Guard.WhenArgument(dbContext, "dbContext").IsNull().Throw();
             // 
             this.travelTranslationalInfoSetWrapper = travelTranslationalInfoSetWrapper;
-            this.unitOfWork = unitOfWork;
+            this.travelAlbumEfDbContextSaveChanges = travelAlbumEfDbContextSaveChanges;
         }
 
         public void Add(TravelTranslationalInfo travelTranslationalInfo)
         {
             travelTranslationalInfoSetWrapper.Add(travelTranslationalInfo);
             
-            this.unitOfWork.SaveChanges();
+            this.travelAlbumEfDbContextSaveChanges.SaveChanges();
             //this.travelTranslationalInfoSetWrapper.SaveChanges();
         }     
     }
