@@ -1,17 +1,32 @@
-﻿using System;
+﻿using Bytes2you.Validation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Web;
 using System.Web.Mvc;
+using TravelAlbum.DataServices.Contracts;
+using TravelAlbum.Web.Models.Travels;
 
 namespace TravelAlbum.Web.Controllers
 {
     public class HomeController : Controller
-    {       
+    {
+        private readonly ITravelService travelService;
+
+        public HomeController(ITravelService travelService)
+        {
+            Guard.WhenArgument(travelService, "travelService").IsNull().Throw();          
+
+            this.travelService = travelService;
+           
+        }
         public ActionResult Index()
         {
-            return View();
+            var orderedTravels = this.travelService.GetLatesTravels();
+            LatestTravelsOutputModel latestTravelsOutputModel = new LatestTravelsOutputModel();
+            latestTravelsOutputModel.travels = orderedTravels;
+            return View(latestTravelsOutputModel);
         }
 
         public ActionResult About()

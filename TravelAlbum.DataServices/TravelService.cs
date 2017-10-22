@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using TravelAlbum.Data.Contracts;
 using TravelAlbum.Data.EfDbSetWrappers;
 using TravelAlbum.DataServices.Contracts;
@@ -49,6 +51,13 @@ namespace TravelAlbum.DataServices
             travelSetWrapper.Add(travel);
             //this.dbContext.SaveChanges();
             this.travelAlbumEfDbContextSaveChanges.SaveChanges();
+        }
+
+        public IEnumerable<Travel> GetLatesTravels()
+        {
+            IQueryable<Travel> travels = travelSetWrapper.All;
+            var orderedTravels = travels.OrderByDescending(a => a.StartDate).Take(4).ToList();
+            return orderedTravels;
         }
     }
 }

@@ -235,7 +235,8 @@
     <Compile Include="Models\InputViewModels\CreateTravelInputModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\TravelSearchInputViewModel.cs" />
-    <Compile Include="Models\TravelViewModel.cs" />
+    <Compile Include="Models\Travels\TravelViewModel.cs" />
+    <Compile Include="Models\Travels\LatestTravelsOutputModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -304,7 +305,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\Travel\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

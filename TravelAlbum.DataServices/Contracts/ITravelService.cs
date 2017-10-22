@@ -15,5 +15,7 @@ namespace TravelAlbum.DataServices.Contracts
         TravelTranslationalInfo GetTravelByTitle(string searchTerm);
 
         void Add(Travel travel);
+
+        IEnumerable<Travel> GetLatesTravels();
     }
 }

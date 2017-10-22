@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using TravelAlbum.Models;
 
-namespace TravelAlbum.Models
+namespace TravelAlbum.Web.Models.Travels
 {
     public class TravelViewModel
     {

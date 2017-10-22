@@ -1,4 +1,11 @@
-﻿@{
+﻿@model TravelAlbum.Web.Models.Travels.LatestTravelsOutputModel
+
+@foreach(var travel in Model.travels)
+{
+    <div>Start date: @travel.StartDate</div>
+}
+
+@{
     ViewBag.Title = "Home Page";
 }
 

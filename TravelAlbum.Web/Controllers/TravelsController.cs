@@ -7,6 +7,7 @@ using System.Linq;
 using TravelAlbum.Web.Models.InputViewModels;
 using System.IO;
 using TravelAlbum.Data.Contracts;
+using TravelAlbum.Web.Models.Travels;
 
 namespace TravelAlbum.Web.Controllers
 {
@@ -72,6 +73,7 @@ namespace TravelAlbum.Web.Controllers
             };      
             
             travelService.Add(newTravel);
+
             TravelTranslationalInfo newTravelInfo = new TravelTranslationalInfo()
             {
                 TravelTranslationalInfoId = Guid.NewGuid(),
