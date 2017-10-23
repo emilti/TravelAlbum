@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web.Mvc;
 
-namespace TravelAlbum.Controllers
+namespace TravelAlbum.Web.Controllers
 {
     public class CultureController : Controller
     {

@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using TravelAlbum.Models;
+using TravelAlbum.Web.Models;
 
 namespace TravelAlbum.Web.Controllers
 {

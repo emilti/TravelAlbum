@@ -6,7 +6,7 @@ using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using TravelAlbum.DataServices.Contracts;
-using TravelAlbum.Web.Models.Travels;
+using TravelAlbum.Web.Models.TravelModels;
 
 namespace TravelAlbum.Web.Controllers
 {

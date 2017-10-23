@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using TravelAlbum.Models;
 
-namespace TravelAlbum.Web.Models.Travels
+namespace TravelAlbum.Web.Models.TravelModels
 {
     public class TravelViewModel
     {

@@ -1,7 +1,7 @@
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(TravelAlbum.App_Start.NinjectWebCommon), "Start")]
-[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(TravelAlbum.App_Start.NinjectWebCommon), "Stop")]
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(TravelAlbum.Web.App_Start.NinjectWebCommon), "Start")]
+[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(TravelAlbum.Web.App_Start.NinjectWebCommon), "Stop")]
 
-namespace TravelAlbum.App_Start
+namespace TravelAlbum.Web.App_Start
 {
     using System;
     using System.Web;

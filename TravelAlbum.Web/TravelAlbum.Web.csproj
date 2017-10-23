@@ -13,8 +13,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TravelAlbum</RootNamespace>
-    <AssemblyName>TravelAlbum</AssemblyName>
+    <RootNamespace>TravelAlbum.Web</RootNamespace>
+    <AssemblyName>TravelAlbum.Web</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -235,8 +235,8 @@
     <Compile Include="Models\InputViewModels\CreateTravelInputModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\TravelSearchInputViewModel.cs" />
-    <Compile Include="Models\Travels\TravelViewModel.cs" />
-    <Compile Include="Models\Travels\LatestTravelsOutputModel.cs" />
+    <Compile Include="Models\TravelModels\TravelViewModel.cs" />
+    <Compile Include="Models\TravelModels\LatestTravelsOutputModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -333,16 +333,16 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_GlobalResources\GlobalResources.en.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
+    <EmbeddedResource Include="App_GlobalResources\GlobalResources.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>GlobalResources.en.designer.cs</LastGenOutput>
-    </Content>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_GlobalResources\GlobalResources.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
+    <EmbeddedResource Include="App_GlobalResources\GlobalResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>GlobalResources.Designer.cs</LastGenOutput>
-    </Content>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

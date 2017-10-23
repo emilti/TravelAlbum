@@ -117,7 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BgDescriptionLabel" xml:space="preserve">
+    <value>Описание (bg)</value>
+  </data>
+  <data name="BgTitleLabel" xml:space="preserve">
+    <value>Заглавие (bg)</value>
+  </data>
+  <data name="EnDescriptionLabel" xml:space="preserve">
+    <value>Описание (en)</value>
+  </data>
+  <data name="EnTitleLabel" xml:space="preserve">
+    <value>Заглавие (en)</value>
+  </data>
   <data name="LabelAddTravel" xml:space="preserve">
     <value>Добави пътуване</value>
+  </data>
+  <data name="UploadedImage_1" xml:space="preserve">
+    <value>Снимка 1</value>
+  </data>
+  <data name="UploadedImage_2" xml:space="preserve">
+    <value>Снимка 2</value>
+  </data>
+  <data name="UploadedImage_3" xml:space="preserve">
+    <value>Снимка 3</value>
+  </data>
+  <data name="UploadedImage_4" xml:space="preserve">
+    <value>Снимка 4</value>
   </data>
 </root>

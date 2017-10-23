@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using TravelAlbum.Models;
 
-namespace TravelAlbum.Web.Models.Travels
+namespace TravelAlbum.Web.Models.TravelModels
 {
     public class LatestTravelsOutputModel
     {

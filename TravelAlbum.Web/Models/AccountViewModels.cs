@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace TravelAlbum.Models
+namespace TravelAlbum.Web.Models
 {
     public class ExternalLoginConfirmationViewModel
     {

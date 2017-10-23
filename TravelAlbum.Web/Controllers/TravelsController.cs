@@ -7,7 +7,9 @@ using System.Linq;
 using TravelAlbum.Web.Models.InputViewModels;
 using System.IO;
 using TravelAlbum.Data.Contracts;
-using TravelAlbum.Web.Models.Travels;
+using TravelAlbum.Web.Models.TravelModels;
+using System.Web;
+using TravelAlbum.Web.Models;
 
 namespace TravelAlbum.Web.Controllers
 {
@@ -70,29 +72,56 @@ namespace TravelAlbum.Web.Controllers
                 TravelId = Guid.NewGuid(),
                 StartDate = new DateTime(2017, 08, 10),
                 EndDate = DateTime.Now
-            };      
-            
+            };
+
             travelService.Add(newTravel);
 
-            TravelTranslationalInfo newTravelInfo = new TravelTranslationalInfo()
+            TravelTranslationalInfo newBgTravelInfo = new TravelTranslationalInfo()
             {
                 TravelTranslationalInfoId = Guid.NewGuid(),
-                Title = travelForAdding.Title,
-                Description = travelForAdding.Description,
+                Title = travelForAdding.bgTitle,
+                Description = travelForAdding.bgDescription,
                 Travel = newTravel,
                 Language = travelForAdding.Language
             };
-       
-            travelTranslationalService.Add(newTravelInfo);
 
+            travelTranslationalService.Add(newBgTravelInfo);
 
-            var imageContent = new byte[travelForAdding.UploadedImage.ContentLength];
+            TravelTranslationalInfo newEnTravelInfo = new TravelTranslationalInfo()
+            {
+                TravelTranslationalInfoId = Guid.NewGuid(),
+                Title = travelForAdding.enTitle,
+                Description = travelForAdding.enDescription,
+                Travel = newTravel,
+                Language = travelForAdding.Language
+            };
+
+            travelTranslationalService.Add(newEnTravelInfo);
+            
+            HttpPostedFileBase image_1 = travelForAdding.UploadedImage_1;
+            GenerateImage(image_1, newTravel);
+
+            HttpPostedFileBase image_2 = travelForAdding.UploadedImage_2;
+            GenerateImage(image_2, newTravel);
+
+            HttpPostedFileBase image_3 = travelForAdding.UploadedImage_3;
+            GenerateImage(image_3, newTravel);
+
+            HttpPostedFileBase image_4 = travelForAdding.UploadedImage_4;
+            GenerateImage(image_4, newTravel);
+
+            return this.RedirectToAction("Details", "Travels", new { id = newTravel.TravelId });
+        }
+
+        private void GenerateImage(HttpPostedFileBase image, Travel newTravel)
+        {
+            var imageContent = new byte[image.ContentLength];
 
             byte[] imageData = null;
-            
-            using (var binaryReader = new BinaryReader(travelForAdding.UploadedImage.InputStream))
+
+            using (var binaryReader = new BinaryReader(image.InputStream))
             {
-                imageData = binaryReader.ReadBytes(travelForAdding.UploadedImage.ContentLength);
+                imageData = binaryReader.ReadBytes(image.ContentLength);
             }
 
             TravelImage newTravelImage = new TravelImage
@@ -101,10 +130,8 @@ namespace TravelAlbum.Web.Controllers
                 Content = imageData,
                 Travel = newTravel
             };
-            
-            travelImageService.Add(newTravelImage); 
 
-            return this.RedirectToAction("Details", "Travels", new { id = newTravel.TravelId });
+            travelImageService.Add(newTravelImage);
         }
 
         [HttpGet]
