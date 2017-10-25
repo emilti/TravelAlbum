@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bytes2you.Validation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TravelAlbum.Data.Contracts;
@@ -14,10 +15,10 @@ namespace TravelAlbum.DataServices
 
         private readonly ITravelAlbumEfDbContextSaveChanges travelAlbumEfDbContextSaveChanges;
 
-        public TravelService(EfDbSetWrapper<Travel> travelSetWrapper, ITravelAlbumEfDbContextSaveChanges travelAlbumEfDbContextSaveChanges)
+        public TravelService(IEfDbSetWrapper<Travel> travelSetWrapper, ITravelAlbumEfDbContextSaveChanges travelAlbumEfDbContextSaveChanges)
         {
-            //Guard.WhenArgument(travelSetWrapper, "travelSetWrapper").IsNull().Throw();
-            //Guard.WhenArgument(dbContext, "dbContext").IsNull().Throw();
+            Guard.WhenArgument(travelSetWrapper, "travelSetWrapper").IsNull().Throw();
+            Guard.WhenArgument(travelAlbumEfDbContextSaveChanges, "travelAlbumEfDbContextSaveChanges").IsNull().Throw();
 
             this.travelSetWrapper = travelSetWrapper;
             this.travelAlbumEfDbContextSaveChanges = travelAlbumEfDbContextSaveChanges;

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TravelAlbum.Data.Contracts;
+﻿using TravelAlbum.Data.Contracts;
 
 namespace TravelAlbum.Data
 {

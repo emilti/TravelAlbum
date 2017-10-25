@@ -1,15 +1,10 @@
 ﻿using Bytes2you.Validation;
-using Microsoft.AspNet.Identity.EntityFramework;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using TravelAlbum.Data.Contracts;
-using TravelAlbum.Models;
 
 namespace TravelAlbum.Data.EfDbSetWrappers
 {
