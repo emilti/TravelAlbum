@@ -10,7 +10,7 @@ namespace TravelAlbum.DataServices.Contracts
 
     public interface ITravelService
     {
-        Travel GetById(Guid id);
+        Travel GetById(Guid? id);
 
         TravelTranslationalInfo GetTravelByTitle(string searchTerm);
 

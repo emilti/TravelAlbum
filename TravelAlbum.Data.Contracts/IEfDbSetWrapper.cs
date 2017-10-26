@@ -11,7 +11,7 @@ namespace TravelAlbum.Data.Contracts
 
         IQueryable<T> AllWithInclude<TProperty>(Expression<Func<T, TProperty>> includeExpression);
 
-        T GetById(Guid id);
+        T GetById(Guid? id);
 
         void Add(T entity);
 

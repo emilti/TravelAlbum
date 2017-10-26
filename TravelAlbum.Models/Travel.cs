@@ -27,6 +27,9 @@ namespace TravelAlbum.Models
 
         public DateTime? EndDate { get; set; }
 
+        [Required]
+        public DateTime CreatedOn { get; set; }
+
         public Guid? MountainId { get; set; }
 
         [ForeignKey("MountainId")]

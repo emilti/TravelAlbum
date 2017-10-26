@@ -24,7 +24,7 @@ namespace TravelAlbum.DataServices
             this.travelAlbumEfDbContextSaveChanges = travelAlbumEfDbContextSaveChanges;
         }
 
-        public Travel GetById(Guid id)
+        public Travel GetById(Guid? id)
         {
             Travel result = null;
 
@@ -49,8 +49,7 @@ namespace TravelAlbum.DataServices
 
         public void Add(Travel travel)
         {
-            travelSetWrapper.Add(travel);
-            //this.dbContext.SaveChanges();
+            travelSetWrapper.Add(travel);            
             this.travelAlbumEfDbContextSaveChanges.SaveChanges();
         }
 
