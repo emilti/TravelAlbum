@@ -25,7 +25,7 @@ namespace TravelAlbum.Web.Controllers
         {
             var orderedTravels = this.travelService.GetLatesTravels();
             LatestTravelsOutputModel latestTravelsOutputModel = new LatestTravelsOutputModel();
-            latestTravelsOutputModel.travels = orderedTravels;
+            latestTravelsOutputModel.travels = orderedTravels;            
             return View(latestTravelsOutputModel);
         }
 

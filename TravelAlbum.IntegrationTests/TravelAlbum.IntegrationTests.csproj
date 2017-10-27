@@ -67,9 +67,25 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TravelAlbum.Data.Contracts\TravelAlbum.Data.Contracts.csproj">
+      <Project>{2357d8db-7819-4951-9585-ae71d121e068}</Project>
+      <Name>TravelAlbum.Data.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TravelAlbum.DataServices\TravelAlbum.DataServices.csproj">
+      <Project>{08a83da2-e768-4f78-8526-a87b0d441dde}</Project>
+      <Name>TravelAlbum.DataServices</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TravelAlbum.Data\TravelAlbum.Data.csproj">
       <Project>{b089a7ee-2f93-4921-9a56-10fcd37914ca}</Project>
       <Name>TravelAlbum.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TravelAlbum.Models\TravelAlbum.Models.csproj">
+      <Project>{51a4d86b-6c8e-493a-8883-f316f8983274}</Project>
+      <Name>TravelAlbum.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TravelAlbum.Web\TravelAlbum.Web.csproj">
+      <Project>{30189bc8-7d3e-4e5f-80ed-363afe591711}</Project>
+      <Name>TravelAlbum.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

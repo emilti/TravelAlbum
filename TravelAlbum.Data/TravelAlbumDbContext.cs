@@ -13,8 +13,7 @@ namespace TravelAlbum.Data
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
-
-
+        
         public static TravelAlbumEfDbContext Create()
         {
             return new TravelAlbumEfDbContext();
