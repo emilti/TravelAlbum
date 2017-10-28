@@ -17,10 +17,10 @@ using TravelAlbum.Models;
 using TravelAlbum.Web.Controllers;
 using TravelAlbum.Web.Models.TravelModels;
 
-namespace TravelAlbum.UnitTests.Controllers
+namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
 {
     [TestClass]
-    public class TravelsControllerTest
+    public class Details_Should
     {
         [TestMethod]
         public void ReturnView_WhenValidGuidIsPassedAndLanuageIsBg()

@@ -21,6 +21,13 @@ namespace TravelAlbum.Web.App_Start
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
 
+
+        public static IKernel Kernel
+        {
+            get;
+            private set;
+        }
+
         public static Action<IKernel> DependenciesRegistration = kernel =>
         {
             // kernel.Bind<ITeleimotDbContext>().To<TeleimotDbContext>();
@@ -57,18 +64,18 @@ namespace TravelAlbum.Web.App_Start
         /// <returns>The created kernel.</returns>
         private static IKernel CreateKernel()
         {
-            var kernel = new StandardKernel();
+            Kernel = new StandardKernel();
             try
             {
-                kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
-                kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
+                Kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
+                Kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
 
-                RegisterServices(kernel);
-                return kernel;
+                RegisterServices(Kernel);
+                return Kernel;
             }
             catch
             {
-                kernel.Dispose();
+                Kernel.Dispose();
                 throw;
             }
         }

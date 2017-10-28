@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading;
 using System.Web;
 using System.Web.Mvc;
+using TravelAlbum.Data;
 using TravelAlbum.DataServices.Contracts;
 using TravelAlbum.Web.Models.TravelModels;
 
@@ -22,7 +23,7 @@ namespace TravelAlbum.Web.Controllers
            
         }
         public ActionResult Index()
-        {
+        {            
             var orderedTravels = this.travelService.GetLatesTravels();
             LatestTravelsOutputModel latestTravelsOutputModel = new LatestTravelsOutputModel();
             latestTravelsOutputModel.travels = orderedTravels;            

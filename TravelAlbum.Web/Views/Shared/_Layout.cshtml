@@ -27,7 +27,20 @@
                 @Html.Partial("_LoginPartial")
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">                  
+               
+                @Html.ActionLink(
+                        "Bulgarian",
+                        "RedirectLanguage",
+                        "Culture",
+                        new { language = "bg", query = Request.Url.PathAndQuery },
+                        null)
+                @Html.ActionLink(
+                        "English",
+                        "RedirectLanguage",
+                        "Culture",
+                        new { language = "en", query = Request.Url.PathAndQuery },
+                        null)
+                @*<ul class="nav navbar-nav">                  
                     <li>
                         @Html.ActionLink(
                         "Bulgarian",
@@ -44,7 +57,7 @@
                         new { language = "en", query = Request.Url.PathAndQuery },
                         null)
                     </li>  
-                </ul>
+                </ul>*@
             </div>
         </div>
     </div>

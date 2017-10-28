@@ -34,7 +34,6 @@ namespace TravelAlbum.DataServices
                 result = travel;
             }
 
-
             return result;
         }
 

@@ -6,11 +6,11 @@ using System;
 
 namespace TravelAlbum.Data
 {
-    public class TravelAlbumEfDbContext : IdentityDbContext<ApplicationUser>
+    public class TravelAlbumEfDbContext : IdentityDbContext<ApplicationUser>, ITravelAlbumEfDbContextSaveChanges
     {
 
         public TravelAlbumEfDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("DefaultConnection")
         {
         }
         
@@ -26,6 +26,8 @@ namespace TravelAlbum.Data
         public virtual IDbSet<TravelImage> Images { get; set; }        
 
         public virtual IDbSet<Mountain> Mountains { get; set; }
+
+        public virtual IDbSet<SingleImage> SingleImages { get; set; }
 
         public new IDbSet<T> Set<T>() where T : class
         {
