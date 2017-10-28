@@ -5,37 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
-        @Scripts.Render("~/bundles/modernizr")
-   <link href="~/Content/nav-bar.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/nav-bar.css" rel="stylesheet" />
 
 </head>
 <body>
 
-    <div class='topnav'>        
-        <div class="content-menu">            
-           @Html.ActionLink(Resources.GlobalResources.LabelAddTravel, "Add", "Travels")
-        <a>test</a>
+    <div class='topnav'>
+        <div class="content-menu">
+            @Html.ActionLink(Resources.GlobalResources.LabelAddTravel, "Add", "Travels")
+            <a>test</a>
         </div>
-       
+
         <div class="culture-menu">
-        @Html.ActionLink(
-                        "Bulgarian",
-                        "RedirectLanguage",
-                        "Culture",
-                        new { language = "bg", query = Request.Url.PathAndQuery },
-                        null)
-        @Html.ActionLink(
-                        "English",
-                        "RedirectLanguage",
-                        "Culture",
-                        new { language = "en", query = Request.Url.PathAndQuery },
-                        null)
+            <a href="@Url.Action("RedirectLanguage", "Culture",  new { language = "bg", query = Request.Url.PathAndQuery })">
+                <img src="~/Content/Images/bg_flag.jpg" />
+            <a/>
+            <a href="@Url.Action("RedirectLanguage", "Culture",  new { language = "en", query = Request.Url.PathAndQuery })">
+                <img src="~/Content/Images/en_flag.jpg" />
+            <a/>
         </div>
-    </div>  
+    </div>
     <div class="container body-content">
         @RenderBody()
 
-        
+
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - Travel catalog</p>

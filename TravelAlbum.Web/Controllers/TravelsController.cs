@@ -41,6 +41,7 @@ namespace TravelAlbum.Web.Controllers
             return RedirectToAction("Details", "Travels", new { id = travelByTitle.TravelId });
         }
 
+
         [HttpGet]
         public ActionResult Details(Guid id)
         {
