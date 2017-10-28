@@ -11,8 +11,13 @@
 </head>
 <body>
 
-    <div class='topnav'>
-        @Html.ActionLink(Resources.GlobalResources.LabelAddTravel, "Add", "Travels")
+    <div class='topnav'>        
+        <div class="content-menu">            
+           @Html.ActionLink(Resources.GlobalResources.LabelAddTravel, "Add", "Travels")
+        <a>test</a>
+        </div>
+       
+        <div class="culture-menu">
         @Html.ActionLink(
                         "Bulgarian",
                         "RedirectLanguage",
@@ -25,7 +30,7 @@
                         "Culture",
                         new { language = "en", query = Request.Url.PathAndQuery },
                         null)
-
+        </div>
     </div>  
     <div class="container body-content">
         @RenderBody()
