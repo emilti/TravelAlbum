@@ -5,7 +5,7 @@ using TravelAlbum.Data.Contracts;
 using TravelAlbum.DataServices;
 using TravelAlbum.Models;
 
-namespace TravelAlbum.UnitTests.DataServices.TravelServiceTest
+namespace TravelAlbum.UnitTests.DataServices.TravelServiceTests
 {
     [TestClass]
     public class Constructor_Should
