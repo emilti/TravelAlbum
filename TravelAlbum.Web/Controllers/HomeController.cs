@@ -7,27 +7,69 @@ using System.Web;
 using System.Web.Mvc;
 using TravelAlbum.Data;
 using TravelAlbum.DataServices.Contracts;
+using TravelAlbum.Models;
+using TravelAlbum.Web.Models.SingleImageModels;
 using TravelAlbum.Web.Models.TravelModels;
 
 namespace TravelAlbum.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ITravelService travelService;
+        private readonly ISingleImageService singleImageService;
 
-        public HomeController(ITravelService travelService)
+        public HomeController(ISingleImageService singleImageService)
         {
-            Guard.WhenArgument(travelService, "travelService").IsNull().Throw();          
+            Guard.WhenArgument(singleImageService, "singleImageService").IsNull().Throw();
 
-            this.travelService = travelService;
-           
+            this.singleImageService = singleImageService;
+
         }
         public ActionResult Index()
-        {            
-            var orderedTravels = this.travelService.GetLatesTravels();
-            LatestTravelsOutputModel latestTravelsOutputModel = new LatestTravelsOutputModel();
-            latestTravelsOutputModel.travels = orderedTravels;            
-            return View(latestTravelsOutputModel);
+        {
+            var orderedSingleImages = this.singleImageService.GetLatesSingleImages();
+
+            LatestSingleImagesOutputModel latestSingleImagesOutputModel = new LatestSingleImagesOutputModel();
+            if (orderedSingleImages != null && orderedSingleImages.Count() > 0)
+            {
+                foreach (var singleImage in orderedSingleImages)
+                {
+                    SingleImageOutputViewModel singleImageOutputViewModel = new SingleImageOutputViewModel();
+                    string query = Request.Url.PathAndQuery;
+
+                    string description = String.Empty;
+                    if (!(query.Contains("/en/")))
+                    {
+                        description = SetDescription(singleImage, Language.Bulgarian);
+                    }
+                    else
+                    {
+                        description = SetDescription(singleImage, Language.English);
+                    }
+
+                    string imageData = Convert.ToBase64String(singleImage.Content);
+
+                    singleImageOutputViewModel.Description = description;
+                    singleImageOutputViewModel.SingleImageData = imageData;
+                    singleImageOutputViewModel.CreatodOn = singleImage.CreatedOn;
+                    latestSingleImagesOutputModel.singleImages.Add(singleImageOutputViewModel);
+                }
+
+                return View(latestSingleImagesOutputModel);
+            }
+            else
+            {
+                return View(latestSingleImagesOutputModel);
+            }
+            
+            
+        }
+
+        private string SetDescription(SingleImage singleImage, Language language)
+        {
+            IEnumerable<SingleImageTranslationalInfo> infos =
+                                    singleImage.TranslatedInfoes.Where(x => x.Language == language).ToList();
+            SingleImageTranslationalInfo singleImageTranslationalInfo = infos.First();
+            return singleImageTranslationalInfo.Description;
         }
 
         public ActionResult About()

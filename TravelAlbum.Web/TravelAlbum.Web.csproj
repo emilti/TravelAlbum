@@ -225,6 +225,7 @@
     <Compile Include="Controllers\CultureController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SingleImagesController.cs" />
     <Compile Include="Controllers\TravelsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -234,6 +235,9 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\InputViewModels\CreateTravelInputModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\SingleImageModels\LatestSingleImagesOutputModel.cs" />
+    <Compile Include="Models\SingleImageModels\SingleImageInputModel.cs" />
+    <Compile Include="Models\SingleImageModels\SingleImageOutputViewModel.cs" />
     <Compile Include="Models\TravelSearchInputViewModel.cs" />
     <Compile Include="Models\TravelModels\TravelViewModel.cs" />
     <Compile Include="Models\TravelModels\LatestTravelsOutputModel.cs" />
@@ -307,6 +311,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Travels\Details.cshtml" />
     <Content Include="Views\Travels\Add.cshtml" />
+    <Content Include="Views\SingleImages\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

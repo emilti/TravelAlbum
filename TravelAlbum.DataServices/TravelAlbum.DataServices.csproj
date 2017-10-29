@@ -51,9 +51,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\ISingleImageTranslationalnfoService.cs" />
     <Compile Include="Contracts\ITravelImageService.cs" />
     <Compile Include="Contracts\ITravelService.cs" />
     <Compile Include="Contracts\ITravelTranslationalInfoService.cs" />
+    <Compile Include="Contracts\ISingleImageService.cs" />
+    <Compile Include="SingleImageService.cs" />
+    <Compile Include="SingleImageTranslationalInfoService.cs" />
     <Compile Include="TravelImageService.cs" />
     <Compile Include="TravelService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
