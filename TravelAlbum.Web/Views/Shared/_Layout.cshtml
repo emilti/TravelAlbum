@@ -7,22 +7,23 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link href="~/Content/nav-bar.css" rel="stylesheet" />
-
+    <link href="~/Content/top-image.css" rel="stylesheet" />
 </head>
 <body>
-
+    <div class="top-image"></div>
     <div class='topnav'>
         <div class="content-menu">
             @Html.ActionLink(Resources.GlobalResources.LabelAddTravel, "Add", "Travels")
-            <a>test</a>
+            <a>test</a>           
         </div>
 
-        <div class="culture-menu">
+        <div class="login-menu">
+            @Html.Partial("_LoginPartial")
             <a href="@Url.Action("RedirectLanguage", "Culture",  new { language = "bg", query = Request.Url.PathAndQuery })">
-                <img src="~/Content/Images/bg_flag.jpg" />
+                <img src="~/Content/Images/bg_flag.jpg" class="language-images"/>
             <a/>
             <a href="@Url.Action("RedirectLanguage", "Culture",  new { language = "en", query = Request.Url.PathAndQuery })">
-                <img src="~/Content/Images/en_flag.jpg" />
+                <img src="~/Content/Images/en_flag.jpg"  class="language-images"/>
             <a/>
         </div>
     </div>

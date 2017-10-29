@@ -1,0 +1,11 @@
+.top-image {
+    /* The image used */
+    background-image: url('Images/topimage.jpg');
+    /* Set a specific height */
+    min-height: 200px;
+    
+    /* Create the parallax scrolling effect */
+    /*background-attachment: fixed;  */  
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+}
