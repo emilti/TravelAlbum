@@ -1,0 +1,21 @@
+﻿.single-image {
+    padding-top:10px; 
+    padding-bottom:10px
+}
+
+.single-image {
+    width: 50%;
+    height: 50%;
+    margin-left:auto;
+    margin-right:auto;
+    display:block
+}
+
+
+.description {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    word-wrap: break-word;
+}

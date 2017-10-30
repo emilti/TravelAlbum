@@ -251,7 +251,7 @@
     <Content Include="Content\Images\en_flag.jpg" />
     <Content Include="Content\Images\topimage.jpg" />
     <Content Include="Content\nav-bar.css" />
-    <Content Include="Content\single-image.css" />
+    <Content Include="Content\index.css" />
     <Content Include="Content\top-image.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
