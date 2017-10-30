@@ -37,7 +37,8 @@ namespace TravelAlbum.Web.Controllers
                     string query = Request.Url.PathAndQuery;
 
                     string description = String.Empty;
-                    if (!(query.Contains("/en/")))
+                    //TODO: fix en and bg string conditions
+                    if (!(query.Contains("/en")))
                     {
                         description = SetDescription(singleImage, Language.Bulgarian);
                     }

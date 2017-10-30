@@ -8,6 +8,7 @@
     @Scripts.Render("~/bundles/modernizr")
     <link href="~/Content/nav-bar.css" rel="stylesheet" />
     <link href="~/Content/top-image.css" rel="stylesheet" />
+    <link href="~/Content/single-image.css" rel="stylesheet" />
 </head>
 <body>
     <div class="top-image"></div>
@@ -21,10 +22,10 @@
             @Html.Partial("_LoginPartial")
             <a href="@Url.Action("RedirectLanguage", "Culture",  new { language = "bg", query = Request.Url.PathAndQuery })">
                 <img src="~/Content/Images/bg_flag.jpg" class="language-images"/>
-            <a/>
-            <a href="@Url.Action("RedirectLanguage", "Culture",  new { language = "en", query = Request.Url.PathAndQuery })">
+            </a>
+            <a href=@Url.Action("RedirectLanguage", "Culture",  new { language = "en", query = Request.Url.PathAndQuery })>
                 <img src="~/Content/Images/en_flag.jpg"  class="language-images"/>
-            <a/>
+            </a>
         </div>
     </div>
     <div class="container body-content">

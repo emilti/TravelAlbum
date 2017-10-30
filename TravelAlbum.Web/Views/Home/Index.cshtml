@@ -3,10 +3,12 @@
 @if (Model != null && Model.singleImages != null)
 {
     foreach (var singleImage in Model.singleImages)
-    {        
-        <img src="@String.Format("data:image/jpg;base64,{0}", singleImage.SingleImageData)" />
-        <div>Start date: @singleImage.CreatodOn</div>
-        <div>@singleImage.Description</div>
+    {
+        <div class="single-image-container">
+            <img class="single-image" src="@String.Format("data:image/jpg;base64,{0}", singleImage.SingleImageData)" />
+            <div>@singleImage.Description</div>
+            <div>@singleImage.CreatodOn</div>
+        </div>
     }
 }
 
