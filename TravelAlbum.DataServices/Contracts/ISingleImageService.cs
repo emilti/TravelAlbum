@@ -12,6 +12,6 @@ namespace TravelAlbum.DataServices.Contracts
 
         void Add(SingleImage singleImage);
 
-        IEnumerable<SingleImage> GetLatesSingleImages();
+        IEnumerable<SingleImage> GetLatesSingleImages(int pageIndex);
     }
 }

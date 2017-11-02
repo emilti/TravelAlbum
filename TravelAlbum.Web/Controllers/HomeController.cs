@@ -24,11 +24,17 @@ namespace TravelAlbum.Web.Controllers
             this.singleImageService = singleImageService;
 
         }
-        public ActionResult Index()
-        {
-            var orderedSingleImages = this.singleImageService.GetLatesSingleImages();
 
-            LatestSingleImagesOutputModel latestSingleImagesOutputModel = new LatestSingleImagesOutputModel();
+        public ActionResult Index(int pageIndex = 0)
+        {
+            return View();
+        }
+
+        public ActionResult GetDataAfterScroll(string url, int pageIndex = 0)
+        {
+            var orderedSingleImages = this.singleImageService.GetLatesSingleImages(pageIndex);
+
+            List<SingleImageOutputViewModel> images = new List<SingleImageOutputViewModel>();
             if (orderedSingleImages != null && orderedSingleImages.Count() > 0)
             {
                 foreach (var singleImage in orderedSingleImages)
@@ -38,7 +44,7 @@ namespace TravelAlbum.Web.Controllers
 
                     string description = String.Empty;
                     //TODO: fix en and bg string conditions
-                    if (!(query.Contains("/en")))
+                    if (!(url.Contains("/en")))
                     {
                         description = SetDescription(singleImage, Language.Bulgarian);
                     }
@@ -52,18 +58,19 @@ namespace TravelAlbum.Web.Controllers
                     singleImageOutputViewModel.Description = description;
                     singleImageOutputViewModel.SingleImageData = imageData;
                     singleImageOutputViewModel.CreatodOn = singleImage.CreatedOn;
-                    latestSingleImagesOutputModel.singleImages.Add(singleImageOutputViewModel);
+                    images.Add(singleImageOutputViewModel);
                 }
 
-                return View(latestSingleImagesOutputModel);
+                return Json(images, JsonRequestBehavior.AllowGet);
             }
             else
             {
-                return View(latestSingleImagesOutputModel);
+                return Json(images, JsonRequestBehavior.AllowGet);
             }
-            
-            
         }
+
+
+
 
         private string SetDescription(SingleImage singleImage, Language language)
         {

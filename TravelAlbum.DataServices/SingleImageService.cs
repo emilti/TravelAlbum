@@ -52,11 +52,11 @@ namespace TravelAlbum.DataServices
             this.travelAlbumEfDbContextSaveChanges.SaveChanges();
         }
 
-        public IEnumerable<SingleImage> GetLatesSingleImages()
+        public IEnumerable<SingleImage> GetLatesSingleImages(int pageIndex)
         {
             IQueryable<SingleImage> singleImages = singleImageSetWrapper.All;
-            var orderedTravels = singleImages.OrderByDescending(a => a.CreatedOn).Take(4).ToList();
-            return orderedTravels;
+            var orderedSingleImages = singleImages.OrderByDescending(a => a.CreatedOn).Skip(2 * pageIndex).Take(2).ToList();
+            return orderedSingleImages;
         }         
     }
 }
