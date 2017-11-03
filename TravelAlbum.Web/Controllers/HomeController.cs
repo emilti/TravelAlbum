@@ -2,14 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
-using System.Web;
 using System.Web.Mvc;
-using TravelAlbum.Data;
 using TravelAlbum.DataServices.Contracts;
 using TravelAlbum.Models;
 using TravelAlbum.Web.Models.SingleImageModels;
-using TravelAlbum.Web.Models.TravelModels;
 
 namespace TravelAlbum.Web.Controllers
 {
@@ -20,9 +16,7 @@ namespace TravelAlbum.Web.Controllers
         public HomeController(ISingleImageService singleImageService)
         {
             Guard.WhenArgument(singleImageService, "singleImageService").IsNull().Throw();
-
             this.singleImageService = singleImageService;
-
         }
 
         public ActionResult Index(int pageIndex = 0)
@@ -68,9 +62,6 @@ namespace TravelAlbum.Web.Controllers
                 return Json(images, JsonRequestBehavior.AllowGet);
             }
         }
-
-
-
 
         private string SetDescription(SingleImage singleImage, Language language)
         {

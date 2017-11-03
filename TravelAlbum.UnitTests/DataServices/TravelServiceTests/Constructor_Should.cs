@@ -26,7 +26,7 @@ namespace TravelAlbum.UnitTests.DataServices.TravelServiceTests
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void ThrowException_WhenBookSetWrapperIsNull()
+        public void ThrowException_WhenTravelSetWrapperIsNull()
         {
             // Arrange
             var dbContextMock = new Mock<ITravelAlbumEfDbContextSaveChanges>();
