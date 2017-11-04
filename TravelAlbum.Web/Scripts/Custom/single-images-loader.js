@@ -21,7 +21,7 @@
         var url = $('#url-path').html();
         $.ajax({
             type: 'GET',
-            url: '/home/GetDataAfterScroll',
+            url: '/home/GetSingleImagesOnScroll',
             data: { 'url': url, 'pageIndex': pageIndex},
             dataType: 'json',
             success: function (data) {

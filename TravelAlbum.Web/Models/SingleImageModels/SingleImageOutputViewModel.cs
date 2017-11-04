@@ -8,6 +8,6 @@ namespace TravelAlbum.Web.Models.SingleImageModels
 
         public string Description { get; set; }
 
-        public DateTime CreatodOn { get; set; }
+        public DateTime CreatedOn { get; set; }
     }
 }

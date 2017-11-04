@@ -24,7 +24,7 @@ namespace TravelAlbum.Web.Controllers
             return View();
         }
 
-        public ActionResult GetDataAfterScroll(string url, int pageIndex = 0)
+        public JsonResult GetSingleImagesOnScroll(string url, int pageIndex = 0)
         {
             var orderedSingleImages = this.singleImageService.GetLatesSingleImages(pageIndex);
 
@@ -34,7 +34,7 @@ namespace TravelAlbum.Web.Controllers
                 foreach (var singleImage in orderedSingleImages)
                 {
                     SingleImageOutputViewModel singleImageOutputViewModel = new SingleImageOutputViewModel();
-                    string query = Request.Url.PathAndQuery;
+                    // string query = Request.Url.PathAndQuery;
 
                     string description = String.Empty;
                     //TODO: fix en and bg string conditions
@@ -51,7 +51,7 @@ namespace TravelAlbum.Web.Controllers
 
                     singleImageOutputViewModel.Description = description;
                     singleImageOutputViewModel.SingleImageData = imageData;
-                    singleImageOutputViewModel.CreatodOn = singleImage.CreatedOn;
+                    singleImageOutputViewModel.CreatedOn = singleImage.CreatedOn;
                     images.Add(singleImageOutputViewModel);
                 }
 
