@@ -2,14 +2,7 @@
 using Moq;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
-using System.Web.Routing;
-using TestStack.FluentMVCTesting;
 using TravelAlbum.DataServices.Contracts;
 using TravelAlbum.Models;
 using TravelAlbum.Web.Controllers;
@@ -17,7 +10,7 @@ using TravelAlbum.Web.Controllers;
 namespace TravelAlbum.UnitTests.Controllers.HomeControllerTests
 {
     [TestClass]
-    public class GetDataAfterScroll_Should
+    public class GetDataOnScroll_Should
     {
         [TestMethod]
         public void ReturnsSingleImages_WhenEnglishLanguageIsPassed()
@@ -126,7 +119,7 @@ namespace TravelAlbum.UnitTests.Controllers.HomeControllerTests
         }
 
         [TestMethod]
-        public void ReturnsSingleImages_WhenEnglishBulgarianIsPassed()
+        public void ReturnsSingleImages_WhenBulgarianIsPassed()
         {
             // Arrange
             var singleImageServiceMock = new Mock<ISingleImageService>();
@@ -182,6 +175,28 @@ namespace TravelAlbum.UnitTests.Controllers.HomeControllerTests
             Assert.AreEqual("Тест описание Single Image 2", items[1].Description);
             Assert.AreEqual(new DateTime(2016, 9, 9), items[0].CreatedOn);
             Assert.AreEqual(new DateTime(2017, 10, 10), items[1].CreatedOn);
+        }
+
+        [TestMethod]
+        public void ReturnsSingleImages_WhenEnglishBulgarianIsPassed()
+        {
+            // Arrange
+            var singleImageServiceMock = new Mock<ISingleImageService>();
+
+            IEnumerable<SingleImage> singleImages = new List<SingleImage>();           
+            singleImageServiceMock.Setup(
+                m => m.GetLatesSingleImages(0))
+                .Returns(singleImages);
+            // Act
+            HomeController homeController =
+                 new HomeController(singleImageServiceMock.Object);
+
+            JsonResult result = homeController.GetSingleImagesOnScroll("/bg", 0);
+
+            dynamic items = result.Data;
+
+            // Assert
+            Assert.AreEqual(0, items.Count);
         }
     }
 }
