@@ -10,7 +10,6 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using TestStack.FluentMVCTesting;
-using TravelAlbum.Data.Contracts;
 using TravelAlbum.DataServices;
 using TravelAlbum.DataServices.Contracts;
 using TravelAlbum.Models;

@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using TravelAlbum.Data.Contracts;
+using TravelAlbum.Data;
 using TravelAlbum.Data.EfDbSetWrappers;
 using TravelAlbum.DataServices.Contracts;
 using TravelAlbum.Models;

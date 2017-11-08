@@ -1,10 +1,10 @@
 ﻿using System;
 using Bytes2you.Validation;
-using TravelAlbum.Data.Contracts;
 using TravelAlbum.DataServices.Contracts;
 using TravelAlbum.Models;
 using System.Data.Entity;
 using TravelAlbum.Data.EfDbSetWrappers;
+using TravelAlbum.Data;
 
 namespace TravelAlbum.DataServices
 {

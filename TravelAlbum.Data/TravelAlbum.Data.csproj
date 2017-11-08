@@ -59,6 +59,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EfDbSetWrappers\EfDbSetWrapper.cs" />
+    <Compile Include="IEfDbSetWrapper.cs" />
+    <Compile Include="ITravelAlbumEfDbContextSaveChanges.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="TravelAlbumDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -76,10 +78,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TravelAlbum.Data.Contracts\TravelAlbum.Data.Contracts.csproj">
-      <Project>{2357d8db-7819-4951-9585-ae71d121e068}</Project>
-      <Name>TravelAlbum.Data.Contracts</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TravelAlbum.Models\TravelAlbum.Models.csproj">
       <Project>{51a4d86b-6c8e-493a-8883-f316f8983274}</Project>
       <Name>TravelAlbum.Models</Name>

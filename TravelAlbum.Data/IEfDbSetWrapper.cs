@@ -2,10 +2,10 @@
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace TravelAlbum.Data.Contracts
+namespace TravelAlbum.Data
 {
     public interface IEfDbSetWrapper<T>
-      where T : class
+  where T : class
     {
         IQueryable<T> All { get; }
 

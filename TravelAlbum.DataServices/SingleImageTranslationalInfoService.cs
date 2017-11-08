@@ -1,5 +1,5 @@
 ﻿using Bytes2you.Validation;
-using TravelAlbum.Data.Contracts;
+using TravelAlbum.Data;
 using TravelAlbum.DataServices.Contracts;
 using TravelAlbum.Models;
 

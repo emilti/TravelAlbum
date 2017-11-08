@@ -25,7 +25,7 @@
             data: { 'url': url, 'pageIndex': pageIndex},
             dataType: 'json',
             success: function (data) {
-                if (data != null) {
+                if (data !== null) {
                     for (var i = 0; i < data.length; i++) {
                         $("#single-images-container").append( 
                 "<div class='single-image-container'>" +

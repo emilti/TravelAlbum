@@ -4,7 +4,6 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Linq.Expressions;
-using TravelAlbum.Data.Contracts;
 
 namespace TravelAlbum.Data.EfDbSetWrappers
 {

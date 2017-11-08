@@ -24,7 +24,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -64,10 +64,6 @@
     <Compile Include="TravelTranslationalInfoService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TravelAlbum.Data.Contracts\TravelAlbum.Data.Contracts.csproj">
-      <Project>{2357d8db-7819-4951-9585-ae71d121e068}</Project>
-      <Name>TravelAlbum.Data.Contracts</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TravelAlbum.Data\TravelAlbum.Data.csproj">
       <Project>{b089a7ee-2f93-4921-9a56-10fcd37914ca}</Project>
       <Name>TravelAlbum.Data</Name>

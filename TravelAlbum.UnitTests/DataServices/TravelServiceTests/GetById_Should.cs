@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;
-using TravelAlbum.Data.Contracts;
+using TravelAlbum.Data;
 using TravelAlbum.DataServices;
 using TravelAlbum.Models;
 

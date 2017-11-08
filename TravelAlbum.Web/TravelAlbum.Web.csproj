@@ -327,10 +327,6 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TravelAlbum.Data.Contracts\TravelAlbum.Data.Contracts.csproj">
-      <Project>{2357d8db-7819-4951-9585-ae71d121e068}</Project>
-      <Name>TravelAlbum.Data.Contracts</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TravelAlbum.DataServices\TravelAlbum.DataServices.csproj">
       <Project>{08a83da2-e768-4f78-8526-a87b0d441dde}</Project>
       <Name>TravelAlbum.DataServices</Name>

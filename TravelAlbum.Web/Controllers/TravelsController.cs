@@ -6,7 +6,6 @@ using TravelAlbum.Models;
 using System.Linq;
 using TravelAlbum.Web.Models.InputViewModels;
 using System.IO;
-using TravelAlbum.Data.Contracts;
 using TravelAlbum.Web.Models.TravelModels;
 using System.Web;
 using TravelAlbum.Web.Models;

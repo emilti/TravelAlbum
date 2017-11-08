@@ -1,4 +1,4 @@
-﻿using TravelAlbum.Data.Contracts;
+﻿
 
 namespace TravelAlbum.Data
 {

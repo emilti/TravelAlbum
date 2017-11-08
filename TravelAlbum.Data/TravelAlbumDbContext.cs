@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
-using TravelAlbum.Data.Contracts;
 using TravelAlbum.Models;
 using System;
 
