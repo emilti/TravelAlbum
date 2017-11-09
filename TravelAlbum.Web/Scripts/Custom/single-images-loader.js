@@ -28,9 +28,11 @@
                 if (data !== null) {
                     for (var i = 0; i < data.length; i++) {
                         $("#single-images-container").append( 
-                "<div class='single-image-container'>" +
-                "<img class='single-image' src='data:image/jpg;base64," + data[i].SingleImageData + "' />" + 
-                "<div class='description'>" + data[i].Description + "</div>" +
+                            "<div class='single-image-container'>" +
+                            "<a href='SingleImages/Details/" + data[i].SingleImageId + "'>" +
+                                "<img class='single-image' src='data:image/jpg;base64," + data[i].SingleImageData + "' />" +
+                            "</a>" + 
+                            "<div class='description'>" + data[i].Description + "</div>" +
                             "<div>" + data[i].CreatodOn + "</div>" +
                         "</div>")
                     }

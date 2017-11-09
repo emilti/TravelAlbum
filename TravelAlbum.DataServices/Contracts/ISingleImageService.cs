@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using TravelAlbum.Models;
 
@@ -13,5 +14,7 @@ namespace TravelAlbum.DataServices.Contracts
         void Add(SingleImage singleImage);
 
         IEnumerable<SingleImage> GetLatesSingleImages(int pageIndex);
+
+        SingleImage GetById(Guid? id);
     }
 }

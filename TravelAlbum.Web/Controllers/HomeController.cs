@@ -49,9 +49,10 @@ namespace TravelAlbum.Web.Controllers
 
                     string imageData = Convert.ToBase64String(singleImage.Content);
 
+                    singleImageOutputViewModel.SingleImageId = singleImage.SingleImageId;
                     singleImageOutputViewModel.Description = description;
                     singleImageOutputViewModel.SingleImageData = imageData;
-                    singleImageOutputViewModel.CreatedOn = singleImage.CreatedOn;
+                    singleImageOutputViewModel.CreatedOn = singleImage.CreatedOn;                    
                     images.Add(singleImageOutputViewModel);
                 }
 

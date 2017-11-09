@@ -1,6 +1,8 @@
 ﻿using Bytes2you.Validation;
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TravelAlbum.DataServices.Contracts;
@@ -78,6 +80,54 @@ namespace TravelAlbum.Web.Controllers
             newSingleImage.TranslatedInfoes.Add(newEnSingleImageTranslationalInfo);
 
             return this.RedirectToAction("Index", "Home");
+        }
+
+
+        [HttpGet]
+        public ActionResult Details(Guid id)
+        {
+            SingleImage singleImage = this.singleImageService.GetById(id);
+            if (singleImage != null)
+            {
+                string query = Request.Url.PathAndQuery;
+
+                if (!(query.Contains("/en/")))
+                {
+                    return GetModelData(singleImage, Language.Bulgarian);
+                }
+                else
+                {
+                    return GetModelData(singleImage, Language.English);
+                }
+            }
+            else
+            {
+                return this.RedirectToAction("Index", "Home");
+            }
+        }
+
+        private ActionResult GetModelData(SingleImage singleImage, Language language)
+        {
+            IEnumerable<SingleImageTranslationalInfo> singleImageTranslationalInfoes =
+                singleImage.TranslatedInfoes.AsQueryable().Where(x => x.Language == language).ToList();
+
+            if (singleImageTranslationalInfoes.ToList().Count > 1)
+            {
+                return this.RedirectToAction("Index", "Home");
+            }
+
+            SingleImageTranslationalInfo singleImageTranslationalInfo =
+                singleImageTranslationalInfoes.FirstOrDefault();
+
+            String imageData = Convert.ToBase64String(singleImage.Content);
+            SingleImageOutputViewModel singleImageOutputViewModel = new SingleImageOutputViewModel()
+            {
+                CreatedOn = singleImage.CreatedOn,
+                SingleImageData = imageData,
+                Description = singleImageTranslationalInfo.Description
+            };
+
+            return this.View(singleImageOutputViewModel);
         }
     }
 }

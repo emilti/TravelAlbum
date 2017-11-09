@@ -1,0 +1,13 @@
+﻿@model TravelAlbum.Web.Models.SingleImageModels.SingleImageOutputViewModel
+
+
+-------------------<br />
+@Model.Description
+<br />
+-------------------<br />
+<br />
+@Model.CreatedOn
+
+<br />
+
+<img src="@String.Format("data:image/jpg;base64,{0}", Model.SingleImageData)" />

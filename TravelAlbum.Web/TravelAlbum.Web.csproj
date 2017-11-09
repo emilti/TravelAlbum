@@ -314,6 +314,7 @@
     <Content Include="Views\Travels\Details.cshtml" />
     <Content Include="Views\Travels\Add.cshtml" />
     <Content Include="Views\SingleImages\Add.cshtml" />
+    <Content Include="Views\SingleImages\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

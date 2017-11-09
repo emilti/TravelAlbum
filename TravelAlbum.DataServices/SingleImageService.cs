@@ -1,4 +1,5 @@
 ﻿using Bytes2you.Validation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TravelAlbum.Data;
@@ -57,6 +58,19 @@ namespace TravelAlbum.DataServices
             IQueryable<SingleImage> singleImages = singleImageSetWrapper.All;
             var orderedSingleImages = singleImages.OrderByDescending(a => a.CreatedOn).Skip(2 * pageIndex).Take(2).ToList();
             return orderedSingleImages;
-        }         
+        }
+
+        public SingleImage GetById(Guid? id)
+        {
+            SingleImage result = null;
+
+            SingleImage singleImage = this.singleImageSetWrapper.GetById(id);
+            if (singleImage != null)
+            {
+                result = singleImage;
+            }
+
+            return result;
+        }
     }
 }
