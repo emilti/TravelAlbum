@@ -80,6 +80,8 @@
     <Compile Include="Controllers\HomeControllerTests\Constructor_Should.cs" />
     <Compile Include="Controllers\HomeControllerTests\GetDataAfterScroll_Should.cs" />
     <Compile Include="Controllers\HomeControllerTests\Index_Should.cs" />
+    <Compile Include="Controllers\SingleImagesControllerTests\AddGet_Should.cs" />
+    <Compile Include="Controllers\SingleImagesControllerTests\Constructor_Should.cs" />
     <Compile Include="Controllers\TravelsControllerTests\AddGet_Should.cs" />
     <Compile Include="Controllers\TravelsControllerTests\Constructor_Should.cs" />
     <Compile Include="Controllers\TravelsControllerTests\Details_Should.cs" />

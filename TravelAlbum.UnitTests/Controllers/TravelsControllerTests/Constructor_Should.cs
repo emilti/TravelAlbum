@@ -26,7 +26,7 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void ReturnsAnInstance_WhenParameterTravelImageIsNull()
+        public void ThrowsException_WhenParameterTravelImageIsNull()
         {
             // Arrange
             var travelServiceMock = new Mock<ITravelService>();
@@ -41,7 +41,7 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void ReturnsAnInstance_WhenParameterTravelTranslationalInfoIsNull()
+        public void ThrowsException_WhenParameterTravelTranslationalInfoIsNull()
         {
             // Arrange
             var travelServiceMock = new Mock<ITravelService>();
@@ -56,7 +56,7 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void ReturnsAnInstance_WhenParameterTravelServiceIsNull()
+        public void ThrowsException_WhenParameterTravelServiceIsNull()
         {
             // Arrange
             var travelTranslationalInfoServiceMock = new Mock<ITravelTranslationalInfoService>();

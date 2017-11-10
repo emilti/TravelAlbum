@@ -26,7 +26,7 @@ namespace TravelAlbum.UnitTests.DataServices.SingleImageServiceTests
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void ThrowException_WhenSingleImageSetWrapperIsNull()
+        public void ThrowsException_WhenSingleImageSetWrapperIsNull()
         {
             // Arrange
             var dbContextMock = new Mock<ITravelAlbumEfDbContextSaveChanges>();
@@ -37,7 +37,7 @@ namespace TravelAlbum.UnitTests.DataServices.SingleImageServiceTests
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void ThrowException_WhenDbContextIsNull()
+        public void ThrowsException_WhenDbContextIsNull()
         {
             // Arrange
             var wrapperMock = new Mock<IEfDbSetWrapper<SingleImage>>();

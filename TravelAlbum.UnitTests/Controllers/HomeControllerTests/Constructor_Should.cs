@@ -24,7 +24,7 @@ namespace TravelAlbum.UnitTests.Controllers.HomeControllerTests
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void ThrowException_WhenParameterIsNull()
+        public void ThrowsException_WhenParameterIsNull()
         {
             // Act
             HomeController homeController = new HomeController(null);
