@@ -27,13 +27,17 @@
             success: function (data) {
                 if (data !== null) {
                     for (var i = 0; i < data.length; i++) {
+                        var dateSplitted = data[i].CreatedOn.split(/[(|)]/);
+                        var dateTicks = parseInt(dateSplitted[1]);
+                        var date = new Date(dateTicks); 
+                        var dateFormatted = date.getMonth() + 1 + '/' + date.getDate() + '/' + date.getFullYear();
                         $("#single-images-container").append( 
                             "<div class='single-image-container'>" +
                             "<a href='SingleImages/Details/" + data[i].SingleImageId + "'>" +
                                 "<img class='single-image' src='data:image/jpg;base64," + data[i].SingleImageData + "' />" +
                             "</a>" + 
                             "<div class='description'>" + data[i].Description + "</div>" +
-                            "<div>" + data[i].CreatodOn + "</div>" +
+                            "<div class='description'>" + dateFormatted + "</div>" +
                         "</div>")
                     }
                     pageIndex++;
