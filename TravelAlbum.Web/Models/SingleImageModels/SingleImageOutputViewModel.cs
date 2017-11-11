@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace TravelAlbum.Web.Models.SingleImageModels
 {
@@ -10,6 +11,7 @@ namespace TravelAlbum.Web.Models.SingleImageModels
 
         public string Description { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime CreatedOn { get; set; }
     }
 }
