@@ -1,16 +1,11 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using TestStack.FluentMVCTesting;
-using TravelAlbum.DataServices;
 using TravelAlbum.DataServices.Contracts;
 using TravelAlbum.Models;
 using TravelAlbum.Web.Controllers;
@@ -24,6 +19,7 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
         [TestMethod]
         public void ReturnView_WhenValidGuidIsPassedAndLanuageIsBg()
         {
+            // Arrange
             var travelServiceMock = new Mock<ITravelService>();
             var travelImageServiceMock = new Mock<ITravelImageService>();
             var travelTranslationalInfoServiceMock = new Mock<ITravelTranslationalInfoService>();
@@ -103,6 +99,7 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
         [TestMethod]
         public void ReturnView_WhenValidGuidIsPassedAndLanuageIsEn()
         {
+            // Arrange
             var travelServiceMock = new Mock<ITravelService>();
             var travelImageServiceMock = new Mock<ITravelImageService>();
             var travelTranslationalInfoServiceMock = new Mock<ITravelTranslationalInfoService>();
@@ -181,6 +178,7 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
         [TestMethod]
         public void ReturnView_WhenTravelGuidNotMatchWithExistingTravel()
         {
+            // Arrange
             var travelServiceMock = new Mock<ITravelService>();
             var travelImageServiceMock = new Mock<ITravelImageService>();
             var travelTranslationalInfoServiceMock = new Mock<ITravelTranslationalInfoService>();
@@ -190,7 +188,8 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
             travelServiceMock.Setup(m => m.GetById((Guid?)null)).Returns((Travel)null);
              
             TravelsController travelsController = new TravelsController(travelServiceMock.Object, travelTranslationalInfoServiceMock.Object, travelImageServiceMock.Object);
-                     
+                 
+            // Act and Assert
             travelsController.WithCallTo(
                 b => b.Details(id))
                   .ShouldRedirectTo<HomeController>(typeof(HomeController)
