@@ -5,9 +5,11 @@
 @Model.Description
 <br />
 <br />
+
 <br />
 @Html.DisplayFor(model => model.CreatedOn)
 
 <br />
-
-<img src="@String.Format("data:image/jpg;base64,{0}", Model.SingleImageData)" />
+<a href="@String.Format("data:image/jpg;base64,{0}", Model.SingleImageData)" data-lightbox="image-1">
+    <img class="single-image" src="@String.Format("data:image/jpg;base64,{0}", Model.SingleImageData)" />
+</a>
