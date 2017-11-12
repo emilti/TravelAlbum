@@ -129,8 +129,14 @@
   <data name="EnTitleLabel" xml:space="preserve">
     <value>Заглавие (en)</value>
   </data>
+  <data name="LabelAddSingleImage" xml:space="preserve">
+    <value>Добави снимка</value>
+  </data>
   <data name="LabelAddTravel" xml:space="preserve">
     <value>Добави пътуване</value>
+  </data>
+  <data name="LabelAlbum" xml:space="preserve">
+    <value>Албум</value>
   </data>
   <data name="UploadedImage_1" xml:space="preserve">
     <value>Снимка 1</value>

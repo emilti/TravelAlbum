@@ -97,11 +97,29 @@ namespace TravelAlbum.Web.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Добави снимка.
+        /// </summary>
+        public static string LabelAddSingleImage {
+            get {
+                return ResourceManager.GetString("LabelAddSingleImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Добави пътуване.
         /// </summary>
         public static string LabelAddTravel {
             get {
                 return ResourceManager.GetString("LabelAddTravel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Албум.
+        /// </summary>
+        public static string LabelAlbum {
+            get {
+                return ResourceManager.GetString("LabelAlbum", resourceCulture);
             }
         }
         

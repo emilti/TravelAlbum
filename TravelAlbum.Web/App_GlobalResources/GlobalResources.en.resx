@@ -129,8 +129,14 @@
   <data name="EnTitleLabel" xml:space="preserve">
     <value>Title (en)</value>
   </data>
+  <data name="LabelAddSingleImage" xml:space="preserve">
+    <value>Add photo</value>
+  </data>
   <data name="LabelAddTravel" xml:space="preserve">
     <value>Add travel</value>
+  </data>
+  <data name="LabelAlbum" xml:space="preserve">
+    <value>Album</value>
   </data>
   <data name="UploadedImage_1" xml:space="preserve">
     <value>Image 1</value>

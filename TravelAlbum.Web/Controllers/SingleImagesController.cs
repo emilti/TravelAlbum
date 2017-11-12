@@ -27,12 +27,14 @@ namespace TravelAlbum.Web.Controllers
             this.singleImageTranslationalInfoService = singleImageTranslationalInfoService;
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public ActionResult Add()
         {
             return this.View();
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Add(SingleImageInputModel singleImageForAdding)
         {

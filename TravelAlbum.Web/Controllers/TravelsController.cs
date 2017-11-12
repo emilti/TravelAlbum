@@ -87,12 +87,14 @@ namespace TravelAlbum.Web.Controllers
             return this.View(travelViewModel);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public ActionResult Add()
         {
             return this.View();
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Add(CreateTravelInputModel travelForAdding)
         {
