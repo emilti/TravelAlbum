@@ -124,6 +124,7 @@ namespace TravelAlbum.Web.Controllers
             String imageData = Convert.ToBase64String(singleImage.Content);
             SingleImageOutputViewModel singleImageOutputViewModel = new SingleImageOutputViewModel()
             {
+                SingleImageId = singleImage.SingleImageId,
                 CreatedOn = singleImage.CreatedOn,
                 SingleImageData = imageData,
                 Description = singleImageTranslationalInfo.Description

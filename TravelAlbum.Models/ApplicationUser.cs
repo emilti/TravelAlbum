@@ -11,31 +11,34 @@ namespace TravelAlbum.Models
     public class ApplicationUser : IdentityUser
     {       
         private ICollection<Travel> favoriteTravels;
+        private ICollection<SingleImageComment> singleImageComments;
         
         public ApplicationUser()
         {         
-            this.FavoriteTravels = new HashSet<Travel>();            
+            this.FavoriteTravels = new HashSet<Travel>();
+            this.SingleImageComments = new HashSet<SingleImageComment>();
         }
 
-        [Required]        
-        [RegularExpression(@"^[^<>]*$", ErrorMessage = "Invalid symbol")]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 2)]
-        public string Avatar { get; set; }
-
         [Required]       
+        [StringLength(200, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 2)]
+        public string Avatar { get; set; }
+        
+        [Required]
         [RegularExpression(@"[a-zA-Z_0-9]+", ErrorMessage = "Only letters, numbers and _ allowed")]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 2)]
-        public string FirstName { get; set; }
-
-        [Required]        
-        [RegularExpression(@"[a-zA-Z_0-9]+", ErrorMessage = "Only letters, numbers and _ allowed")]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 2)]
-        public string LastName { get; set; }
+        public string NickName { get; set; }
 
         public virtual ICollection<Travel> FavoriteTravels
         {
             get { return this.favoriteTravels; }
             set { this.favoriteTravels = value; }
+        }
+
+
+        public virtual ICollection<SingleImageComment> SingleImageComments
+        {
+            get { return this.singleImageComments; }
+            set { this.singleImageComments = value; }
         }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)

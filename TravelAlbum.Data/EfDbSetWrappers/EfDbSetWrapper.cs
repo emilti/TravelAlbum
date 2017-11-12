@@ -34,7 +34,7 @@ namespace TravelAlbum.Data.EfDbSetWrappers
             return this.All.Include(includeExpression);
         }
 
-        public T GetById(Guid? id)
+        public T GetById(Object id)
         {
             return this.dbSet.Find(id);
         }

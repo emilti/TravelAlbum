@@ -61,6 +61,7 @@
     <Compile Include="Travel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TravelImage.cs" />
+    <Compile Include="SingleImageComment.cs" />
     <Compile Include="TravelTranslationalInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,29 @@
+﻿@model TravelAlbum.Web.Models.CommentModels.CommentViewModel
+@using Microsoft.AspNet.Identity
+
+
+<div style="width:40%;border-bottom: 2px solid gray;margin-bottom: 2px;">
+    <strong>@Model.Author.NickName</strong><span class="text-muted pull-right">@Model.CreatedOn</span>
+</div>
+
+<div style="display:inline-block;width:100%">
+    <div style="display:inline-block;"><img src=@Model.Author.Avatar width="100" height="100"></div>
+    <div style="display:inline-block;width:30%;vertical-align: top; height:100px;word-wrap: break-word;">
+        @Model.Content
+    </div>
+</div>
+@if (User.Identity.GetUserId() == @Model.AuthorId)
+{
+    <div style="display:block">
+        @Html.ActionLink("Edit", "EditComment", "Comments", new { area = "Facilities", id = Model.Id }, new { @class = "btn btn-warning" })
+        @using (Html.BeginForm("DeleteComment", "Comments", new { area = "Facilities", id = Model.Id }, FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <input type="submit" class="btn btn-danger" value="Delete" />
+            @*@Html.ActionLink("Delete", "DeleteComment", "Comments", new { id = comment.Id }, new { @class = "btn btn-danger"})*@
+        }
+    </div>
+
+}
+
+<div class="col-md-2"></div>

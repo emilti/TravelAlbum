@@ -19,7 +19,7 @@ namespace TravelAlbum.Models
             this.travelImages = new HashSet<TravelImage>();
             this.UsersLiked = new HashSet<ApplicationUser>();
         }
-        
+
         [Key]
         public Guid TravelId { get; set; }
 

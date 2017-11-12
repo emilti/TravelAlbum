@@ -157,6 +157,8 @@ namespace TravelAlbum.Web.App_Start
             kernel.Bind<ITravelImageService>().To<TravelImageService>();            
             kernel.Bind<ISingleImageService>().To<SingleImageService>();
             kernel.Bind<ISingleImageTranslationalInfoService>().To<SingleImageTranslationalInfoService>();
+            kernel.Bind<IApplicationUserService>().To<ApplicationUserService>();
+            kernel.Bind<ICommentsService>().To<CommentsService>();
         }
     }
 }

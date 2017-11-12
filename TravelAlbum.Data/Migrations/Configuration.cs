@@ -32,12 +32,11 @@
             {
                 var admin = new ApplicationUser
                 {
+                    NickName = "admin",
                     Email = "admin@admin.com",
                     UserName = "admin@admin.com",
                     EmailConfirmed = true,
-                    Avatar = "http://www.premiumdxb.com/assets/img/avatar/default-avatar.jpg",
-                    FirstName = "admin",
-                    LastName = "admin"
+                    Avatar = "http://www.premiumdxb.com/assets/img/avatar/default-avatar.jpg"                   
                 };
 
                 userManager.Create(admin, "123456");
@@ -48,11 +47,10 @@
             {
                 var user = new ApplicationUser
                 {
+                    NickName = "user1",
                     Email = "user1@mail.com",
                     UserName = "user1@mail.com",
-                    Avatar = "http://www.premiumdxb.com/assets/img/avatar/default-avatar.jpg",
-                    FirstName = "user1",
-                    LastName = "user1"
+                    Avatar = "http://www.premiumdxb.com/assets/img/avatar/default-avatar.jpg"                    
                 };
 
                 userManager.Create(user, "123456");
@@ -63,11 +61,10 @@
             {
                 var user = new ApplicationUser
                 {
+                    NickName = "user2",
                     Email = "user2@mail.com",
                     UserName = "user2@mail.com",
-                    Avatar = "http://www.premiumdxb.com/assets/img/avatar/default-avatar.jpg",
-                    FirstName = "user2",
-                    LastName = "user2"
+                    Avatar = "http://www.premiumdxb.com/assets/img/avatar/default-avatar.jpg"                    
                 };
 
                 userManager.Create(user, "123456");
@@ -78,11 +75,10 @@
             {
                 var user = new ApplicationUser
                 {
+                    NickName = "user3",
                     Email = "user3@mail.com",
                     UserName = "user3@mail.com",
-                    Avatar = "http://www.premiumdxb.com/assets/img/avatar/default-avatar.jpg",
-                    FirstName = "user3",
-                    LastName = "user3"
+                    Avatar = "http://www.premiumdxb.com/assets/img/avatar/default-avatar.jpg"                  
                 };
 
                 userManager.Create(user, "123456");
@@ -93,11 +89,10 @@
             {
                 var user = new ApplicationUser
                 {
+                    NickName = "user4",
                     Email = "user4@mail.com",
                     UserName = "user4@mail.com",
-                    Avatar = "http://www.premiumdxb.com/assets/img/avatar/default-avatar.jpg",
-                    FirstName = "user4",
-                    LastName = "user4"
+                    Avatar = "http://www.premiumdxb.com/assets/img/avatar/default-avatar.jpg"                   
                 };
 
                 userManager.Create(user, "123456");

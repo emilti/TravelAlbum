@@ -51,6 +51,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationUserService.cs" />
+    <Compile Include="CommentsService.cs" />
+    <Compile Include="Contracts\IApplicationUserService.cs" />
+    <Compile Include="Contracts\ICommentsService.cs" />
     <Compile Include="Contracts\ISingleImageTranslationalnfoService.cs" />
     <Compile Include="Contracts\ITravelImageService.cs" />
     <Compile Include="Contracts\ITravelService.cs" />

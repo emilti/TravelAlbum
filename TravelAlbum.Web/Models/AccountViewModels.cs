@@ -64,6 +64,10 @@ namespace TravelAlbum.Web.Models
 
     public class RegisterViewModel
     {
+        [Required]        
+        [Display(Name = "NickName")]
+        public string NickName { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
@@ -79,6 +83,9 @@ namespace TravelAlbum.Web.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        public string Avatar { get; set; }
     }
 
     public class ResetPasswordViewModel

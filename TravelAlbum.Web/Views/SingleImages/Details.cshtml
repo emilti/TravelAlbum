@@ -9,3 +9,53 @@
 <a href="@String.Format("data:image/jpg;base64,{0}", Model.SingleImageData)" data-lightbox="image-1">
     <img class="single-image" src="@String.Format("data:image/jpg;base64,{0}", Model.SingleImageData)" />
 </a>
+
+
+<div class="clear row">
+    <div class="col-md-offset-5 col-md-3">
+        <button id="show-comments-button" class="btn btn-primary">Show Comments</button>
+        <button id="hide-comments-button" class="btn btn-danger" style="display:none">Hide Comments</button>
+        @*Html.ActionLink("Add Comment", "AddComment", "Comments", new { area = "Facilities", id = Model.Id }, new { @class = "btn btn-primary" })*@
+    </div>
+    <div class="col-md-4">
+        @if (ViewContext.HttpContext.User.IsInRole("Admin"))
+        {
+            @Html.ActionLink("Edit Single Image", "EditSingleImage", "SingleImagesController", null, new { @class = "btn btn-primary pull-right" })
+        }
+    </div>
+</div>
+<div style="height:10px;clear:both;"></div>
+<div id="comments-part">
+    <div class="row">
+        <div class="col-md-offset-2 panel panel-default col-md-8 add-comment-container">
+            <textarea class="add-comment-textarea" placeholder="Add Comment" name="Content"></textarea>
+            <div>
+                <button class="submit-comment-button btn btn-primary" data-id="@Model.SingleImageId">Add comment</button>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+    <div id="latest-comments-container" class="row">
+
+    </div>
+
+    <div id="comments-container" data-id="@Model.SingleImageId"></div>
+
+    @*@ @foreach (var comment in Model.FacilityComments)
+        {
+           @Html.Action("RedirectToGetLatestComments", "FacilitiesPublic", new { area = "Facilities", id = Model.Id })
+            if (comment.IsDeleted == false)
+            {
+                <div class="row">
+                    @{
+                        var commentViewModel = SportsBook.Web.Infrastructure.Mapping.AutoMapperConfig.Configuration.CreateMapper().Map<SportsBook.Web.Areas.Facilities.ViewModels.Comments.CommentViewModel>(comment);
+                        @Html.Partial("_SingleCommentPartial", commentViewModel)
+                    }
+                </div>
+            }
+        }*@
+</div>
+
+@section CommentsSection{
+    <script src="~/Scripts/Custom/comments-controller.js"></script>
+}

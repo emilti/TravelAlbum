@@ -40,7 +40,6 @@ namespace TravelAlbum.Web.Controllers
             return RedirectToAction("Details", "Travels", new { id = travelByTitle.TravelId });
         }
 
-
         [HttpGet]
         public ActionResult Details(Guid id)
         {
@@ -118,9 +117,7 @@ namespace TravelAlbum.Web.Controllers
             };
 
             travelTranslationalService.Add(newBgTravelInfo);
-            newTravel.TranslatedTravels.Add(newBgTravelInfo);
-
-            
+            newTravel.TranslatedTravels.Add(newBgTravelInfo);            
 
             TravelTranslationalInfo newEnTravelInfo = new TravelTranslationalInfo()
             {
