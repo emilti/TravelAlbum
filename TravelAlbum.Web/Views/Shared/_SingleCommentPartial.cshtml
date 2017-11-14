@@ -2,19 +2,19 @@
 @using Microsoft.AspNet.Identity
 
 
-<div style="width:40%;border-bottom: 2px solid gray;margin-bottom: 2px;">
+<div class="comment-header">
     <strong>@Model.Author.NickName</strong><span class="text-muted pull-right">@Model.CreatedOn</span>
 </div>
 
-<div style="display:inline-block;width:100%">
-    <div style="display:inline-block;"><img src=@Model.Author.Avatar width="100" height="100"></div>
-    <div style="display:inline-block;width:30%;vertical-align: top; height:100px;word-wrap: break-word;">
+<div class="comment-container">
+    <div class="comment-avatar"><img src=@Model.Author.Avatar width="100" height="100"></div>
+    <div class="comment-content">
         @Model.Content
     </div>
 </div>
 @if (User.Identity.GetUserId() == @Model.AuthorId)
 {
-    <div style="display:block">
+    <div class="comment-manage-buttons">
         @Html.ActionLink("Edit", "EditComment", "Comments", new { area = "Facilities", id = Model.Id }, new { @class = "btn btn-warning" })
         @using (Html.BeginForm("DeleteComment", "Comments", new { area = "Facilities", id = Model.Id }, FormMethod.Post))
         {

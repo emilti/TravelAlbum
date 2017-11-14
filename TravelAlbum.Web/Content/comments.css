@@ -1,0 +1,39 @@
+﻿
+.comment-header {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    border-bottom: 2px solid gray;
+    margin-bottom: 2px;
+}
+
+.comment-container {
+    display:flex;
+    width:50%;
+    margin-left:auto;
+    margin-right:auto
+}
+
+.comment-avatar {
+   display:flex;
+}
+
+.comment-content {
+    display:flex;
+    width:70%;
+    vertical-align: top;
+    height:100px;
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
+    word-wrap: break-word;
+    word-break: break-all;
+    word-break: break-word;
+    hyphens: auto
+}
+
+.comment-manage-buttons {
+    display:flex;
+    width:50%;
+    margin-left:auto;
+    margin-right:auto
+}
