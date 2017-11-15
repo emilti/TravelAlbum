@@ -38,12 +38,12 @@ namespace TravelAlbum.Web.Controllers
         }
 
         [HttpGet]        
-        public ActionResult ShowBatchComments(Guid id, int page = 0)
+        public ActionResult ShowBatchComments(Guid id, int page = 1)
         {
             SingleImage singleImage = this.singleImageService.GetById(id);
 
             List<SingleImageComment> comments =
-                singleImage.SingleImageComments.AsQueryable().Skip(5 * page).Take(5).ToList();
+                singleImage.SingleImageComments.AsQueryable().OrderByDescending(x => x.CreatedOn).Take(5 * page).ToList();
 
             
 
