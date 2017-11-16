@@ -25,13 +25,11 @@
 
 <div id="comments-container" data-id="@Model.SingleImageId"></div>
 
-<div class="clear row">
-    <div class="col-md-offset-5 col-md-3">
-        <button id="show-comments-button" class="btn btn-primary">Show Comments</button>
-        <button id="hide-comments-button" class="btn btn-danger" style="display:none">Hide Comments</button>
+
+        <button id="show-comments-button" class="btn btn-primary">Show Comments</button>       
         @*Html.ActionLink("Add Comment", "AddComment", "Comments", new { area = "Facilities", id = Model.Id }, new { @class = "btn btn-primary" })*@
-    </div>
-</div>
+  
+
 
 @*@ @foreach (var comment in Model.FacilityComments)
     {

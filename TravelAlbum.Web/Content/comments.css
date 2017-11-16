@@ -52,3 +52,8 @@
     margin-top:5px;
     margin-bottom:5px
 }
+
+#show-comments-button {
+    display: flex;
+    margin-left: 43%;
+}
