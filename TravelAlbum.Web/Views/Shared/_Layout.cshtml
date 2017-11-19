@@ -12,12 +12,14 @@
     <link href="~/Content/index.css" rel="stylesheet" />
     <link href="~/Content/single-image-details.css" rel="stylesheet" />
     <link href="~/Content/comments.css" rel="stylesheet" />
+    <link href="~/Content/travels.css" rel="stylesheet" />
 </head>
 <body>
     <div class="top-image"></div>
     <div class='topnav'>
-        <div class="content-menu">
+        <div class="content-menu">            
             @Html.ActionLink(TravelAlbum.Web.App_GlobalResources.GlobalResources.LabelAlbum, "Index", "Home")
+            @Html.ActionLink("Travels", "GetTravels", "Travels", new { url = @Request.Url.PathAndQuery }, null)
             @if (ViewContext.HttpContext.User.IsInRole("Admin"))
             {
                 @Html.ActionLink(TravelAlbum.Web.App_GlobalResources.GlobalResources.LabelAddTravel, "Add", "Travels");
@@ -26,16 +28,16 @@
         </div>
 
         <div class="login-menu">
-            @Html.Partial("_LoginPartial")
-            <a href="@Url.Action("RedirectLanguage", "Culture",  new { language = "bg", query = Request.Url.PathAndQuery })">
+            <a href="@Url.Action("Index", "Home",  new { lang = "bg"})">
                 <img src="~/Content/Images/bg_flag.jpg" class="language-images" />
             </a>
-            <a href=@Url.Action("RedirectLanguage", "Culture",  new { language = "en", query = Request.Url.PathAndQuery })>
+            <a href="@Url.Action("Index", "Home",  new { lang = "en"})">
                 <img src="~/Content/Images/en_flag.jpg" class="language-images" />
             </a>
+            @Html.Partial("_LoginPartial")           
         </div>
     </div>
-    <div class="container body-content">
+    <div>
         @RenderBody()
         <hr />
         <footer>

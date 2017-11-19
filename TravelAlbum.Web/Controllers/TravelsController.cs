@@ -10,6 +10,7 @@ using TravelAlbum.Web.Models.TravelModels;
 using System.Web;
 using TravelAlbum.Web.Models;
 using System.Collections.Generic;
+using TravelAlbum.Web.Helpers;
 
 namespace TravelAlbum.Web.Controllers
 {
@@ -76,7 +77,7 @@ namespace TravelAlbum.Web.Controllers
             TravelImage travelImage = travel.TravelImages.FirstOrDefault();
 
             String imageData = Convert.ToBase64String(travelImage.Content);
-            TravelViewModel travelViewModel = new TravelViewModel()
+            DetailsTravelOutputViewModel travelViewModel = new DetailsTravelOutputViewModel()
             {
                 Title = travelTranslationalInfoes.First().Title,
                 Description = travelTranslationalInfoes.First().Description,
@@ -167,6 +168,57 @@ namespace TravelAlbum.Web.Controllers
 
             travelImageService.Add(newTravelImage);
         }
+
+        [HttpGet]
+        public ActionResult GetTravels(string url, int pageIndex = 0)
+        {
+            var orderedTravels = this.travelService.GetLatesTravels(pageIndex);
+
+            TravelsOutputViewModel travelsOutputViewModel = new TravelsOutputViewModel();
+            if (orderedTravels != null && orderedTravels.Count() > 0)
+            {
+                foreach (var travel in orderedTravels)
+                {
+                    TravelSummaryOutputViewModel travelSummaryOutputViewModel = new TravelSummaryOutputViewModel();
+                    // string query = Request.Url.PathAndQuery;
+
+                    TranslatedData translatedData = new TranslatedData();
+                    //TODO: fix en and bg string conditions
+                    if (!(url.Contains("/en")))
+                    {
+                        translatedData = GetTranslatedTitle(travel, Language.Bulgarian);
+                    }
+                    else
+                    {
+                        translatedData = GetTranslatedTitle(travel, Language.English);
+                    }
+
+                    string imageData = Convert.ToBase64String(travel.TravelImages.First().Content);
+
+                    travelSummaryOutputViewModel.Id = travel.TravelId;
+                    travelSummaryOutputViewModel.Title = translatedData.Title;
+                    travelSummaryOutputViewModel.Description = translatedData.Descrption;
+                    travelSummaryOutputViewModel.ImageData = imageData;
+                    travelsOutputViewModel.travels.Add(travelSummaryOutputViewModel);
+                }
+
+                return this.View(travelsOutputViewModel);
+            }
+            else
+            {
+                return this.View(travelsOutputViewModel);
+            }
+        }
+
+
+        private TranslatedData GetTranslatedTitle(Travel travel, Language language)
+        {
+            IEnumerable<TravelTranslationalInfo> infos =
+                                    travel.TranslatedTravels.Where(x => x.Language == language).ToList();
+            TravelTranslationalInfo travelTranslationalInfo = infos.First();
+            TranslatedData translatedData = new TranslatedData(travelTranslationalInfo.Title, travelTranslationalInfo.Description);
+            return translatedData;           
+        }       
 
         [HttpGet]
         public ActionResult All()

@@ -1,0 +1,45 @@
+﻿.clearfix:after {
+    content: ".";
+    visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
+}
+
+.travels-container {
+
+    width: 45%;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:30px;
+    margin-bottom:30px
+}
+
+.travels-image {
+    float: left;
+    clear: left;
+    width: 400px;
+    height: 250px;
+    margin-right:10px
+}
+
+
+
+
+
+.travels-description {
+    text-align: justify;
+    font-size: 18px;
+    text-overflow: ellipsis;
+    max-width: 75ch;
+    height: 300px
+}
+
+.travel-title {  
+    display:table;
+    font-size:22px;
+    margin:0 auto;  
+    margin-top:5px;
+    margin-bottom:5px;
+}

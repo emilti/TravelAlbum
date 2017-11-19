@@ -88,7 +88,7 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
             travelsController
                 .WithCallTo(b => b.Details(travelObjectMock.TravelId))
                 .ShouldRenderDefaultView()
-                .WithModel<TravelViewModel>(viewModel =>
+                .WithModel<DetailsTravelOutputViewModel>(viewModel =>
                 {
                     Assert.AreEqual(travelTranslationalInfoMock.Title, viewModel.Title);
                     Assert.AreEqual(travelTranslationalInfoMock.Description, viewModel.Description);               
@@ -168,7 +168,7 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
             travelsController
                 .WithCallTo(b => b.Details(travelObjectMock.TravelId))
                 .ShouldRenderDefaultView()
-                .WithModel<TravelViewModel>(viewModel =>
+                .WithModel<DetailsTravelOutputViewModel>(viewModel =>
                 {
                     Assert.AreEqual(travelTranslationalInfoMock.Title, viewModel.Title);
                     Assert.AreEqual(travelTranslationalInfoMock.Description, viewModel.Description);

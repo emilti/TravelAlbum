@@ -52,10 +52,10 @@ namespace TravelAlbum.DataServices
             this.travelAlbumEfDbContextSaveChanges.SaveChanges();
         }
 
-        public IEnumerable<Travel> GetLatesTravels()
+        public IEnumerable<Travel> GetLatesTravels(int pageIndex)
         {
             IQueryable<Travel> travels = travelSetWrapper.All;
-            var orderedTravels = travels.OrderByDescending(a => a.StartDate).Take(4).ToList();
+            var orderedTravels = travels.OrderByDescending(a => a.StartDate).Skip(2 * pageIndex).Take(2).ToList();
             return orderedTravels;
         }
     }

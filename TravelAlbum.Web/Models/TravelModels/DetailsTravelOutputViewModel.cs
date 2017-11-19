@@ -6,11 +6,9 @@ using TravelAlbum.Models;
 
 namespace TravelAlbum.Web.Models.TravelModels
 {
-    public class TravelViewModel
+    public class DetailsTravelOutputViewModel
     {
         public Guid Id { get; set; }      
-
-        public Language Language { get; set; }
 
         public string Title { get; set; }
 
