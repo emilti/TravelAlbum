@@ -28,7 +28,7 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
 
             Travel travelObjectMock = new Travel()
             {
-                TravelId = travelId,
+                TravelObjectId = travelId,
                 CreatedOn = DateTime.Now
             };
 
@@ -36,8 +36,8 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
             TravelTranslationalInfo travelTranslationalInfoMock =
             new TravelTranslationalInfo()
             {
-                TravelId = travelObjectMock.TravelId,
-                Travel = travelObjectMock,
+                TravelObjectId = travelObjectMock.TravelObjectId,
+                TravelObject = travelObjectMock,
                 Title = "Тест заглавие",
                 Description = "Тест описание",
                 Language = Language.Bulgarian
@@ -45,7 +45,7 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
 
             TravelImage travelImageMock = new TravelImage()
             {
-                TravelId = travelObjectMock.TravelId,
+                TravelImageId = travelObjectMock.TravelObjectId,
                 Travel = travelObjectMock,
                 Content = new byte[] {1,2}
             };
@@ -54,10 +54,10 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
             travelObjectMock.TravelImages.Add(travelImageMock);
 
             travelServiceMock.Setup(
-                m => m.GetById((Guid?)travelObjectMock.TravelId))
+                m => m.GetById((Guid?)travelObjectMock.TravelObjectId))
                 .Returns(new Travel()
                 {                    
-                    TravelId = travelObjectMock.TravelId,
+                    TravelObjectId = travelObjectMock.TravelObjectId,
                     CreatedOn = DateTime.Now,
                     TranslatedTravels =
                     {
@@ -86,7 +86,7 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
             
             // Act & Assert
             travelsController
-                .WithCallTo(b => b.Details(travelObjectMock.TravelId))
+                .WithCallTo(b => b.Details(travelObjectMock.TravelObjectId))
                 .ShouldRenderDefaultView()
                 .WithModel<DetailsTravelOutputViewModel>(viewModel =>
                 {
@@ -108,7 +108,7 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
 
             Travel travelObjectMock = new Travel()
             {
-                TravelId = travelId,
+                TravelObjectId = travelId,
                 CreatedOn = DateTime.Now
             };
 
@@ -116,8 +116,8 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
             TravelTranslationalInfo travelTranslationalInfoMock =
             new TravelTranslationalInfo()
             {
-                TravelId = travelObjectMock.TravelId,
-                Travel = travelObjectMock,
+                TravelObjectId = travelObjectMock.TravelObjectId,
+                TravelObject = travelObjectMock,
                 Title = "Test title",
                 Description = "Test description",
                 Language = Language.English
@@ -125,7 +125,7 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
 
             TravelImage travelImageMock = new TravelImage()
             {
-                TravelId = travelObjectMock.TravelId,
+                TravelImageId = travelObjectMock.TravelObjectId,
                 Travel = travelObjectMock,
                 Content = new byte[] { 1, 2 }
             };
@@ -134,10 +134,10 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
             travelObjectMock.TravelImages.Add(travelImageMock);
 
             travelServiceMock.Setup(
-                m => m.GetById((Guid?)travelObjectMock.TravelId))
+                m => m.GetById((Guid?)travelObjectMock.TravelObjectId))
                 .Returns(new Travel()
                 {
-                    TravelId = travelObjectMock.TravelId,
+                    TravelObjectId = travelObjectMock.TravelObjectId,
                     CreatedOn = DateTime.Now,
                     TranslatedTravels =
                     {
@@ -166,7 +166,7 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
 
             // Act & Assert
             travelsController
-                .WithCallTo(b => b.Details(travelObjectMock.TravelId))
+                .WithCallTo(b => b.Details(travelObjectMock.TravelObjectId))
                 .ShouldRenderDefaultView()
                 .WithModel<DetailsTravelOutputViewModel>(viewModel =>
                 {

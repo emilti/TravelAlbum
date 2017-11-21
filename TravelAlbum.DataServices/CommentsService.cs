@@ -9,11 +9,11 @@ namespace TravelAlbum.DataServices
 {
     public class CommentsService : ICommentsService
     {
-        private readonly IEfDbSetWrapper<SingleImageComment> commentsSetWrapper;
+        private readonly IEfDbSetWrapper<Comment> commentsSetWrapper;
 
         private readonly ITravelAlbumEfDbContextSaveChanges travelAlbumEfDbContextSaveChanges;
 
-        public CommentsService(IEfDbSetWrapper<SingleImageComment> commentsSetWrapper, ITravelAlbumEfDbContextSaveChanges travelAlbumEfDbContextSaveChanges)
+        public CommentsService(IEfDbSetWrapper<Comment> commentsSetWrapper, ITravelAlbumEfDbContextSaveChanges travelAlbumEfDbContextSaveChanges)
         {
             Guard.WhenArgument(commentsSetWrapper, "commentsSetWrapper").IsNull().Throw();
             Guard.WhenArgument(travelAlbumEfDbContextSaveChanges, "travelAlbumEfDbContextSaveChanges").IsNull().Throw();
@@ -22,26 +22,26 @@ namespace TravelAlbum.DataServices
             this.travelAlbumEfDbContextSaveChanges = travelAlbumEfDbContextSaveChanges;
         }
 
-        public void Add(SingleImageComment singleImageComment)
+        public void Add(Comment singleImageComment)
         { 
             this.commentsSetWrapper.Add(singleImageComment);
             this.travelAlbumEfDbContextSaveChanges.SaveChanges();
         }       
 
-        public IQueryable<SingleImageComment> All()
+        public IQueryable<Comment> All()
         {
             return this.commentsSetWrapper.All;
         }
 
-        public void DeleteComment(SingleImageComment singleImageComment)
+        public void DeleteComment(Comment singleImageComment)
         {
             this.commentsSetWrapper.Delete(singleImageComment);
             this.travelAlbumEfDbContextSaveChanges.SaveChanges();
         }
 
-        public SingleImageComment GetById(Guid commentId)
+        public Comment GetById(Guid commentId)
         {
-            SingleImageComment foundComment = this.commentsSetWrapper.GetById(commentId);
+            Comment foundComment = this.commentsSetWrapper.GetById(commentId);
             return foundComment;
         }
 

@@ -32,7 +32,7 @@ namespace TravelAlbum.UnitTests.Controllers.SingleImagesControllerTests
 
             SingleImage singleImageObjectMock = new SingleImage()
             {
-                SingleImageId = singleImageId,
+                TravelObjectId = singleImageId,
                 Content = new byte[2] { 1, 2 },
                 CreatedOn = new DateTime(2017, 10, 10)
             };
@@ -40,7 +40,7 @@ namespace TravelAlbum.UnitTests.Controllers.SingleImagesControllerTests
             SingleImageTranslationalInfo singleImageTranslationalInfoMock =
             new SingleImageTranslationalInfo()
             {
-                SingleImageId = singleImageObjectMock.SingleImageId,
+                TravelObjectId = singleImageObjectMock.TravelObjectId,
                 SingleImage = singleImageObjectMock,
                 SingleImageTranslationalInfoId = Guid.NewGuid(),
                 Description = "Тест описание снимка",
@@ -50,10 +50,10 @@ namespace TravelAlbum.UnitTests.Controllers.SingleImagesControllerTests
             singleImageObjectMock.TranslatedInfoes.Add(singleImageTranslationalInfoMock);
 
             singleImageServiceMock.Setup(
-                m => m.GetById((Guid?)singleImageObjectMock.SingleImageId))
+                m => m.GetById((Guid?)singleImageObjectMock.TravelObjectId))
                 .Returns(new SingleImage()
                 {
-                    SingleImageId = singleImageObjectMock.SingleImageId,
+                    TravelObjectId = singleImageObjectMock.TravelObjectId,
                     CreatedOn = singleImageObjectMock.CreatedOn,
                     Content = singleImageObjectMock.Content,
                     TranslatedInfoes =
@@ -75,7 +75,7 @@ namespace TravelAlbum.UnitTests.Controllers.SingleImagesControllerTests
 
             // Act & Assert
             singleImagesController
-            .WithCallTo(b => b.Details(singleImageObjectMock.SingleImageId))
+            .WithCallTo(b => b.Details(singleImageObjectMock.TravelObjectId))
                 .ShouldRenderDefaultView()
                 .WithModel<SingleImageOutputViewModel>(viewModel =>
                 {
@@ -95,7 +95,7 @@ namespace TravelAlbum.UnitTests.Controllers.SingleImagesControllerTests
 
             SingleImage singleImageObjectMock = new SingleImage()
             {
-                SingleImageId = singleImageId,
+                TravelObjectId = singleImageId,
                 Content = new byte[2] { 1, 2 },
                 CreatedOn = new DateTime(2017, 09, 09)
             };
@@ -103,7 +103,7 @@ namespace TravelAlbum.UnitTests.Controllers.SingleImagesControllerTests
             SingleImageTranslationalInfo singleImageTranslationalInfoMock =
             new SingleImageTranslationalInfo()
             {
-                SingleImageId = singleImageObjectMock.SingleImageId,
+                TravelObjectId = singleImageObjectMock.TravelObjectId,
                 SingleImage = singleImageObjectMock,
                 SingleImageTranslationalInfoId = Guid.NewGuid(),
                 Description = "Test description photo",
@@ -113,10 +113,10 @@ namespace TravelAlbum.UnitTests.Controllers.SingleImagesControllerTests
             singleImageObjectMock.TranslatedInfoes.Add(singleImageTranslationalInfoMock);
 
             singleImageServiceMock.Setup(
-                m => m.GetById((Guid?)singleImageObjectMock.SingleImageId))
+                m => m.GetById((Guid?)singleImageObjectMock.TravelObjectId))
                 .Returns(new SingleImage()
                 {
-                    SingleImageId = singleImageObjectMock.SingleImageId,
+                    TravelObjectId = singleImageObjectMock.TravelObjectId,
                     CreatedOn = singleImageObjectMock.CreatedOn,
                     Content = singleImageObjectMock.Content,
                     TranslatedInfoes =
@@ -138,7 +138,7 @@ namespace TravelAlbum.UnitTests.Controllers.SingleImagesControllerTests
 
             // Act & Assert
             singleImagesController
-            .WithCallTo(b => b.Details(singleImageObjectMock.SingleImageId))
+            .WithCallTo(b => b.Details(singleImageObjectMock.TravelObjectId))
                 .ShouldRenderDefaultView()
                 .WithModel<SingleImageOutputViewModel>(viewModel =>
                 {

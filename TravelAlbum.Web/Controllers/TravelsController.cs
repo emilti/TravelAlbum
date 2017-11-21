@@ -38,7 +38,7 @@ namespace TravelAlbum.Web.Controllers
         {
             TravelTranslationalInfo travelByTitle = travelService.GetTravelByTitle(inputModel.Search);
 
-            return RedirectToAction("Details", "Travels", new { id = travelByTitle.TravelId });
+            return RedirectToAction("Details", "Travels", new { id = travelByTitle.TravelObjectId });
         }
 
         [HttpGet]
@@ -100,7 +100,7 @@ namespace TravelAlbum.Web.Controllers
         {
             Travel newTravel = new Travel
             {
-                TravelId = Guid.NewGuid(),
+                TravelObjectId = Guid.NewGuid(),
                 CreatedOn = DateTime.Now,
                 StartDate = new DateTime(2017, 08, 10),
                 EndDate = DateTime.Now
@@ -113,7 +113,7 @@ namespace TravelAlbum.Web.Controllers
                 TravelTranslationalInfoId = Guid.NewGuid(),
                 Title = travelForAdding.bgTitle,
                 Description = travelForAdding.bgDescription,
-                Travel = newTravel,
+                TravelObject = newTravel,
                 Language = Language.Bulgarian
             };
 
@@ -125,7 +125,7 @@ namespace TravelAlbum.Web.Controllers
                 TravelTranslationalInfoId = Guid.NewGuid(),
                 Title = travelForAdding.enTitle,
                 Description = travelForAdding.enDescription,
-                Travel = newTravel,
+                TravelObject = newTravel,
                 Language = Language.English
             };
 
@@ -145,7 +145,7 @@ namespace TravelAlbum.Web.Controllers
             GenerateImage(image_4, newTravel);
 
             
-            return this.RedirectToAction("Details", "Travels", new { id = newTravel.TravelId });
+            return this.RedirectToAction("Details", "Travels", new { id = newTravel.TravelObjectId });
         }
 
         private void GenerateImage(HttpPostedFileBase image, Travel newTravel)
@@ -195,7 +195,7 @@ namespace TravelAlbum.Web.Controllers
 
                     string imageData = Convert.ToBase64String(travel.TravelImages.First().Content);
 
-                    travelSummaryOutputViewModel.Id = travel.TravelId;
+                    travelSummaryOutputViewModel.Id = travel.TravelObjectId;
                     travelSummaryOutputViewModel.Title = translatedData.Title;
                     travelSummaryOutputViewModel.Description = translatedData.Descrption;
                     travelSummaryOutputViewModel.ImageData = imageData;

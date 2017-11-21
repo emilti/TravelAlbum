@@ -13,9 +13,9 @@ namespace TravelAlbum.Models
         [Key]
         public Guid TravelImageId { get; set; }
 
-        public Guid TravelId { get; set; }
+        public Guid TravelObject { get; set; }
 
-        [ForeignKey("TravelId")]
+        [ForeignKey("TravelObject")]
         public virtual Travel Travel { get; set; }
 
         public byte[] Content { get; set; }

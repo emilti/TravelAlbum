@@ -7,9 +7,9 @@ namespace TravelAlbum.Models
     {
         public Guid SingleImageTranslationalInfoId { get; set;}
 
-        public Guid SingleImageId { get; set; }
+        public Guid TravelObjectId { get; set; }
 
-        [ForeignKey("SingleImageId")]
+        [ForeignKey("TravelObjectId")]
         public virtual SingleImage SingleImage { get; set; }
 
         public string Description { get; set; }

@@ -42,8 +42,8 @@ namespace TravelAlbum.Web.Controllers
         {
             SingleImage singleImage = this.singleImageService.GetById(id);
 
-            List<SingleImageComment> comments =
-                singleImage.SingleImageComments.AsQueryable().OrderByDescending(x => x.CreatedOn).Take(5 * page).ToList();
+            List<Comment> comments =
+                singleImage.Comments.AsQueryable().OrderByDescending(x => x.CreatedOn).Take(5 * page).ToList();
 
             
 
@@ -81,15 +81,15 @@ namespace TravelAlbum.Web.Controllers
                 SingleImage commentedSingleImage = this.singleImageService.GetById(id);
                 ApplicationUser user = this.usersService.GetUserDetails(this.User.Identity.GetUserId());
                 string username = user.UserName;
-                SingleImageComment singleImageComment = new SingleImageComment()
+                Comment singleImageComment = new Comment()
                 {
-                    SingleImageCommentId = Guid.NewGuid(),
+                    CommentId = Guid.NewGuid(),
                     Content = content,
                     Author = user,
                     AuthorId = user.Id,
                     AuthorName = username,
-                    SingleImage = commentedSingleImage,
-                    SingleImageId = commentedSingleImage.SingleImageId,
+                    TravelObject = commentedSingleImage,
+                    TravelObjectId = commentedSingleImage.TravelObjectId,
                     CreatedOn = DateTime.Now,
                     IsDeleted = false
                 };

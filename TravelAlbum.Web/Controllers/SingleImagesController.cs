@@ -50,7 +50,7 @@ namespace TravelAlbum.Web.Controllers
 
             SingleImage newSingleImage = new SingleImage
             {
-                SingleImageId = Guid.NewGuid(),
+                TravelObjectId = Guid.NewGuid(),
                 CreatedOn = DateTime.Now,
                 Content = imageData
             };
@@ -61,8 +61,8 @@ namespace TravelAlbum.Web.Controllers
             {
                 SingleImageTranslationalInfoId = Guid.NewGuid(),
                 Description = singleImageForAdding.bgDescription,
-                SingleImage = newSingleImage,
-                SingleImageId = newSingleImage.SingleImageId,
+                SingleImage = newSingleImage,                
+                TravelObjectId = newSingleImage.TravelObjectId,
                 Language = Language.Bulgarian
             };
 
@@ -74,7 +74,7 @@ namespace TravelAlbum.Web.Controllers
                 SingleImageTranslationalInfoId = Guid.NewGuid(),
                 Description = singleImageForAdding.enDescription,
                 SingleImage = newSingleImage,
-                SingleImageId = newSingleImage.SingleImageId,
+                TravelObjectId = newSingleImage.TravelObjectId,
                 Language = Language.English
             };
 
@@ -124,7 +124,7 @@ namespace TravelAlbum.Web.Controllers
             String imageData = Convert.ToBase64String(singleImage.Content);
             SingleImageOutputViewModel singleImageOutputViewModel = new SingleImageOutputViewModel()
             {
-                SingleImageId = singleImage.SingleImageId,
+                SingleImageId = singleImage.TravelObjectId,
                 CreatedOn = singleImage.CreatedOn,
                 SingleImageData = imageData,
                 Description = singleImageTranslationalInfo.Description

@@ -49,7 +49,7 @@ namespace TravelAlbum.Web.Controllers
 
                     string imageData = Convert.ToBase64String(singleImage.Content);
 
-                    singleImageOutputViewModel.SingleImageId = singleImage.SingleImageId;
+                    singleImageOutputViewModel.SingleImageId = singleImage.TravelObjectId;
                     singleImageOutputViewModel.Description = description;
                     singleImageOutputViewModel.SingleImageData = imageData;
                     singleImageOutputViewModel.CreatedOn = singleImage.CreatedOn;                    

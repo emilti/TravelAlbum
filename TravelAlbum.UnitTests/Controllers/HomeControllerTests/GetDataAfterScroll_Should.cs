@@ -20,21 +20,21 @@ namespace TravelAlbum.UnitTests.Controllers.HomeControllerTests
 
             SingleImage singleImage1 = new SingleImage()
             {
-                SingleImageId = Guid.NewGuid(),
+                TravelObjectId = Guid.NewGuid(),
                 Content = new byte[2] {1, 2},
                 CreatedOn = new DateTime(2016, 9, 9)
             };
 
             SingleImage singleImage2 = new SingleImage()
             {
-                SingleImageId = Guid.NewGuid(),
+                TravelObjectId = Guid.NewGuid(),
                 Content = new byte[2] { 1, 2 },
                 CreatedOn = new DateTime(2017, 10, 10)
             };
 
             SingleImage singleImage3 = new SingleImage()
             {
-                SingleImageId = Guid.NewGuid(),
+                TravelObjectId = Guid.NewGuid(),
                 Content = new byte[2] { 1, 2 },
                 CreatedOn = new DateTime(2015, 2, 2)
             };
@@ -44,7 +44,7 @@ namespace TravelAlbum.UnitTests.Controllers.HomeControllerTests
             {
                 Description = "Test Description Single Image 1",
                 SingleImage = singleImage1,
-                SingleImageId = singleImage1.SingleImageId,
+                TravelObjectId = singleImage1.TravelObjectId,
                 Language = Language.English
             };
 
@@ -52,7 +52,7 @@ namespace TravelAlbum.UnitTests.Controllers.HomeControllerTests
             {
                 Description = "Test Description Single Image 2",
                 SingleImage = singleImage2,
-                SingleImageId = singleImage2.SingleImageId,
+                TravelObjectId = singleImage2.TravelObjectId,
                 Language = Language.English
             };
 
@@ -60,7 +60,7 @@ namespace TravelAlbum.UnitTests.Controllers.HomeControllerTests
             {
                 Description = "Test Description Single Image 3",
                 SingleImage = singleImage3,
-                SingleImageId = singleImage3.SingleImageId,
+                TravelObjectId = singleImage3.TravelObjectId,
                 Language = Language.English
             };
 
@@ -68,7 +68,7 @@ namespace TravelAlbum.UnitTests.Controllers.HomeControllerTests
             {
                 Description = "Тест описание Single Image 1",
                 SingleImage = singleImage1,
-                SingleImageId = singleImage1.SingleImageId,
+                TravelObjectId = singleImage1.TravelObjectId,
                 Language = Language.Bulgarian
             };
 
@@ -76,7 +76,7 @@ namespace TravelAlbum.UnitTests.Controllers.HomeControllerTests
             {
                 Description = "Тест описание Single Image 2",
                 SingleImage = singleImage2,
-                SingleImageId = singleImage2.SingleImageId,
+                TravelObjectId = singleImage2.TravelObjectId,
                 Language = Language.Bulgarian
             };
 
@@ -84,7 +84,7 @@ namespace TravelAlbum.UnitTests.Controllers.HomeControllerTests
             {
                 Description = "Тест описание Single Image 3",
                 SingleImage = singleImage3,
-                SingleImageId = singleImage3.SingleImageId,
+                TravelObjectId = singleImage3.TravelObjectId,
                 Language = Language.Bulgarian
             };
 
@@ -126,14 +126,14 @@ namespace TravelAlbum.UnitTests.Controllers.HomeControllerTests
 
             SingleImage singleImage1 = new SingleImage()
             {
-                SingleImageId = Guid.NewGuid(),
+                TravelObjectId = Guid.NewGuid(),
                 Content = new byte[2] { 1, 2 },
                 CreatedOn = new DateTime(2016, 9, 9)
             };
 
             SingleImage singleImage2 = new SingleImage()
             {
-                SingleImageId = Guid.NewGuid(),
+                TravelObjectId = Guid.NewGuid(),
                 Content = new byte[2] { 1, 2 },
                 CreatedOn = new DateTime(2017, 10, 10)
             };   
@@ -142,7 +142,7 @@ namespace TravelAlbum.UnitTests.Controllers.HomeControllerTests
             {
                 Description = "Тест описание Single Image 1",
                 SingleImage = singleImage1,
-                SingleImageId = singleImage1.SingleImageId,
+                TravelObjectId = singleImage1.TravelObjectId,
                 Language = Language.Bulgarian
             };
 
@@ -150,7 +150,7 @@ namespace TravelAlbum.UnitTests.Controllers.HomeControllerTests
             {
                 Description = "Тест описание Single Image 2",
                 SingleImage = singleImage2,
-                SingleImageId = singleImage2.SingleImageId,
+                TravelObjectId = singleImage2.TravelObjectId,
                 Language = Language.Bulgarian
             };
 

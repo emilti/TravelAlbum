@@ -3,19 +3,19 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TravelAlbum.Models
 {
-    public class SingleImageComment
+    public class Comment
     {
         [Key]
-        public Guid SingleImageCommentId { get; set; }
+        public Guid CommentId { get; set; }
 
         [Required]        
         [RegularExpression(@"^[^<>]*$", ErrorMessage = "Invalid symbol")]
         [StringLength(200, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 2)]
         public string Content { get; set; }
 
-        public Guid SingleImageId { get; set; }
+        public Guid TravelObjectId { get; set; }
 
-        public virtual SingleImage SingleImage { get; set; }
+        public virtual TravelObject TravelObject { get; set; }
 
         public string AuthorName { get; set; }
 

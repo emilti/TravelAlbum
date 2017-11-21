@@ -18,7 +18,7 @@ namespace TravelAlbum.UnitTests.DataServices.TravelServiceTests
             var dbContextMock = new Mock<ITravelAlbumEfDbContextSaveChanges>();
             Guid? travelId = Guid.NewGuid();
 
-            wrapperMock.Setup(m => m.GetById(travelId.Value)).Returns(new Travel() { TravelId = travelId.Value, CreatedOn = DateTime.Now });
+            wrapperMock.Setup(m => m.GetById(travelId.Value)).Returns(new Travel() { TravelObjectId = travelId.Value, CreatedOn = DateTime.Now });
 
             TravelService travelService = new TravelService(wrapperMock.Object, dbContextMock.Object);
 

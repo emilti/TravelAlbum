@@ -10,10 +10,10 @@ namespace TravelAlbum.Models
         [Key]
         public Guid TravelTranslationalInfoId { get; set; }
 
-        public Guid TravelId { get; set; }
+        public Guid TravelObjectId { get; set; }
         
-        [ForeignKey("TravelId")]
-        public virtual Travel Travel { get; set; }
+        [ForeignKey("TravelObjectId")]
+        public virtual Travel TravelObject { get; set; }
         
         public Language Language { get; set; }
 

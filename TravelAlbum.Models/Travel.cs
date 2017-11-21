@@ -5,11 +5,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TravelAlbum.Models
 {
-    public class Travel
+
+    [Table("Travel")]
+    public class Travel : TravelObject
     {
         private ICollection<TravelTranslationalInfo> translatedTravels;
 
         private ICollection<TravelImage> travelImages;
+
 
         private ICollection<ApplicationUser> usersLiked;
 
@@ -20,8 +23,8 @@ namespace TravelAlbum.Models
             this.UsersLiked = new HashSet<ApplicationUser>();
         }
 
-        [Key]
-        public Guid TravelId { get; set; }
+        // [Key]
+        // public Guid TravelId { get; set; }
 
         public DateTime? StartDate { get; set; }
 

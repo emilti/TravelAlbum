@@ -22,21 +22,21 @@ namespace TravelAlbum.UnitTests.DataServices.SingleImageServiceTests
 
             SingleImage singleImage = new SingleImage()
             {
-                SingleImageId = Guid.NewGuid(),
+                TravelObjectId = Guid.NewGuid(),
                 CreatedOn = new DateTime(2017, 10, 10),
                 Content = new byte[2] { 1, 2 }
             };
 
             SingleImage singleImage2 = new SingleImage()
             {
-                SingleImageId = Guid.NewGuid(),
+                TravelObjectId = Guid.NewGuid(),
                 CreatedOn = new DateTime(2016, 9, 9),
                 Content = new byte[2] { 1, 3 }
             };
 
             SingleImage singleImage3 = new SingleImage()
             {
-                SingleImageId = Guid.NewGuid(),
+                TravelObjectId = Guid.NewGuid(),
                 CreatedOn = new DateTime(2016, 9, 9),
                 Content = new byte[3] { 1, 2, 3 }
             };
@@ -45,7 +45,7 @@ namespace TravelAlbum.UnitTests.DataServices.SingleImageServiceTests
             {
                 Description = "Test Description",
                 SingleImage = singleImage,
-                SingleImageId = singleImage.SingleImageId,
+                TravelObjectId = singleImage.TravelObjectId,
                 Language = Language.English
             };
 

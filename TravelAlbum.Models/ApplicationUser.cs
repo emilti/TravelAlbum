@@ -11,12 +11,12 @@ namespace TravelAlbum.Models
     public class ApplicationUser : IdentityUser
     {       
         private ICollection<Travel> favoriteTravels;
-        private ICollection<SingleImageComment> singleImageComments;
+        private ICollection<Comment> singleImageComments;
         
         public ApplicationUser()
         {         
             this.FavoriteTravels = new HashSet<Travel>();
-            this.SingleImageComments = new HashSet<SingleImageComment>();
+            this.SingleImageComments = new HashSet<Comment>();
         }
 
         [Required]       
@@ -35,7 +35,7 @@ namespace TravelAlbum.Models
         }
 
 
-        public virtual ICollection<SingleImageComment> SingleImageComments
+        public virtual ICollection<Comment> SingleImageComments
         {
             get { return this.singleImageComments; }
             set { this.singleImageComments = value; }

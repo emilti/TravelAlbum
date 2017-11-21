@@ -1,23 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TravelAlbum.Models
 {
-    public class SingleImage
+
+    [Table("SingleImage")]
+    public class SingleImage : TravelObject
     {
         private ICollection<SingleImageTranslationalInfo> translatedInfoes;
 
-        private ICollection<SingleImageComment> singleImageComment;
-
         public SingleImage()
         {
-            this.TranslatedInfoes = new HashSet<SingleImageTranslationalInfo>();  
-            this.SingleImageComments = new HashSet<SingleImageComment>();
-        }
-
-        [Key]
-        public Guid SingleImageId { get; set; }
+            this.TranslatedInfoes = new HashSet<SingleImageTranslationalInfo>();             
+        }       
 
         public byte[] Content { get; set; }
 
@@ -27,12 +24,6 @@ namespace TravelAlbum.Models
         {
             get { return this.translatedInfoes; }
             set { this.translatedInfoes = value; }
-        }
-
-        public virtual ICollection<SingleImageComment> SingleImageComments
-        {
-            get { return this.singleImageComment; }
-            set { this.singleImageComment = value; }
-        }
+        }       
     }
 }

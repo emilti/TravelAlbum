@@ -18,7 +18,7 @@ namespace TravelAlbum.Data
             return new TravelAlbumEfDbContext();
         }
 
-        public virtual IDbSet<Travel> Travels { get; set; }
+        public virtual IDbSet<TravelObject> TravelObjects { get; set; }
 
         public virtual IDbSet<TravelTranslationalInfo> TravelTranslatinalInfoes { get; set; }
 
@@ -26,11 +26,11 @@ namespace TravelAlbum.Data
 
         public virtual IDbSet<Mountain> Mountains { get; set; }
 
-        public virtual IDbSet<SingleImage> SingleImages { get; set; }
+        // public virtual IDbSet<SingleImage> SingleImages { get; set; }
 
         public virtual IDbSet<SingleImageTranslationalInfo> SingleImageTranslationalInfoes { get; set; }
 
-        public virtual IDbSet<SingleImageComment> Comments { get; set; }
+        public virtual IDbSet<Comment> Comments { get; set; }
 
         public new IDbSet<T> Set<T>() where T : class
         {
