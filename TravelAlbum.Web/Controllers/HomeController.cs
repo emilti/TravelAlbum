@@ -55,7 +55,7 @@ namespace TravelAlbum.Web.Controllers
                     singleImageOutputViewModel.CreatedOn = singleImage.CreatedOn;                    
                     images.Add(singleImageOutputViewModel);
                 }
-
+               
                 return Json(images, JsonRequestBehavior.AllowGet);
             }
             else
