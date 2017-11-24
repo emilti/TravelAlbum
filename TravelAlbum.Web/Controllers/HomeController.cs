@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web.Mvc;
 using TravelAlbum.DataServices.Contracts;
 using TravelAlbum.Models;
+using TravelAlbum.Web.Helpers;
 using TravelAlbum.Web.Models.SingleImageModels;
 
 namespace TravelAlbum.Web.Controllers
@@ -55,12 +56,16 @@ namespace TravelAlbum.Web.Controllers
                     singleImageOutputViewModel.CreatedOn = singleImage.CreatedOn;                    
                     images.Add(singleImageOutputViewModel);
                 }
-               
-                return Json(images, JsonRequestBehavior.AllowGet);
+
+                var jsonResult = Json(images, JsonRequestBehavior.AllowGet);
+                jsonResult.MaxJsonLength = int.MaxValue;
+                return jsonResult;
             }
             else
             {
-                return Json(images, JsonRequestBehavior.AllowGet);
+                var jsonResult = Json(images, JsonRequestBehavior.AllowGet);
+                jsonResult.MaxJsonLength = int.MaxValue;
+                return jsonResult;
             }
         }
 
