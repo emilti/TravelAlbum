@@ -24,17 +24,16 @@
     margin-right:10px
 }
 
-
-
-
-
 .travels-description {
     text-align: justify;
     font-size: 18px;
     text-overflow: ellipsis;
     max-width: 75ch;
-    height: 300px
+    height: 300px;
+    text-decoration: none;    
 }
+
+   
 
 .travel-title {  
     display:table;
@@ -43,3 +42,19 @@
     margin-top:5px;
     margin-bottom:5px;
 }
+
+.single-travel-link {
+    text-decoration: none;
+    font: 12px arial;
+    color: darkslategrey
+}
+
+    .single-travel-link:hover {
+        text-decoration: none;
+        color: darkslategrey;        
+    }
+
+    .single-travel-link:hover:first-child {
+        text-decoration: none;
+        color: black;
+    }
