@@ -3,6 +3,7 @@
 <div id="single-images-container">
 @if (Model != null && Model.singleImages != null)
 {
+
     foreach (var singleImage in Model.singleImages)
     {        
             <div class="single-image-container">
@@ -11,16 +12,14 @@
                 </a>                 
                     <div class="description">@singleImage.Description</div>
                     <div>@singleImage.CreatedOn</div>
-            </div>
-
-            <a href="@Url.Action("Details", "SingleImages", new { id = singleImage.SingleImageId })">
-              
-            </a>
+            </div>            
     }
 }
 
 </div>
-<div id="progress" style="display:none">
+
+<div style="clear:both">
+<div id="progress" style="display:none;">
     <h4>Loading...</h4>
 </div>
 
@@ -33,7 +32,7 @@
 }
 
 <div id="url-path">@Request.Url.PathAndQuery;</div>
-
+</div>
 @section SingleImagesLoader{   
 <script src="~/Scripts/Custom/single-images-loader.js"></script>
 }

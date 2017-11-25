@@ -1,5 +1,4 @@
 ﻿@model TravelAlbum.Web.Models.TravelModels.DetailsTravelOutputViewModel
-
 Details
 
 <br/>
@@ -11,3 +10,21 @@ Details
 -------------------<br />
 <br/>
 <img src="@String.Format("data:image/jpg;base64,{0}", Model.ImageData)" />
+
+
+<div style="height:10px;clear:both;"></div>
+
+<textarea class="add-comment-textarea" rows="4" cols="90" placeholder="Add Comment" name="Content"></textarea>
+<button class="submit-travel-comment-button btn btn-primary" data-id="@Model.Id">Add comment</button>
+<div id="latest-comments-container" class="row">
+
+</div>
+
+<div id="comments-container" data-id="@Model.Id" data-route="/Travels/Details/"></div>
+
+<button id="show-comments-button" class="btn btn-primary">Show Comments</button>
+
+
+@section CommentsSection{
+    <script src="~/Scripts/Custom/comments-controller.js"></script>
+}

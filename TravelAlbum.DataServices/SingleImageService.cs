@@ -56,7 +56,7 @@ namespace TravelAlbum.DataServices
         public IEnumerable<SingleImage> GetLatesSingleImages(int pageIndex)
         {
             IQueryable<SingleImage> singleImages = singleImageSetWrapper.All;
-            var orderedSingleImages = singleImages.OrderByDescending(a => a.CreatedOn).Skip(2 * pageIndex).Take(2).ToList();
+            var orderedSingleImages = singleImages.OrderByDescending(a => a.CreatedOn).Skip(6 * pageIndex).Take(6).ToList();
             return orderedSingleImages;
         }
 

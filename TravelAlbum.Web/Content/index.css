@@ -1,11 +1,19 @@
-﻿.single-image {
-    padding-top:10px; 
-    padding-bottom:10px
+﻿#single-images-container {
+    clear:both
+}
+
+#progress {
+    clear:both
 }
 
 .single-image {
-    width: 50%;
-    height: 50%;
+    padding-top: 10px;
+    padding-bottom: 10px
+}
+
+.single-image {
+    width: 100%;
+    height: 100%;
     margin-left:auto;
     margin-right:auto;
     display:block
@@ -13,9 +21,14 @@
 
 
 .description {
-    width: 50%;
+    width: 30%;
     margin-left: auto;
     margin-right: auto;
     display: block;
     word-wrap: break-word;
+}
+
+.single-image-container{
+    width:30%;
+    float:left
 }

@@ -230,7 +230,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\LargeJSONResult.cs" />
     <Compile Include="Helpers\TranslationalData.cs" />
     <Compile Include="HttpModules\CultureModule.cs" />
     <Compile Include="Models\AccountViewModels.cs" />

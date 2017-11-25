@@ -62,13 +62,13 @@ namespace TravelAlbum.UnitTests.DataServices.SingleImageServiceTests
 
             SingleImageService singleImageService = new SingleImageService(wrapperMock.Object, dbContextMock.Object);
             var result = singleImageService.GetLatesSingleImages(0);
-            Assert.AreEqual(2, result.Count());
+            Assert.AreEqual(3, result.Count());
             Assert.AreEqual(new DateTime(2017, 10, 10), result.First().CreatedOn);
             Assert.AreEqual(new DateTime(2016, 9, 9), result.ElementAt(1).CreatedOn);
             Assert.AreEqual("Test Description", result.ElementAt(0).TranslatedInfoes.ElementAt(0).Description);
 
             var resultWithPageIndex1 = singleImageService.GetLatesSingleImages(1);
-            Assert.AreEqual(1, resultWithPageIndex1.Count());
+            Assert.AreEqual(0, resultWithPageIndex1.Count());
         }
     }
 }

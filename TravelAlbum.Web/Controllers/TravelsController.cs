@@ -79,6 +79,7 @@ namespace TravelAlbum.Web.Controllers
             String imageData = Convert.ToBase64String(travelImage.Content);
             DetailsTravelOutputViewModel travelViewModel = new DetailsTravelOutputViewModel()
             {
+                Id = travel.TravelObjectId,
                 Title = travelTranslationalInfoes.First().Title,
                 Description = travelTranslationalInfoes.First().Description,
                 ImageData = imageData

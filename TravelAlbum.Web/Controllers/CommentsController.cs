@@ -17,16 +17,22 @@ namespace TravelAlbum.Web.Controllers
         private readonly ICommentsService commentsService;
         private readonly ISingleImageService singleImageService;
         private readonly IApplicationUserService usersService;
+        private readonly ITravelObjectService travelObjectService;
+        private readonly ITravelService travelService;
 
-        public CommentsController(ICommentsService commentsService, ISingleImageService singleImageService, IApplicationUserService usersService)
+        public CommentsController(ICommentsService commentsService, ISingleImageService singleImageService, IApplicationUserService usersService, ITravelObjectService travelObjectService, ITravelService travelService)
         {
             Guard.WhenArgument(commentsService, "commentsService").IsNull().Throw();
             Guard.WhenArgument(singleImageService, "singleImageService").IsNull().Throw();
             Guard.WhenArgument(usersService, "usersService").IsNull().Throw();
+            Guard.WhenArgument(travelObjectService, "travelObjectService").IsNull().Throw();
+            Guard.WhenArgument(travelService, "travelService").IsNull().Throw();
 
             this.commentsService = commentsService;
             this.singleImageService = singleImageService;
             this.usersService = usersService;
+            this.travelObjectService = travelObjectService;
+            this.travelService = travelService;
         }
 
         [HttpGet]
@@ -40,10 +46,10 @@ namespace TravelAlbum.Web.Controllers
         [HttpGet]        
         public ActionResult ShowBatchComments(Guid id, int page = 1)
         {
-            SingleImage singleImage = this.singleImageService.GetById(id);
+            TravelObject travelObject = this.travelObjectService.GetById(id);
 
             List<Comment> comments =
-                singleImage.Comments.AsQueryable().OrderByDescending(x => x.CreatedOn).Take(5 * page).ToList();
+                travelObject.Comments.AsQueryable().OrderByDescending(x => x.CreatedOn).Take(5 * page).ToList();
 
             
 
@@ -71,34 +77,67 @@ namespace TravelAlbum.Web.Controllers
             return this.PartialView("_BatchCommentsPartial", batchCommentsViewModels);
         }
 
+        //TODO: Make one single method 
+        // [HttpPost]
+        // [Authorize]
+        // public ActionResult AddComment(Guid id, string content)
+        // {
+        //     if (this.ModelState.IsValid)
+        //     {
+        //         // FacilityComment mappedComment = AutoMapperConfig.Configuration.CreateMapper().Map<FacilityComment>(model);
+        //         SingleImage commentedSingleImage = this.singleImageService.GetById(id);
+        //         ApplicationUser user = this.usersService.GetUserDetails(this.User.Identity.GetUserId());
+        //         string username = user.UserName;
+        //         Comment singleImageComment = new Comment()
+        //         {
+        //             CommentId = Guid.NewGuid(),
+        //             Content = content,
+        //             Author = user,
+        //             AuthorId = user.Id,
+        //             AuthorName = username,
+        //             TravelObject = commentedSingleImage,
+        //             TravelObjectId = commentedSingleImage.TravelObjectId,
+        //             CreatedOn = DateTime.Now,
+        //             IsDeleted = false
+        //         };
+        // 
+        //         this.commentsService.Add(singleImageComment);
+        //         return this.RedirectToAction("Details", "SingleImages", new { id = id });
+        //     }
+        // 
+        //     return this.RedirectToAction("Details", "SingleImages", new { id = id });
+        // }
+
+
         [HttpPost]
         [Authorize]
-        public ActionResult AddComment(Guid id, string content)
+        public ActionResult AddComment(Guid id, string content, string controller)
         {
+
             if (this.ModelState.IsValid)
             {
                 // FacilityComment mappedComment = AutoMapperConfig.Configuration.CreateMapper().Map<FacilityComment>(model);
-                SingleImage commentedSingleImage = this.singleImageService.GetById(id);
+                TravelObject commentedTravel = this.travelObjectService.GetById(id);
                 ApplicationUser user = this.usersService.GetUserDetails(this.User.Identity.GetUserId());
                 string username = user.UserName;
-                Comment singleImageComment = new Comment()
+                Comment travelComment = new Comment()
                 {
                     CommentId = Guid.NewGuid(),
                     Content = content,
                     Author = user,
                     AuthorId = user.Id,
                     AuthorName = username,
-                    TravelObject = commentedSingleImage,
-                    TravelObjectId = commentedSingleImage.TravelObjectId,
+                    TravelObject = commentedTravel,
+                    TravelObjectId = commentedTravel.TravelObjectId,
                     CreatedOn = DateTime.Now,
                     IsDeleted = false
                 };
 
-                this.commentsService.Add(singleImageComment);
-                return this.RedirectToAction("Details", "SingleImages", new { id = id });
+                this.commentsService.Add(travelComment);
+                return this.RedirectToAction("Details", controller, new { id = id });
             }
-        
-            return this.RedirectToAction("Details", "SingleImages", new { id = id });
+
+            return this.RedirectToAction("Details", controller, new { id = id });
         }
 
         // [HttpGet]

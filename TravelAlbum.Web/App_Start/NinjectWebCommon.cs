@@ -152,6 +152,7 @@ namespace TravelAlbum.Web.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             DependenciesRegistration(kernel);
+            kernel.Bind<ITravelObjectService>().To<TravelObjectService>();
             kernel.Bind<ITravelService>().To<TravelService>();
             kernel.Bind<ITravelTranslationalInfoService>().To<TravelTranslationalInfoService>();
             kernel.Bind<ITravelImageService>().To<TravelImageService>();            

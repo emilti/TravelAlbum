@@ -57,12 +57,14 @@
     <Compile Include="Contracts\ICommentsService.cs" />
     <Compile Include="Contracts\ISingleImageTranslationalnfoService.cs" />
     <Compile Include="Contracts\ITravelImageService.cs" />
+    <Compile Include="Contracts\ITravelObjectService.cs" />
     <Compile Include="Contracts\ITravelService.cs" />
     <Compile Include="Contracts\ITravelTranslationalInfoService.cs" />
     <Compile Include="Contracts\ISingleImageService.cs" />
     <Compile Include="SingleImageService.cs" />
     <Compile Include="SingleImageTranslationalInfoService.cs" />
     <Compile Include="TravelImageService.cs" />
+    <Compile Include="TravelObjectService.cs" />
     <Compile Include="TravelService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TravelTranslationalInfoService.cs" />
