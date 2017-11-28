@@ -11,7 +11,7 @@ namespace TravelAlbum.Models
     {
         private ICollection<TravelTranslationalInfo> translatedTravels;
 
-        private ICollection<TravelImage> travelImages;
+        private ICollection<SingleImage> images;
 
 
         private ICollection<ApplicationUser> usersLiked;
@@ -19,13 +19,10 @@ namespace TravelAlbum.Models
         public Travel()
         {
             this.translatedTravels = new HashSet<TravelTranslationalInfo>();
-            this.travelImages = new HashSet<TravelImage>();
+            this.images = new HashSet<SingleImage>();
             this.UsersLiked = new HashSet<ApplicationUser>();
         }
-
-        // [Key]
-        // public Guid TravelId { get; set; }
-
+        
         public DateTime? StartDate { get; set; }
 
         public DateTime? EndDate { get; set; }
@@ -33,10 +30,7 @@ namespace TravelAlbum.Models
         [Required]
         public DateTime CreatedOn { get; set; }
 
-        public Guid? MountainId { get; set; }
-
-        [ForeignKey("MountainId")]
-        public virtual Mountain Mountain { get; set; }
+        public Mountain Mountain { get; set; }        
 
         [InverseProperty("FavoriteTravels")]
         public virtual ICollection<ApplicationUser> UsersLiked
@@ -51,10 +45,10 @@ namespace TravelAlbum.Models
             set { this.translatedTravels = value; }
         }
 
-        public virtual ICollection<TravelImage> TravelImages
+        public virtual ICollection<SingleImage> Images
         {
-            get { return this.travelImages; }
-            set { this.travelImages = value; }
+            get { return this.images; }
+            set { this.images = value; }
         }
     }
 }

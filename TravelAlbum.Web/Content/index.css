@@ -1,24 +1,23 @@
 ﻿#single-images-container {
-    clear:both
+    clear: both;
+    margin:1%
 }
 
 #progress {
     clear:both
 }
 
+/*
 .single-image {
     padding-top: 10px;
     padding-bottom: 10px
 }
-
+*/
 .single-image {
     width: 100%;
     height: 100%;
-    margin-left:auto;
-    margin-right:auto;
-    display:block
+    display:block;   
 }
-
 
 .description {
     width: 30%;
@@ -29,6 +28,6 @@
 }
 
 .single-image-container{
-    width:30%;
-    float:left
+    width:33.3%;
+    float:left    
 }

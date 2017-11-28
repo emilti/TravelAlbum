@@ -7,23 +7,11 @@ using System.Threading.Tasks;
 
 namespace TravelAlbum.Models
 {
-    public class Mountain
+    public enum Mountain
     {
-        private ICollection<Travel> travels;
-
-        public Mountain()
-        {
-            this.Travels = new HashSet<Travel>();
-        }
-
-        [Key]
-        public Guid Id { get; set; }
-
-        public virtual ICollection<Travel> Travels
-        {
-            get { return this.travels; }
-            set { this.travels = value; }
-        }
-
+       Vitosha = 1,
+       Rila = 2,
+       Pirin = 3,
+       Staraplanina = 4
     }
 }

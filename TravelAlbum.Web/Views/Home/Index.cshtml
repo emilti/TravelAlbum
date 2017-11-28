@@ -9,8 +9,7 @@
             <div class="single-image-container">
                 <a href="@Url.Action("Details", "SingleImages", new { id = singleImage.SingleImageId })">
                     <img class="single-image" src="@String.Format("data:image/jpg;base64,{0}", singleImage.SingleImageData)" />
-                </a>                 
-                    <div class="description">@singleImage.Description</div>
+                </a>                     
                     <div>@singleImage.CreatedOn</div>
             </div>            
     }

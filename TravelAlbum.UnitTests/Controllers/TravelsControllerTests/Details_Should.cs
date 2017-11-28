@@ -21,7 +21,7 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
         {
             // Arrange
             var travelServiceMock = new Mock<ITravelService>();
-            var travelImageServiceMock = new Mock<ITravelImageService>();
+            var singleImageServiceMock = new Mock<ISingleImageService>();
             var travelTranslationalInfoServiceMock = new Mock<ITravelTranslationalInfoService>();
 
             Guid travelId = Guid.NewGuid();
@@ -43,15 +43,15 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
                 Language = Language.Bulgarian
             };
 
-            TravelImage travelImageMock = new TravelImage()
+            SingleImage imageMock = new SingleImage()
             {
-                TravelImageId = travelObjectMock.TravelObjectId,
+                TravelObjectId = travelObjectMock.TravelObjectId,
                 Travel = travelObjectMock,
                 Content = new byte[] {1,2}
             };
 
             travelObjectMock.TranslatedTravels.Add(travelTranslationalInfoMock);
-            travelObjectMock.TravelImages.Add(travelImageMock);
+            travelObjectMock.Images.Add(imageMock);
 
             travelServiceMock.Setup(
                 m => m.GetById((Guid?)travelObjectMock.TravelObjectId))
@@ -63,9 +63,9 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
                     {
                         travelTranslationalInfoMock
                     },
-                    TravelImages =
+                    Images =
                     {
-                        travelImageMock
+                        imageMock
                     },
                     StartDate = null,
                     EndDate = null                    
@@ -76,7 +76,7 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
                  new TravelsController(
                 travelServiceMock.Object,
                 travelTranslationalInfoServiceMock.Object,
-                travelImageServiceMock.Object);
+                singleImageServiceMock.Object);
                       
             HttpRequest httpRequest = new HttpRequest("", "http://localhost:56342/bg/Travels/Details/79cd1d5e-d2c2-425a-844b-0a0535b951e6", "");
             StringWriter stringWriter = new StringWriter();
@@ -101,7 +101,7 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
         {
             // Arrange
             var travelServiceMock = new Mock<ITravelService>();
-            var travelImageServiceMock = new Mock<ITravelImageService>();
+            var singleImageServiceMock = new Mock<ISingleImageService>();
             var travelTranslationalInfoServiceMock = new Mock<ITravelTranslationalInfoService>();
 
             Guid travelId = Guid.NewGuid();
@@ -123,15 +123,15 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
                 Language = Language.English
             };
 
-            TravelImage travelImageMock = new TravelImage()
+            SingleImage imageMock = new SingleImage()
             {
-                TravelImageId = travelObjectMock.TravelObjectId,
+                TravelObjectId = travelObjectMock.TravelObjectId,
                 Travel = travelObjectMock,
                 Content = new byte[] { 1, 2 }
             };
 
             travelObjectMock.TranslatedTravels.Add(travelTranslationalInfoMock);
-            travelObjectMock.TravelImages.Add(travelImageMock);
+            travelObjectMock.Images.Add(imageMock);
 
             travelServiceMock.Setup(
                 m => m.GetById((Guid?)travelObjectMock.TravelObjectId))
@@ -143,9 +143,9 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
                     {
                         travelTranslationalInfoMock
                     },
-                    TravelImages =
+                    Images =
                     {
-                        travelImageMock
+                        imageMock
                     },
                     StartDate = null,
                     EndDate = null
@@ -156,7 +156,7 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
                  new TravelsController(
                 travelServiceMock.Object,
                 travelTranslationalInfoServiceMock.Object,
-                travelImageServiceMock.Object);
+                singleImageServiceMock.Object);
 
             HttpRequest httpRequest = new HttpRequest("", "http://localhost:56342/en/Travels/Details/79cd1d5e-d2c2-425a-844b-0a0535b951e6", "");
             StringWriter stringWriter = new StringWriter();
@@ -180,14 +180,14 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
         {
             // Arrange
             var travelServiceMock = new Mock<ITravelService>();
-            var travelImageServiceMock = new Mock<ITravelImageService>();
+            var singleImageServiceMock = new Mock<ISingleImageService>();
             var travelTranslationalInfoServiceMock = new Mock<ITravelTranslationalInfoService>();
 
             Guid id = Guid.NewGuid();
             
             travelServiceMock.Setup(m => m.GetById((Guid?)null)).Returns((Travel)null);
              
-            TravelsController travelsController = new TravelsController(travelServiceMock.Object, travelTranslationalInfoServiceMock.Object, travelImageServiceMock.Object);
+            TravelsController travelsController = new TravelsController(travelServiceMock.Object, travelTranslationalInfoServiceMock.Object, singleImageServiceMock.Object);
                  
             // Act and Assert
             travelsController.WithCallTo(

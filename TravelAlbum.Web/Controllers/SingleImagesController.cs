@@ -122,12 +122,14 @@ namespace TravelAlbum.Web.Controllers
                 singleImageTranslationalInfoes.FirstOrDefault();
 
             String imageData = Convert.ToBase64String(singleImage.Content);
+
+            string description = singleImageTranslationalInfo == null ? "No description" : singleImageTranslationalInfo.Description;
             SingleImageOutputViewModel singleImageOutputViewModel = new SingleImageOutputViewModel()
             {
                 SingleImageId = singleImage.TravelObjectId,
                 CreatedOn = singleImage.CreatedOn,
                 SingleImageData = imageData,
-                Description = singleImageTranslationalInfo.Description
+                Description = description
             };
 
             return this.View(singleImageOutputViewModel);

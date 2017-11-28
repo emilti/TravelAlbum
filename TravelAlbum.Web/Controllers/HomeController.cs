@@ -36,22 +36,22 @@ namespace TravelAlbum.Web.Controllers
                 {
                     SingleImageOutputViewModel singleImageOutputViewModel = new SingleImageOutputViewModel();
                     // string query = Request.Url.PathAndQuery;
-
+                    
                     string description = String.Empty;
                     //TODO: fix en and bg string conditions
-                    if (!(url.Contains("/en")))
-                    {
-                        description = SetDescription(singleImage, Language.Bulgarian);
-                    }
-                    else
-                    {
-                        description = SetDescription(singleImage, Language.English);
-                    }
+                    // if (!(url.Contains("/en")))
+                    // {
+                    //     description = SetDescription(singleImage, Language.Bulgarian);
+                    // }
+                    // else
+                    // {
+                    //     description = SetDescription(singleImage, Language.English);
+                    // }
 
                     string imageData = Convert.ToBase64String(singleImage.Content);
 
                     singleImageOutputViewModel.SingleImageId = singleImage.TravelObjectId;
-                    singleImageOutputViewModel.Description = description;
+                    // singleImageOutputViewModel.Description = description;
                     singleImageOutputViewModel.SingleImageData = imageData;
                     singleImageOutputViewModel.CreatedOn = singleImage.CreatedOn;                    
                     images.Add(singleImageOutputViewModel);
@@ -67,15 +67,7 @@ namespace TravelAlbum.Web.Controllers
                 jsonResult.MaxJsonLength = int.MaxValue;
                 return jsonResult;
             }
-        }
-
-        private string SetDescription(SingleImage singleImage, Language language)
-        {
-            IEnumerable<SingleImageTranslationalInfo> infos =
-                                    singleImage.TranslatedInfoes.Where(x => x.Language == language).ToList();
-            SingleImageTranslationalInfo singleImageTranslationalInfo = infos.First();
-            return singleImageTranslationalInfo.Description;
-        }
+        }       
 
         public ActionResult About()
         {

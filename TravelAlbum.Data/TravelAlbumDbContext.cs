@@ -20,13 +20,7 @@ namespace TravelAlbum.Data
 
         public virtual IDbSet<TravelObject> TravelObjects { get; set; }
 
-        public virtual IDbSet<TravelTranslationalInfo> TravelTranslatinalInfoes { get; set; }
-
-        public virtual IDbSet<TravelImage> Images { get; set; }        
-
-        public virtual IDbSet<Mountain> Mountains { get; set; }
-
-        // public virtual IDbSet<SingleImage> SingleImages { get; set; }
+        public virtual IDbSet<TravelTranslationalInfo> TravelTranslatinalInfoes { get; set; } 
 
         public virtual IDbSet<SingleImageTranslationalInfo> SingleImageTranslationalInfoes { get; set; }
 

@@ -111,9 +111,7 @@ namespace TravelAlbum.UnitTests.Controllers.HomeControllerTests
 
             dynamic items = result.Data;
 
-            // Assert
-            Assert.AreEqual("Test Description Single Image 1", items[0].Description);
-            Assert.AreEqual("Test Description Single Image 2", items[1].Description);
+            // Assert           
             Assert.AreEqual(new DateTime(2016, 9, 9), items[0].CreatedOn);
             Assert.AreEqual(new DateTime(2017, 10, 10), items[1].CreatedOn);
         }
@@ -169,10 +167,8 @@ namespace TravelAlbum.UnitTests.Controllers.HomeControllerTests
             JsonResult result = homeController.GetSingleImagesOnScroll("/bg", 0);
 
             dynamic items = result.Data;
-
-            // Assert
-            Assert.AreEqual("Тест описание Single Image 1", items[0].Description);
-            Assert.AreEqual("Тест описание Single Image 2", items[1].Description);
+                        // Assert
+           
             Assert.AreEqual(new DateTime(2016, 9, 9), items[0].CreatedOn);
             Assert.AreEqual(new DateTime(2017, 10, 10), items[1].CreatedOn);
         }

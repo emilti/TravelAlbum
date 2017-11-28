@@ -5,3 +5,13 @@
     display: block;
     word-wrap: break-word;
 }
+
+.single-image-img {
+    width: 33%;
+    height: 33%;
+    display: block;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:1%;
+    margin-bottom:1%
+}

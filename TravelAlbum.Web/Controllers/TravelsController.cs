@@ -20,17 +20,17 @@ namespace TravelAlbum.Web.Controllers
 
         private readonly ITravelTranslationalInfoService travelTranslationalService;
 
-        private readonly ITravelImageService travelImageService;
+        private readonly ISingleImageService singleImageService;
 
-        public TravelsController(ITravelService travelService, ITravelTranslationalInfoService travelTranslationalService, ITravelImageService travelImageService)
+        public TravelsController(ITravelService travelService, ITravelTranslationalInfoService travelTranslationalService, ISingleImageService singleImageService)
         {
             Guard.WhenArgument(travelService, "travelService").IsNull().Throw();
             Guard.WhenArgument(travelTranslationalService, "travelTranslationalService").IsNull().Throw();
-            Guard.WhenArgument(travelImageService, "travelImageService").IsNull().Throw();
+            Guard.WhenArgument(singleImageService, "singleImageService").IsNull().Throw();
 
             this.travelService = travelService;
             this.travelTranslationalService = travelTranslationalService;
-            this.travelImageService = travelImageService;
+            this.singleImageService = singleImageService;
         }
 
         [ValidateAntiForgeryTokenAttribute]
@@ -74,7 +74,7 @@ namespace TravelAlbum.Web.Controllers
                 return this.RedirectToAction("Index", "Home");
             }
 
-            TravelImage travelImage = travel.TravelImages.FirstOrDefault();
+            SingleImage travelImage = travel.Images.FirstOrDefault();
 
             String imageData = Convert.ToBase64String(travelImage.Content);
             DetailsTravelOutputViewModel travelViewModel = new DetailsTravelOutputViewModel()
@@ -160,14 +160,15 @@ namespace TravelAlbum.Web.Controllers
                 imageData = binaryReader.ReadBytes(image.ContentLength);
             }
 
-            TravelImage newTravelImage = new TravelImage
+            SingleImage newTravelImage = new SingleImage
             {
-                TravelImageId = Guid.NewGuid(),
+                TravelObjectId = Guid.NewGuid(),
                 Content = imageData,
-                Travel = newTravel
+                Travel = newTravel,
+                TravelId = newTravel.TravelObjectId
             };
 
-            travelImageService.Add(newTravelImage);
+            singleImageService.Add(newTravelImage);
         }
 
         [HttpGet]
@@ -194,7 +195,7 @@ namespace TravelAlbum.Web.Controllers
                         translatedData = GetTranslatedTitle(travel, Language.English);
                     }
 
-                    string imageData = Convert.ToBase64String(travel.TravelImages.First().Content);
+                    string imageData = Convert.ToBase64String(travel.Images.First().Content);
 
                     travelSummaryOutputViewModel.Id = travel.TravelObjectId;
                     travelSummaryOutputViewModel.Title = translatedData.Title;

@@ -18,7 +18,12 @@ namespace TravelAlbum.Models
 
         public byte[] Content { get; set; }
 
-        public DateTime CreatedOn { get; set; } 
+        public DateTime CreatedOn { get; set; }
+
+        public Guid? TravelId { get; set; }
+
+        [ForeignKey("TravelId")]
+        public virtual Travel Travel { get; set; }
 
         public virtual ICollection<SingleImageTranslationalInfo> TranslatedInfoes
         {

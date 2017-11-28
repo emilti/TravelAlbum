@@ -1,21 +1,33 @@
 ﻿    var pageSize = 2;
     var pageIndex = 0;
 
-    $(document).ready(function () {
+    $(document).ready(function () {       
         GetData();
-
-        $(document).scroll(function () {
+    
+        $(window).scroll(function () {
             if ($(window).scrollTop() >= ($(document).height() - $(window).height() - 1)) {
                 GetData();
             }
         });
-
+    
         $(document).scroll(function () {
             console.log("$(window).scrollTop() = " + $(window).scrollTop())
             console.log("$(document).height() = " + $(document).height());
             console.log("(window).height() = " + $(window).height());
-        });
+        }); 
     });
+
+
+
+// $(document).ready(function () {
+//     GetData();
+//     $(window).endlessScroll({
+//         inflowPixels: 1000,
+//         callback: function () {
+//             GetData();
+//         }
+//     });
+// });
 
     function GetData() {
         var url = $('#url-path').html();
@@ -35,11 +47,11 @@
                             "<div class='single-image-container'>" +
                             "<a href='SingleImages/Details/" + data[i].SingleImageId + "'>" +
                                 "<img class='single-image' src='data:image/jpg;base64," + data[i].SingleImageData + "' />" +
-                            "</a>" + 
-                            "<div class='description'>" + data[i].Description + "</div>" +
+                            "</a>" +                            
                             "<div class='description'>" + dateFormatted + "</div>" +
-                        "</div>")
+                            "</div>")
                     }
+                   
                     pageIndex++;
                 }
             },

@@ -263,6 +263,14 @@
     <Content Include="Content\lightbox.css" />
     <Content Include="Content\nav-bar.css" />
     <Content Include="Content\index.css" />
+    <Content Include="Content\SingeImages\SL373229.JPG" />
+    <Content Include="Content\SingeImages\SL373233.JPG" />
+    <Content Include="Content\SingeImages\SL373235.JPG" />
+    <Content Include="Content\SingeImages\SL373481.JPG" />
+    <Content Include="Content\SingeImages\SL373530.JPG" />
+    <Content Include="Content\SingeImages\SL373668.JPG" />
+    <Content Include="Content\SingeImages\SL373669.JPG" />
+    <Content Include="Content\SingeImages\SL373688.JPG" />
     <Content Include="Content\single-image-details.css" />
     <Content Include="Content\top-image.css" />
     <Content Include="Content\travels.css" />
@@ -284,6 +292,7 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.endless-scroll.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />

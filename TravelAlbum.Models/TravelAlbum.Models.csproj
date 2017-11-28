@@ -60,7 +60,6 @@
     <Compile Include="SingleImageTranslationalInfo.cs" />
     <Compile Include="Travel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TravelImage.cs" />
     <Compile Include="Comment.cs" />
     <Compile Include="TravelObject.cs" />
     <Compile Include="TravelTranslationalInfo.cs" />
