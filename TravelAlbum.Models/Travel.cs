@@ -30,8 +30,6 @@ namespace TravelAlbum.Models
         [Required]
         public DateTime CreatedOn { get; set; }
 
-        public Mountain Mountain { get; set; }        
-
         [InverseProperty("FavoriteTravels")]
         public virtual ICollection<ApplicationUser> UsersLiked
         {

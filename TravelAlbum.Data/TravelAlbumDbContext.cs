@@ -26,6 +26,8 @@ namespace TravelAlbum.Data
 
         public virtual IDbSet<Comment> Comments { get; set; }
 
+        public virtual IDbSet<Mountain> Mountains { get; set; }
+
         public new IDbSet<T> Set<T>() where T : class
         {
             return base.Set<T>();

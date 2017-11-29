@@ -119,13 +119,30 @@
 
             if (context.TravelObjects.Count() < 1)
             {
+                Mountain rila = new Mountain()
+                {
+                    MountainId = Guid.NewGuid(),
+                    Name = "Rila"
+                };
+
+                Mountain vitosha = new Mountain()
+                {
+                    MountainId = Guid.NewGuid(),
+                    Name = "Vitosha"
+                };
+
+                Mountain pirin = new Mountain()
+                {
+                    MountainId = Guid.NewGuid(),
+                    Name = "Pirin"
+                };
+
                 Travel malyovitsaTravel = new Travel()
                 {
                     TravelObjectId = Guid.NewGuid(),
                     StartDate = new DateTime(2017, 08, 14),
                     EndDate = new DateTime(2017, 08, 15),
-                    CreatedOn = DateTime.Now,
-                    Mountain = Mountain.Rila
+                    CreatedOn = DateTime.Now                    
                 };
 
                 TravelTranslationalInfo malyovitsaTravelBg = new TravelTranslationalInfo()
@@ -154,8 +171,16 @@
                 {
                     Content = malyovitsaImage1Content,
                     TravelObjectId = Guid.NewGuid(),
-                    CreatedOn = DateTime.Now
+                    CreatedOn = DateTime.Now,
+                    Mountain = rila,
+                    MountainId = rila.MountainId
                 };
+
+                rila.SingleImages.Add(malyovitsaImage1);
+
+                context.Mountains.Add(rila);
+                context.Mountains.Add(pirin);
+                context.Mountains.Add(vitosha);
 
                 malyovitsaTravel.Images.Add(malyovitsaImage1);
 

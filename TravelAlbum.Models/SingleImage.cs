@@ -25,6 +25,11 @@ namespace TravelAlbum.Models
         [ForeignKey("TravelId")]
         public virtual Travel Travel { get; set; }
 
+        public Guid? MountainId { get; set; }
+
+        [ForeignKey("MountainId")]
+        public virtual Mountain Mountain { get; set; }
+
         public virtual ICollection<SingleImageTranslationalInfo> TranslatedInfoes
         {
             get { return this.translatedInfoes; }
