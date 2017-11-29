@@ -15,15 +15,19 @@ namespace TravelAlbum.Web.Controllers
     {
         private readonly ISingleImageService singleImageService;
 
+        private readonly IMountainsService mountainsService;
+
         private readonly ISingleImageTranslationalInfoService singleImageTranslationalInfoService;
 
 
-        public SingleImagesController(ISingleImageService singleImageService, ISingleImageTranslationalInfoService singleImageTranslationalInfoService)
+        public SingleImagesController(ISingleImageService singleImageService, IMountainsService mountainsService, ISingleImageTranslationalInfoService singleImageTranslationalInfoService)
         {
             Guard.WhenArgument(singleImageService, "singleImageService").IsNull().Throw();
+            Guard.WhenArgument(mountainsService, "mountainsService").IsNull().Throw();
             Guard.WhenArgument(singleImageTranslationalInfoService, "singleImageTranslationalInfoService").IsNull().Throw();
 
             this.singleImageService = singleImageService;
+            this.mountainsService = mountainsService;
             this.singleImageTranslationalInfoService = singleImageTranslationalInfoService;
         }
 
@@ -31,57 +35,67 @@ namespace TravelAlbum.Web.Controllers
         [HttpGet]
         public ActionResult Add()
         {
-            return this.View();
+            var mountains = this.mountainsService.All().ToList();
+            SingleImageInputModel model = new SingleImageInputModel();
+            model.MountainsDropDown = this.GetMountainsSelectList(mountains);
+            return this.View(model);           
         }
 
         [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Add(SingleImageInputModel singleImageForAdding)
         {
-            HttpPostedFileBase singleImageContent = singleImageForAdding.UploadedImage;
-            var imageContent = new byte[singleImageContent.ContentLength];
-
-            byte[] imageData = null;
-
-            using (var binaryReader = new BinaryReader(singleImageContent.InputStream))
+            if (this.ModelState.IsValid)
             {
-                imageData = binaryReader.ReadBytes(singleImageContent.ContentLength);
+                HttpPostedFileBase singleImageContent = singleImageForAdding.UploadedImage;
+                var imageContent = new byte[singleImageContent.ContentLength];
+
+                byte[] imageData = null;
+
+                using (var binaryReader = new BinaryReader(singleImageContent.InputStream))
+                {
+                    imageData = binaryReader.ReadBytes(singleImageContent.ContentLength);
+                }
+
+                Mountain mountain = this.mountainsService.GetById(singleImageForAdding.MountainId);
+
+                SingleImage newSingleImage = new SingleImage
+                {
+                    TravelObjectId = Guid.NewGuid(),
+                    CreatedOn = DateTime.Now,
+                    Content = imageData,
+                    MountainId = mountain.MountainId,
+                    Mountain = mountain
+                };
+
+                singleImageService.Add(newSingleImage);
+
+                SingleImageTranslationalInfo newBgSingleImageTranslationalInfo = new SingleImageTranslationalInfo()
+                {
+                    SingleImageTranslationalInfoId = Guid.NewGuid(),
+                    Description = singleImageForAdding.bgDescription,
+                    SingleImage = newSingleImage,
+                    TravelObjectId = newSingleImage.TravelObjectId,
+                    Language = Language.Bulgarian
+                };
+
+                singleImageTranslationalInfoService.Add(newBgSingleImageTranslationalInfo);
+                newSingleImage.TranslatedInfoes.Add(newBgSingleImageTranslationalInfo);
+
+                SingleImageTranslationalInfo newEnSingleImageTranslationalInfo = new SingleImageTranslationalInfo()
+                {
+                    SingleImageTranslationalInfoId = Guid.NewGuid(),
+                    Description = singleImageForAdding.enDescription,
+                    SingleImage = newSingleImage,
+                    TravelObjectId = newSingleImage.TravelObjectId,
+                    Language = Language.English
+                };
+
+                singleImageTranslationalInfoService.Add(newEnSingleImageTranslationalInfo);
+                newSingleImage.TranslatedInfoes.Add(newEnSingleImageTranslationalInfo);
             }
 
-            SingleImage newSingleImage = new SingleImage
-            {
-                TravelObjectId = Guid.NewGuid(),
-                CreatedOn = DateTime.Now,
-                Content = imageData
-            };
-
-            singleImageService.Add(newSingleImage);
-
-            SingleImageTranslationalInfo newBgSingleImageTranslationalInfo = new SingleImageTranslationalInfo()
-            {
-                SingleImageTranslationalInfoId = Guid.NewGuid(),
-                Description = singleImageForAdding.bgDescription,
-                SingleImage = newSingleImage,                
-                TravelObjectId = newSingleImage.TravelObjectId,
-                Language = Language.Bulgarian
-            };
-
-            singleImageTranslationalInfoService.Add(newBgSingleImageTranslationalInfo);
-            newSingleImage.TranslatedInfoes.Add(newBgSingleImageTranslationalInfo);
-
-            SingleImageTranslationalInfo newEnSingleImageTranslationalInfo = new SingleImageTranslationalInfo()
-            {
-                SingleImageTranslationalInfoId = Guid.NewGuid(),
-                Description = singleImageForAdding.enDescription,
-                SingleImage = newSingleImage,
-                TravelObjectId = newSingleImage.TravelObjectId,
-                Language = Language.English
-            };
-
-            singleImageTranslationalInfoService.Add(newEnSingleImageTranslationalInfo);
-            newSingleImage.TranslatedInfoes.Add(newEnSingleImageTranslationalInfo);
-
-            return this.RedirectToAction("Index", "Home");
+            return this.RedirectToAction("Index", "Home");            
         }
 
 
@@ -133,6 +147,22 @@ namespace TravelAlbum.Web.Controllers
             };
 
             return this.View(singleImageOutputViewModel);
+        }
+
+        private IEnumerable<SelectListItem> GetMountainsSelectList(IEnumerable<Mountain> elements)
+        {
+            // Create an empty list to hold result of the operation
+            var selectList = new List<SelectListItem>();
+            foreach (var element in elements)
+            {
+                selectList.Add(new SelectListItem
+                {
+                    Value = element.MountainId.ToString(),
+                    Text = element.Name
+                });
+            }
+
+            return selectList;
         }
     }
 }

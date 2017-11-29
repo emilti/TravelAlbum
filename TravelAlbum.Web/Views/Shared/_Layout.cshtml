@@ -19,7 +19,7 @@
     <div class='topnav'>
         <div class="content-menu">            
             @Html.ActionLink(TravelAlbum.Web.App_GlobalResources.GlobalResources.LabelAlbum, "Index", "Home")
-            @Html.ActionLink("Travels", "GetTravels", "Travels", new { url = @Request.Url.PathAndQuery }, null)
+            @Html.ActionLink(TravelAlbum.Web.App_GlobalResources.GlobalResources.LabelTravels, "GetTravels", "Travels", new { url = @Request.Url.PathAndQuery }, null)
             @if (ViewContext.HttpContext.User.IsInRole("Admin"))
             {
                 @Html.ActionLink(TravelAlbum.Web.App_GlobalResources.GlobalResources.LabelAddTravel, "Add", "Travels");

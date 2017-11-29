@@ -1,5 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Web;
+using System.Web.Mvc;
+using TravelAlbum.Models;
 using TravelAlbum.Web.App_GlobalResources;
 
 namespace TravelAlbum.Web.Models.SingleImageModels
@@ -18,5 +23,15 @@ namespace TravelAlbum.Web.Models.SingleImageModels
         [Required]
        //[Display(Name = "UploadedImage_1", ResourceType = typeof(GlobalResources))]
         public HttpPostedFileBase UploadedImage { get; set; }
+
+        public IEnumerable<Guid> MountainsIds { get; set; }
+
+        public IEnumerable<SelectListItem> MountainsDropDown { get; set; }
+
+        [DisplayName("Планина")]
+        public Guid MountainId { get; set; }
+
+        [DisplayName("Планина")]
+        public virtual Mountain Mountain { get; set; }        
     }
 }

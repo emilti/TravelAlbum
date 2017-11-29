@@ -26,6 +26,7 @@ namespace TravelAlbum.UnitTests.Controllers.SingleImagesControllerTests
         {
             // Arrange
             var singleImageServiceMock = new Mock<ISingleImageService>();
+            var mountainsServiceMock = new Mock<IMountainsService>();
             var singleImageTranslationalInfoService = new Mock<ISingleImageTranslationalInfoService>();
 
             Guid singleImageId = Guid.NewGuid();
@@ -65,6 +66,7 @@ namespace TravelAlbum.UnitTests.Controllers.SingleImagesControllerTests
             SingleImagesController singleImagesController =
                  new SingleImagesController(
                 singleImageServiceMock.Object,
+                mountainsServiceMock.Object,
                 singleImageTranslationalInfoService.Object);
 
             HttpRequest httpRequest = new HttpRequest("", "http://localhost:56342/bg/SingleImages/Details/79cd1d5e-d2c2-425a-844b-0a0535b951e6", "");
@@ -89,6 +91,7 @@ namespace TravelAlbum.UnitTests.Controllers.SingleImagesControllerTests
         {
             // Arrange
             var singleImageServiceMock = new Mock<ISingleImageService>();
+            var mountainsServiceMock = new Mock<IMountainsService>();
             var singleImageTranslationalInfoService = new Mock<ISingleImageTranslationalInfoService>();
 
             Guid singleImageId = Guid.NewGuid();
@@ -128,6 +131,7 @@ namespace TravelAlbum.UnitTests.Controllers.SingleImagesControllerTests
             SingleImagesController singleImagesController =
                  new SingleImagesController(
                 singleImageServiceMock.Object,
+                mountainsServiceMock.Object,
                 singleImageTranslationalInfoService.Object);
 
             HttpRequest httpRequest = new HttpRequest("", "http://localhost:56342/en/SingleImages/Details/79cd1d5e-d2c2-425a-844b-0a0535b951e6", "");
@@ -152,13 +156,14 @@ namespace TravelAlbum.UnitTests.Controllers.SingleImagesControllerTests
         {
             // Arrange
             var singleImageServiceMock = new Mock<ISingleImageService>();
+            var mountainsServiceMock = new Mock<IMountainsService>();
             var singleImageTranslationalInfoService = new Mock<ISingleImageTranslationalInfoService>();
 
             Guid id = Guid.NewGuid();
 
             singleImageServiceMock.Setup(m => m.GetById((Guid?)null)).Returns((SingleImage)null);
 
-            SingleImagesController singleImagesController = new SingleImagesController(singleImageServiceMock.Object, singleImageTranslationalInfoService.Object);
+            SingleImagesController singleImagesController = new SingleImagesController(singleImageServiceMock.Object, mountainsServiceMock.Object, singleImageTranslationalInfoService.Object);
 
             // Act and Assert
             singleImagesController.WithCallTo(

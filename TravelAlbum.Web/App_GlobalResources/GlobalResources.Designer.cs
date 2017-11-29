@@ -124,6 +124,33 @@ namespace TravelAlbum.Web.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Здравей .
+        /// </summary>
+        public static string LabelHello {
+            get {
+                return ResourceManager.GetString("LabelHello", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Логаут.
+        /// </summary>
+        public static string LabelLogout {
+            get {
+                return ResourceManager.GetString("LabelLogout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Пътувания.
+        /// </summary>
+        public static string LabelTravels {
+            get {
+                return ResourceManager.GetString("LabelTravels", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Снимка 1.
         /// </summary>
         public static string UploadedImage_1 {

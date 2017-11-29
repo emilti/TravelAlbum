@@ -138,6 +138,15 @@
   <data name="LabelAlbum" xml:space="preserve">
     <value>Album</value>
   </data>
+  <data name="LabelHello" xml:space="preserve">
+    <value>Hello </value>
+  </data>
+  <data name="LabelLogout" xml:space="preserve">
+    <value>Log Out</value>
+  </data>
+  <data name="LabelTravels" xml:space="preserve">
+    <value>Travels</value>
+  </data>
   <data name="UploadedImage_1" xml:space="preserve">
     <value>Image 1</value>
   </data>

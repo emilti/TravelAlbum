@@ -138,6 +138,15 @@
   <data name="LabelAlbum" xml:space="preserve">
     <value>Албум</value>
   </data>
+  <data name="LabelHello" xml:space="preserve">
+    <value>Здравей </value>
+  </data>
+  <data name="LabelLogout" xml:space="preserve">
+    <value>Логаут</value>
+  </data>
+  <data name="LabelTravels" xml:space="preserve">
+    <value>Пътувания</value>
+  </data>
   <data name="UploadedImage_1" xml:space="preserve">
     <value>Снимка 1</value>
   </data>

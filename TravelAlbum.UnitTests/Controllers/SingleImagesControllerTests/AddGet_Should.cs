@@ -13,9 +13,10 @@ namespace TravelAlbum.UnitTests.Controllers.SingleImagesControllerTests
         public void ReturnView_CheckView()
         {
             var singleImageServiceMock = new Mock<ISingleImageService>();
+            var mountainsServiceMock = new Mock<IMountainsService>();
             var singleImageTranslationalInfoServiceMock = new Mock<ISingleImageTranslationalInfoService>();
 
-            SingleImagesController singleImagesController = new SingleImagesController(singleImageServiceMock.Object, singleImageTranslationalInfoServiceMock.Object);
+            SingleImagesController singleImagesController = new SingleImagesController(singleImageServiceMock.Object, mountainsServiceMock.Object, singleImageTranslationalInfoServiceMock.Object);
 
             singleImagesController.WithCallTo(
                 b => b.Add()).ShouldRenderDefaultView();
