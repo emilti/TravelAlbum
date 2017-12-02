@@ -8,7 +8,10 @@
     {        
             <div class="single-image-container">
                 <a href="@Url.Action("Details", "SingleImages", new { id = singleImage.SingleImageId })">
-                    <img class="single-image" src="@String.Format("data:image/jpg;base64,{0}", singleImage.SingleImageData)" />
+                    <div style="background: url(@String.Format("data:image/jpg;base64,{0}", singleImage.SingleImageData))">
+                        @*<!--img class="single-image" src="@String.Format("data:image/jpg;base64,{0}", singleImage.SingleImageData)" /-->*@
+                        aa
+                    </div>
                 </a>                     
                     <div>@singleImage.CreatedOn</div>
             </div>            

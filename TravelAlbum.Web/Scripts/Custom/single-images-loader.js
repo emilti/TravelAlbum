@@ -1,21 +1,21 @@
-﻿    var pageSize = 2;
-    var pageIndex = 0;
+﻿var pageSize = 2;
+var pageIndex = 0;
 
-    $(document).ready(function () {       
-        GetData();
-    
-        $(window).scroll(function () {
-            if ($(window).scrollTop() >= ($(document).height() - $(window).height() - 1)) {
-                GetData();
-            }
-        });
-    
-        $(document).scroll(function () {
-            console.log("$(window).scrollTop() = " + $(window).scrollTop())
-            console.log("$(document).height() = " + $(document).height());
-            console.log("(window).height() = " + $(window).height());
-        }); 
+$(document).ready(function () {
+    GetData();
+
+    $(window).scroll(function () {
+        if ($(window).scrollTop() >= ($(document).height() - $(window).height() - 1)) {
+            GetData();
+        }
     });
+
+    $(document).scroll(function () {
+        console.log("$(window).scrollTop() = " + $(window).scrollTop())
+        console.log("$(document).height() = " + $(document).height());
+        console.log("(window).height() = " + $(window).height());
+    });
+});
 
 
 
@@ -29,43 +29,47 @@
 //     });
 // });
 
-    function GetData() {
-        var url = $('#url-path').html();
-        $.ajax({
-            type: 'GET',
-            url: '/home/GetSingleImagesOnScroll',
-            data: { 'url': url, 'pageIndex': pageIndex},
-            dataType: 'json',
-            success: function (data) {
-                if (data !== null) {
-                    for (var i = 0; i < data.length; i++) {
-                        var dateSplitted = data[i].CreatedOn.split(/[(|)]/);
-                        var dateTicks = parseInt(dateSplitted[1]);
-                        var date = new Date(dateTicks); 
-                        var dateFormatted = date.getMonth() + 1 + '/' + date.getDate() + '/' + date.getFullYear();
-                        $("#single-images-container").append( 
-                            "<div class='single-image-container'>" +
+function GetData() {
+    var url = $('#url-path').html();
+    $.ajax({
+        type: 'GET',
+        url: '/home/GetSingleImagesOnScroll',
+        data: { 'url': url, 'pageIndex': pageIndex },
+        dataType: 'json',
+        success: function (data) {
+            if (data !== null) {
+                for (var i = 0; i < data.length; i++) {
+                    var dateSplitted = data[i].CreatedOn.split(/[(|)]/);
+                    var dateTicks = parseInt(dateSplitted[1]);
+                    var date = new Date(dateTicks);
+                    var dateFormatted = date.getMonth() + 1 + '/' + date.getDate() + '/' + date.getFullYear();
+                    $("#single-images-container").append(
+                        "<div class='single-image-container'>" +
                             "<a href='SingleImages/Details/" + data[i].SingleImageId + "'>" +
                                 "<img class='single-image' src='data:image/jpg;base64," + data[i].SingleImageData + "' />" +
-                            "</a>" +                            
+                                "<div class='cover-container'>" +
+                                "<a class='left-cover' href='data:image/jpg;base64," + data[i].SingleImageData + "' data-lightbox='image-1'>" +                         
+                                "</a>" +
+                                "<div class='right-cover'>" + "</div>" +
+                                "</div>" +
+                            "</a>" +
                             "<div class='description'>" + dateFormatted + "</div>" +
-                            "</div>")
-                    }
-                   
-                    pageIndex++;
+                        "</div>")
                 }
-            },
-            beforeSend : function () {
-                $("#progress").show();
-            },
-            complete : function () {
-                $("#progress").hide();
-            },
-            error: function () {
-                alert("Error while retrieving data!");
+
+                pageIndex++;
             }
-        });
-    }
+        },
+        beforeSend: function () {
+            $("#progress").show();
+        },
+        complete: function () {
+            $("#progress").hide();
+        },
+        error: function () {
+            alert("Error while retrieving data!");
+        }
+    });
+}
 
 
-        

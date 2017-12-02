@@ -107,16 +107,6 @@
                 userManager.AddToRoles(adminUser.Id, "User", "Admin");
             }
 
-            byte[] image = File.ReadAllBytes(@"D:\TravelAlbum\TravelAlbum.Web\Content\SingeImages\SL373229.JPG");
-
-            SingleImage singleImage1 = new SingleImage()
-            {
-                Content = image,
-                TravelObjectId = Guid.NewGuid(),
-                CreatedOn = DateTime.Now
-            };
-
-
             if (context.TravelObjects.Count() < 1)
             {
                 Mountain rila = new Mountain()
@@ -165,7 +155,7 @@
                     Description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,"
                 };
 
-                byte[] malyovitsaImage1Content = File.ReadAllBytes(@"D:\TravelAlbum\TravelAlbum.Web\Content\SingeImages\SL373530.JPG");
+                byte[] malyovitsaImage1Content = File.ReadAllBytes(@"D:\TravelAlbum\TravelAlbum.Web\Content\SingleImages\SL373530.JPG");
 
                 SingleImage malyovitsaImage1 = new SingleImage()
                 {
@@ -177,6 +167,85 @@
                 };
 
                 rila.SingleImages.Add(malyovitsaImage1);
+
+                byte[] image = File.ReadAllBytes(@"D:\TravelAlbum\TravelAlbum.Web\Content\SingleImages\SL373229.JPG");
+
+                SingleImage singleImage1 = new SingleImage()
+                {
+                    Content = image,
+                    TravelObjectId = Guid.NewGuid(),
+                    CreatedOn = DateTime.Now,
+                    Mountain = vitosha,
+                    MountainId = vitosha.MountainId
+                };
+
+                vitosha.SingleImages.Add(singleImage1);
+
+                byte[] image2 = File.ReadAllBytes(@"D:\TravelAlbum\TravelAlbum.Web\Content\SingleImages\SL373233.JPG");
+
+                SingleImage singleImage2 = new SingleImage()
+                {
+                    Content = image2,
+                    TravelObjectId = Guid.NewGuid(),
+                    CreatedOn = DateTime.Now,
+                    Mountain = vitosha,
+                    MountainId = vitosha.MountainId
+                };
+
+                vitosha.SingleImages.Add(singleImage2);
+
+                byte[] image3 = File.ReadAllBytes(@"D:\TravelAlbum\TravelAlbum.Web\Content\SingleImages\SL373235.JPG");
+
+                SingleImage singleImage3 = new SingleImage()
+                {
+                    Content = image3,
+                    TravelObjectId = Guid.NewGuid(),
+                    CreatedOn = DateTime.Now,
+                    Mountain = vitosha,
+                    MountainId = vitosha.MountainId
+                };
+
+                vitosha.SingleImages.Add(singleImage3);
+
+
+                byte[] image4 = File.ReadAllBytes(@"D:\TravelAlbum\TravelAlbum.Web\Content\SingleImages\SL373481.JPG");
+
+                SingleImage singleImage4 = new SingleImage()
+                {
+                    Content = image4,
+                    TravelObjectId = Guid.NewGuid(),
+                    CreatedOn = DateTime.Now,
+                    Mountain = rila,
+                    MountainId = rila.MountainId
+                };
+
+                rila.SingleImages.Add(singleImage4);
+
+                byte[] image5 = File.ReadAllBytes(@"D:\TravelAlbum\TravelAlbum.Web\Content\SingleImages\SL373668.JPG");
+
+                SingleImage singleImage5 = new SingleImage()
+                {
+                    Content = image5,
+                    TravelObjectId = Guid.NewGuid(),
+                    CreatedOn = DateTime.Now,
+                    Mountain = rila,
+                    MountainId = rila.MountainId
+                };
+
+                rila.SingleImages.Add(singleImage5);
+
+                byte[] image6 = File.ReadAllBytes(@"D:\TravelAlbum\TravelAlbum.Web\Content\SingleImages\SL373688.JPG");
+
+                SingleImage singleImage6 = new SingleImage()
+                {
+                    Content = image6,
+                    TravelObjectId = Guid.NewGuid(),
+                    CreatedOn = DateTime.Now,
+                    Mountain = rila,
+                    MountainId = rila.MountainId
+                };
+
+                rila.SingleImages.Add(singleImage6);
 
                 context.Mountains.Add(rila);
                 context.Mountains.Add(pirin);
@@ -212,6 +281,11 @@
                 context.SingleImageTranslationalInfoes.Add(singleImage1Bg);
                 context.SingleImageTranslationalInfoes.Add(singleImage1En);
                 context.TravelObjects.Add(singleImage1);
+                context.TravelObjects.Add(singleImage2);
+                context.TravelObjects.Add(singleImage3);
+                context.TravelObjects.Add(singleImage4);
+                context.TravelObjects.Add(singleImage5);
+                context.TravelObjects.Add(singleImage6);
                 context.TravelObjects.Add(malyovitsaImage1);
                 context.TravelObjects.Add(malyovitsaTravel);
                 context.TravelTranslatinalInfoes.Add(malyovitsaTravelEn);
