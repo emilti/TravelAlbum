@@ -72,9 +72,6 @@
     <Reference Include="TestStack.FluentMVCTesting, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\TestStack.FluentMVCTesting.3.0.0\lib\NET45\TestStack.FluentMVCTesting.dll</HintPath>
     </Reference>
-    <Reference Include="TestToolsToXunitProxy, Version=0.0.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\TestToolsToXunitProxy.0.0.4\lib\net45\TestToolsToXunitProxy.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeControllerTests\Constructor_Should.cs" />
