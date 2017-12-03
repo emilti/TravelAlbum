@@ -155,7 +155,9 @@
                     Description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,"
                 };
 
-                byte[] malyovitsaImage1Content = File.ReadAllBytes(@"D:\TravelAlbum\TravelAlbum.Web\Content\SingleImages\SL373530.JPG");
+                var basePath = AppDomain.CurrentDomain.BaseDirectory;
+               
+                byte[] malyovitsaImage1Content = File.ReadAllBytes(basePath + @"/Content/SingleImages/SL373530.JPG");
 
                 SingleImage malyovitsaImage1 = new SingleImage()
                 {
@@ -166,9 +168,10 @@
                     MountainId = rila.MountainId
                 };
 
+
                 rila.SingleImages.Add(malyovitsaImage1);
 
-                byte[] image = File.ReadAllBytes(@"D:\TravelAlbum\TravelAlbum.Web\Content\SingleImages\SL373229.JPG");
+                byte[] image = File.ReadAllBytes(basePath + @"/Content/SingleImages/SL373229.JPG");
 
                 SingleImage singleImage1 = new SingleImage()
                 {
@@ -181,7 +184,7 @@
 
                 vitosha.SingleImages.Add(singleImage1);
 
-                byte[] image2 = File.ReadAllBytes(@"D:\TravelAlbum\TravelAlbum.Web\Content\SingleImages\SL373233.JPG");
+                byte[] image2 = File.ReadAllBytes(basePath + @"/Content/SingleImages/SL373233.JPG");
 
                 SingleImage singleImage2 = new SingleImage()
                 {
@@ -194,7 +197,7 @@
 
                 vitosha.SingleImages.Add(singleImage2);
 
-                byte[] image3 = File.ReadAllBytes(@"D:\TravelAlbum\TravelAlbum.Web\Content\SingleImages\SL373235.JPG");
+                byte[] image3 = File.ReadAllBytes(basePath + @"/Content/SingleImages/SL373235.JPG");
 
                 SingleImage singleImage3 = new SingleImage()
                 {
@@ -208,7 +211,7 @@
                 vitosha.SingleImages.Add(singleImage3);
 
 
-                byte[] image4 = File.ReadAllBytes(@"D:\TravelAlbum\TravelAlbum.Web\Content\SingleImages\SL373481.JPG");
+                byte[] image4 = File.ReadAllBytes(basePath + @"/Content/SingleImages/SL373481.JPG");
 
                 SingleImage singleImage4 = new SingleImage()
                 {
@@ -221,7 +224,7 @@
 
                 rila.SingleImages.Add(singleImage4);
 
-                byte[] image5 = File.ReadAllBytes(@"D:\TravelAlbum\TravelAlbum.Web\Content\SingleImages\SL373668.JPG");
+                byte[] image5 = File.ReadAllBytes(basePath + @"/Content/SingleImages/SL373668.JPG");
 
                 SingleImage singleImage5 = new SingleImage()
                 {
@@ -234,7 +237,7 @@
 
                 rila.SingleImages.Add(singleImage5);
 
-                byte[] image6 = File.ReadAllBytes(@"D:\TravelAlbum\TravelAlbum.Web\Content\SingleImages\SL373688.JPG");
+                byte[] image6 = File.ReadAllBytes(basePath + @"/Content/SingleImages/SL373688.JPG");
 
                 SingleImage singleImage6 = new SingleImage()
                 {
