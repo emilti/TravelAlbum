@@ -48,13 +48,10 @@ function GetData() {
                             "<a href='SingleImages/Details/" + data[i].SingleImageId + "'>" +
                                 "<img class='single-image' src='data:image/jpg;base64," + data[i].SingleImageData + "' />" +
                                 "<div class='cover-container'>" +
-                                "<a class='left-cover' href='data:image/jpg;base64," + data[i].SingleImageData + "' data-lightbox='image-1'>" +                         
-                                "</a>" +
-                                "<div class='right-cover'>" + "</div>" +
                                 "</div>" +
                             "</a>" +
                             "<div class='description'>" + dateFormatted + "</div>" +
-                        "</div>")
+                            "</div>")
                 }
 
                 pageIndex++;
