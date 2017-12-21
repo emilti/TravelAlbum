@@ -24,6 +24,10 @@ namespace TravelAlbum.Web.Models.SingleImageModels
        //[Display(Name = "UploadedImage_1", ResourceType = typeof(GlobalResources))]
         public HttpPostedFileBase UploadedImage { get; set; }
 
+        [Required]
+        //[Display(Name = "UploadedImage_1", ResourceType = typeof(GlobalResources))]
+        public HttpPostedFileBase UploadedPreviewImage { get; set; }
+
         public IEnumerable<Guid> MountainsIds { get; set; }
 
         public IEnumerable<SelectListItem> MountainsDropDown { get; set; }

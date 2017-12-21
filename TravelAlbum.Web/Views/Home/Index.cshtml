@@ -1,11 +1,11 @@
 ﻿@model TravelAlbum.Web.Models.SingleImageModels.LatestSingleImagesOutputModel
 
 <div id="single-images-container">
-@if (Model != null && Model.singleImages != null)
+@if (Model != null && Model.singleImagePreviews != null)
 {
 
-    foreach (var singleImage in Model.singleImages)
-    {        
+    foreach (var singleImage in Model.singleImagePreviews)
+    {
             <div class="single-image-container">
                 <a href="@Url.Action("Details", "SingleImages", new { id = singleImage.SingleImageId })">
                     <div style="background: url(@String.Format("data:image/jpg;base64,{0}", singleImage.SingleImageData))">
@@ -30,10 +30,10 @@
 @using (Html.BeginForm("SearchTravels", "Travels", new { area = string.Empty }, FormMethod.Post))
 {
     @Html.AntiForgeryToken();
-    <input type="text" class="search_box" width:150px;" name="search" placeholder="Търси пътувания">
+    <input type="text" class="search_box" width:150px;" name="search" placeholder="Търси пътувания"/>
 }
 
-<div id="url-path">@Request.Url.PathAndQuery;</div>
+<div id="url-path">@Request.Url.PathAndQuery</div>
 </div>
 @section SingleImagesLoader{   
 <script src="~/Scripts/Custom/single-images-loader.js"></script>

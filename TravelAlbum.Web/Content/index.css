@@ -1,6 +1,9 @@
 ﻿#single-images-container {
     clear: both;
-    margin:1%
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom:10px;
+    width:1100px
 }
 
 #progress {
@@ -23,8 +26,11 @@
 }
 
 .single-image-container{    
-    width:33.3%;    
+    width:500px; 
+    height:395px;
     float:left;
+    margin-right:50px;
+    margin-bottom:20px;
     position:relative
 }
 
@@ -37,7 +43,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 95%;
+    height: 100%;
     background-color: white;
     opacity: 0.7;
     border: 0px solid rgba(0,0,0,0.7);   

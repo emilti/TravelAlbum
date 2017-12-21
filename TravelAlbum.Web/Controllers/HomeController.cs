@@ -29,15 +29,15 @@ namespace TravelAlbum.Web.Controllers
         {
             var orderedSingleImages = this.singleImageService.GetLatesSingleImages(pageIndex);
 
-            List<SingleImageOutputViewModel> images = new List<SingleImageOutputViewModel>();
+            List<SingleImagePreviewOutputViewModel> images = new List<SingleImagePreviewOutputViewModel>();
             if (orderedSingleImages != null && orderedSingleImages.Count() > 0)
             {
                 foreach (var singleImage in orderedSingleImages)
                 {
-                    SingleImageOutputViewModel singleImageOutputViewModel = new SingleImageOutputViewModel();
+                    SingleImagePreviewOutputViewModel singleImagePreviewOutputViewModel = new SingleImagePreviewOutputViewModel();
                     // string query = Request.Url.PathAndQuery;
                     
-                    string description = String.Empty;
+                    
                     //TODO: fix en and bg string conditions
                     // if (!(url.Contains("/en")))
                     // {
@@ -48,13 +48,12 @@ namespace TravelAlbum.Web.Controllers
                     //     description = SetDescription(singleImage, Language.English);
                     // }
 
-                    string imageData = Convert.ToBase64String(singleImage.Content);
+                    string imagePreviewData = Convert.ToBase64String(singleImage.PreviewContent);
 
-                    singleImageOutputViewModel.SingleImageId = singleImage.TravelObjectId;
-                    // singleImageOutputViewModel.Description = description;
-                    singleImageOutputViewModel.SingleImageData = imageData;
-                    singleImageOutputViewModel.CreatedOn = singleImage.CreatedOn;                    
-                    images.Add(singleImageOutputViewModel);
+                    singleImagePreviewOutputViewModel.SingleImageId = singleImage.TravelObjectId;                   
+                    singleImagePreviewOutputViewModel.SingleImageData = imagePreviewData;
+                    singleImagePreviewOutputViewModel.CreatedOn = singleImage.CreatedOn;                    
+                    images.Add(singleImagePreviewOutputViewModel);
                 }
 
                 var jsonResult = Json(images, JsonRequestBehavior.AllowGet);

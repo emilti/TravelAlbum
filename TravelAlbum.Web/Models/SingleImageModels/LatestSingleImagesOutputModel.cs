@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using TravelAlbum.Models;
+﻿using System.Collections.Generic;
 
 namespace TravelAlbum.Web.Models.SingleImageModels
 {
@@ -10,9 +6,9 @@ namespace TravelAlbum.Web.Models.SingleImageModels
     {
         public LatestSingleImagesOutputModel()
         {
-            this.singleImages = new List<SingleImageOutputViewModel>();
+            this.singleImagePreviews = new List<SingleImagePreviewOutputViewModel>();
         }
 
-        public List<SingleImageOutputViewModel> singleImages { get; set; }
+        public List<SingleImagePreviewOutputViewModel> singleImagePreviews { get; set; }
     }
 }

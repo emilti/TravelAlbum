@@ -158,10 +158,13 @@
                 var basePath = AppDomain.CurrentDomain.BaseDirectory;
                
                 byte[] malyovitsaImage1Content = File.ReadAllBytes(basePath + @"/Content/SingleImages/SL373530.JPG");
+                byte[] malyovitsaImage1PreviewContent = File.ReadAllBytes(basePath + @"/Content/SingleImages/SL373530_preview.JPG");
+
 
                 SingleImage malyovitsaImage1 = new SingleImage()
                 {
                     Content = malyovitsaImage1Content,
+                    PreviewContent = malyovitsaImage1PreviewContent,
                     TravelObjectId = Guid.NewGuid(),
                     CreatedOn = DateTime.Now,
                     Mountain = rila,
@@ -172,10 +175,13 @@
                 rila.SingleImages.Add(malyovitsaImage1);
 
                 byte[] image = File.ReadAllBytes(basePath + @"/Content/SingleImages/SL373229.JPG");
+                byte[] imagePreview = File.ReadAllBytes(basePath + @"/Content/SingleImages/SL373229_preview.JPG");
+
 
                 SingleImage singleImage1 = new SingleImage()
                 {
                     Content = image,
+                    PreviewContent = imagePreview,
                     TravelObjectId = Guid.NewGuid(),
                     CreatedOn = DateTime.Now,
                     Mountain = vitosha,
@@ -185,10 +191,12 @@
                 vitosha.SingleImages.Add(singleImage1);
 
                 byte[] image2 = File.ReadAllBytes(basePath + @"/Content/SingleImages/SL373233.JPG");
+                byte[] previewImage2 = File.ReadAllBytes(basePath + @"/Content/SingleImages/SL373233_preview.JPG");
 
                 SingleImage singleImage2 = new SingleImage()
                 {
                     Content = image2,
+                    PreviewContent = previewImage2,
                     TravelObjectId = Guid.NewGuid(),
                     CreatedOn = DateTime.Now,
                     Mountain = vitosha,
@@ -198,10 +206,12 @@
                 vitosha.SingleImages.Add(singleImage2);
 
                 byte[] image3 = File.ReadAllBytes(basePath + @"/Content/SingleImages/SL373235.JPG");
+                byte[] previewImage3 = File.ReadAllBytes(basePath + @"/Content/SingleImages/SL373235_preview.JPG");
 
                 SingleImage singleImage3 = new SingleImage()
                 {
                     Content = image3,
+                    PreviewContent = previewImage3,
                     TravelObjectId = Guid.NewGuid(),
                     CreatedOn = DateTime.Now,
                     Mountain = vitosha,
@@ -212,10 +222,12 @@
 
 
                 byte[] image4 = File.ReadAllBytes(basePath + @"/Content/SingleImages/SL373481.JPG");
+                byte[] previewImage4 = File.ReadAllBytes(basePath + @"/Content/SingleImages/SL373481_preview.JPG");
 
                 SingleImage singleImage4 = new SingleImage()
                 {
                     Content = image4,
+                    PreviewContent = previewImage4,
                     TravelObjectId = Guid.NewGuid(),
                     CreatedOn = DateTime.Now,
                     Mountain = rila,
@@ -225,10 +237,12 @@
                 rila.SingleImages.Add(singleImage4);
 
                 byte[] image5 = File.ReadAllBytes(basePath + @"/Content/SingleImages/SL373668.JPG");
+                byte[] previewImage5 = File.ReadAllBytes(basePath + @"/Content/SingleImages/SL373668_preview.JPG");
 
                 SingleImage singleImage5 = new SingleImage()
                 {
                     Content = image5,
+                    PreviewContent = previewImage5,
                     TravelObjectId = Guid.NewGuid(),
                     CreatedOn = DateTime.Now,
                     Mountain = rila,
@@ -238,10 +252,12 @@
                 rila.SingleImages.Add(singleImage5);
 
                 byte[] image6 = File.ReadAllBytes(basePath + @"/Content/SingleImages/SL373688.JPG");
+                byte[] previewImage6 = File.ReadAllBytes(basePath + @"/Content/SingleImages/SL373688_preview.JPG");
 
                 SingleImage singleImage6 = new SingleImage()
                 {
                     Content = image6,
+                    PreviewContent = previewImage6,
                     TravelObjectId = Guid.NewGuid(),
                     CreatedOn = DateTime.Now,
                     Mountain = rila,

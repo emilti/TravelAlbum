@@ -57,6 +57,17 @@ namespace TravelAlbum.Web.Controllers
                     imageData = binaryReader.ReadBytes(singleImageContent.ContentLength);
                 }
 
+                HttpPostedFileBase singleImagePreviewContent = singleImageForAdding.UploadedPreviewImage;
+                var previewImageContent = new byte[singleImagePreviewContent.ContentLength];
+
+                byte[] previewImageData = null;
+
+                using (var binaryReader = new BinaryReader(singleImagePreviewContent.InputStream))
+                {
+                    previewImageData = binaryReader.ReadBytes(singleImagePreviewContent.ContentLength);
+                }
+
+
                 Mountain mountain = this.mountainsService.GetById(singleImageForAdding.MountainId);
 
                 SingleImage newSingleImage = new SingleImage
@@ -64,6 +75,7 @@ namespace TravelAlbum.Web.Controllers
                     TravelObjectId = Guid.NewGuid(),
                     CreatedOn = DateTime.Now,
                     Content = imageData,
+                    PreviewContent = previewImageData,
                     MountainId = mountain.MountainId,
                     Mountain = mountain
                 };

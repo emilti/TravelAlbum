@@ -18,6 +18,8 @@ namespace TravelAlbum.Models
 
         public byte[] Content { get; set; }
 
+        public byte[] PreviewContent { get; set; }
+
         public DateTime CreatedOn { get; set; }
 
         public Guid? TravelId { get; set; }
