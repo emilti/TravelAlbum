@@ -22,6 +22,7 @@ namespace TravelAlbum.UnitTests.Controllers.HomeControllerTests
             {
                 TravelObjectId = Guid.NewGuid(),
                 Content = new byte[2] {1, 2},
+                PreviewContent = new byte[2] { 1, 2 },
                 CreatedOn = new DateTime(2016, 9, 9)
             };
 
@@ -29,6 +30,7 @@ namespace TravelAlbum.UnitTests.Controllers.HomeControllerTests
             {
                 TravelObjectId = Guid.NewGuid(),
                 Content = new byte[2] { 1, 2 },
+                PreviewContent = new byte[2] { 1, 2 },
                 CreatedOn = new DateTime(2017, 10, 10)
             };
 
@@ -36,6 +38,7 @@ namespace TravelAlbum.UnitTests.Controllers.HomeControllerTests
             {
                 TravelObjectId = Guid.NewGuid(),
                 Content = new byte[2] { 1, 2 },
+                PreviewContent = new byte[2] { 1, 2 },
                 CreatedOn = new DateTime(2015, 2, 2)
             };
 
@@ -126,6 +129,7 @@ namespace TravelAlbum.UnitTests.Controllers.HomeControllerTests
             {
                 TravelObjectId = Guid.NewGuid(),
                 Content = new byte[2] { 1, 2 },
+                PreviewContent = new byte[2] { 1, 2 },
                 CreatedOn = new DateTime(2016, 9, 9)
             };
 
@@ -133,6 +137,7 @@ namespace TravelAlbum.UnitTests.Controllers.HomeControllerTests
             {
                 TravelObjectId = Guid.NewGuid(),
                 Content = new byte[2] { 1, 2 },
+                PreviewContent = new byte[2] { 1, 2 },
                 CreatedOn = new DateTime(2017, 10, 10)
             };   
 
