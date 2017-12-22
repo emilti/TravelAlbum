@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using TravelAlbum.DataServices.Contracts;
 using TravelAlbum.Models;
 using TravelAlbum.Web.Helpers;
+using TravelAlbum.Web.Models.ImageModels;
 using TravelAlbum.Web.Models.SingleImageModels;
 
 namespace TravelAlbum.Web.Controllers
@@ -29,32 +30,10 @@ namespace TravelAlbum.Web.Controllers
         {
             var orderedSingleImages = this.singleImageService.GetLatesSingleImages(pageIndex);
 
-            List<SingleImagePreviewOutputViewModel> images = new List<SingleImagePreviewOutputViewModel>();
+            List<ImagePreviewOutputViewModel> images = new List<ImagePreviewOutputViewModel>();
             if (orderedSingleImages != null && orderedSingleImages.Count() > 0)
             {
-                foreach (var singleImage in orderedSingleImages)
-                {
-                    SingleImagePreviewOutputViewModel singleImagePreviewOutputViewModel = new SingleImagePreviewOutputViewModel();
-                    // string query = Request.Url.PathAndQuery;
-                    
-                    
-                    //TODO: fix en and bg string conditions
-                    // if (!(url.Contains("/en")))
-                    // {
-                    //     description = SetDescription(singleImage, Language.Bulgarian);
-                    // }
-                    // else
-                    // {
-                    //     description = SetDescription(singleImage, Language.English);
-                    // }
-
-                    string imagePreviewData = Convert.ToBase64String(singleImage.PreviewContent);
-
-                    singleImagePreviewOutputViewModel.SingleImageId = singleImage.TravelObjectId;                   
-                    singleImagePreviewOutputViewModel.SingleImageData = imagePreviewData;
-                    singleImagePreviewOutputViewModel.CreatedOn = singleImage.CreatedOn;                    
-                    images.Add(singleImagePreviewOutputViewModel);
-                }
+                GenerateImageModel(orderedSingleImages, images);
 
                 var jsonResult = Json(images, JsonRequestBehavior.AllowGet);
                 jsonResult.MaxJsonLength = int.MaxValue;
@@ -66,7 +45,34 @@ namespace TravelAlbum.Web.Controllers
                 jsonResult.MaxJsonLength = int.MaxValue;
                 return jsonResult;
             }
-        }       
+        }
+
+        public void GenerateImageModel(IEnumerable<SingleImage> orderedSingleImages, List<ImagePreviewOutputViewModel> images)
+        {
+            foreach (var singleImage in orderedSingleImages)
+            {
+                ImagePreviewOutputViewModel singleImagePreviewOutputViewModel = new ImagePreviewOutputViewModel();
+                // string query = Request.Url.PathAndQuery;
+
+
+                //TODO: fix en and bg string conditions
+                // if (!(url.Contains("/en")))
+                // {
+                //     description = SetDescription(singleImage, Language.Bulgarian);
+                // }
+                // else
+                // {
+                //     description = SetDescription(singleImage, Language.English);
+                // }
+
+                string imagePreviewData = Convert.ToBase64String(singleImage.PreviewContent);
+
+                singleImagePreviewOutputViewModel.SingleImageId = singleImage.TravelObjectId;
+                singleImagePreviewOutputViewModel.SingleImageData = imagePreviewData;
+                singleImagePreviewOutputViewModel.CreatedOn = singleImage.CreatedOn;
+                images.Add(singleImagePreviewOutputViewModel);
+            }
+        }
 
         public ActionResult About()
         {

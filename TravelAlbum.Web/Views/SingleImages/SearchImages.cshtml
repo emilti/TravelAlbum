@@ -1,0 +1,84 @@
+﻿@model TravelAlbum.Web.Models.ImageModels.ImagesListViewModel
+@using TravelAlbum.Models
+
+@using (Html.BeginForm("SearchImages", "SingleImages", null, FormMethod.Get, new { @class = "form-horizontal", role = "form" }))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.MountainsIds, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.ListBoxFor(model => model.MountainsIds, Model.MountainsDropDown, new { @class = "form-control", required = "required", data_placeholder = "Select one or more sport categories." })
+            @Html.ValidationMessageFor(model => model.Mountains, "", new { @class = "text-danger" })
+            @*@Html.DropDownListFor(m => m.SportCategories, Model.SportCategoriesDropDown, new { @class = "form-control" })*@
+        </div>
+    </div>
+
+    @Html.DropDownList("Sorting",
+                    new SelectList(Enum.GetValues(typeof(Sorting))),
+                    "Sort by date",
+                    new { @class = "form-control" })
+    <input class="btn btn-primary" value="Търси" type="submit">
+        
+}
+
+
+<div id="single-images-container">
+    @if (Model != null && Model.singleImagePreviews != null)
+        {
+            foreach (var singleImage in Model.singleImagePreviews)
+            {
+                <div class='single-image-container'>
+                    <a href="@Url.Action("Details", "SingleImages", new { id = singleImage.SingleImageId })">
+                        <img class='single-image' src='data:image/jpg;base64,@singleImage.SingleImageData' />
+                        <div class='cover-container'>                          
+                        </div>                        
+                    </a>
+                <div class='description'>@singleImage.CreatedOn </div>               
+            </div>
+        }
+    }
+</div>
+
+
+@*
+@{Html.RenderPartial("_FacilityPartial", Model.Facilities);
+
+    string url = Request.RawUrl.ToString();
+    var parts = url.Split('/').ToList();
+    var lastPart = parts[parts.Count - 1].Split('?').ToList();
+    var id = lastPart[0]; 
+    }
+
+
+<nav>
+    <ul class="pagination">
+        @if (Model.CurrentPage > 1)
+        {
+            <li>
+                <a href="/Facilties/FacilitiesPublic/SearchFacilities/@id?currentPage=@(Model.CurrentPage - 1)" aria-label="Previous">&laquo;</a>
+            </li>
+        }
+
+        @for (int i = 1; i <= Model.TotalPages; i++)
+        {
+            var className = string.Empty;
+            if (Model.CurrentPage == i)
+            {
+                className = "active";
+            }
+
+            <li class="@className"><a href="/Facilities/FacilitiesPublic/SearchFacilities/@id?currentPage=@i">@i</a></li>
+        }
+        @if (Model.CurrentPage < Model.TotalPages)
+        {
+            <li>
+                <a href="/Facilities/FacilitiesPublic/SearchFacilities/@id?currentPage=@(Model.CurrentPage + 1)" aria-label="Next">&raquo;</a>
+            </li>
+        }
+
+    </ul>
+</nav>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+*@

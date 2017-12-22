@@ -13,6 +13,7 @@ using TestStack.FluentMVCTesting;
 using TravelAlbum.DataServices.Contracts;
 using TravelAlbum.Models;
 using TravelAlbum.Web.Controllers;
+using TravelAlbum.Web.Models.ImageModels;
 using TravelAlbum.Web.Models.SingleImageModels;
 
 namespace TravelAlbum.UnitTests.Controllers.SingleImagesControllerTests
@@ -79,7 +80,7 @@ namespace TravelAlbum.UnitTests.Controllers.SingleImagesControllerTests
             singleImagesController
             .WithCallTo(b => b.Details(singleImageObjectMock.TravelObjectId))
                 .ShouldRenderDefaultView()
-                .WithModel<SingleImageOutputViewModel>(viewModel =>
+                .WithModel<ImageOutputViewModel>(viewModel =>
                 {
                     Assert.AreEqual(singleImageTranslationalInfoMock.Description, viewModel.Description);
                     Assert.AreEqual(singleImageObjectMock.CreatedOn, viewModel.CreatedOn);
@@ -144,7 +145,7 @@ namespace TravelAlbum.UnitTests.Controllers.SingleImagesControllerTests
             singleImagesController
             .WithCallTo(b => b.Details(singleImageObjectMock.TravelObjectId))
                 .ShouldRenderDefaultView()
-                .WithModel<SingleImageOutputViewModel>(viewModel =>
+                .WithModel<ImageOutputViewModel>(viewModel =>
                 {
                     Assert.AreEqual(singleImageTranslationalInfoMock.Description, viewModel.Description);
                     Assert.AreEqual(singleImageObjectMock.CreatedOn, new DateTime(2017, 09, 09));

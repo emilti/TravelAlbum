@@ -58,6 +58,7 @@
     <Compile Include="Mountain.cs" />
     <Compile Include="SingleImage.cs" />
     <Compile Include="SingleImageTranslationalInfo.cs" />
+    <Compile Include="Sorting.cs" />
     <Compile Include="Travel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Comment.cs" />

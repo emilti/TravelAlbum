@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using TravelAlbum.DataServices.Contracts;
 using TravelAlbum.Models;
+using TravelAlbum.Web.Models.ImageModels;
 using TravelAlbum.Web.Models.SingleImageModels;
 
 namespace TravelAlbum.Web.Controllers
@@ -150,7 +151,7 @@ namespace TravelAlbum.Web.Controllers
             String imageData = Convert.ToBase64String(singleImage.Content);
 
             string description = singleImageTranslationalInfo == null ? "No description" : singleImageTranslationalInfo.Description;
-            SingleImageOutputViewModel singleImageOutputViewModel = new SingleImageOutputViewModel()
+            ImageOutputViewModel singleImageOutputViewModel = new ImageOutputViewModel()
             {
                 SingleImageId = singleImage.TravelObjectId,
                 CreatedOn = singleImage.CreatedOn,
@@ -175,6 +176,28 @@ namespace TravelAlbum.Web.Controllers
             }
 
             return selectList;
+        }
+       
+        [HttpGet]
+        public ActionResult SearchImages(ImagesListViewModel model)
+        {
+            var mountains = this.mountainsService.All().ToList();            
+            model.MountainsDropDown = this.GetMountainsSelectList(mountains);            
+            var images = this.singleImageService.GetImagesByMountain(model.MountainsIds.ToList(), model.Sorting).ToList();
+
+            foreach (var image in images)
+            {
+                ImagePreviewOutputViewModel imagePreviewOutputViewModel = new ImagePreviewOutputViewModel();
+              
+                string imagePreviewData = Convert.ToBase64String(image.PreviewContent);
+
+                imagePreviewOutputViewModel.SingleImageId = image.TravelObjectId;
+                imagePreviewOutputViewModel.SingleImageData = imagePreviewData;
+                imagePreviewOutputViewModel.CreatedOn = image.CreatedOn;
+                model.singleImagePreviews.Add(imagePreviewOutputViewModel);
+            }
+
+            return this.View(model);
         }
     }
 }

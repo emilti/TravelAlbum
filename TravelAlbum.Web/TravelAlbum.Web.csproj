@@ -239,10 +239,11 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\InputViewModels\CreateTravelInputModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\SingleImageModels\LatestSingleImagesOutputModel.cs" />
-    <Compile Include="Models\SingleImageModels\SingleImageInputModel.cs" />
-    <Compile Include="Models\SingleImageModels\SingleImageOutputViewModel.cs" />
-    <Compile Include="Models\SingleImageModels\SingleImagePreviewOutputViewModel.cs" />
+    <Compile Include="Models\ImageModels\ImagesListViewModel.cs" />
+    <Compile Include="Models\ImageModels\LatestImagesOutputModel.cs" />
+    <Compile Include="Models\ImageModels\ImageInputModel.cs" />
+    <Compile Include="Models\ImageModels\ImageOutputViewModel.cs" />
+    <Compile Include="Models\ImageModels\ImagePreviewOutputViewModel.cs" />
     <Compile Include="Models\TravelModels\TravelSummaryOutputViewModel.cs" />
     <Compile Include="Models\TravelSearchInputViewModel.cs" />
     <Compile Include="Models\TravelModels\DetailsTravelOutputViewModel.cs" />
@@ -356,6 +357,7 @@
     <Content Include="Views\Comments\Add.cshtml" />
     <Content Include="Views\Shared\_SingleCommentPartial.cshtml" />
     <Content Include="Views\Travels\GetTravels.cshtml" />
+    <Content Include="Views\SingleImages\SearchImages.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -367,6 +369,18 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="App_GlobalResources\GlobalResources.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GlobalResources.en.designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="App_GlobalResources\GlobalResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GlobalResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TravelAlbum.DataServices\TravelAlbum.DataServices.csproj">
@@ -381,18 +395,6 @@
       <Project>{51a4d86b-6c8e-493a-8883-f316f8983274}</Project>
       <Name>TravelAlbum.Models</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="App_GlobalResources\GlobalResources.en.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>GlobalResources.en.designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="App_GlobalResources\GlobalResources.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>GlobalResources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

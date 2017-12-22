@@ -1,9 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace TravelAlbum.Web.Models.SingleImageModels
+namespace TravelAlbum.Web.Models.ImageModels
 {
-    public class SingleImageOutputViewModel
+    public class ImageOutputViewModel
     {
         public Guid SingleImageId { get; set; }
 

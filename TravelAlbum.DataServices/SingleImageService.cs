@@ -72,5 +72,19 @@ namespace TravelAlbum.DataServices
 
             return result;
         }
+
+        public IQueryable<SingleImage> GetImagesByMountain(List<Guid> mountainsIds, Sorting sorting)
+        {
+            if (sorting == Sorting.Ascending)
+            {
+                var images = this.singleImageSetWrapper.All.Where(a => mountainsIds.Contains((Guid)a.MountainId)).OrderBy(a => a.CreatedOn);
+                return images;
+            }
+            else
+            {
+                var images = this.singleImageSetWrapper.All.Where(a => mountainsIds.Contains((Guid)a.MountainId)).OrderByDescending(a => a.CreatedOn);
+                return images;
+            }            
+        }
     }
 }
