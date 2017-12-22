@@ -151,6 +151,15 @@ namespace TravelAlbum.Web.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Планини.
+        /// </summary>
+        public static string MountainSearchLabel {
+            get {
+                return ResourceManager.GetString("MountainSearchLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Снимка 1.
         /// </summary>
         public static string UploadedImage_1 {

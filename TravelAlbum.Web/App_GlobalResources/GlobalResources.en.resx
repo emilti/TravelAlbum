@@ -147,6 +147,9 @@
   <data name="LabelTravels" xml:space="preserve">
     <value>Travels</value>
   </data>
+  <data name="MountainSearchLabel" xml:space="preserve">
+    <value>Mountains</value>
+  </data>
   <data name="UploadedImage_1" xml:space="preserve">
     <value>Image 1</value>
   </data>

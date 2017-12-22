@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 using TravelAlbum.Models;
+using TravelAlbum.Web.App_GlobalResources;
 
 namespace TravelAlbum.Web.Models.ImageModels
 {
@@ -17,15 +18,17 @@ namespace TravelAlbum.Web.Models.ImageModels
             this.MountainsIds = new HashSet<Guid>();
         }
 
+        [Display(Name = "MountainSearchLabel", ResourceType = typeof(GlobalResources))]
         public IEnumerable<Guid> MountainsIds { get; set; }
 
         public IEnumerable<SelectListItem> MountainsDropDown { get; set; }
 
         public List<ImagePreviewOutputViewModel> singleImagePreviews { get; set; }   
         
+
         public Sorting Sorting { get; set; }
 
-        [DisplayName("Планини")]
+       
         public virtual ICollection<Mountain> Mountains
         {
             get { return this.mountains; }

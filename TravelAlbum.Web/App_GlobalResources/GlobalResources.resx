@@ -147,6 +147,9 @@
   <data name="LabelTravels" xml:space="preserve">
     <value>Пътувания</value>
   </data>
+  <data name="MountainSearchLabel" xml:space="preserve">
+    <value>Планини</value>
+  </data>
   <data name="UploadedImage_1" xml:space="preserve">
     <value>Снимка 1</value>
   </data>

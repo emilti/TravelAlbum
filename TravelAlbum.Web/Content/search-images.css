@@ -1,0 +1,14 @@
+﻿.search-group{
+    float:left;
+    margin:20px
+}
+
+.search-element{
+    margin-right:50px
+}
+
+.search-container{
+    width:30%;
+    margin-left:auto;
+    margin-right:auto
+}
