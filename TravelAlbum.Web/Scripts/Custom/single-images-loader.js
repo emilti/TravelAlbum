@@ -45,7 +45,7 @@ function GetData() {
                     var dateFormatted = date.getMonth() + 1 + '/' + date.getDate() + '/' + date.getFullYear();
                     $("#single-images-container").append(
                         "<div class='single-image-container'>" +
-                            "<a href='SingleImages/Details/" + data[i].SingleImageId + "'>" +
+                            "<a href='Images/Details/" + data[i].SingleImageId + "'>" +
                                 "<img class='single-image' src='data:image/jpg;base64," + data[i].SingleImageData + "' />" +
                                 "<div class='cover-container'>" +
                                 "</div>" +

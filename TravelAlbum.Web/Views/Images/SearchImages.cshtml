@@ -1,7 +1,7 @@
 ﻿@model TravelAlbum.Web.Models.ImageModels.ImagesListViewModel
 @using TravelAlbum.Models
 
-@using (Html.BeginForm("SearchImages", "SingleImages", null, FormMethod.Get, new { @class = "form-horizontal", role = "form" }))
+@using (Html.BeginForm("SearchImages", "Images", null, FormMethod.Get, new { @class = "form-horizontal", role = "form" }))
 {
     <div class="form-group">
         @Html.LabelFor(m => m.MountainsIds, new { @class = "col-md-2 control-label" })
@@ -27,7 +27,7 @@
             foreach (var singleImage in Model.singleImagePreviews)
             {
                 <div class='single-image-container'>
-                    <a href="@Url.Action("Details", "SingleImages", new { id = singleImage.SingleImageId })">
+                    <a href="@Url.Action("Details", "Images", new { id = singleImage.SingleImageId })">
                         <img class='single-image' src='data:image/jpg;base64,@singleImage.SingleImageData' />
                         <div class='cover-container'>                          
                         </div>                        

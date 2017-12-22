@@ -7,7 +7,7 @@
     foreach (var singleImage in Model.singleImagePreviews)
     {
             <div class="single-image-container">
-                <a href="@Url.Action("Details", "SingleImages", new { id = singleImage.SingleImageId })">
+                <a href="@Url.Action("Details", "Images", new { id = singleImage.SingleImageId })">
                     <div style="background: url(@String.Format("data:image/jpg;base64,{0}", singleImage.SingleImageData))">
                         @*<!--img class="single-image" src="@String.Format("data:image/jpg;base64,{0}", singleImage.SingleImageData)" /-->*@
                         aa

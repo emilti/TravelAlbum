@@ -1,7 +1,7 @@
 ﻿@model TravelAlbum.Web.Models.SingleImageModels.SingleImageInputModel
 
 
-@using (Html.BeginForm("Add", "SingleImages", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Add", "Images", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 

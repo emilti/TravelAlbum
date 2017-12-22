@@ -64,8 +64,8 @@ namespace TravelAlbum.UnitTests.Controllers.SingleImagesControllerTests
                     }
                 });
 
-            SingleImagesController singleImagesController =
-                 new SingleImagesController(
+            ImagesController singleImagesController =
+                 new ImagesController(
                 singleImageServiceMock.Object,
                 mountainsServiceMock.Object,
                 singleImageTranslationalInfoService.Object);
@@ -129,8 +129,8 @@ namespace TravelAlbum.UnitTests.Controllers.SingleImagesControllerTests
                     }
                 });
 
-            SingleImagesController singleImagesController =
-                 new SingleImagesController(
+            ImagesController singleImagesController =
+                 new ImagesController(
                 singleImageServiceMock.Object,
                 mountainsServiceMock.Object,
                 singleImageTranslationalInfoService.Object);
@@ -164,7 +164,7 @@ namespace TravelAlbum.UnitTests.Controllers.SingleImagesControllerTests
 
             singleImageServiceMock.Setup(m => m.GetById((Guid?)null)).Returns((SingleImage)null);
 
-            SingleImagesController singleImagesController = new SingleImagesController(singleImageServiceMock.Object, mountainsServiceMock.Object, singleImageTranslationalInfoService.Object);
+            ImagesController singleImagesController = new ImagesController(singleImageServiceMock.Object, mountainsServiceMock.Object, singleImageTranslationalInfoService.Object);
 
             // Act and Assert
             singleImagesController.WithCallTo(

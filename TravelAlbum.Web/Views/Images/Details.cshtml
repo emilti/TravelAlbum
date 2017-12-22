@@ -11,7 +11,7 @@
     <div class="col-md-4">
         @if (ViewContext.HttpContext.User.IsInRole("Admin"))
         {
-            @Html.ActionLink("Edit Single Image", "EditSingleImage", "SingleImagesController", null, new { @class = "btn btn-primary pull-right" })
+            @Html.ActionLink("Edit Single Image", "EditSingleImage", "ImagesController", null, new { @class = "btn btn-primary pull-right" })
         }
     </div>
 </div>

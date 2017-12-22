@@ -12,7 +12,7 @@ using TravelAlbum.Web.Models.SingleImageModels;
 
 namespace TravelAlbum.Web.Controllers
 {
-    public class SingleImagesController : Controller
+    public class ImagesController : Controller
     {
         private readonly ISingleImageService singleImageService;
 
@@ -21,7 +21,7 @@ namespace TravelAlbum.Web.Controllers
         private readonly ISingleImageTranslationalInfoService singleImageTranslationalInfoService;
 
 
-        public SingleImagesController(ISingleImageService singleImageService, IMountainsService mountainsService, ISingleImageTranslationalInfoService singleImageTranslationalInfoService)
+        public ImagesController(ISingleImageService singleImageService, IMountainsService mountainsService, ISingleImageTranslationalInfoService singleImageTranslationalInfoService)
         {
             Guard.WhenArgument(singleImageService, "singleImageService").IsNull().Throw();
             Guard.WhenArgument(mountainsService, "mountainsService").IsNull().Throw();

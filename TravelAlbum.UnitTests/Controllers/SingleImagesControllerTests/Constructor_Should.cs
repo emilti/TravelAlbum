@@ -18,7 +18,7 @@ namespace TravelAlbum.UnitTests.Controllers.SingleImagesControllerTests
             var singleImageTranslationalInfoServiceMock = new Mock<ISingleImageTranslationalInfoService>();
            
             // Act
-            SingleImagesController singleImageController = new SingleImagesController(singleImageServiceMock.Object, mountainsServiceMock.Object, singleImageTranslationalInfoServiceMock.Object);
+            ImagesController singleImageController = new ImagesController(singleImageServiceMock.Object, mountainsServiceMock.Object, singleImageTranslationalInfoServiceMock.Object);
 
             // Assert
             Assert.IsNotNull(singleImageController);
@@ -33,7 +33,7 @@ namespace TravelAlbum.UnitTests.Controllers.SingleImagesControllerTests
             var mountainsServiceMock = new Mock<IMountainsService>();
 
             // Act
-            SingleImagesController singleImageController = new SingleImagesController(singleImageServiceMock.Object, mountainsServiceMock.Object, null);
+            ImagesController singleImageController = new ImagesController(singleImageServiceMock.Object, mountainsServiceMock.Object, null);
 
             // Assert
             Assert.IsNotNull(singleImageController);
@@ -46,7 +46,7 @@ namespace TravelAlbum.UnitTests.Controllers.SingleImagesControllerTests
             var singleImageTranslationalInfoServiceMock = new Mock<ISingleImageTranslationalInfoService>();
             var mountainsServiceMock = new Mock<IMountainsService>();
             // Act
-            SingleImagesController singleImageController = new SingleImagesController(null, mountainsServiceMock.Object, singleImageTranslationalInfoServiceMock.Object);
+            ImagesController singleImageController = new ImagesController(null, mountainsServiceMock.Object, singleImageTranslationalInfoServiceMock.Object);
 
             // Assert
             Assert.IsNotNull(singleImageController);
