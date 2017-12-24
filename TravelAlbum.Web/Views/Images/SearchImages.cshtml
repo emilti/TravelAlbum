@@ -35,7 +35,7 @@
         </div>
             *@
         <div class="search-group">
-            @Html.EnumDropDownListFor(a => a.SelectedSorting, "Select sorting", new { @class = "form-control" })
+            @Html.EnumDropDownListFor(a => a.SelectedSorting, GlobalResources.SelectSortingLabel, new { @class = "form-control" })
         </div>
         <input class="btn btn-primary search-group" value="@GlobalResources.SearchButtonLabel" type="submit">
     </div>

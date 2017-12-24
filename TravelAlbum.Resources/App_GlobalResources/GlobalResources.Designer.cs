@@ -169,6 +169,15 @@ namespace TravelAlbum.Resources.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Избери сортиране.
+        /// </summary>
+        public static string SelectSortingLabel {
+            get {
+                return ResourceManager.GetString("SelectSortingLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Първо най-старите.
         /// </summary>
         public static string SortingAscendingLabel {

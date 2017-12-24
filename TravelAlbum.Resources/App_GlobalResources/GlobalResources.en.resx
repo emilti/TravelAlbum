@@ -153,6 +153,9 @@
   <data name="SearchButtonLabel" xml:space="preserve">
     <value>Search</value>
   </data>
+  <data name="SelectSortingLabel" xml:space="preserve">
+    <value>Select sorting</value>
+  </data>
   <data name="SortingAscendingEnum" xml:space="preserve">
     <value>Ascending</value>
   </data>

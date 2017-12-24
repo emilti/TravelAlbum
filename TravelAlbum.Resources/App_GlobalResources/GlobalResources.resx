@@ -153,6 +153,9 @@
   <data name="SearchButtonLabel" xml:space="preserve">
     <value>Търси</value>
   </data>
+  <data name="SelectSortingLabel" xml:space="preserve">
+    <value>Избери сортиране</value>
+  </data>
   <data name="SortingAscendingLabel" xml:space="preserve">
     <value>Първо най-старите</value>
   </data>
