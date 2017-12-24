@@ -30,7 +30,7 @@ namespace TravelAlbum.Models
         public Guid? MountainId { get; set; }
 
         [ForeignKey("MountainId")]
-        public virtual Mountain Mountain { get; set; }
+        public virtual Mountain Mountain { get; set; }       
 
         public virtual ICollection<SingleImageTranslationalInfo> TranslatedInfoes
         {

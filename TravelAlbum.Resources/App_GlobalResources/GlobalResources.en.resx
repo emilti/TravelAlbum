@@ -150,6 +150,21 @@
   <data name="MountainSearchLabel" xml:space="preserve">
     <value>Mountains</value>
   </data>
+  <data name="SearchButtonLabel" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SortingAscendingEnum" xml:space="preserve">
+    <value>Ascending</value>
+  </data>
+  <data name="SortingAscendingLabel" xml:space="preserve">
+    <value>Oldest first</value>
+  </data>
+  <data name="SortingDescendingEnum" xml:space="preserve">
+    <value>Descending</value>
+  </data>
+  <data name="SortingDescendingLabel" xml:space="preserve">
+    <value>Newest first</value>
+  </data>
   <data name="UploadedImage_1" xml:space="preserve">
     <value>Image 1</value>
   </data>

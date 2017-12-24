@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 using TravelAlbum.Models;
-using TravelAlbum.Web.App_GlobalResources;
+using TravelAlbum.Resources.App_GlobalResources;
+using TravelAlbum.Web.Enums;
 
 namespace TravelAlbum.Web.Models.ImageModels
 {
     public class ImagesListViewModel
     {
-        private ICollection<Mountain> mountains;       
+        // private ICollection<Mountain> mountains;       
 
         public ImagesListViewModel()
         {
             this.singleImagePreviews = new List<ImagePreviewOutputViewModel>();
-            this.Mountains = new HashSet<Mountain>();
-            this.MountainsIds = new HashSet<Guid>();
+            // this.Mountains = new HashSet<Mountain>();
+            // this.Mountains = new HashSet<Mountains>();
         }
 
         [Display(Name = "MountainSearchLabel", ResourceType = typeof(GlobalResources))]
@@ -23,16 +24,18 @@ namespace TravelAlbum.Web.Models.ImageModels
 
         public IEnumerable<SelectListItem> MountainsDropDown { get; set; }
 
-        public List<ImagePreviewOutputViewModel> singleImagePreviews { get; set; }   
-        
+        public List<ImagePreviewOutputViewModel> singleImagePreviews { get; set; }
 
-        public Sorting Sorting { get; set; }
+        public Mountain SelectedMountain { get; set; }
 
+        public Guid SelectedMountainId { get; set; }
+
+        public Sorting SelectedSorting { get; set; }
        
-        public virtual ICollection<Mountain> Mountains
-        {
-            get { return this.mountains; }
-            set { this.mountains = value; }
-        }
+        // public virtual ICollection<Mountain> Mountains
+        // {
+        //     get { return this.mountains; }
+        //     set { this.mountains = value; }
+        // }
     }
 }

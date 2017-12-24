@@ -1,5 +1,6 @@
 ﻿using Bytes2you.Validation;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using TravelAlbum.Data;
 using TravelAlbum.DataServices.Contracts;
@@ -41,7 +42,7 @@ namespace TravelAlbum.DataServices
             return result;
         }
 
-        public IQueryable<Mountain> All()
+        public IEnumerable<Mountain> All()
         {
             return this.mountainsSetWrapper.All;
         }

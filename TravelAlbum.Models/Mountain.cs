@@ -8,9 +8,12 @@ namespace TravelAlbum.Models
     {
         private ICollection<SingleImage> singleImages;
 
+        private ICollection<MountainTranslationalInfo> translatedInfoes;      
+
         public Mountain()
         {
             this.SingleImages = new HashSet<SingleImage>();
+            this.TranslatedInfoes = new HashSet<MountainTranslationalInfo>();
         }
 
         [Key]
@@ -22,6 +25,12 @@ namespace TravelAlbum.Models
         {
             get { return this.singleImages; }
             set { this.singleImages = value; }
+        }
+
+        public virtual ICollection<MountainTranslationalInfo> TranslatedInfoes
+        {
+            get { return this.translatedInfoes; }
+            set { this.translatedInfoes = value; }
         }
     }
 }

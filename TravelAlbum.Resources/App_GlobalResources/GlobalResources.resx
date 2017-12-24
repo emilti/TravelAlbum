@@ -150,6 +150,15 @@
   <data name="MountainSearchLabel" xml:space="preserve">
     <value>Планини</value>
   </data>
+  <data name="SearchButtonLabel" xml:space="preserve">
+    <value>Търси</value>
+  </data>
+  <data name="SortingAscendingLabel" xml:space="preserve">
+    <value>Първо най-старите</value>
+  </data>
+  <data name="SortingDescendingLabel" xml:space="preserve">
+    <value>Първо най-новите</value>
+  </data>
   <data name="UploadedImage_1" xml:space="preserve">
     <value>Снимка 1</value>
   </data>

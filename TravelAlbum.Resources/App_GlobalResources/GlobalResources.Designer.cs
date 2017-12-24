@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TravelAlbum.Web.App_GlobalResources {
+namespace TravelAlbum.Resources.App_GlobalResources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace TravelAlbum.Web.App_GlobalResources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TravelAlbum.Web.App_GlobalResources.GlobalResources", typeof(GlobalResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TravelAlbum.Resources.App_GlobalResources.GlobalResources", typeof(GlobalResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -156,6 +156,33 @@ namespace TravelAlbum.Web.App_GlobalResources {
         public static string MountainSearchLabel {
             get {
                 return ResourceManager.GetString("MountainSearchLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Търси.
+        /// </summary>
+        public static string SearchButtonLabel {
+            get {
+                return ResourceManager.GetString("SearchButtonLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Първо най-старите.
+        /// </summary>
+        public static string SortingAscendingLabel {
+            get {
+                return ResourceManager.GetString("SortingAscendingLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Първо най-новите.
+        /// </summary>
+        public static string SortingDescendingLabel {
+            get {
+                return ResourceManager.GetString("SortingDescendingLabel", resourceCulture);
             }
         }
         

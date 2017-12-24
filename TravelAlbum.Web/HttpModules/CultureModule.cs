@@ -20,15 +20,12 @@ namespace TravelAlbum.HttpModules
         private void Context_BeginRequest(object sender, EventArgs e)
         {
             var urlParts = HttpContext.Current.Request.Url.AbsoluteUri.Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
-            if (urlParts.Count() > 2)
-            {
-                string lang = urlParts[2];
 
-                if (lang == "en")
-                {
-                    Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en");
-                    Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en");
-                }
+            string absoluteUri = HttpContext.Current.Request.Url.AbsoluteUri;
+            if (urlParts.Count() > 2 && absoluteUri.Contains("/en"))
+            {
+                Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en");
+                Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en");
             }
         }
     }

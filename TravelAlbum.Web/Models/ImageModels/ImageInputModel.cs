@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Web;
 using System.Web.Mvc;
 using TravelAlbum.Models;
-using TravelAlbum.Web.App_GlobalResources;
+using TravelAlbum.Resources.App_GlobalResources;
 
 namespace TravelAlbum.Web.Models.SingleImageModels
 {

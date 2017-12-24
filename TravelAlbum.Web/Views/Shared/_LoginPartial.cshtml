@@ -7,9 +7,9 @@
 
     <ul class="nav navbar-nav navbar-right">
         <li>
-            @Html.ActionLink(TravelAlbum.Web.App_GlobalResources.GlobalResources.LabelHello + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            @Html.ActionLink(TravelAlbum.Resources.App_GlobalResources.GlobalResources.LabelHello + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
         </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">@TravelAlbum.Web.App_GlobalResources.GlobalResources.LabelLogout</a></li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()">@TravelAlbum.Resources.App_GlobalResources.GlobalResources.LabelLogout</a></li>
     </ul>
     }
 }

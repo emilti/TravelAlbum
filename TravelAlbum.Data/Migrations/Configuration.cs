@@ -3,6 +3,7 @@
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.IO;
@@ -127,6 +128,68 @@
                     Name = "Pirin"
                 };
 
+                MountainTranslationalInfo vitoshaBg = new MountainTranslationalInfo()
+                {
+                    MountainTranslationalInfoId = Guid.NewGuid(),
+                    Mountain = vitosha,
+                    MountainId = vitosha.MountainId,
+                    Language = Language.Bulgarian,
+                    Name = "Витоша"
+                };
+
+                MountainTranslationalInfo vitoshaEn = new MountainTranslationalInfo()
+                {
+                    MountainTranslationalInfoId = Guid.NewGuid(),
+                    Mountain = vitosha,
+                    MountainId = vitosha.MountainId,
+                    Language = Language.English,
+                    Name = "Vitosha"
+                };
+
+                MountainTranslationalInfo rilaBg = new MountainTranslationalInfo()
+                {
+                    MountainTranslationalInfoId = Guid.NewGuid(),
+                    Mountain = rila,
+                    MountainId = rila.MountainId,
+                    Language = Language.Bulgarian,
+                    Name = "Рила"
+                };
+
+                MountainTranslationalInfo rilaEn = new MountainTranslationalInfo()
+                {
+                    MountainTranslationalInfoId = Guid.NewGuid(),
+                    Mountain = rila,
+                    MountainId = rila.MountainId,
+                    Language = Language.English,
+                    Name = "Rila"
+                };
+
+                MountainTranslationalInfo pirinBg = new MountainTranslationalInfo()
+                {
+                    MountainTranslationalInfoId = Guid.NewGuid(),
+                    Mountain = pirin,
+                    MountainId = pirin.MountainId,
+                    Language = Language.Bulgarian,
+                    Name = "Пирин"
+                };
+
+                MountainTranslationalInfo pirinEn = new MountainTranslationalInfo()
+                {
+                    MountainTranslationalInfoId = Guid.NewGuid(),
+                    Mountain = pirin,
+                    MountainId = pirin.MountainId,
+                    Language = Language.English,
+                    Name = "Pirin"
+                };
+
+                context.MountainTranslationalInfoes.Add(vitoshaBg);
+                context.MountainTranslationalInfoes.Add(vitoshaEn);
+                context.MountainTranslationalInfoes.Add(rilaBg);
+                context.MountainTranslationalInfoes.Add(rilaEn);
+                context.MountainTranslationalInfoes.Add(pirinBg);
+                context.MountainTranslationalInfoes.Add(pirinEn);
+
+
                 Travel malyovitsaTravel = new Travel()
                 {
                     TravelObjectId = Guid.NewGuid(),
@@ -168,7 +231,7 @@
                     TravelObjectId = Guid.NewGuid(),
                     CreatedOn = DateTime.Now,
                     Mountain = rila,
-                    MountainId = rila.MountainId
+                    MountainId = rila.MountainId                    
                 };
 
 
@@ -185,7 +248,7 @@
                     TravelObjectId = Guid.NewGuid(),
                     CreatedOn = DateTime.Now,
                     Mountain = vitosha,
-                    MountainId = vitosha.MountainId
+                    MountainId = vitosha.MountainId                    
                 };
 
                 vitosha.SingleImages.Add(singleImage1);
@@ -200,7 +263,7 @@
                     TravelObjectId = Guid.NewGuid(),
                     CreatedOn = DateTime.Now,
                     Mountain = vitosha,
-                    MountainId = vitosha.MountainId
+                    MountainId = vitosha.MountainId                    
                 };
 
                 vitosha.SingleImages.Add(singleImage2);
@@ -215,7 +278,7 @@
                     TravelObjectId = Guid.NewGuid(),
                     CreatedOn = DateTime.Now,
                     Mountain = vitosha,
-                    MountainId = vitosha.MountainId
+                    MountainId = vitosha.MountainId                    
                 };
 
                 vitosha.SingleImages.Add(singleImage3);

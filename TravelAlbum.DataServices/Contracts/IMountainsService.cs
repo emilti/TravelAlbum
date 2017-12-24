@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using TravelAlbum.Models;
 
@@ -10,6 +11,6 @@ namespace TravelAlbum.DataServices.Contracts
 
         Mountain GetById(Guid? id);
 
-        IQueryable<Mountain> All();
+        IEnumerable<Mountain> All();
     }
 }

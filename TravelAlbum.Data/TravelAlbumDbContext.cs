@@ -28,6 +28,8 @@ namespace TravelAlbum.Data
 
         public virtual IDbSet<Mountain> Mountains { get; set; }
 
+        public virtual IDbSet<MountainTranslationalInfo> MountainTranslationalInfoes { get; set; }
+
         public new IDbSet<T> Set<T>() where T : class
         {
             return base.Set<T>();

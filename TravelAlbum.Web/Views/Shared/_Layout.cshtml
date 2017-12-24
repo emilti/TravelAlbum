@@ -19,20 +19,20 @@
     <div class="top-image"></div>
     <div class='topnav'>
         <div class="content-menu">            
-            @Html.ActionLink(TravelAlbum.Web.App_GlobalResources.GlobalResources.LabelAlbum, "Index", "Home")
-            @Html.ActionLink(TravelAlbum.Web.App_GlobalResources.GlobalResources.LabelTravels, "GetTravels", "Travels", new { url = @Request.Url.PathAndQuery }, null)
+            @Html.ActionLink(TravelAlbum.Resources.App_GlobalResources.GlobalResources.LabelAlbum, "SearchImages", "Images")
+            @Html.ActionLink(TravelAlbum.Resources.App_GlobalResources.GlobalResources.LabelTravels, "GetTravels", "Travels", new { url = @Request.Url.PathAndQuery }, null)
             @if (ViewContext.HttpContext.User.IsInRole("Admin"))
             {
-                @Html.ActionLink(TravelAlbum.Web.App_GlobalResources.GlobalResources.LabelAddTravel, "Add", "Travels");
-                @Html.ActionLink(TravelAlbum.Web.App_GlobalResources.GlobalResources.LabelAddSingleImage, "Add", "SingleImages");
+                @Html.ActionLink(TravelAlbum.Resources.App_GlobalResources.GlobalResources.LabelAddTravel, "Add", "Travels");
+                @Html.ActionLink(TravelAlbum.Resources.App_GlobalResources.GlobalResources.LabelAddSingleImage, "Add", "Images");
             }
         </div>
 
         <div class="login-menu">
-            <a href="@Url.Action("Index", "Home",  new { lang = "bg"})">
+            <a href="@Url.Action("SearchImages", "Images",  new { lang = "bg"})">
                 <img src="~/Content/Images/bg_flag.jpg" class="language-images" />
             </a>
-            <a href="@Url.Action("Index", "Home",  new { lang = "en"})">
+            <a href="@Url.Action("SearchImages", "Images",  new { lang = "en"})">
                 <img src="~/Content/Images/en_flag.jpg" class="language-images" />
             </a>
             @Html.Partial("_LoginPartial")           

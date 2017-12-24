@@ -17,6 +17,6 @@ namespace TravelAlbum.DataServices.Contracts
 
         SingleImage GetById(Guid? id);
 
-        IQueryable<SingleImage> GetImagesByMountain(List<Guid> mountainsIds, Sorting sorting);
+        IQueryable<SingleImage> GetImagesByMountain(List<Guid> mountainsIds, int sorting);
     }
 }

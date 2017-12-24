@@ -9,6 +9,8 @@ using TravelAlbum.DataServices.Contracts;
 using TravelAlbum.Models;
 using TravelAlbum.Web.Models.ImageModels;
 using TravelAlbum.Web.Models.SingleImageModels;
+using TravelAlbum.Web.Helpers;
+using TravelAlbum.Web.Models;
 
 namespace TravelAlbum.Web.Controllers
 {
@@ -38,8 +40,8 @@ namespace TravelAlbum.Web.Controllers
         {
             var mountains = this.mountainsService.All().ToList();
             SingleImageInputModel model = new SingleImageInputModel();
-            model.MountainsDropDown = this.GetMountainsSelectList(mountains);
-            return this.View(model);           
+            model.MountainsDropDown = this.GetMountainsSelectList();
+            return this.View(model);
         }
 
         [Authorize(Roles = "Admin")]
@@ -108,7 +110,7 @@ namespace TravelAlbum.Web.Controllers
                 newSingleImage.TranslatedInfoes.Add(newEnSingleImageTranslationalInfo);
             }
 
-            return this.RedirectToAction("Index", "Home");            
+            return this.RedirectToAction("SearchImages", "Images");
         }
 
 
@@ -162,40 +164,63 @@ namespace TravelAlbum.Web.Controllers
             return this.View(singleImageOutputViewModel);
         }
 
-        private IEnumerable<SelectListItem> GetMountainsSelectList(IEnumerable<Mountain> elements)
+        private IEnumerable<SelectListItem> GetMountainsSelectList()
         {
             // Create an empty list to hold result of the operation
             var selectList = new List<SelectListItem>();
-            foreach (var element in elements)
+
+            string query = Request.Url.PathAndQuery;
+
+            var mountains = this.mountainsService.All().ToList();
+            var mountainsTranslations = new List<MountainTranslationalInfo>();
+            if (!(query.Contains("/en")))
             {
+                 mountainsTranslations = mountains.SelectMany(a => a.TranslatedInfoes).Where(a => a.Language == Language.Bulgarian).ToList();
+            }
+            else
+            {
+                mountainsTranslations = mountains.SelectMany(a => a.TranslatedInfoes).Where(a => a.Language == Language.English).ToList();
+            }
+            
+            
+            foreach (var mountain in mountains)
+            {
+                
                 selectList.Add(new SelectListItem
                 {
-                    Value = element.MountainId.ToString(),
-                    Text = element.Name
+                    Value = mountain.MountainId.ToString(),
+                    Text = mountainsTranslations.FirstOrDefault(a => a.MountainId == mountain.MountainId).Name.ToString()
                 });
             }
 
             return selectList;
         }
-       
+
         [HttpGet]
         public ActionResult SearchImages(ImagesListViewModel model)
         {
-            var mountains = this.mountainsService.All().ToList();            
-            model.MountainsDropDown = this.GetMountainsSelectList(mountains);            
-            var images = this.singleImageService.GetImagesByMountain(model.MountainsIds.ToList(), model.Sorting).ToList();
+            model.MountainsDropDown = this.GetMountainsSelectList();
 
-            foreach (var image in images)
+            if (model.MountainsIds != null)
             {
-                ImagePreviewOutputViewModel imagePreviewOutputViewModel = new ImagePreviewOutputViewModel();
-              
-                string imagePreviewData = Convert.ToBase64String(image.PreviewContent);
+                var images = this.singleImageService.GetImagesByMountain(model.MountainsIds.ToList(), (int)(model.SelectedSorting)).ToList();
 
-                imagePreviewOutputViewModel.SingleImageId = image.TravelObjectId;
-                imagePreviewOutputViewModel.SingleImageData = imagePreviewData;
-                imagePreviewOutputViewModel.CreatedOn = image.CreatedOn;
-                model.singleImagePreviews.Add(imagePreviewOutputViewModel);
+                foreach (var image in images)
+                {
+                    ImagePreviewOutputViewModel imagePreviewOutputViewModel = new ImagePreviewOutputViewModel();
+
+                    string imagePreviewData = Convert.ToBase64String(image.PreviewContent);
+
+                    imagePreviewOutputViewModel.SingleImageId = image.TravelObjectId;
+                    imagePreviewOutputViewModel.SingleImageData = imagePreviewData;
+                    imagePreviewOutputViewModel.CreatedOn = image.CreatedOn;
+                    model.singleImagePreviews.Add(imagePreviewOutputViewModel);
+                }
             }
+            else
+            {
+                model.MountainsIds = new List<Guid>();
+            }           
 
             return this.View(model);
         }

@@ -1,67 +1,65 @@
 ﻿@model TravelAlbum.Web.Models.ImageModels.ImagesListViewModel
-@using TravelAlbum.Models
+@using TravelAlbum.Web.Enums
+@using TravelAlbum.Resources.App_GlobalResources
 
 @using (Html.BeginForm("SearchImages", "Images", null, FormMethod.Get, new { @class = "form-horizontal", role = "form" }))
 {
     <div class="search-container">
         @*
-        <div class="form-group search-group">
-            @Html.LabelFor(m => m.MountainsIds, new { @class = "control-label search-element" })
+            <div class="form-group search-group">
+                @Html.LabelFor(m => m.MountainsIds, new { @class = "control-label search-element" })
 
-            @Html.ListBoxFor(model => model.MountainsIds, Model.MountainsDropDown, new { @class = "form-control", required = "required", data_placeholder = "Select one or more mountains." })
-            @Html.ValidationMessageFor(model => model.Mountains, "", new { @class = "text-danger" })
-            @Html.DropDownListFor(m => m.SportCategories, Model.SportCategoriesDropDown, new { @class = "form-control" })
-
-
-
-
-
-        </div>
+                @Html.ListBoxFor(model => model.MountainsIds, Model.MountainsDropDown, new { @class = "form-control", required = "required", data_placeholder = "Select one or more mountains." })
+                @Html.ValidationMessageFor(model => model.Mountains, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(m => m.SportCategories, Model.SportCategoriesDropDown, new { @class = "form-control" })
+            </div>
         *@
 
         <div class="search-group">
-        @foreach (var g in Model.MountainsDropDown)
-        {
-            <div>
-                <input type="checkbox"
-                       name="MountainsIds"
-                       value="@g.Value" id="@g.Value" @if (Model.MountainsIds.ToList().Contains(new Guid(g.Value)))
-                       {
-                           <text>checked</text>
-                       }/>
-                <label for="@g.Value">@g.Text</label>
-            </div>
-        }
+            @foreach (var g in Model.MountainsDropDown)
+            {
+                <div>
+                    <input type="checkbox"
+                           name="MountainsIds"
+                           value="@g.Value" id="@g.Value" @if (Model.MountainsIds.Contains(new Guid(g.Value))) { <text> checked</text>
+                       } />
+                    <label for="@g.Value">@g.Text</label>
+                </div>
+            }
         </div>
 
-
+        @*
         <div class="search-group">
-            @Html.DropDownList("Sorting",
-                    new SelectList(Enum.GetValues(typeof(Sorting))),
-                    "Sort by date",
-                    new { @class = "form-control" })
+            @Html.EnumDropDownListFor(a => a.SelectedSorting,
+                    new SelectList(Enum.GetValues(typeof(Sorting))))
         </div>
-        <input class="btn btn-primary search-group" value="Търси" type="submit">
+            *@
+        <div class="search-group">
+            @Html.EnumDropDownListFor(a => a.SelectedSorting, "Select sorting", new { @class = "form-control" })
+        </div>
+        <input class="btn btn-primary search-group" value="@GlobalResources.SearchButtonLabel" type="submit">
     </div>
 
 }
 
 
-<div id="single-images-container">
-    @if (Model != null && Model.singleImagePreviews != null)
-    {
-        foreach (var singleImage in Model.singleImagePreviews)
+<div>
+    <div id="single-images-container">
+        @if (Model != null && Model.singleImagePreviews != null)
         {
-            <div class='single-image-container'>
-                <a href="@Url.Action("Details", "Images", new { id = singleImage.SingleImageId })">
-                    <img class='single-image' src='data:image/jpg;base64,@singleImage.SingleImageData' />
-                    <div class='cover-container'>
-                    </div>
-                </a>
-                <div class='description'>@singleImage.CreatedOn </div>
-            </div>
+            foreach (var singleImage in Model.singleImagePreviews)
+            {
+                <div class='single-image-container'>
+                    <a href="@Url.Action("Details", "Images", new { id = singleImage.SingleImageId })">
+                        <img class='single-image' src='data:image/jpg;base64,@singleImage.SingleImageData' />
+                        <div class='cover-container'>
+                        </div>
+                    </a>
+                    <div class='description'>@singleImage.CreatedOn </div>
+                </div>
+            }
         }
-    }
+    </div>
 </div>
 
 

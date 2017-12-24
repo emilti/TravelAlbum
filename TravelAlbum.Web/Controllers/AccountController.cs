@@ -399,7 +399,7 @@ namespace TravelAlbum.Web.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("SearchImages", "Images");
         }
 
         //
@@ -456,7 +456,7 @@ namespace TravelAlbum.Web.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("SearchImages", "Images");
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult
