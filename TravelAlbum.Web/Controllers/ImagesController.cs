@@ -200,11 +200,22 @@ namespace TravelAlbum.Web.Controllers
         public ActionResult SearchImages(ImagesListViewModel model)
         {
             model.MountainsDropDown = this.GetMountainsSelectList();
+        
+            if (model.CurrentPage == 0)
+            {
+                model.CurrentPage = 1;
+            }
 
             if (model.MountainsIds != null)
             {
                 var images = this.singleImageService.GetImagesByMountain(model.MountainsIds.ToList(), (int)(model.SelectedSorting)).ToList();
+                model.TotalPages = images.Count() / 4;
+                if(images.Count() % 4 > 0)
+                {
+                    model.TotalPages = model.TotalPages + 1;
+                }
 
+                images = images.Skip((model.CurrentPage - 1) * 4).Take(4).ToList().ToList();
                 foreach (var image in images)
                 {
                     ImagePreviewOutputViewModel imagePreviewOutputViewModel = new ImagePreviewOutputViewModel();
@@ -220,7 +231,7 @@ namespace TravelAlbum.Web.Controllers
             else
             {
                 model.MountainsIds = new List<Guid>();
-            }           
+            }            
 
             return this.View(model);
         }

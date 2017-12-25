@@ -12,3 +12,12 @@
     margin-left:auto;
     margin-right:auto
 }
+
+.search-pagination{
+    margin-left:auto;
+    margin-right:auto;
+    width:15%;
+    overflow:auto;
+    display:block
+
+}

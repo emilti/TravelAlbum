@@ -31,7 +31,11 @@ namespace TravelAlbum.Web.Models.ImageModels
         public Guid SelectedMountainId { get; set; }
 
         public Sorting SelectedSorting { get; set; }
-       
+
+        public int CurrentPage { get; set; }
+
+        public int TotalPages { get; set; }
+
         // public virtual ICollection<Mountain> Mountains
         // {
         //     get { return this.mountains; }
