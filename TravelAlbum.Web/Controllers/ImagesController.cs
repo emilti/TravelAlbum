@@ -8,9 +8,6 @@ using System.Web.Mvc;
 using TravelAlbum.DataServices.Contracts;
 using TravelAlbum.Models;
 using TravelAlbum.Web.Models.ImageModels;
-using TravelAlbum.Web.Models.ImageModels;
-using TravelAlbum.Web.Helpers;
-using TravelAlbum.Web.Models;
 
 namespace TravelAlbum.Web.Controllers
 {
@@ -51,7 +48,7 @@ namespace TravelAlbum.Web.Controllers
             if (this.ModelState.IsValid)
             {
                 HttpPostedFileBase imageContent = imageForAdding.UploadedImage;
-                
+
 
                 byte[] imageData = null;
 
@@ -61,7 +58,7 @@ namespace TravelAlbum.Web.Controllers
                 }
 
                 HttpPostedFileBase imagePreviewContent = imageForAdding.UploadedPreviewImage;
-              
+
 
                 byte[] previewImageData = null;
 
@@ -175,17 +172,17 @@ namespace TravelAlbum.Web.Controllers
             var mountainsTranslations = new List<MountainTranslationalInfo>();
             if (!(query.Contains("/en")))
             {
-                 mountainsTranslations = mountains.SelectMany(a => a.TranslatedInfoes).Where(a => a.Language == Language.Bulgarian).ToList();
+                mountainsTranslations = mountains.SelectMany(a => a.TranslatedInfoes).Where(a => a.Language == Language.Bulgarian).ToList();
             }
             else
             {
                 mountainsTranslations = mountains.SelectMany(a => a.TranslatedInfoes).Where(a => a.Language == Language.English).ToList();
             }
-            
-            
+
+
             foreach (var mountain in mountains)
             {
-                
+
                 selectList.Add(new SelectListItem
                 {
                     Value = mountain.MountainId.ToString(),
@@ -200,7 +197,8 @@ namespace TravelAlbum.Web.Controllers
         public ActionResult SearchImages(ImagesListViewModel model)
         {
             model.MountainsDropDown = this.GetMountainsSelectList();
-        
+            model.PageSizes = this.GetPageSizes(model);
+
             if (model.CurrentPage == 0)
             {
                 model.CurrentPage = 1;
@@ -209,13 +207,13 @@ namespace TravelAlbum.Web.Controllers
             if (model.MountainsIds != null)
             {
                 var images = this.imageService.GetImagesByMountain(model.MountainsIds.ToList(), (int)(model.SelectedSorting)).ToList();
-                model.TotalPages = images.Count() / 4;
-                if(images.Count() % 4 > 0)
+                model.TotalPages = images.Count() / model.SelectedPageSize;
+                if (images.Count() % model.SelectedPageSize > 0)
                 {
                     model.TotalPages = model.TotalPages + 1;
                 }
 
-                images = images.Skip((model.CurrentPage - 1) * 4).Take(4).ToList().ToList();
+                images = images.Skip((model.CurrentPage - 1) * model.SelectedPageSize).Take(model.SelectedPageSize).ToList().ToList();
                 foreach (var image in images)
                 {
                     ImagePreviewOutputViewModel imagePreviewOutputViewModel = new ImagePreviewOutputViewModel();
@@ -231,9 +229,33 @@ namespace TravelAlbum.Web.Controllers
             else
             {
                 model.MountainsIds = new List<Guid>();
-            }            
+            }
 
             return this.View(model);
+        }
+
+        private IEnumerable<SelectListItem> GetPageSizes(ImagesListViewModel model)
+        {
+            var selectList = new List<SelectListItem>();
+            selectList.Add(new SelectListItem
+            {
+                Value = "2",
+                Text = "2"
+            });
+
+            selectList.Add(new SelectListItem
+            {
+                Value = "4",
+                Text = "4"
+            });
+
+            selectList.Add(new SelectListItem
+            {
+                Value = "10",
+                Text = "10"
+            });
+
+            return selectList;
         }
     }
 }

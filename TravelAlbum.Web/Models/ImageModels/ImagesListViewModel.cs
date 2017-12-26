@@ -26,20 +26,14 @@ namespace TravelAlbum.Web.Models.ImageModels
 
         public List<ImagePreviewOutputViewModel> ImagePreviews { get; set; }
 
-        public Mountain SelectedMountain { get; set; }
-
-        public Guid SelectedMountainId { get; set; }
-
         public Sorting SelectedSorting { get; set; }
+
+        public int SelectedPageSize { get; set; }
+
+        public IEnumerable<SelectListItem> PageSizes { get; set; }
 
         public int CurrentPage { get; set; }
 
-        public int TotalPages { get; set; }
-
-        // public virtual ICollection<Mountain> Mountains
-        // {
-        //     get { return this.mountains; }
-        //     set { this.mountains = value; }
-        // }
+        public int TotalPages { get; set; }       
     }
 }
