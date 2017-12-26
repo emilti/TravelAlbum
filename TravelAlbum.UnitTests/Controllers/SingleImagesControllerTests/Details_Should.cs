@@ -169,8 +169,8 @@ namespace TravelAlbum.UnitTests.Controllers.ImagesControllerTests
             // Act and Assert
             imagesController.WithCallTo(
                 b => b.Details(id))
-                  .ShouldRedirectTo<HomeController>(typeof(HomeController)
-                  .GetMethod("Index"));
+                  .ShouldRedirectTo<ImagesController>(typeof(ImagesController)
+                  .GetMethod("SearchImages"));
 
         }
     }
