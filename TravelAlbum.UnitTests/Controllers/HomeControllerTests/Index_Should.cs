@@ -17,9 +17,9 @@ namespace TravelAlbum.UnitTests.Controllers.HomeControllerTests
         [TestMethod]
         public void ReturnView_CheckDefaultIndexView()
         {
-            var singleImageServiceMock = new Mock<ISingleImageService>();
+            var imageServiceMock = new Mock<IImageService>();
            
-            HomeController homeController = new HomeController(singleImageServiceMock.Object);
+            HomeController homeController = new HomeController(imageServiceMock.Object);
 
             homeController.WithCallTo(
                 b => b.Index(0)).ShouldRenderDefaultView();

@@ -34,17 +34,17 @@
 
 <div>
     <div id="single-images-container">
-        @if (Model != null && Model.singleImagePreviews != null)
+        @if (Model != null && Model.ImagePreviews != null)
             {
-                foreach (var singleImage in Model.singleImagePreviews)
+                foreach (var image in Model.ImagePreviews)
                 {
                 <div class='single-image-container'>
-                    <a href="@Url.Action("Details", "Images", new { id = singleImage.SingleImageId })">
-                        <img class='single-image' src='data:image/jpg;base64,@singleImage.SingleImageData' />
+                    <a href="@Url.Action("Details", "Images", new { id = image.ImageId })">
+                        <img class='single-image' src='data:image/jpg;base64,@image.ImageData' />
                         <div class='cover-container'>
                         </div>
                     </a>
-                    <div class='description'>@singleImage.CreatedOn </div>
+                    <div class='description'>@image.CreatedOn </div>
                 </div>
             }
         }

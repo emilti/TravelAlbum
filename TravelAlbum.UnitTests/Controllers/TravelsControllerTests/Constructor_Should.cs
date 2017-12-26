@@ -15,10 +15,10 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
             // Arrange
             var travelServiceMock = new Mock<ITravelService>();
             var travelTranslationalInfoServiceMock = new Mock<ITravelTranslationalInfoService>();
-            var singleImageServiceMock = new Mock<ISingleImageService>();
+            var imageServiceMock = new Mock<IImageService>();
             
             // Act
-            TravelsController travelsController = new TravelsController(travelServiceMock.Object, travelTranslationalInfoServiceMock.Object, singleImageServiceMock.Object);
+            TravelsController travelsController = new TravelsController(travelServiceMock.Object, travelTranslationalInfoServiceMock.Object, imageServiceMock.Object);
 
             // Assert
             Assert.IsNotNull(travelsController);
@@ -45,10 +45,10 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
         {
             // Arrange
             var travelServiceMock = new Mock<ITravelService>();
-            var singleImageServiceMock = new Mock<ISingleImageService>();
+            var imageServiceMock = new Mock<IImageService>();
 
             // Act
-            TravelsController travelsController = new TravelsController(travelServiceMock.Object, null, singleImageServiceMock.Object);
+            TravelsController travelsController = new TravelsController(travelServiceMock.Object, null, imageServiceMock.Object);
 
             // Assert
             Assert.IsNotNull(travelsController);
@@ -60,10 +60,10 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
         {
             // Arrange
             var travelTranslationalInfoServiceMock = new Mock<ITravelTranslationalInfoService>();
-            var singleImageServiceMock = new Mock<ISingleImageService>();
+            var imageServiceMock = new Mock<IImageService>();
 
             // Act
-            TravelsController travelsController = new TravelsController(null, travelTranslationalInfoServiceMock.Object, singleImageServiceMock.Object);
+            TravelsController travelsController = new TravelsController(null, travelTranslationalInfoServiceMock.Object, imageServiceMock.Object);
 
             // Assert
             Assert.IsNotNull(travelsController);

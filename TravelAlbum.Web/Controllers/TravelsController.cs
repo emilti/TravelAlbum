@@ -20,17 +20,17 @@ namespace TravelAlbum.Web.Controllers
 
         private readonly ITravelTranslationalInfoService travelTranslationalService;
 
-        private readonly ISingleImageService singleImageService;
+        private readonly IImageService imageService;
 
-        public TravelsController(ITravelService travelService, ITravelTranslationalInfoService travelTranslationalService, ISingleImageService singleImageService)
+        public TravelsController(ITravelService travelService, ITravelTranslationalInfoService travelTranslationalService, IImageService imageService)
         {
             Guard.WhenArgument(travelService, "travelService").IsNull().Throw();
             Guard.WhenArgument(travelTranslationalService, "travelTranslationalService").IsNull().Throw();
-            Guard.WhenArgument(singleImageService, "singleImageService").IsNull().Throw();
+            Guard.WhenArgument(imageService, "imageService").IsNull().Throw();
 
             this.travelService = travelService;
             this.travelTranslationalService = travelTranslationalService;
-            this.singleImageService = singleImageService;
+            this.imageService = imageService;
         }
 
         [ValidateAntiForgeryTokenAttribute]
@@ -74,7 +74,7 @@ namespace TravelAlbum.Web.Controllers
                 return this.RedirectToAction("Index", "Home");
             }
 
-            SingleImage travelImage = travel.Images.FirstOrDefault();
+            Image travelImage = travel.Images.FirstOrDefault();
 
             String imageData = Convert.ToBase64String(travelImage.Content);
             DetailsTravelOutputViewModel travelViewModel = new DetailsTravelOutputViewModel()
@@ -160,7 +160,7 @@ namespace TravelAlbum.Web.Controllers
                 imageData = binaryReader.ReadBytes(image.ContentLength);
             }
 
-            SingleImage newTravelImage = new SingleImage
+            Image newTravelImage = new Image
             {
                 TravelObjectId = Guid.NewGuid(),
                 Content = imageData,
@@ -168,7 +168,7 @@ namespace TravelAlbum.Web.Controllers
                 TravelId = newTravel.TravelObjectId
             };
 
-            singleImageService.Add(newTravelImage);
+            imageService.Add(newTravelImage);
         }
 
         [HttpGet]

@@ -14,7 +14,7 @@ namespace TravelAlbum.Web.Models.ImageModels
 
         public ImagesListViewModel()
         {
-            this.singleImagePreviews = new List<ImagePreviewOutputViewModel>();
+            this.ImagePreviews = new List<ImagePreviewOutputViewModel>();
             // this.Mountains = new HashSet<Mountain>();
             // this.Mountains = new HashSet<Mountains>();
         }
@@ -24,7 +24,7 @@ namespace TravelAlbum.Web.Models.ImageModels
 
         public IEnumerable<SelectListItem> MountainsDropDown { get; set; }
 
-        public List<ImagePreviewOutputViewModel> singleImagePreviews { get; set; }
+        public List<ImagePreviewOutputViewModel> ImagePreviews { get; set; }
 
         public Mountain SelectedMountain { get; set; }
 

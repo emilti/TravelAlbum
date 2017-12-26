@@ -11,12 +11,12 @@ namespace TravelAlbum.Models
     public class ApplicationUser : IdentityUser
     {       
         private ICollection<Travel> favoriteTravels;
-        private ICollection<Comment> singleImageComments;
+        private ICollection<Comment> imageComments;
         
         public ApplicationUser()
         {         
             this.FavoriteTravels = new HashSet<Travel>();
-            this.SingleImageComments = new HashSet<Comment>();
+            this.ImageComments = new HashSet<Comment>();
         }
 
         [Required]       
@@ -35,10 +35,10 @@ namespace TravelAlbum.Models
         }
 
 
-        public virtual ICollection<Comment> SingleImageComments
+        public virtual ICollection<Comment> ImageComments
         {
-            get { return this.singleImageComments; }
-            set { this.singleImageComments = value; }
+            get { return this.imageComments; }
+            set { this.imageComments = value; }
         }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)

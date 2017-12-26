@@ -6,9 +6,9 @@ namespace TravelAlbum.Web.Models.ImageModels
     {
         public LatestImagesOutputModel()
         {
-            this.singleImagePreviews = new List<ImagePreviewOutputViewModel>();
+            this.ImagePreviews = new List<ImagePreviewOutputViewModel>();
         }
 
-        public List<ImagePreviewOutputViewModel> singleImagePreviews { get; set; }
+        public List<ImagePreviewOutputViewModel> ImagePreviews { get; set; }
     }
 }

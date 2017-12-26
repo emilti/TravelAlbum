@@ -14,9 +14,9 @@ using TravelAlbum.DataServices.Contracts;
 using TravelAlbum.Models;
 using TravelAlbum.Web.Controllers;
 using TravelAlbum.Web.Models.ImageModels;
-using TravelAlbum.Web.Models.SingleImageModels;
+using TravelAlbum.Web.Models.ImageModels;
 
-namespace TravelAlbum.UnitTests.Controllers.SingleImagesControllerTests
+namespace TravelAlbum.UnitTests.Controllers.ImagesControllerTests
 {
 
     [TestClass]
@@ -26,64 +26,64 @@ namespace TravelAlbum.UnitTests.Controllers.SingleImagesControllerTests
         public void ReturnView_WhenValidGuidIsPassedAndLanuageIsBg()
         {
             // Arrange
-            var singleImageServiceMock = new Mock<ISingleImageService>();
+            var imageServiceMock = new Mock<IImageService>();
             var mountainsServiceMock = new Mock<IMountainsService>();
-            var singleImageTranslationalInfoService = new Mock<ISingleImageTranslationalInfoService>();
+            var imageTranslationalInfoService = new Mock<IImageTranslationalInfoService>();
 
-            Guid singleImageId = Guid.NewGuid();
+            Guid imageId = Guid.NewGuid();
 
-            SingleImage singleImageObjectMock = new SingleImage()
+            Image imageObjectMock = new Image()
             {
-                TravelObjectId = singleImageId,
+                TravelObjectId = imageId,
                 Content = new byte[2] { 1, 2 },
                 CreatedOn = new DateTime(2017, 10, 10)
             };
 
-            SingleImageTranslationalInfo singleImageTranslationalInfoMock =
-            new SingleImageTranslationalInfo()
+            ImageTranslationalInfo imageTranslationalInfoMock =
+            new ImageTranslationalInfo()
             {
-                TravelObjectId = singleImageObjectMock.TravelObjectId,
-                SingleImage = singleImageObjectMock,
-                SingleImageTranslationalInfoId = Guid.NewGuid(),
+                TravelObjectId = imageObjectMock.TravelObjectId,
+                Image = imageObjectMock,
+                ImageTranslationalInfoId = Guid.NewGuid(),
                 Description = "Тест описание снимка",
                 Language = Language.Bulgarian
             };
 
-            singleImageObjectMock.TranslatedInfoes.Add(singleImageTranslationalInfoMock);
+            imageObjectMock.TranslatedInfoes.Add(imageTranslationalInfoMock);
 
-            singleImageServiceMock.Setup(
-                m => m.GetById((Guid?)singleImageObjectMock.TravelObjectId))
-                .Returns(new SingleImage()
+            imageServiceMock.Setup(
+                m => m.GetById((Guid?)imageObjectMock.TravelObjectId))
+                .Returns(new Image()
                 {
-                    TravelObjectId = singleImageObjectMock.TravelObjectId,
-                    CreatedOn = singleImageObjectMock.CreatedOn,
-                    Content = singleImageObjectMock.Content,
+                    TravelObjectId = imageObjectMock.TravelObjectId,
+                    CreatedOn = imageObjectMock.CreatedOn,
+                    Content = imageObjectMock.Content,
                     TranslatedInfoes =
                     {
-                            singleImageTranslationalInfoMock
+                            imageTranslationalInfoMock
                     }
                 });
 
-            ImagesController singleImagesController =
+            ImagesController imagesController =
                  new ImagesController(
-                singleImageServiceMock.Object,
+                imageServiceMock.Object,
                 mountainsServiceMock.Object,
-                singleImageTranslationalInfoService.Object);
+                imageTranslationalInfoService.Object);
 
-            HttpRequest httpRequest = new HttpRequest("", "http://localhost:56342/bg/SingleImages/Details/79cd1d5e-d2c2-425a-844b-0a0535b951e6", "");
+            HttpRequest httpRequest = new HttpRequest("", "http://localhost:56342/bg/Images/Details/79cd1d5e-d2c2-425a-844b-0a0535b951e6", "");
             StringWriter stringWriter = new StringWriter();
             HttpResponse httpResponse = new HttpResponse(stringWriter);
             HttpContext httpContextMock = new HttpContext(httpRequest, httpResponse);
-            singleImagesController.ControllerContext = new ControllerContext(new HttpContextWrapper(httpContextMock), new RouteData(), singleImagesController);
+            imagesController.ControllerContext = new ControllerContext(new HttpContextWrapper(httpContextMock), new RouteData(), imagesController);
 
             // Act & Assert
-            singleImagesController
-            .WithCallTo(b => b.Details(singleImageObjectMock.TravelObjectId))
+            imagesController
+            .WithCallTo(b => b.Details(imageObjectMock.TravelObjectId))
                 .ShouldRenderDefaultView()
                 .WithModel<ImageOutputViewModel>(viewModel =>
                 {
-                    Assert.AreEqual(singleImageTranslationalInfoMock.Description, viewModel.Description);
-                    Assert.AreEqual(singleImageObjectMock.CreatedOn, viewModel.CreatedOn);
+                    Assert.AreEqual(imageTranslationalInfoMock.Description, viewModel.Description);
+                    Assert.AreEqual(imageObjectMock.CreatedOn, viewModel.CreatedOn);
                 });
         }
 
@@ -91,64 +91,64 @@ namespace TravelAlbum.UnitTests.Controllers.SingleImagesControllerTests
         public void ReturnView_WhenValidGuidIsPassedAndLanuageIsEn()
         {
             // Arrange
-            var singleImageServiceMock = new Mock<ISingleImageService>();
+            var imageServiceMock = new Mock<IImageService>();
             var mountainsServiceMock = new Mock<IMountainsService>();
-            var singleImageTranslationalInfoService = new Mock<ISingleImageTranslationalInfoService>();
+            var imageTranslationalInfoService = new Mock<IImageTranslationalInfoService>();
 
-            Guid singleImageId = Guid.NewGuid();
+            Guid imageId = Guid.NewGuid();
 
-            SingleImage singleImageObjectMock = new SingleImage()
+            Image imageObjectMock = new Image()
             {
-                TravelObjectId = singleImageId,
+                TravelObjectId = imageId,
                 Content = new byte[2] { 1, 2 },
                 CreatedOn = new DateTime(2017, 09, 09)
             };
 
-            SingleImageTranslationalInfo singleImageTranslationalInfoMock =
-            new SingleImageTranslationalInfo()
+            ImageTranslationalInfo imageTranslationalInfoMock =
+            new ImageTranslationalInfo()
             {
-                TravelObjectId = singleImageObjectMock.TravelObjectId,
-                SingleImage = singleImageObjectMock,
-                SingleImageTranslationalInfoId = Guid.NewGuid(),
+                TravelObjectId = imageObjectMock.TravelObjectId,
+                Image = imageObjectMock,
+                ImageTranslationalInfoId = Guid.NewGuid(),
                 Description = "Test description photo",
                 Language = Language.English
             };
 
-            singleImageObjectMock.TranslatedInfoes.Add(singleImageTranslationalInfoMock);
+            imageObjectMock.TranslatedInfoes.Add(imageTranslationalInfoMock);
 
-            singleImageServiceMock.Setup(
-                m => m.GetById((Guid?)singleImageObjectMock.TravelObjectId))
-                .Returns(new SingleImage()
+            imageServiceMock.Setup(
+                m => m.GetById((Guid?)imageObjectMock.TravelObjectId))
+                .Returns(new Image()
                 {
-                    TravelObjectId = singleImageObjectMock.TravelObjectId,
-                    CreatedOn = singleImageObjectMock.CreatedOn,
-                    Content = singleImageObjectMock.Content,
+                    TravelObjectId = imageObjectMock.TravelObjectId,
+                    CreatedOn = imageObjectMock.CreatedOn,
+                    Content = imageObjectMock.Content,
                     TranslatedInfoes =
                     {
-                         singleImageTranslationalInfoMock
+                         imageTranslationalInfoMock
                     }
                 });
 
-            ImagesController singleImagesController =
+            ImagesController imagesController =
                  new ImagesController(
-                singleImageServiceMock.Object,
+                imageServiceMock.Object,
                 mountainsServiceMock.Object,
-                singleImageTranslationalInfoService.Object);
+                imageTranslationalInfoService.Object);
 
-            HttpRequest httpRequest = new HttpRequest("", "http://localhost:56342/en/SingleImages/Details/79cd1d5e-d2c2-425a-844b-0a0535b951e6", "");
+            HttpRequest httpRequest = new HttpRequest("", "http://localhost:56342/en/Images/Details/79cd1d5e-d2c2-425a-844b-0a0535b951e6", "");
             StringWriter stringWriter = new StringWriter();
             HttpResponse httpResponse = new HttpResponse(stringWriter);
             HttpContext httpContextMock = new HttpContext(httpRequest, httpResponse);
-            singleImagesController.ControllerContext = new ControllerContext(new HttpContextWrapper(httpContextMock), new RouteData(), singleImagesController);
+            imagesController.ControllerContext = new ControllerContext(new HttpContextWrapper(httpContextMock), new RouteData(), imagesController);
 
             // Act & Assert
-            singleImagesController
-            .WithCallTo(b => b.Details(singleImageObjectMock.TravelObjectId))
+            imagesController
+            .WithCallTo(b => b.Details(imageObjectMock.TravelObjectId))
                 .ShouldRenderDefaultView()
                 .WithModel<ImageOutputViewModel>(viewModel =>
                 {
-                    Assert.AreEqual(singleImageTranslationalInfoMock.Description, viewModel.Description);
-                    Assert.AreEqual(singleImageObjectMock.CreatedOn, new DateTime(2017, 09, 09));
+                    Assert.AreEqual(imageTranslationalInfoMock.Description, viewModel.Description);
+                    Assert.AreEqual(imageObjectMock.CreatedOn, new DateTime(2017, 09, 09));
                 });
         }
 
@@ -156,18 +156,18 @@ namespace TravelAlbum.UnitTests.Controllers.SingleImagesControllerTests
         public void ReturnView_WhenTravelGuidNotMatchWithExistingTravel()
         {
             // Arrange
-            var singleImageServiceMock = new Mock<ISingleImageService>();
+            var imageServiceMock = new Mock<IImageService>();
             var mountainsServiceMock = new Mock<IMountainsService>();
-            var singleImageTranslationalInfoService = new Mock<ISingleImageTranslationalInfoService>();
+            var imageTranslationalInfoService = new Mock<IImageTranslationalInfoService>();
 
             Guid id = Guid.NewGuid();
 
-            singleImageServiceMock.Setup(m => m.GetById((Guid?)null)).Returns((SingleImage)null);
+            imageServiceMock.Setup(m => m.GetById((Guid?)null)).Returns((Image)null);
 
-            ImagesController singleImagesController = new ImagesController(singleImageServiceMock.Object, mountainsServiceMock.Object, singleImageTranslationalInfoService.Object);
+            ImagesController imagesController = new ImagesController(imageServiceMock.Object, mountainsServiceMock.Object, imageTranslationalInfoService.Object);
 
             // Act and Assert
-            singleImagesController.WithCallTo(
+            imagesController.WithCallTo(
                 b => b.Details(id))
                   .ShouldRedirectTo<HomeController>(typeof(HomeController)
                   .GetMethod("Index"));

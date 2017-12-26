@@ -13,12 +13,12 @@ namespace TravelAlbum.UnitTests.Controllers.HomeControllerTests
     public class GetDataOnScroll_Should
     {
         [TestMethod]
-        public void ReturnsSingleImages_WhenEnglishLanguageIsPassed()
+        public void ReturnsImages_WhenEnglishLanguageIsPassed()
         {
             // Arrange
-            var singleImageServiceMock = new Mock<ISingleImageService>();
+            var imageServiceMock = new Mock<IImageService>();
 
-            SingleImage singleImage1 = new SingleImage()
+            Image image1 = new Image()
             {
                 TravelObjectId = Guid.NewGuid(),
                 Content = new byte[2] {1, 2},
@@ -26,7 +26,7 @@ namespace TravelAlbum.UnitTests.Controllers.HomeControllerTests
                 CreatedOn = new DateTime(2016, 9, 9)
             };
 
-            SingleImage singleImage2 = new SingleImage()
+            Image image2 = new Image()
             {
                 TravelObjectId = Guid.NewGuid(),
                 Content = new byte[2] { 1, 2 },
@@ -34,7 +34,7 @@ namespace TravelAlbum.UnitTests.Controllers.HomeControllerTests
                 CreatedOn = new DateTime(2017, 10, 10)
             };
 
-            SingleImage singleImage3 = new SingleImage()
+            Image image3 = new Image()
             {
                 TravelObjectId = Guid.NewGuid(),
                 Content = new byte[2] { 1, 2 },
@@ -43,74 +43,74 @@ namespace TravelAlbum.UnitTests.Controllers.HomeControllerTests
             };
 
 
-            SingleImageTranslationalInfo singleImageTranslationalInfo1en = new SingleImageTranslationalInfo()
+            ImageTranslationalInfo imageTranslationalInfo1en = new ImageTranslationalInfo()
             {
                 Description = "Test Description Single Image 1",
-                SingleImage = singleImage1,
-                TravelObjectId = singleImage1.TravelObjectId,
+                Image = image1,
+                TravelObjectId = image1.TravelObjectId,
                 Language = Language.English
             };
 
-            SingleImageTranslationalInfo singleImageTranslationalInfo2en = new SingleImageTranslationalInfo()
+            ImageTranslationalInfo imageTranslationalInfo2en = new ImageTranslationalInfo()
             {
                 Description = "Test Description Single Image 2",
-                SingleImage = singleImage2,
-                TravelObjectId = singleImage2.TravelObjectId,
+                Image = image2,
+                TravelObjectId = image2.TravelObjectId,
                 Language = Language.English
             };
 
-            SingleImageTranslationalInfo singleImageTranslationalInfo3en = new SingleImageTranslationalInfo()
+            ImageTranslationalInfo imageTranslationalInfo3en = new ImageTranslationalInfo()
             {
                 Description = "Test Description Single Image 3",
-                SingleImage = singleImage3,
-                TravelObjectId = singleImage3.TravelObjectId,
+                Image = image3,
+                TravelObjectId = image3.TravelObjectId,
                 Language = Language.English
             };
 
-            SingleImageTranslationalInfo singleImageTranslationalInfo1bg = new SingleImageTranslationalInfo()
+            ImageTranslationalInfo imageTranslationalInfo1bg = new ImageTranslationalInfo()
             {
                 Description = "Тест описание Single Image 1",
-                SingleImage = singleImage1,
-                TravelObjectId = singleImage1.TravelObjectId,
+                Image = image1,
+                TravelObjectId = image1.TravelObjectId,
                 Language = Language.Bulgarian
             };
 
-            SingleImageTranslationalInfo singleImageTranslationalInfo2bg = new SingleImageTranslationalInfo()
+            ImageTranslationalInfo imageTranslationalInfo2bg = new ImageTranslationalInfo()
             {
                 Description = "Тест описание Single Image 2",
-                SingleImage = singleImage2,
-                TravelObjectId = singleImage2.TravelObjectId,
+                Image = image2,
+                TravelObjectId = image2.TravelObjectId,
                 Language = Language.Bulgarian
             };
 
-            SingleImageTranslationalInfo singleImageTranslationalInfo3bg = new SingleImageTranslationalInfo()
+            ImageTranslationalInfo imageTranslationalInfo3bg = new ImageTranslationalInfo()
             {
                 Description = "Тест описание Single Image 3",
-                SingleImage = singleImage3,
-                TravelObjectId = singleImage3.TravelObjectId,
+                Image = image3,
+                TravelObjectId = image3.TravelObjectId,
                 Language = Language.Bulgarian
             };
 
 
-            singleImage1.TranslatedInfoes.Add(singleImageTranslationalInfo1en);
-            singleImage1.TranslatedInfoes.Add(singleImageTranslationalInfo1bg);
+            image1.TranslatedInfoes.Add(imageTranslationalInfo1en);
+            image1.TranslatedInfoes.Add(imageTranslationalInfo1bg);
 
-            singleImage2.TranslatedInfoes.Add(singleImageTranslationalInfo2en);
-            singleImage2.TranslatedInfoes.Add(singleImageTranslationalInfo2bg);
+            image2.TranslatedInfoes.Add(imageTranslationalInfo2en);
+            image2.TranslatedInfoes.Add(imageTranslationalInfo2bg);
 
-            singleImage3.TranslatedInfoes.Add(singleImageTranslationalInfo3en);
-            singleImage3.TranslatedInfoes.Add(singleImageTranslationalInfo3bg);
+            image3.TranslatedInfoes.Add(imageTranslationalInfo3en);
+            image3.TranslatedInfoes.Add(imageTranslationalInfo3bg);
 
-            List<SingleImage> singleImages = new List<SingleImage>() { singleImage1, singleImage2, singleImage3 };
+            List<Image> images = new List<Image>() { image1, image2, image3 };
 
-            singleImageServiceMock.Setup(
-                m => m.GetLatesSingleImages(0))
-                .Returns(singleImages);
+            imageServiceMock.Setup(
+                m => m.GetLatesImages(0))
+                .Returns(images);
             // Act
             HomeController homeController =
-                 new HomeController(singleImageServiceMock.Object);
+                 new HomeController(imageServiceMock.Object);
 
-            JsonResult result = homeController.GetSingleImagesOnScroll("/en", 0);
+            JsonResult result = homeController.GetImagesOnScroll("/en", 0);
 
             dynamic items = result.Data;
 
@@ -120,12 +120,12 @@ namespace TravelAlbum.UnitTests.Controllers.HomeControllerTests
         }
 
         [TestMethod]
-        public void ReturnsSingleImages_WhenBulgarianIsPassed()
+        public void ReturnsImages_WhenBulgarianIsPassed()
         {
             // Arrange
-            var singleImageServiceMock = new Mock<ISingleImageService>();
+            var imageServiceMock = new Mock<IImageService>();
 
-            SingleImage singleImage1 = new SingleImage()
+            Image image1 = new Image()
             {
                 TravelObjectId = Guid.NewGuid(),
                 Content = new byte[2] { 1, 2 },
@@ -133,7 +133,7 @@ namespace TravelAlbum.UnitTests.Controllers.HomeControllerTests
                 CreatedOn = new DateTime(2016, 9, 9)
             };
 
-            SingleImage singleImage2 = new SingleImage()
+            Image image2 = new Image()
             {
                 TravelObjectId = Guid.NewGuid(),
                 Content = new byte[2] { 1, 2 },
@@ -141,35 +141,35 @@ namespace TravelAlbum.UnitTests.Controllers.HomeControllerTests
                 CreatedOn = new DateTime(2017, 10, 10)
             };   
 
-            SingleImageTranslationalInfo singleImageTranslationalInfo1bg = new SingleImageTranslationalInfo()
+            ImageTranslationalInfo imageTranslationalInfo1bg = new ImageTranslationalInfo()
             {
                 Description = "Тест описание Single Image 1",
-                SingleImage = singleImage1,
-                TravelObjectId = singleImage1.TravelObjectId,
+                Image = image1,
+                TravelObjectId = image1.TravelObjectId,
                 Language = Language.Bulgarian
             };
 
-            SingleImageTranslationalInfo singleImageTranslationalInfo2bg = new SingleImageTranslationalInfo()
+            ImageTranslationalInfo imageTranslationalInfo2bg = new ImageTranslationalInfo()
             {
                 Description = "Тест описание Single Image 2",
-                SingleImage = singleImage2,
-                TravelObjectId = singleImage2.TravelObjectId,
+                Image = image2,
+                TravelObjectId = image2.TravelObjectId,
                 Language = Language.Bulgarian
             };
 
-            singleImage1.TranslatedInfoes.Add(singleImageTranslationalInfo1bg);
-            singleImage2.TranslatedInfoes.Add(singleImageTranslationalInfo2bg);
+            image1.TranslatedInfoes.Add(imageTranslationalInfo1bg);
+            image2.TranslatedInfoes.Add(imageTranslationalInfo2bg);
 
-            List<SingleImage> singleImages = new List<SingleImage>() { singleImage1, singleImage2 };
+            List<Image> images = new List<Image>() { image1, image2 };
 
-            singleImageServiceMock.Setup(
-                m => m.GetLatesSingleImages(0))
-                .Returns(singleImages);
+            imageServiceMock.Setup(
+                m => m.GetLatesImages(0))
+                .Returns(images);
             // Act
             HomeController homeController =
-                 new HomeController(singleImageServiceMock.Object);
+                 new HomeController(imageServiceMock.Object);
 
-            JsonResult result = homeController.GetSingleImagesOnScroll("/bg", 0);
+            JsonResult result = homeController.GetImagesOnScroll("/bg", 0);
 
             dynamic items = result.Data;
                         // Assert
@@ -179,20 +179,20 @@ namespace TravelAlbum.UnitTests.Controllers.HomeControllerTests
         }
 
         [TestMethod]
-        public void ReturnsSingleImages_WhenEnglishBulgarianIsPassed()
+        public void ReturnsImages_WhenEnglishBulgarianIsPassed()
         {
             // Arrange
-            var singleImageServiceMock = new Mock<ISingleImageService>();
+            var imageServiceMock = new Mock<IImageService>();
 
-            IEnumerable<SingleImage> singleImages = new List<SingleImage>();           
-            singleImageServiceMock.Setup(
-                m => m.GetLatesSingleImages(0))
-                .Returns(singleImages);
+            IEnumerable<Image> images = new List<Image>();           
+            imageServiceMock.Setup(
+                m => m.GetLatesImages(0))
+                .Returns(images);
             // Act
             HomeController homeController =
-                 new HomeController(singleImageServiceMock.Object);
+                 new HomeController(imageServiceMock.Object);
 
-            JsonResult result = homeController.GetSingleImagesOnScroll("/bg", 0);
+            JsonResult result = homeController.GetImagesOnScroll("/bg", 0);
 
             dynamic items = result.Data;
 

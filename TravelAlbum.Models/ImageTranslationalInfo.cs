@@ -3,14 +3,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TravelAlbum.Models
 {
-    public class SingleImageTranslationalInfo
+    public class ImageTranslationalInfo
     {
-        public Guid SingleImageTranslationalInfoId { get; set;}
+        public Guid ImageTranslationalInfoId { get; set;}
 
         public Guid TravelObjectId { get; set; }
 
         [ForeignKey("TravelObjectId")]
-        public virtual SingleImage SingleImage { get; set; }
+        public virtual Image Image { get; set; }
 
         public string Description { get; set; }
 

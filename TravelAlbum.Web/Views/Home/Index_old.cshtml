@@ -1,19 +1,18 @@
 ﻿@model TravelAlbum.Web.Models.ImageModels.LatestImagesOutputModel
 
 <div id="single-images-container">
-@if (Model != null && Model.singleImagePreviews != null)
+@if (Model != null && Model.ImagePreviews != null)
 {
 
-    foreach (var singleImage in Model.singleImagePreviews)
+    foreach (var image in Model.ImagePreviews)
     {
             <div class="single-image-container">
-                <a href="@Url.Action("Details", "Images", new { id = singleImage.SingleImageId })">
-                    <div style="background: url(@String.Format("data:image/jpg;base64,{0}", singleImage.SingleImageData))">
-                        @*<!--img class="single-image" src="@String.Format("data:image/jpg;base64,{0}", singleImage.SingleImageData)" /-->*@
-                        aa
+                <a href="@Url.Action("Details", "Images", new { id = image.ImageId })">
+                    <div style="background: url(@String.Format("data:image/jpg;base64,{0}", image.ImageData))">
+                       
                     </div>
                 </a>                     
-                    <div>@singleImage.CreatedOn</div>
+                    <div>@image.CreatedOn</div>
             </div>            
     }
 }
@@ -35,7 +34,7 @@
 
 <div id="url-path">@Request.Url.PathAndQuery</div>
 </div>
-@section SingleImagesLoader{   
+@section ImagesLoader{   
 <script src="~/Scripts/Custom/single-images-loader.js"></script>
 }
    

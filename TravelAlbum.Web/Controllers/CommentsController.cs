@@ -15,21 +15,21 @@ namespace TravelAlbum.Web.Controllers
     public class CommentsController : Controller
     {
         private readonly ICommentsService commentsService;
-        private readonly ISingleImageService singleImageService;
+        private readonly IImageService imageService;
         private readonly IApplicationUserService usersService;
         private readonly ITravelObjectService travelObjectService;
         private readonly ITravelService travelService;
 
-        public CommentsController(ICommentsService commentsService, ISingleImageService singleImageService, IApplicationUserService usersService, ITravelObjectService travelObjectService, ITravelService travelService)
+        public CommentsController(ICommentsService commentsService, IImageService imageService, IApplicationUserService usersService, ITravelObjectService travelObjectService, ITravelService travelService)
         {
             Guard.WhenArgument(commentsService, "commentsService").IsNull().Throw();
-            Guard.WhenArgument(singleImageService, "singleImageService").IsNull().Throw();
+            Guard.WhenArgument(imageService, "imageService").IsNull().Throw();
             Guard.WhenArgument(usersService, "usersService").IsNull().Throw();
             Guard.WhenArgument(travelObjectService, "travelObjectService").IsNull().Throw();
             Guard.WhenArgument(travelService, "travelService").IsNull().Throw();
 
             this.commentsService = commentsService;
-            this.singleImageService = singleImageService;
+            this.imageService = imageService;
             this.usersService = usersService;
             this.travelObjectService = travelObjectService;
             this.travelService = travelService;
@@ -39,7 +39,7 @@ namespace TravelAlbum.Web.Controllers
         [Authorize]
         public ActionResult AddComment(int id)
         {
-            this.ViewBag.SingleImageId = id;
+            this.ViewBag.ImageId = id;
             return this.View();
         }
 
@@ -85,7 +85,7 @@ namespace TravelAlbum.Web.Controllers
         //     if (this.ModelState.IsValid)
         //     {
         //         // FacilityComment mappedComment = AutoMapperConfig.Configuration.CreateMapper().Map<FacilityComment>(model);
-        //         SingleImage commentedSingleImage = this.singleImageService.GetById(id);
+        //         Image commentedSingleImage = this.ImageService.GetById(id);
         //         ApplicationUser user = this.usersService.GetUserDetails(this.User.Identity.GetUserId());
         //         string username = user.UserName;
         //         Comment singleImageComment = new Comment()

@@ -220,11 +220,11 @@
 
                 var basePath = AppDomain.CurrentDomain.BaseDirectory;
                
-                byte[] malyovitsaImage1Content = File.ReadAllBytes(basePath + @"/Content/SingleImages/SL373530.JPG");
-                byte[] malyovitsaImage1PreviewContent = File.ReadAllBytes(basePath + @"/Content/SingleImages/SL373530_preview.JPG");
+                byte[] malyovitsaImage1Content = File.ReadAllBytes(basePath + @"/Content/DBImages/SL373530.JPG");
+                byte[] malyovitsaImage1PreviewContent = File.ReadAllBytes(basePath + @"/Content/DBImages/SL373530_preview.JPG");
 
 
-                SingleImage malyovitsaImage1 = new SingleImage()
+                Image malyovitsaImage1 = new Image()
                 {
                     Content = malyovitsaImage1Content,
                     PreviewContent = malyovitsaImage1PreviewContent,
@@ -235,99 +235,98 @@
                 };
 
 
-                rila.SingleImages.Add(malyovitsaImage1);
+                rila.Images.Add(malyovitsaImage1);
 
-                byte[] image = File.ReadAllBytes(basePath + @"/Content/SingleImages/SL373229.JPG");
-                byte[] imagePreview = File.ReadAllBytes(basePath + @"/Content/SingleImages/SL373229_preview.JPG");
+                byte[] imageContent = File.ReadAllBytes(basePath + @"/Content/DBImages/SL373229.JPG");
+                byte[] imagePreviewContent = File.ReadAllBytes(basePath + @"/Content/DBImages/SL373229_preview.JPG");
 
 
-                SingleImage singleImage1 = new SingleImage()
+                Image image1 = new Image()
                 {
-                    Content = image,
-                    PreviewContent = imagePreview,
+                    Content = imageContent,
+                    PreviewContent = imagePreviewContent,
                     TravelObjectId = Guid.NewGuid(),
                     CreatedOn = DateTime.Now,
                     Mountain = vitosha,
                     MountainId = vitosha.MountainId                    
                 };
 
-                vitosha.SingleImages.Add(singleImage1);
+                vitosha.Images.Add(image1);
 
-                byte[] image2 = File.ReadAllBytes(basePath + @"/Content/SingleImages/SL373233.JPG");
-                byte[] previewImage2 = File.ReadAllBytes(basePath + @"/Content/SingleImages/SL373233_preview.JPG");
+                byte[] image2Content = File.ReadAllBytes(basePath + @"/Content/DBImages/SL373233.JPG");
+                byte[] previewImage2Content = File.ReadAllBytes(basePath + @"/Content/DBImages/SL373233_preview.JPG");
 
-                SingleImage singleImage2 = new SingleImage()
+                Image image2 = new Image()
                 {
-                    Content = image2,
-                    PreviewContent = previewImage2,
+                    Content = image2Content,
+                    PreviewContent = previewImage2Content,
                     TravelObjectId = Guid.NewGuid(),
                     CreatedOn = DateTime.Now,
                     Mountain = vitosha,
                     MountainId = vitosha.MountainId                    
                 };
 
-                vitosha.SingleImages.Add(singleImage2);
+                vitosha.Images.Add(image2);
 
-                byte[] image3 = File.ReadAllBytes(basePath + @"/Content/SingleImages/SL373235.JPG");
-                byte[] previewImage3 = File.ReadAllBytes(basePath + @"/Content/SingleImages/SL373235_preview.JPG");
+                byte[] image3Content = File.ReadAllBytes(basePath + @"/Content/DBImages/SL373235.JPG");
+                byte[] previewImage3Content = File.ReadAllBytes(basePath + @"/Content/DBImages/SL373235_preview.JPG");
 
-                SingleImage singleImage3 = new SingleImage()
+                Image image3 = new Image()
                 {
-                    Content = image3,
-                    PreviewContent = previewImage3,
+                    Content = image3Content,
+                    PreviewContent = previewImage3Content,
                     TravelObjectId = Guid.NewGuid(),
                     CreatedOn = DateTime.Now,
                     Mountain = vitosha,
                     MountainId = vitosha.MountainId                    
                 };
 
-                vitosha.SingleImages.Add(singleImage3);
+                vitosha.Images.Add(image3);
 
 
-                byte[] image4 = File.ReadAllBytes(basePath + @"/Content/SingleImages/SL373481.JPG");
-                byte[] previewImage4 = File.ReadAllBytes(basePath + @"/Content/SingleImages/SL373481_preview.JPG");
+                byte[] image4Content = File.ReadAllBytes(basePath + @"/Content/DBImages/SL373481.JPG");
+                byte[] previewImage4Content = File.ReadAllBytes(basePath + @"/Content/DBImages/SL373481_preview.JPG");
 
-                SingleImage singleImage4 = new SingleImage()
+                Image image4 = new Image()
                 {
-                    Content = image4,
-                    PreviewContent = previewImage4,
+                    Content = image4Content,
+                    PreviewContent = previewImage4Content,
                     TravelObjectId = Guid.NewGuid(),
                     CreatedOn = DateTime.Now,
                     Mountain = rila,
                     MountainId = rila.MountainId
                 };
 
-                rila.SingleImages.Add(singleImage4);
+                rila.Images.Add(image4);
 
-                byte[] image5 = File.ReadAllBytes(basePath + @"/Content/SingleImages/SL373668.JPG");
-                byte[] previewImage5 = File.ReadAllBytes(basePath + @"/Content/SingleImages/SL373668_preview.JPG");
+                byte[] image5Content = File.ReadAllBytes(basePath + @"/Content/DBImages/SL373668.JPG");
+                byte[] previewImage5Content = File.ReadAllBytes(basePath + @"/Content/DBImages/SL373668_preview.JPG");
 
-                SingleImage singleImage5 = new SingleImage()
+                Image image5 = new Image()
                 {
-                    Content = image5,
-                    PreviewContent = previewImage5,
+                    Content = image5Content,
+                    PreviewContent = previewImage5Content,
                     TravelObjectId = Guid.NewGuid(),
                     CreatedOn = DateTime.Now,
                     Mountain = rila,
                     MountainId = rila.MountainId
                 };
 
-                rila.SingleImages.Add(singleImage5);
+                rila.Images.Add(image5);
+                byte[] image6Content = File.ReadAllBytes(basePath + @"/Content/DBImages/SL373688.JPG");
+                byte[] previewImage6Content = File.ReadAllBytes(basePath + @"/Content/DBImages/SL373688_preview.JPG");
 
-                byte[] image6 = File.ReadAllBytes(basePath + @"/Content/SingleImages/SL373688.JPG");
-                byte[] previewImage6 = File.ReadAllBytes(basePath + @"/Content/SingleImages/SL373688_preview.JPG");
-
-                SingleImage singleImage6 = new SingleImage()
+                Image image6 = new Image()
                 {
-                    Content = image6,
-                    PreviewContent = previewImage6,
+                    Content = image6Content,
+                    PreviewContent = previewImage6Content,
                     TravelObjectId = Guid.NewGuid(),
                     CreatedOn = DateTime.Now,
                     Mountain = rila,
                     MountainId = rila.MountainId
                 };
 
-                rila.SingleImages.Add(singleImage6);
+                rila.Images.Add(image6);
 
                 context.Mountains.Add(rila);
                 context.Mountains.Add(pirin);
@@ -339,35 +338,35 @@
                 malyovitsaTravel.TranslatedTravels.Add(malyovitsaTravelBg);
                 malyovitsaTravel.TranslatedTravels.Add(malyovitsaTravelEn);
 
-                SingleImageTranslationalInfo singleImage1Bg = new SingleImageTranslationalInfo()
+                ImageTranslationalInfo image1Bg = new ImageTranslationalInfo()
                 {
-                    SingleImageTranslationalInfoId = Guid.NewGuid(),
+                    ImageTranslationalInfoId = Guid.NewGuid(),
                     Description = "Sunset over Stara planina captured from Vitosha nearby Cherni vrah",
                     Language = Language.English,
-                    SingleImage = singleImage1,
-                    TravelObjectId = singleImage1.TravelObjectId
+                    Image = image1,
+                    TravelObjectId = image1.TravelObjectId
                 };
 
-                SingleImageTranslationalInfo singleImage1En = new SingleImageTranslationalInfo()
+                ImageTranslationalInfo image1En = new ImageTranslationalInfo()
                 {
-                    SingleImageTranslationalInfoId = Guid.NewGuid(),
+                    ImageTranslationalInfoId = Guid.NewGuid(),
                     Description = "Залез над Стара планина, заснет от Витоша близо до Черни връх",
                     Language = Language.Bulgarian,
-                    SingleImage = singleImage1,
-                    TravelObjectId = singleImage1.TravelObjectId
+                    Image = image1,
+                    TravelObjectId = image1.TravelObjectId
                 };
 
-                singleImage1.TranslatedInfoes.Add(singleImage1Bg);
-                singleImage1.TranslatedInfoes.Add(singleImage1En);
+                image1.TranslatedInfoes.Add(image1Bg);
+                image1.TranslatedInfoes.Add(image1En);
 
-                context.SingleImageTranslationalInfoes.Add(singleImage1Bg);
-                context.SingleImageTranslationalInfoes.Add(singleImage1En);
-                context.TravelObjects.Add(singleImage1);
-                context.TravelObjects.Add(singleImage2);
-                context.TravelObjects.Add(singleImage3);
-                context.TravelObjects.Add(singleImage4);
-                context.TravelObjects.Add(singleImage5);
-                context.TravelObjects.Add(singleImage6);
+                context.ImageTranslationalInfoes.Add(image1Bg);
+                context.ImageTranslationalInfoes.Add(image1En);
+                context.TravelObjects.Add(image1);
+                context.TravelObjects.Add(image2);
+                context.TravelObjects.Add(image3);
+                context.TravelObjects.Add(image4);
+                context.TravelObjects.Add(image5);
+                context.TravelObjects.Add(image6);
                 context.TravelObjects.Add(malyovitsaImage1);
                 context.TravelObjects.Add(malyovitsaTravel);
                 context.TravelTranslatinalInfoes.Add(malyovitsaTravelEn);

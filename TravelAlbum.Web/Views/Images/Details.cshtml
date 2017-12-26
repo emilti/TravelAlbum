@@ -1,6 +1,6 @@
 ﻿@model TravelAlbum.Web.Models.ImageModels.ImageOutputViewModel
-<a href="@String.Format("data:image/jpg;base64,{0}", Model.SingleImageData)" data-lightbox="image-1">
-    <img class="single-image-img" src="@String.Format("data:image/jpg;base64,{0}", Model.SingleImageData)" />
+<a href="@String.Format("data:image/jpg;base64,{0}", Model.ImageData)" data-lightbox="image-1">
+    <img class="single-image-img" src="@String.Format("data:image/jpg;base64,{0}", Model.ImageData)" />
 </a>
 <br />
 <div class="description">@Model.Description</div>
@@ -11,19 +11,19 @@
     <div class="col-md-4">
         @if (ViewContext.HttpContext.User.IsInRole("Admin"))
         {
-            @Html.ActionLink("Edit Single Image", "EditSingleImage", "ImagesController", null, new { @class = "btn btn-primary pull-right" })
+            @Html.ActionLink("Edit Single Image", "EditImage", "ImagesController", null, new { @class = "btn btn-primary pull-right" })
         }
     </div>
 </div>
 <div style="height:10px;clear:both;"></div>
 
 <textarea class="add-comment-textarea" rows="4" cols="90" placeholder="Add Comment" name="Content"></textarea>
-<button class="submit-comment-button btn btn-primary" data-id="@Model.SingleImageId">Add comment</button>
+<button class="submit-comment-button btn btn-primary" data-id="@Model.ImageId">Add comment</button>
 <div id="latest-comments-container" class="row">
 
 </div>
 
-<div id="comments-container" data-id="@Model.SingleImageId" data-route="/SingleImages/Details/"></div>
+<div id="comments-container" data-id="@Model.ImageId" data-route="/Images/Details/"></div>
 
 <button id="show-comments-button" class="btn btn-primary">Show Comments</button>       
         @*Html.ActionLink("Add Comment", "AddComment", "Comments", new { area = "Facilities", id = Model.Id }, new { @class = "btn btn-primary" })*@

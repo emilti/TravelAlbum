@@ -2,8 +2,8 @@
 
 namespace TravelAlbum.DataServices.Contracts
 {
-    public interface ISingleImageTranslationalInfoService
+    public interface IImageTranslationalInfoService
     {
-        void Add(SingleImageTranslationalInfo singleImageTranslationalInfo);
+        void Add(ImageTranslationalInfo imageTranslationalInfo);
     }
 }

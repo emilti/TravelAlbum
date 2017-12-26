@@ -8,19 +8,19 @@ using TravelAlbum.Models;
 
 namespace TravelAlbum.DataServices
 {
-    public class SingleImageService : ISingleImageService
+    public class ImageService : IImageService
     {
 
-        private readonly IEfDbSetWrapper<SingleImage> singleImageSetWrapper;
+        private readonly IEfDbSetWrapper<Image> imageSetWrapper;
 
         private readonly ITravelAlbumEfDbContextSaveChanges travelAlbumEfDbContextSaveChanges;
 
-        public SingleImageService(IEfDbSetWrapper<SingleImage> singleImageSetWrapper, ITravelAlbumEfDbContextSaveChanges travelAlbumEfDbContextSaveChanges)
+        public ImageService(IEfDbSetWrapper<Image> imageSetWrapper, ITravelAlbumEfDbContextSaveChanges travelAlbumEfDbContextSaveChanges)
         {
-            Guard.WhenArgument(singleImageSetWrapper, "singleImageSetWrapper").IsNull().Throw();
+            Guard.WhenArgument(imageSetWrapper, "imageSetWrapper").IsNull().Throw();
             Guard.WhenArgument(travelAlbumEfDbContextSaveChanges, "travelAlbumEfDbContextSaveChanges").IsNull().Throw();
 
-            this.singleImageSetWrapper = singleImageSetWrapper;
+            this.imageSetWrapper = imageSetWrapper;
             this.travelAlbumEfDbContextSaveChanges = travelAlbumEfDbContextSaveChanges;
         }
 
@@ -47,42 +47,42 @@ namespace TravelAlbum.DataServices
         // }
         // 
 
-        public void Add(SingleImage singleImage)
+        public void Add(Image image)
         {
-            singleImageSetWrapper.Add(singleImage);
+            imageSetWrapper.Add(image);
             this.travelAlbumEfDbContextSaveChanges.SaveChanges();
         }
 
-        public IEnumerable<SingleImage> GetLatesSingleImages(int pageIndex)
+        public IEnumerable<Image> GetLatesImages(int pageIndex)
         {
-            IQueryable<SingleImage> singleImages = singleImageSetWrapper.All;
-            var orderedSingleImages = singleImages.OrderByDescending(a => a.CreatedOn).Skip(6 * pageIndex).Take(6).ToList();
-            return orderedSingleImages;
+            IQueryable<Image> images = imageSetWrapper.All;
+            var orderedImages = images.OrderByDescending(a => a.CreatedOn).Skip(6 * pageIndex).Take(6).ToList();
+            return orderedImages;
         }
 
-        public SingleImage GetById(Guid? id)
+        public Image GetById(Guid? id)
         {
-            SingleImage result = null;
+            Image result = null;
 
-            SingleImage singleImage = this.singleImageSetWrapper.GetById(id);
-            if (singleImage != null)
+            Image image = this.imageSetWrapper.GetById(id);
+            if (image != null)
             {
-                result = singleImage;
+                result = image;
             }
 
             return result;
         }
 
-        public IQueryable<SingleImage> GetImagesByMountain(List<Guid> mountainsIds, int sorting)
+        public IQueryable<Image> GetImagesByMountain(List<Guid> mountainsIds, int sorting)
         {            
             if (sorting == 1)
             {
-                var images = this.singleImageSetWrapper.All.Where(a => mountainsIds.Contains((Guid)a.MountainId)).OrderBy(a => a.CreatedOn);
+                var images = this.imageSetWrapper.All.Where(a => mountainsIds.Contains((Guid)a.MountainId)).OrderBy(a => a.CreatedOn);
                 return images;
             }            
             else
             {
-                var images = this.singleImageSetWrapper.All.Where(a => mountainsIds.Contains((Guid)a.MountainId)).OrderByDescending(a => a.CreatedOn);
+                var images = this.imageSetWrapper.All.Where(a => mountainsIds.Contains((Guid)a.MountainId)).OrderByDescending(a => a.CreatedOn);
                 return images;
             }            
         }

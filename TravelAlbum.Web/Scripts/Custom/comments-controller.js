@@ -1,7 +1,7 @@
 ﻿// $(document).ready(function () {  
 
 $(".submit-comment-button").on("click", function (event) {
-    postComment(this, "/SingleImages/Details/", "SingleImages");
+    postComment(this, "/Images/Details/", "Images");
 })
 
 $(".submit-travel-comment-button").on("click", function (event) {

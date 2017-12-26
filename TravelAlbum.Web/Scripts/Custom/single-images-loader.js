@@ -33,7 +33,7 @@ function GetData() {
     var url = $('#url-path').html();
     $.ajax({
         type: 'GET',
-        url: '/home/GetSingleImagesOnScroll',
+        url: '/home/GetImagesOnScroll',
         data: { 'url': url, 'pageIndex': pageIndex },
         dataType: 'json',
         success: function (data) {

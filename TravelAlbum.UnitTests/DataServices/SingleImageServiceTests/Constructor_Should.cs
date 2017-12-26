@@ -5,7 +5,7 @@ using TravelAlbum.Data;
 using TravelAlbum.DataServices;
 using TravelAlbum.Models;
 
-namespace TravelAlbum.UnitTests.DataServices.SingleImageServiceTests
+namespace TravelAlbum.UnitTests.DataServices.ImageServiceTests
 {
     [TestClass]
     public class Constructor_Should
@@ -14,25 +14,25 @@ namespace TravelAlbum.UnitTests.DataServices.SingleImageServiceTests
         public void ReturnsAnInstance_WhenBothParametersAreNotNull()
         {
             // Arrange
-            var wrapperMock = new Mock<IEfDbSetWrapper<SingleImage>>();
+            var wrapperMock = new Mock<IEfDbSetWrapper<Image>>();
             var dbContextMock = new Mock<ITravelAlbumEfDbContextSaveChanges>();
 
             // Act
-            SingleImageService singleImageService = new SingleImageService(wrapperMock.Object, dbContextMock.Object);
+            ImageService imageService = new ImageService(wrapperMock.Object, dbContextMock.Object);
 
             // Assert
-            Assert.IsNotNull(singleImageService);
+            Assert.IsNotNull(imageService);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void ThrowsException_WhenSingleImageSetWrapperIsNull()
+        public void ThrowsException_WhenImageSetWrapperIsNull()
         {
             // Arrange
             var dbContextMock = new Mock<ITravelAlbumEfDbContextSaveChanges>();
 
             // Act & Assert
-            SingleImageService singleImageService = new SingleImageService(null, dbContextMock.Object);
+            ImageService imageService = new ImageService(null, dbContextMock.Object);
         }
 
         [TestMethod]
@@ -40,10 +40,10 @@ namespace TravelAlbum.UnitTests.DataServices.SingleImageServiceTests
         public void ThrowsException_WhenDbContextIsNull()
         {
             // Arrange
-            var wrapperMock = new Mock<IEfDbSetWrapper<SingleImage>>();
+            var wrapperMock = new Mock<IEfDbSetWrapper<Image>>();
 
             // Act & Assert
-            SingleImageService singleImageService = new SingleImageService(wrapperMock.Object, null);
+            ImageService imageService = new ImageService(wrapperMock.Object, null);
         }
     }
 }

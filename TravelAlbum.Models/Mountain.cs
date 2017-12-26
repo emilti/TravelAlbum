@@ -6,13 +6,13 @@ namespace TravelAlbum.Models
 {
     public class Mountain
     {
-        private ICollection<SingleImage> singleImages;
+        private ICollection<Image> images;
 
         private ICollection<MountainTranslationalInfo> translatedInfoes;      
 
         public Mountain()
         {
-            this.SingleImages = new HashSet<SingleImage>();
+            this.Images = new HashSet<Image>();
             this.TranslatedInfoes = new HashSet<MountainTranslationalInfo>();
         }
 
@@ -21,10 +21,10 @@ namespace TravelAlbum.Models
 
         public string Name { get; set; }
 
-        public virtual ICollection<SingleImage> SingleImages
+        public virtual ICollection<Image> Images
         {
-            get { return this.singleImages; }
-            set { this.singleImages = value; }
+            get { return this.images; }
+            set { this.images = value; }
         }
 
         public virtual ICollection<MountainTranslationalInfo> TranslatedInfoes

@@ -7,18 +7,18 @@ using TravelAlbum.DataServices.Contracts;
 using TravelAlbum.Models;
 using TravelAlbum.Web.Helpers;
 using TravelAlbum.Web.Models.ImageModels;
-using TravelAlbum.Web.Models.SingleImageModels;
+using TravelAlbum.Web.Models.ImageModels;
 
 namespace TravelAlbum.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ISingleImageService singleImageService;
+        private readonly IImageService imageService;
 
-        public HomeController(ISingleImageService singleImageService)
+        public HomeController(IImageService imageService)
         {
-            Guard.WhenArgument(singleImageService, "singleImageService").IsNull().Throw();
-            this.singleImageService = singleImageService;
+            Guard.WhenArgument(imageService, "imageService").IsNull().Throw();
+            this.imageService = imageService;
         }
 
         public ActionResult Index(int pageIndex = 0)
@@ -26,14 +26,14 @@ namespace TravelAlbum.Web.Controllers
             return View();
         }
 
-        public JsonResult GetSingleImagesOnScroll(string url, int pageIndex = 0)
+        public JsonResult GetImagesOnScroll(string url, int pageIndex = 0)
         {
-            var orderedSingleImages = this.singleImageService.GetLatesSingleImages(pageIndex);
+            var orderedImages = this.imageService.GetLatesImages(pageIndex);
 
             List<ImagePreviewOutputViewModel> images = new List<ImagePreviewOutputViewModel>();
-            if (orderedSingleImages != null && orderedSingleImages.Count() > 0)
+            if (orderedImages != null && orderedImages.Count() > 0)
             {
-                GenerateImageModel(orderedSingleImages, images);
+                GenerateImageModel(orderedImages, images);
 
                 var jsonResult = Json(images, JsonRequestBehavior.AllowGet);
                 jsonResult.MaxJsonLength = int.MaxValue;
@@ -47,11 +47,11 @@ namespace TravelAlbum.Web.Controllers
             }
         }
 
-        public void GenerateImageModel(IEnumerable<SingleImage> orderedSingleImages, List<ImagePreviewOutputViewModel> images)
+        public void GenerateImageModel(IEnumerable<Image> orderedImages, List<ImagePreviewOutputViewModel> images)
         {
-            foreach (var singleImage in orderedSingleImages)
+            foreach (var image in orderedImages)
             {
-                ImagePreviewOutputViewModel singleImagePreviewOutputViewModel = new ImagePreviewOutputViewModel();
+                ImagePreviewOutputViewModel imagePreviewOutputViewModel = new ImagePreviewOutputViewModel();
                 // string query = Request.Url.PathAndQuery;
 
 
@@ -65,12 +65,12 @@ namespace TravelAlbum.Web.Controllers
                 //     description = SetDescription(singleImage, Language.English);
                 // }
 
-                string imagePreviewData = Convert.ToBase64String(singleImage.PreviewContent);
+                string imagePreviewData = Convert.ToBase64String(image.PreviewContent);
 
-                singleImagePreviewOutputViewModel.SingleImageId = singleImage.TravelObjectId;
-                singleImagePreviewOutputViewModel.SingleImageData = imagePreviewData;
-                singleImagePreviewOutputViewModel.CreatedOn = singleImage.CreatedOn;
-                images.Add(singleImagePreviewOutputViewModel);
+                imagePreviewOutputViewModel.ImageId = image.TravelObjectId;
+                imagePreviewOutputViewModel.ImageData = imagePreviewData;
+                imagePreviewOutputViewModel.CreatedOn = image.CreatedOn;
+                images.Add(imagePreviewOutputViewModel);
             }
         }
 

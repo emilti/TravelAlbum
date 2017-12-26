@@ -5,9 +5,9 @@ namespace TravelAlbum.Web.Models.ImageModels
 {
     public class ImageOutputViewModel
     {
-        public Guid SingleImageId { get; set; }
+        public Guid ImageId { get; set; }
 
-        public string SingleImageData { get; set; }
+        public string ImageData { get; set; }
 
         public string Description { get; set; }
 

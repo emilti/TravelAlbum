@@ -6,11 +6,11 @@ namespace TravelAlbum.DataServices.Contracts
 {
     public interface ICommentsService
     {
-        void Add(Comment singleImageComment);
+        void Add(Comment imageComment);
 
         IQueryable<Comment> All();
 
-        void DeleteComment(Comment singleImageComment);
+        void DeleteComment(Comment imageComment);
 
         Comment GetById(Guid commentId);
 

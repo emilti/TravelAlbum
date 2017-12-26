@@ -8,7 +8,7 @@ using System.Web.Mvc;
 using TravelAlbum.DataServices.Contracts;
 using TravelAlbum.Models;
 using TravelAlbum.Web.Models.ImageModels;
-using TravelAlbum.Web.Models.SingleImageModels;
+using TravelAlbum.Web.Models.ImageModels;
 using TravelAlbum.Web.Helpers;
 using TravelAlbum.Web.Models;
 
@@ -16,22 +16,22 @@ namespace TravelAlbum.Web.Controllers
 {
     public class ImagesController : Controller
     {
-        private readonly ISingleImageService singleImageService;
+        private readonly IImageService imageService;
 
         private readonly IMountainsService mountainsService;
 
-        private readonly ISingleImageTranslationalInfoService singleImageTranslationalInfoService;
+        private readonly IImageTranslationalInfoService imageTranslationalInfoService;
 
 
-        public ImagesController(ISingleImageService singleImageService, IMountainsService mountainsService, ISingleImageTranslationalInfoService singleImageTranslationalInfoService)
+        public ImagesController(IImageService imageService, IMountainsService mountainsService, IImageTranslationalInfoService imageTranslationalInfoService)
         {
-            Guard.WhenArgument(singleImageService, "singleImageService").IsNull().Throw();
+            Guard.WhenArgument(imageService, "imageService").IsNull().Throw();
             Guard.WhenArgument(mountainsService, "mountainsService").IsNull().Throw();
-            Guard.WhenArgument(singleImageTranslationalInfoService, "singleImageTranslationalInfoService").IsNull().Throw();
+            Guard.WhenArgument(imageTranslationalInfoService, "imageTranslationalInfoService").IsNull().Throw();
 
-            this.singleImageService = singleImageService;
+            this.imageService = imageService;
             this.mountainsService = mountainsService;
-            this.singleImageTranslationalInfoService = singleImageTranslationalInfoService;
+            this.imageTranslationalInfoService = imageTranslationalInfoService;
         }
 
         [Authorize(Roles = "Admin")]
@@ -39,41 +39,41 @@ namespace TravelAlbum.Web.Controllers
         public ActionResult Add()
         {
             var mountains = this.mountainsService.All().ToList();
-            SingleImageInputModel model = new SingleImageInputModel();
+            ImageInputModel model = new ImageInputModel();
             model.MountainsDropDown = this.GetMountainsSelectList();
             return this.View(model);
         }
 
         [Authorize(Roles = "Admin")]
         [HttpPost]
-        public ActionResult Add(SingleImageInputModel singleImageForAdding)
+        public ActionResult Add(ImageInputModel imageForAdding)
         {
             if (this.ModelState.IsValid)
             {
-                HttpPostedFileBase singleImageContent = singleImageForAdding.UploadedImage;
-                var imageContent = new byte[singleImageContent.ContentLength];
+                HttpPostedFileBase imageContent = imageForAdding.UploadedImage;
+                
 
                 byte[] imageData = null;
 
-                using (var binaryReader = new BinaryReader(singleImageContent.InputStream))
+                using (var binaryReader = new BinaryReader(imageContent.InputStream))
                 {
-                    imageData = binaryReader.ReadBytes(singleImageContent.ContentLength);
+                    imageData = binaryReader.ReadBytes(imageContent.ContentLength);
                 }
 
-                HttpPostedFileBase singleImagePreviewContent = singleImageForAdding.UploadedPreviewImage;
-                var previewImageContent = new byte[singleImagePreviewContent.ContentLength];
+                HttpPostedFileBase imagePreviewContent = imageForAdding.UploadedPreviewImage;
+              
 
                 byte[] previewImageData = null;
 
-                using (var binaryReader = new BinaryReader(singleImagePreviewContent.InputStream))
+                using (var binaryReader = new BinaryReader(imagePreviewContent.InputStream))
                 {
-                    previewImageData = binaryReader.ReadBytes(singleImagePreviewContent.ContentLength);
+                    previewImageData = binaryReader.ReadBytes(imagePreviewContent.ContentLength);
                 }
 
 
-                Mountain mountain = this.mountainsService.GetById(singleImageForAdding.MountainId);
+                Mountain mountain = this.mountainsService.GetById(imageForAdding.MountainId);
 
-                SingleImage newSingleImage = new SingleImage
+                Image newImage = new Image
                 {
                     TravelObjectId = Guid.NewGuid(),
                     CreatedOn = DateTime.Now,
@@ -83,31 +83,31 @@ namespace TravelAlbum.Web.Controllers
                     Mountain = mountain
                 };
 
-                singleImageService.Add(newSingleImage);
+                imageService.Add(newImage);
 
-                SingleImageTranslationalInfo newBgSingleImageTranslationalInfo = new SingleImageTranslationalInfo()
+                ImageTranslationalInfo newBgImageTranslationalInfo = new ImageTranslationalInfo()
                 {
-                    SingleImageTranslationalInfoId = Guid.NewGuid(),
-                    Description = singleImageForAdding.bgDescription,
-                    SingleImage = newSingleImage,
-                    TravelObjectId = newSingleImage.TravelObjectId,
+                    ImageTranslationalInfoId = Guid.NewGuid(),
+                    Description = imageForAdding.bgDescription,
+                    Image = newImage,
+                    TravelObjectId = newImage.TravelObjectId,
                     Language = Language.Bulgarian
                 };
 
-                singleImageTranslationalInfoService.Add(newBgSingleImageTranslationalInfo);
-                newSingleImage.TranslatedInfoes.Add(newBgSingleImageTranslationalInfo);
+                imageTranslationalInfoService.Add(newBgImageTranslationalInfo);
+                newImage.TranslatedInfoes.Add(newBgImageTranslationalInfo);
 
-                SingleImageTranslationalInfo newEnSingleImageTranslationalInfo = new SingleImageTranslationalInfo()
+                ImageTranslationalInfo newEnImageTranslationalInfo = new ImageTranslationalInfo()
                 {
-                    SingleImageTranslationalInfoId = Guid.NewGuid(),
-                    Description = singleImageForAdding.enDescription,
-                    SingleImage = newSingleImage,
-                    TravelObjectId = newSingleImage.TravelObjectId,
+                    ImageTranslationalInfoId = Guid.NewGuid(),
+                    Description = imageForAdding.enDescription,
+                    Image = newImage,
+                    TravelObjectId = newImage.TravelObjectId,
                     Language = Language.English
                 };
 
-                singleImageTranslationalInfoService.Add(newEnSingleImageTranslationalInfo);
-                newSingleImage.TranslatedInfoes.Add(newEnSingleImageTranslationalInfo);
+                imageTranslationalInfoService.Add(newEnImageTranslationalInfo);
+                newImage.TranslatedInfoes.Add(newEnImageTranslationalInfo);
             }
 
             return this.RedirectToAction("SearchImages", "Images");
@@ -117,51 +117,51 @@ namespace TravelAlbum.Web.Controllers
         [HttpGet]
         public ActionResult Details(Guid id)
         {
-            SingleImage singleImage = this.singleImageService.GetById(id);
-            if (singleImage != null)
+            Image image = this.imageService.GetById(id);
+            if (image != null)
             {
                 string query = Request.Url.PathAndQuery;
 
                 if (!(query.Contains("/en/")))
                 {
-                    return GetModelData(singleImage, Language.Bulgarian);
+                    return GetModelData(image, Language.Bulgarian);
                 }
                 else
                 {
-                    return GetModelData(singleImage, Language.English);
+                    return GetModelData(image, Language.English);
                 }
             }
             else
             {
-                return this.RedirectToAction("Index", "Home");
+                return this.RedirectToAction("SearchImages", "Images");
             }
         }
 
-        private ActionResult GetModelData(SingleImage singleImage, Language language)
+        private ActionResult GetModelData(Image image, Language language)
         {
-            IEnumerable<SingleImageTranslationalInfo> singleImageTranslationalInfoes =
-                singleImage.TranslatedInfoes.AsQueryable().Where(x => x.Language == language).ToList();
+            IEnumerable<ImageTranslationalInfo> imageTranslationalInfoes =
+                image.TranslatedInfoes.AsQueryable().Where(x => x.Language == language).ToList();
 
-            if (singleImageTranslationalInfoes.ToList().Count > 1)
+            if (imageTranslationalInfoes.ToList().Count > 1)
             {
-                return this.RedirectToAction("Index", "Home");
+                return this.RedirectToAction("SearchImages", "Images");
             }
 
-            SingleImageTranslationalInfo singleImageTranslationalInfo =
-                singleImageTranslationalInfoes.FirstOrDefault();
+            ImageTranslationalInfo imageTranslationalInfo =
+                imageTranslationalInfoes.FirstOrDefault();
 
-            String imageData = Convert.ToBase64String(singleImage.Content);
+            String imageData = Convert.ToBase64String(image.Content);
 
-            string description = singleImageTranslationalInfo == null ? "No description" : singleImageTranslationalInfo.Description;
-            ImageOutputViewModel singleImageOutputViewModel = new ImageOutputViewModel()
+            string description = imageTranslationalInfo == null ? "No description" : imageTranslationalInfo.Description;
+            ImageOutputViewModel imageOutputViewModel = new ImageOutputViewModel()
             {
-                SingleImageId = singleImage.TravelObjectId,
-                CreatedOn = singleImage.CreatedOn,
-                SingleImageData = imageData,
+                ImageId = image.TravelObjectId,
+                CreatedOn = image.CreatedOn,
+                ImageData = imageData,
                 Description = description
             };
 
-            return this.View(singleImageOutputViewModel);
+            return this.View(imageOutputViewModel);
         }
 
         private IEnumerable<SelectListItem> GetMountainsSelectList()
@@ -208,7 +208,7 @@ namespace TravelAlbum.Web.Controllers
 
             if (model.MountainsIds != null)
             {
-                var images = this.singleImageService.GetImagesByMountain(model.MountainsIds.ToList(), (int)(model.SelectedSorting)).ToList();
+                var images = this.imageService.GetImagesByMountain(model.MountainsIds.ToList(), (int)(model.SelectedSorting)).ToList();
                 model.TotalPages = images.Count() / 4;
                 if(images.Count() % 4 > 0)
                 {
@@ -222,10 +222,10 @@ namespace TravelAlbum.Web.Controllers
 
                     string imagePreviewData = Convert.ToBase64String(image.PreviewContent);
 
-                    imagePreviewOutputViewModel.SingleImageId = image.TravelObjectId;
-                    imagePreviewOutputViewModel.SingleImageData = imagePreviewData;
+                    imagePreviewOutputViewModel.ImageId = image.TravelObjectId;
+                    imagePreviewOutputViewModel.ImageData = imagePreviewData;
                     imagePreviewOutputViewModel.CreatedOn = image.CreatedOn;
-                    model.singleImagePreviews.Add(imagePreviewOutputViewModel);
+                    model.ImagePreviews.Add(imagePreviewOutputViewModel);
                 }
             }
             else

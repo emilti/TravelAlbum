@@ -13,10 +13,10 @@ namespace TravelAlbum.UnitTests.Controllers.HomeControllerTests
         public void ReturnsAnInstance_WhenParameterIsNotNull()
         {
             // Arrange
-            var singleImageServiceMock = new Mock<ISingleImageService>();
+            var imageServiceMock = new Mock<IImageService>();
 
             // Act
-            HomeController homeController = new HomeController(singleImageServiceMock.Object);
+            HomeController homeController = new HomeController(imageServiceMock.Object);
 
             // Assert
             Assert.IsNotNull(homeController);

@@ -6,14 +6,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace TravelAlbum.Models
 {
 
-    [Table("SingleImage")]
-    public class SingleImage : TravelObject
+    [Table("Image")]
+    public class Image : TravelObject
     {
-        private ICollection<SingleImageTranslationalInfo> translatedInfoes;
+        private ICollection<ImageTranslationalInfo> translatedInfoes;
 
-        public SingleImage()
+        public Image()
         {
-            this.TranslatedInfoes = new HashSet<SingleImageTranslationalInfo>();             
+            this.TranslatedInfoes = new HashSet<ImageTranslationalInfo>();             
         }       
 
         public byte[] Content { get; set; }
@@ -32,7 +32,7 @@ namespace TravelAlbum.Models
         [ForeignKey("MountainId")]
         public virtual Mountain Mountain { get; set; }       
 
-        public virtual ICollection<SingleImageTranslationalInfo> TranslatedInfoes
+        public virtual ICollection<ImageTranslationalInfo> TranslatedInfoes
         {
             get { return this.translatedInfoes; }
             set { this.translatedInfoes = value; }

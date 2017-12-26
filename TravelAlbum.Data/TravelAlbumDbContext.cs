@@ -22,7 +22,7 @@ namespace TravelAlbum.Data
 
         public virtual IDbSet<TravelTranslationalInfo> TravelTranslatinalInfoes { get; set; } 
 
-        public virtual IDbSet<SingleImageTranslationalInfo> SingleImageTranslationalInfoes { get; set; }
+        public virtual IDbSet<ImageTranslationalInfo> ImageTranslationalInfoes { get; set; }
 
         public virtual IDbSet<Comment> Comments { get; set; }
 

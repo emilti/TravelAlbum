@@ -7,9 +7,9 @@ using System.Web.Mvc;
 using TravelAlbum.Models;
 using TravelAlbum.Resources.App_GlobalResources;
 
-namespace TravelAlbum.Web.Models.SingleImageModels
+namespace TravelAlbum.Web.Models.ImageModels
 {
-    public class SingleImageInputModel
+    public class ImageInputModel
     {
 
         [Required]

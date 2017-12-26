@@ -99,9 +99,9 @@ namespace TravelAlbum.Resources.App_GlobalResources {
         /// <summary>
         ///   Looks up a localized string similar to Добави снимка.
         /// </summary>
-        public static string LabelAddSingleImage {
+        public static string LabelAddImage {
             get {
-                return ResourceManager.GetString("LabelAddSingleImage", resourceCulture);
+                return ResourceManager.GetString("LabelAddImage", resourceCulture);
             }
         }
         

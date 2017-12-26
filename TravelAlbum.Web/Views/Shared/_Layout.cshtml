@@ -18,7 +18,7 @@
 </head>
 <body>
 
-    <img src="~/Content/SingleImages/SL373233_preview.jpg" id="bg" />
+    <img src="~/Content/DBImages/SL373233_preview.jpg" id="bg" />
     <!--div class="top-image"></!div-->
     <div class='topnav'>
         <div class="content-menu">
@@ -27,7 +27,7 @@
             @if (ViewContext.HttpContext.User.IsInRole("Admin"))
             {
                 @Html.ActionLink(TravelAlbum.Resources.App_GlobalResources.GlobalResources.LabelAddTravel, "Add", "Travels");
-                @Html.ActionLink(TravelAlbum.Resources.App_GlobalResources.GlobalResources.LabelAddSingleImage, "Add", "Images");
+                @Html.ActionLink(TravelAlbum.Resources.App_GlobalResources.GlobalResources.LabelAddImage, "Add", "Images");
             }
         </div>
 
@@ -50,7 +50,7 @@
     @RenderSection("scripts", required: false)
     <script src="~/Scripts/lightbox.js"></script>
     <script src="~/Scripts/jquery.endless-scroll.js"></script>
-    @RenderSection("SingleImagesLoader", required: false)
+    @RenderSection("ImagesLoader", required: false)
     @RenderSection("CommentsSection", required: false)
 </body>
 </html>

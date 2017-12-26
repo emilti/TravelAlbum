@@ -22,9 +22,9 @@ namespace TravelAlbum.DataServices
             this.travelAlbumEfDbContextSaveChanges = travelAlbumEfDbContextSaveChanges;
         }
 
-        public void Add(Comment singleImageComment)
+        public void Add(Comment imageComment)
         { 
-            this.commentsSetWrapper.Add(singleImageComment);
+            this.commentsSetWrapper.Add(imageComment);
             this.travelAlbumEfDbContextSaveChanges.SaveChanges();
         }       
 
@@ -33,9 +33,9 @@ namespace TravelAlbum.DataServices
             return this.commentsSetWrapper.All;
         }
 
-        public void DeleteComment(Comment singleImageComment)
+        public void DeleteComment(Comment imageComment)
         {
-            this.commentsSetWrapper.Delete(singleImageComment);
+            this.commentsSetWrapper.Delete(imageComment);
             this.travelAlbumEfDbContextSaveChanges.SaveChanges();
         }
 

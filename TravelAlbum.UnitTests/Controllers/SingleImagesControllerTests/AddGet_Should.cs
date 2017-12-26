@@ -11,7 +11,7 @@ using TravelAlbum.DataServices.Contracts;
 using TravelAlbum.Models;
 using TravelAlbum.Web.Controllers;
 
-namespace TravelAlbum.UnitTests.Controllers.SingleImagesControllerTests
+namespace TravelAlbum.UnitTests.Controllers.ImagesControllerTests
 {
     [TestClass]
     public class AddGet_Should
@@ -19,12 +19,12 @@ namespace TravelAlbum.UnitTests.Controllers.SingleImagesControllerTests
         [TestMethod]
         public void ReturnView_CheckView()
         {
-            var singleImageServiceMock = new Mock<ISingleImageService>();
+            var imageServiceMock = new Mock<IImageService>();
             var mountainsServiceMock = new Mock<IMountainsService>();
-            var singleImageTranslationalInfoServiceMock = new Mock<ISingleImageTranslationalInfoService>();
+            var imageTranslationalInfoServiceMock = new Mock<IImageTranslationalInfoService>();
             
 
-            ImagesController singleImagesController = new ImagesController(singleImageServiceMock.Object, mountainsServiceMock.Object, singleImageTranslationalInfoServiceMock.Object);
+            ImagesController imagesController = new ImagesController(imageServiceMock.Object, mountainsServiceMock.Object, imageTranslationalInfoServiceMock.Object);
 
             Mountain rila = new Mountain()
             {
@@ -112,9 +112,9 @@ namespace TravelAlbum.UnitTests.Controllers.SingleImagesControllerTests
             StringWriter stringWriter = new StringWriter();
             HttpResponse httpResponse = new HttpResponse(stringWriter);
             HttpContext httpContextMock = new HttpContext(httpRequest, httpResponse);
-            singleImagesController.ControllerContext = new ControllerContext(new HttpContextWrapper(httpContextMock), new RouteData(), singleImagesController);
+            imagesController.ControllerContext = new ControllerContext(new HttpContextWrapper(httpContextMock), new RouteData(), imagesController);
 
-            singleImagesController.WithCallTo(
+            imagesController.WithCallTo(
                 b => b.Add()).ShouldRenderDefaultView();
         }
     }

@@ -13,10 +13,10 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
         public void ReturnView_CheckView()
         {
             var travelServiceMock = new Mock<ITravelService>();
-            var singleImageServiceMock = new Mock<ISingleImageService>();
+            var imageServiceMock = new Mock<IImageService>();
             var travelTranslationalInfoServiceMock = new Mock<ITravelTranslationalInfoService>();
 
-            TravelsController travelsController = new TravelsController(travelServiceMock.Object, travelTranslationalInfoServiceMock.Object, singleImageServiceMock.Object);
+            TravelsController travelsController = new TravelsController(travelServiceMock.Object, travelTranslationalInfoServiceMock.Object, imageServiceMock.Object);
 
             travelsController.WithCallTo(
                 b => b.Add()).ShouldRenderDefaultView();                  

@@ -60,10 +60,10 @@
     <Compile Include="Contracts\ITravelObjectService.cs" />
     <Compile Include="Contracts\ITravelService.cs" />
     <Compile Include="Contracts\ITravelTranslationalInfoService.cs" />
-    <Compile Include="Contracts\ISingleImageService.cs" />
+    <Compile Include="Contracts\IImageService.cs" />
     <Compile Include="MountainsService.cs" />
-    <Compile Include="SingleImageService.cs" />
-    <Compile Include="SingleImageTranslationalInfoService.cs" />
+    <Compile Include="ImageService.cs" />
+    <Compile Include="ImageTranslationalInfoService.cs" />
     <Compile Include="TravelObjectService.cs" />
     <Compile Include="TravelService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

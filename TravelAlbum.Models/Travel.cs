@@ -11,7 +11,7 @@ namespace TravelAlbum.Models
     {
         private ICollection<TravelTranslationalInfo> translatedTravels;
 
-        private ICollection<SingleImage> images;
+        private ICollection<Image> images;
 
 
         private ICollection<ApplicationUser> usersLiked;
@@ -19,7 +19,7 @@ namespace TravelAlbum.Models
         public Travel()
         {
             this.translatedTravels = new HashSet<TravelTranslationalInfo>();
-            this.images = new HashSet<SingleImage>();
+            this.images = new HashSet<Image>();
             this.UsersLiked = new HashSet<ApplicationUser>();
         }
         
@@ -43,7 +43,7 @@ namespace TravelAlbum.Models
             set { this.translatedTravels = value; }
         }
 
-        public virtual ICollection<SingleImage> Images
+        public virtual ICollection<Image> Images
         {
             get { return this.images; }
             set { this.images = value; }

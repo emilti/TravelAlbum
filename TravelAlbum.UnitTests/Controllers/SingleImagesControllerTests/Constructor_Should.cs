@@ -4,7 +4,7 @@ using System;
 using TravelAlbum.DataServices.Contracts;
 using TravelAlbum.Web.Controllers;
 
-namespace TravelAlbum.UnitTests.Controllers.SingleImagesControllerTests
+namespace TravelAlbum.UnitTests.Controllers.ImagesControllerTests
 {
     [TestClass]
     public class Constructor_Should
@@ -13,43 +13,43 @@ namespace TravelAlbum.UnitTests.Controllers.SingleImagesControllerTests
         public void ReturnsAnInstance_WhenParametersAreNotNull()
         {
             // Arrange
-            var singleImageServiceMock = new Mock<ISingleImageService>();
+            var imageServiceMock = new Mock<IImageService>();
             var mountainsServiceMock = new Mock<IMountainsService>();
-            var singleImageTranslationalInfoServiceMock = new Mock<ISingleImageTranslationalInfoService>();
+            var imageTranslationalInfoServiceMock = new Mock<IImageTranslationalInfoService>();
            
             // Act
-            ImagesController singleImageController = new ImagesController(singleImageServiceMock.Object, mountainsServiceMock.Object, singleImageTranslationalInfoServiceMock.Object);
+            ImagesController imageController = new ImagesController(imageServiceMock.Object, mountainsServiceMock.Object, imageTranslationalInfoServiceMock.Object);
 
             // Assert
-            Assert.IsNotNull(singleImageController);
+            Assert.IsNotNull(imageController);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void ThrowsException_WhenParameterSingleImageServiceIsNull()
+        public void ThrowsException_WhenParameterImageServiceIsNull()
         {
             // Arrange
-            var singleImageServiceMock = new Mock<ISingleImageService>();
+            var imageServiceMock = new Mock<IImageService>();
             var mountainsServiceMock = new Mock<IMountainsService>();
 
             // Act
-            ImagesController singleImageController = new ImagesController(singleImageServiceMock.Object, mountainsServiceMock.Object, null);
+            ImagesController imageController = new ImagesController(imageServiceMock.Object, mountainsServiceMock.Object, null);
 
             // Assert
-            Assert.IsNotNull(singleImageController);
+            Assert.IsNotNull(imageController);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void ThrowsException_WhenParameterSingleImageTranslationalInfoIsNull()
+        public void ThrowsException_WhenParameterImageTranslationalInfoIsNull()
         {
-            var singleImageTranslationalInfoServiceMock = new Mock<ISingleImageTranslationalInfoService>();
+            var imageTranslationalInfoServiceMock = new Mock<IImageTranslationalInfoService>();
             var mountainsServiceMock = new Mock<IMountainsService>();
             // Act
-            ImagesController singleImageController = new ImagesController(null, mountainsServiceMock.Object, singleImageTranslationalInfoServiceMock.Object);
+            ImagesController imageController = new ImagesController(null, mountainsServiceMock.Object, imageTranslationalInfoServiceMock.Object);
 
             // Assert
-            Assert.IsNotNull(singleImageController);
+            Assert.IsNotNull(imageController);
         }        
     }
 }
