@@ -14,12 +14,14 @@
     <link href="~/Content/comments.css" rel="stylesheet" />
     <link href="~/Content/travels.css" rel="stylesheet" />
     <link href="~/Content/search-images.css" rel="stylesheet" />
-    
+
 </head>
 <body>
-    <div class="top-image"></div>
+
+    <img src="~/Content/SingleImages/SL373233_preview.jpg" id="bg" />
+    <!--div class="top-image"></!div-->
     <div class='topnav'>
-        <div class="content-menu">            
+        <div class="content-menu">
             @Html.ActionLink(TravelAlbum.Resources.App_GlobalResources.GlobalResources.LabelAlbum, "SearchImages", "Images")
             @Html.ActionLink(TravelAlbum.Resources.App_GlobalResources.GlobalResources.LabelTravels, "GetTravels", "Travels", new { url = @Request.Url.PathAndQuery }, null)
             @if (ViewContext.HttpContext.User.IsInRole("Admin"))
@@ -36,15 +38,11 @@
             <a href="@Url.Action("SearchImages", "Images",  new { lang = "en"})">
                 <img src="~/Content/Images/en_flag.jpg" class="language-images" />
             </a>
-            @Html.Partial("_LoginPartial")           
+            @Html.Partial("_LoginPartial")
         </div>
     </div>
     <div>
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Travel Album</p>
-        </footer>
+        @RenderBody()       
     </div>
 
     @Scripts.Render("~/bundles/jquery")
