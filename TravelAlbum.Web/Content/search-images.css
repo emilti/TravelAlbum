@@ -1,16 +1,22 @@
 ﻿.search-group{
-    float:left;
-    margin-left:10px
+    display:block;
+    margin-left:10px;
+    margin-bottom:10px;
+    width:200px
 }
 
-.search-element{
-    margin-right:10px
+.label-mountain-checkbox{
+    color:white
+} 
+
+.search-element {
+    margin-right: 10px
 }
 
 .search-container{
-    width:50%;
-    margin-left:auto;
-    margin-right:auto;    
+    width:20%;
+    top:100px;
+    position:fixed;
 }
 
 

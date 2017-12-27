@@ -229,7 +229,7 @@
                     Content = malyovitsaImage1Content,
                     PreviewContent = malyovitsaImage1PreviewContent,
                     TravelObjectId = Guid.NewGuid(),
-                    CreatedOn = DateTime.Now,
+                    CreatedOn = new DateTime(2017, 8, 15),
                     Mountain = rila,
                     MountainId = rila.MountainId                    
                 };
@@ -246,7 +246,7 @@
                     Content = imageContent,
                     PreviewContent = imagePreviewContent,
                     TravelObjectId = Guid.NewGuid(),
-                    CreatedOn = DateTime.Now,
+                    CreatedOn = new DateTime(2017, 6, 9),
                     Mountain = vitosha,
                     MountainId = vitosha.MountainId                    
                 };
@@ -261,7 +261,7 @@
                     Content = image2Content,
                     PreviewContent = previewImage2Content,
                     TravelObjectId = Guid.NewGuid(),
-                    CreatedOn = DateTime.Now,
+                    CreatedOn = new DateTime(2017, 6, 9),
                     Mountain = vitosha,
                     MountainId = vitosha.MountainId                    
                 };
@@ -276,7 +276,7 @@
                     Content = image3Content,
                     PreviewContent = previewImage3Content,
                     TravelObjectId = Guid.NewGuid(),
-                    CreatedOn = DateTime.Now,
+                    CreatedOn = new DateTime(2017, 6, 9),
                     Mountain = vitosha,
                     MountainId = vitosha.MountainId                    
                 };
@@ -292,7 +292,7 @@
                     Content = image4Content,
                     PreviewContent = previewImage4Content,
                     TravelObjectId = Guid.NewGuid(),
-                    CreatedOn = DateTime.Now,
+                    CreatedOn = new DateTime(2017, 7, 23),
                     Mountain = rila,
                     MountainId = rila.MountainId
                 };
@@ -307,7 +307,7 @@
                     Content = image5Content,
                     PreviewContent = previewImage5Content,
                     TravelObjectId = Guid.NewGuid(),
-                    CreatedOn = DateTime.Now,
+                    CreatedOn = new DateTime(2017, 9, 2),
                     Mountain = rila,
                     MountainId = rila.MountainId
                 };
@@ -321,7 +321,7 @@
                     Content = image6Content,
                     PreviewContent = previewImage6Content,
                     TravelObjectId = Guid.NewGuid(),
-                    CreatedOn = DateTime.Now,
+                    CreatedOn = new DateTime(2017, 9, 2),
                     Mountain = rila,
                     MountainId = rila.MountainId
                 };

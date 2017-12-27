@@ -2,31 +2,30 @@
 @using TravelAlbum.Web.Enums
 @using TravelAlbum.Resources.App_GlobalResources
 
-<div style="position:fixed;width:100%;top:100px">
+<div class="search-container">
     @using (Html.BeginForm("SearchImages", "Images", null, FormMethod.Get, new { @class = "form-horizontal", role = "form" }))
     {
-        <div class="search-container">
-            <div class="search-group">
-                @foreach (var g in Model.MountainsDropDown)
-                {
-                    <div>
-                        <input type="checkbox"
-                               name="MountainsIds"
-                               class="mountain-checkbox"
-                               value="@g.Value" id="@g.Value" @if (Model.MountainsIds.Contains(new Guid(g.Value))) { <text> checked</text>
-                           } />
-                        <label for="@g.Value">@g.Text</label>
-                    </div>
-                }
-            </div>
-            <div class="search-group">
-                @Html.EnumDropDownListFor(a => a.SelectedSorting, GlobalResources.SelectSortingLabel, new { @class = "form-control" })
-            </div>
-            <div class="search-group">
-                @Html.DropDownListFor(a => a.SelectedPageSize, Model.PageSizes, "Show", new { @class = "form-control" })
-            </div>
-            <input class="btn btn-primary search-group submit-button" value="@GlobalResources.SearchButtonLabel" type="submit">
+        <div class="search-group">
+            @Html.EnumDropDownListFor(a => a.SelectedSorting, GlobalResources.SelectSortingLabel, new { @class = "form-control" })
         </div>
+
+        <div class="search-group">
+            @Html.DropDownListFor(a => a.SelectedPageSize, Model.PageSizes, "Show", new { @class = "form-control" })
+        </div>
+        <div class="search-group">
+            @foreach (var g in Model.MountainsDropDown)
+                {
+                <div>
+                    <input type="checkbox"
+                           name="MountainsIds"
+                           class="mountain-checkbox"
+                           value="@g.Value" id="@g.Value" @if (Model.MountainsIds.Contains(new Guid(g.Value))) { <text> checked</text>
+                           } />
+                    <label class="label-mountain-checkbox" for="@g.Value">@g.Text</label>
+                </div>
+            }
+        </div>
+        <input class="btn btn-primary search-group submit-button" value="@GlobalResources.SearchButtonLabel" type="submit">
     }
 </div>
 
@@ -34,8 +33,6 @@
 
 
 
-
-<div>
     <div id="single-images-container">
         @if (Model != null && Model.ImagePreviews != null)
             {
@@ -50,39 +47,35 @@
                     <div class='description'>@image.CreatedOn </div>
                 </div>
             }
-        }
+        } 
 
 
-
-        @{
-            string url = Request.RawUrl.ToString();
-            var parts = url.Split('/').ToList();
-            var lastPart = parts[parts.Count - 1].Split('?').ToList();
-            var extractedLastPart = lastPart[0];
-        }
-
-
-
-        <nav>
-            <ul class="pagination search-pagination">
-                @{
-                    string mountains = string.Empty;
-                    foreach (var mountainId in Model.MountainsIds)
-                    {
-                        mountains = mountains + "MountainsIds=" + mountainId + "&";
-                    }
-                    string sorting = "SelectedSorting=" + Model.SelectedSorting + "&";
-                    int previousPage = @Model.CurrentPage - 1;
-                    int nextPage = Model.CurrentPage + 1;
+    @{
+        string url = Request.RawUrl.ToString();
+        var parts = url.Split('/').ToList();
+        var lastPart = parts[parts.Count - 1].Split('?').ToList();
+        var extractedLastPart = lastPart[0];
+    }
+    <nav>
+        <ul class="pagination search-pagination">
+            @{
+                string mountains = string.Empty;
+                foreach (var mountainId in Model.MountainsIds)
+                {
+                    mountains = mountains + "MountainsIds=" + mountainId + "&";
                 }
-                @if (Model.CurrentPage > 1)
+                string sorting = "SelectedSorting=" + Model.SelectedSorting + "&";
+                int previousPage = @Model.CurrentPage - 1;
+                int nextPage = Model.CurrentPage + 1;
+            }
+            @if (Model.CurrentPage > 1)
             {
-                    <li>
-                        <a href="/Images/SearchImages/?@mountains@(sorting)CurrentPage=@(previousPage)&SelectedPageSize=@Model.SelectedPageSize" aria-label="Previous">&laquo;</a>
-                    </li>
-                }
+                <li>
+                    <a href="/Images/SearchImages/?@mountains@(sorting)CurrentPage=@(previousPage)&SelectedPageSize=@Model.SelectedPageSize" aria-label="Previous">&laquo;</a>
+                </li>
+            }
 
-                @for (int i = 1; i <= Model.TotalPages; i++)
+            @for (int i = 1; i <= Model.TotalPages; i++)
             {
                 var className = string.Empty;
                 if (Model.CurrentPage == i)
@@ -92,16 +85,16 @@
 
 
                 <li class="@className"><a class="page-number" href="/Images/SearchImages/?@mountains@(sorting)CurrentPage=@i&SelectedPageSize=@Model.SelectedPageSize">@i</a></li>
-                }
-                @if (Model.CurrentPage < Model.TotalPages)
+            }
+            @if (Model.CurrentPage < Model.TotalPages)
             {
-                    <li>
-                        <a href="/Images/SearchImages/?@mountains@(sorting)CurrentPage=@nextPage&SelectedPageSize=@Model.SelectedPageSize" aria-label="Next">&raquo;</a>
-                    </li>
-                }
-            </ul>
-        </nav>
-    </div>
+                <li>
+                    <a href="/Images/SearchImages/?@mountains@(sorting)CurrentPage=@nextPage&SelectedPageSize=@Model.SelectedPageSize" aria-label="Next">&raquo;</a>
+                </li>
+            }
+        </ul>
+    </nav>
+
 </div>
 
 @section Scripts {
