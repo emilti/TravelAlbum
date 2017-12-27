@@ -36,4 +36,16 @@
     display:block;   
 }
 
+.centering {
+    width:20%;
+    float: none;
+    margin: 0 auto
+}
 
+.paging-container{
+    position:fixed;
+    top:90%;
+    margin-left:auto;
+    margin-right:auto;
+    width:100%
+}

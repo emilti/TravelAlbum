@@ -156,6 +156,9 @@
   <data name="SelectSortingLabel" xml:space="preserve">
     <value>Select sorting</value>
   </data>
+  <data name="ShowPhotosLabel" xml:space="preserve">
+    <value>Show</value>
+  </data>
   <data name="SortingAscendingEnum" xml:space="preserve">
     <value>Ascending</value>
   </data>

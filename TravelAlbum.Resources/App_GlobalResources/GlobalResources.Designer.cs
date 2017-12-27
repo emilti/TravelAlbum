@@ -178,6 +178,15 @@ namespace TravelAlbum.Resources.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Покажи.
+        /// </summary>
+        public static string ShowPhotosLabel {
+            get {
+                return ResourceManager.GetString("ShowPhotosLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Първо най-старите.
         /// </summary>
         public static string SortingAscendingLabel {
