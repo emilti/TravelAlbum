@@ -25,19 +25,29 @@
                     </div>*@
 
                 <div class="form-group">
-                    <label class="custom-control custom-checkbox label-mountain-checkbox" for="@g.Value">
+                    <!--label class="custom-control custom-checkbox label-mountain-checkbox" for="@g.Value">
                         <input class="custom-control-input mountain-checkbox" type="checkbox" name="MountainsIds"
                                value="@g.Value" id="@g.Value" @if (Model.MountainsIds.Contains(new Guid(g.Value))) { <text> checked</text>
                                }>
                         <span class="custom-control-indicator"></span>
-                        <span class="custom-control-description">@g.Text</span>
-                    </label>
+                        <span class="custom-control-description">@g.Text</span>                        
+                    </label-->
+
+                    <div class="checkbox checkbox-container">
+                        <label class="label-mountain-checkbox" for="@g.Value">
+                            <input  class="custom-control-input" type="checkbox" name="MountainsIds"
+                               value="@g.Value" id="@g.Value" @if (Model.MountainsIds.Contains(new Guid(g.Value))) { <text> checked</text>
+                               }>
+                           @g.Text
+                        </label>
+                    </div>
                 </div>
             }
         </div>
         <input class="btn btn-primary search-group submit-button" value="@GlobalResources.SearchButtonLabel" type="submit">
     }
 </div>
+<div style="width:50px"></div>
 
 
 

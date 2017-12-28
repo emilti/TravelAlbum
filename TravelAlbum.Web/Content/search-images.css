@@ -9,6 +9,10 @@
     color:white
 } 
 
+.checkbox-container{
+    margin-left:20px
+}
+
 .search-element {
     margin-right: 10px
 }
@@ -17,6 +21,7 @@
     width:20%;
     top:100px;
     position:fixed;
+    margin-right:100px
 }
 
 
