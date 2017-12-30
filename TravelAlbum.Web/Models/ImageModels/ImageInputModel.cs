@@ -11,12 +11,31 @@ namespace TravelAlbum.Web.Models.ImageModels
 {
     public class ImageInputModel
     {
+        [Required]        
+        [AllowHtml]
+        [RegularExpression(@"^[^<>]*$", ErrorMessage = "Invalid symbol")]
+        [StringLength(200, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 2)]
+        [Display(Name = "BgTitleLabel", ResourceType = typeof(GlobalResources))]       
+        public string bgTitle { get; set; }
 
         [Required]
+        [AllowHtml]
+        [RegularExpression(@"^[^<>]*$", ErrorMessage = "Invalid symbol")]
+        [StringLength(200, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 2)]
+        [Display(Name = "EnTitleLabel", ResourceType = typeof(GlobalResources))]
+        public string enTitle { get; set; }
+
+        [Required]
+        [AllowHtml]
+        [RegularExpression(@"^[^<>]*$", ErrorMessage = "Invalid symbol")]
+        [StringLength(2000, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 2)]
         [Display(Name = "BgDescriptionLabel", ResourceType = typeof(GlobalResources))]
         public string bgDescription { get; set; }   
 
         [Required]
+        [AllowHtml]
+        [RegularExpression(@"^[^<>]*$", ErrorMessage = "Invalid symbol")]
+        [StringLength(2000, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 2)]
         [Display(Name = "EnDescriptionLabel", ResourceType = typeof(GlobalResources))]
         public string enDescription { get; set; }
 

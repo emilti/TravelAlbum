@@ -3,8 +3,8 @@
 @using TravelAlbum.Resources.App_GlobalResources
 
 
-<div class="row">
-    <div class="col-md-2">
+<div class="row content-container">
+    <div class="col-md-3">
         @using (Html.BeginForm("SearchImages", "Images", null, FormMethod.Get, new { @class = "form-horizontal", role = "form" }))
         {
             <div class="search-group">
@@ -17,24 +17,7 @@
             <div class="search-group">
                 @foreach (var g in Model.MountainsDropDown)
                 {
-                    @*<div class="checkbox checkbox-primary checkbox-circle">
-                            <input type="checkbox"
-                                   name="MountainsIds"
-                                   class="mountain-checkbox"
-                                   value="@g.Value" id="@g.Value" @if (Model.MountainsIds.Contains(new Guid(g.Value))) { <text> checked</text>
-                                   } />
-                            <label class="label-mountain-checkbox" for="@g.Value">@g.Text</label>
-                        </div>*@
-
                     <div class="form-group">
-                        <!--label class="custom-control custom-checkbox label-mountain-checkbox" for="@g.Value">
-                            <input class="custom-control-input mountain-checkbox" type="checkbox" name="MountainsIds"
-                                   value="@g.Value" id="@g.Value" @if (Model.MountainsIds.Contains(new Guid(g.Value))) { <text> checked</text>
-                                   }>
-                            <span class="custom-control-indicator"></span>
-                            <span class="custom-control-description">@g.Text</span>
-                        </label-->
-
                         <div class="checkbox checkbox-container">
                             <label class="label-mountain-checkbox" for="@g.Value">
                                 <input class="custom-control-input" type="checkbox" name="MountainsIds"
@@ -49,19 +32,27 @@
             <input class="btn btn-primary search-group submit-button" value="@GlobalResources.SearchButtonLabel" type="submit">
         }
     </div>
+    <div id="single-images-container" class="col-md-9 text-center">
 
-    <div id="single-images-container" class="col-md-10">
         @if (Model != null && Model.ImagePreviews != null)
             {
                 foreach (var image in Model.ImagePreviews)
                 {
-                <div class='single-image-container'>
-                    <a href="@Url.Action("Details", "Images", new { id = image.ImageId })">
-                        <img class='single-image' src='data:image/jpg;base64,@image.ImageData' />
-                        <div class='cover-container'>
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class='col-md-6'>
+                        <div class="single-image-container ">
+                            <a href="@Url.Action("Details", "Images", new { id = image.ImageId })">
+                                <img class='single-image' src='data:image/jpg;base64,@image.ImageData' />
+                                <div class='cover-container'>                                    
+                                </div>
+                            </a>
+                            <div class='description'> @Html.DisplayFor(a => image.CreatedOn) </div>   
+                            <div>@image.Title</div>
                         </div>
-                    </a>
-                    <div class='description'> @Html.DisplayFor(a => image.CreatedOn) </div>
+                       
+                    </div>                    
+                    <div class="col-md-4"></div>
                 </div>
             }
         }

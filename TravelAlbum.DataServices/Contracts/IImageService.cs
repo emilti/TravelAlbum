@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using TravelAlbum.Models;
 
 namespace TravelAlbum.DataServices.Contracts
@@ -17,6 +16,6 @@ namespace TravelAlbum.DataServices.Contracts
 
         Image GetById(Guid? id);
 
-        IQueryable<Image> GetImagesByMountain(List<Guid> mountainsIds, int sorting);
+        IEnumerable<Image> GetImagesByMountain(List<Guid> mountainsIds, int sorting);
     }
 }

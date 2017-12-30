@@ -19,7 +19,7 @@
         }
 
         protected override void Seed(TravelAlbum.Data.TravelAlbumEfDbContext context)
-        {
+        {            
             var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
 

@@ -11,5 +11,7 @@ namespace TravelAlbum.Web.Models.ImageModels
         
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime CreatedOn { get; set; }
+
+        public string Title { get; set; }
     }
 }

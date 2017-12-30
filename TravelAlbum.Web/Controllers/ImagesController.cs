@@ -85,6 +85,7 @@ namespace TravelAlbum.Web.Controllers
                 ImageTranslationalInfo newBgImageTranslationalInfo = new ImageTranslationalInfo()
                 {
                     ImageTranslationalInfoId = Guid.NewGuid(),
+                    Title = imageForAdding.bgTitle,
                     Description = imageForAdding.bgDescription,
                     Image = newImage,
                     TravelObjectId = newImage.TravelObjectId,
@@ -97,6 +98,7 @@ namespace TravelAlbum.Web.Controllers
                 ImageTranslationalInfo newEnImageTranslationalInfo = new ImageTranslationalInfo()
                 {
                     ImageTranslationalInfoId = Guid.NewGuid(),
+                    Title = imageForAdding.enTitle,
                     Description = imageForAdding.enDescription,
                     Image = newImage,
                     TravelObjectId = newImage.TravelObjectId,
@@ -217,12 +219,17 @@ namespace TravelAlbum.Web.Controllers
                 foreach (var image in images)
                 {
                     ImagePreviewOutputViewModel imagePreviewOutputViewModel = new ImagePreviewOutputViewModel();
+                    string query = Request.Url.PathAndQuery;
+
+                    string title = string.Empty;
+                    title = this.ValidateTranslatedInfo(image, query, title);
 
                     string imagePreviewData = Convert.ToBase64String(image.PreviewContent);
 
                     imagePreviewOutputViewModel.ImageId = image.TravelObjectId;
                     imagePreviewOutputViewModel.ImageData = imagePreviewData;
                     imagePreviewOutputViewModel.CreatedOn = image.CreatedOn;
+                    imagePreviewOutputViewModel.Title = title;
                     model.ImagePreviews.Add(imagePreviewOutputViewModel);
                 }
             }
@@ -232,6 +239,35 @@ namespace TravelAlbum.Web.Controllers
             }
 
             return this.View(model);
+        }
+
+        private string ValidateTranslatedInfo(Image image, string query, string title)
+        {
+            if (image.TranslatedInfoes != null)
+            {
+                if (!(query.Contains("/en")))
+                {
+                    var translatedInfo = image.TranslatedInfoes.FirstOrDefault(a => a.Language == Language.Bulgarian);
+                    title = PopulateTitle(title, translatedInfo);
+                }
+                else
+                {
+                    var translatedInfo = image.TranslatedInfoes.FirstOrDefault(a => a.Language == Language.English);
+                    title = PopulateTitle(title, translatedInfo);
+                }
+            }
+
+            return title;
+        }
+
+        private static string PopulateTitle(string title, ImageTranslationalInfo translatedInfo)
+        {
+            if (translatedInfo != null)
+            {
+                title = translatedInfo.Title;
+            }
+
+            return title;
         }
 
         private IEnumerable<SelectListItem> GetPageSizes(ImagesListViewModel model)

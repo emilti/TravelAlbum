@@ -4,7 +4,7 @@ using System.Web.Mvc;
 using TravelAlbum.DataServices.Contracts;
 using TravelAlbum.Models;
 using System.Linq;
-using TravelAlbum.Web.Models.InputViewModels;
+using TravelAlbum.Web.Models.TravelModels;
 using System.IO;
 using TravelAlbum.Web.Models.TravelModels;
 using System.Web;
@@ -98,7 +98,7 @@ namespace TravelAlbum.Web.Controllers
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Add(CreateTravelInputModel travelForAdding)
+        public ActionResult Add(TravelInputModel travelForAdding)
         {
             Travel newTravel = new Travel
             {

@@ -5,9 +5,9 @@ using System.Web.Mvc;
 using TravelAlbum.Models;
 using TravelAlbum.Resources.App_GlobalResources;
 
-namespace TravelAlbum.Web.Models.InputViewModels
+namespace TravelAlbum.Web.Models.TravelModels
 {
-    public class CreateTravelInputModel
+    public class TravelInputModel
     {
         [Required]
         [AllowHtml]
