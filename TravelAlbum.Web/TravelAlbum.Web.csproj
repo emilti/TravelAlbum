@@ -257,10 +257,9 @@
     <Content Include="Content\Images\next.png" />
     <Content Include="Content\Images\prev.png" />
     <Content Include="Content\Images\topimage.jpg" />
+    <Content Include="Content\index.css" />
     <Content Include="Content\lightbox.css" />
     <Content Include="Content\nav-bar.css" />
-    <Content Include="Content\index.css" />
-    <Content Include="Content\search-images.css" />
     <Content Include="Content\DBImages\SL373229.JPG" />
     <Content Include="Content\DBImages\SL373229_preview.JPG" />
     <Content Include="Content\DBImages\SL373233.JPG" />
