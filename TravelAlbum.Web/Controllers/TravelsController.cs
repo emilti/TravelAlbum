@@ -97,6 +97,7 @@ namespace TravelAlbum.Web.Controllers
 
         [Authorize(Roles = "Admin")]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Add(CreateTravelInputModel travelForAdding)
         {
             Travel newTravel = new Travel
@@ -163,7 +164,7 @@ namespace TravelAlbum.Web.Controllers
             Image newTravelImage = new Image
             {
                 TravelObjectId = Guid.NewGuid(),
-                Content = imageData,
+                Content = imageData,                
                 Travel = newTravel,
                 TravelId = newTravel.TravelObjectId
             };
