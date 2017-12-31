@@ -102,8 +102,7 @@ namespace TravelAlbum.Web.Controllers
         {
             Travel newTravel = new Travel
             {
-                TravelObjectId = Guid.NewGuid(),
-                CreatedOn = DateTime.Now,
+                TravelObjectId = Guid.NewGuid(),               
                 StartDate = new DateTime(2017, 08, 10),
                 EndDate = DateTime.Now
             };

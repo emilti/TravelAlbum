@@ -123,11 +123,17 @@
   <data name="BgTitleLabel" xml:space="preserve">
     <value>Заглавие (bg)</value>
   </data>
+  <data name="CreateImageButtonLabel" xml:space="preserve">
+    <value>Запази</value>
+  </data>
   <data name="EnDescriptionLabel" xml:space="preserve">
     <value>Описание (en)</value>
   </data>
   <data name="EnTitleLabel" xml:space="preserve">
     <value>Заглавие (en)</value>
+  </data>
+  <data name="ImageCreatedOnLabel" xml:space="preserve">
+    <value>Заснето на</value>
   </data>
   <data name="LabelAddImage" xml:space="preserve">
     <value>Добави снимка</value>
@@ -147,6 +153,9 @@
   <data name="LabelTravels" xml:space="preserve">
     <value>Пътувания</value>
   </data>
+  <data name="MountainDropdownLabel" xml:space="preserve">
+    <value>Планина</value>
+  </data>
   <data name="MountainSearchLabel" xml:space="preserve">
     <value>Планини</value>
   </data>
@@ -165,8 +174,11 @@
   <data name="SortingDescendingLabel" xml:space="preserve">
     <value>Първо най-новите</value>
   </data>
-  <data name="UploadedImage_1" xml:space="preserve">
+  <data name="UploadedImage1Label" xml:space="preserve">
     <value>Снимка 1</value>
+  </data>
+  <data name="UploadedImage1PreviewLabel" xml:space="preserve">
+    <value>Снимка 1 превю</value>
   </data>
   <data name="UploadedImage_2" xml:space="preserve">
     <value>Снимка 2</value>

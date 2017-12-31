@@ -194,8 +194,7 @@
                 {
                     TravelObjectId = Guid.NewGuid(),
                     StartDate = new DateTime(2017, 08, 14),
-                    EndDate = new DateTime(2017, 08, 15),
-                    CreatedOn = DateTime.Now                    
+                    EndDate = new DateTime(2017, 08, 15)                                     
                 };
 
                 TravelTranslationalInfo malyovitsaTravelBg = new TravelTranslationalInfo()

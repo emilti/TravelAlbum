@@ -20,8 +20,9 @@ namespace TravelAlbum.Models
 
         public byte[] PreviewContent { get; set; }
 
+        [Required]
         public DateTime CreatedOn { get; set; }
-
+        
         public Guid? TravelId { get; set; }
 
         [ForeignKey("TravelId")]

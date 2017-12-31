@@ -73,7 +73,7 @@ namespace TravelAlbum.Web.Controllers
                 Image newImage = new Image
                 {
                     TravelObjectId = Guid.NewGuid(),
-                    CreatedOn = imageForAdding.CreatedOn,
+                    CreatedOn = imageForAdding.CreatedOn,                   
                     Content = imageData,
                     PreviewContent = previewImageData,
                     MountainId = mountain.MountainId,
@@ -226,7 +226,7 @@ namespace TravelAlbum.Web.Controllers
 
                     imagePreviewOutputViewModel.ImageId = image.TravelObjectId;
                     imagePreviewOutputViewModel.ImageData = imagePreviewData;
-                    imagePreviewOutputViewModel.CreatedOn = image.CreatedOn;
+                    imagePreviewOutputViewModel.CreatedOn = image.CreatedOn;                     
                     imagePreviewOutputViewModel.Title = title;
                     model.ImagePreviews.Add(imagePreviewOutputViewModel);
                 }

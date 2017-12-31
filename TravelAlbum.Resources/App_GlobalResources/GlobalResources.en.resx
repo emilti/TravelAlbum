@@ -123,11 +123,17 @@
   <data name="BgTitleLabel" xml:space="preserve">
     <value>Title (bg)</value>
   </data>
+  <data name="CreateImageButtonLabel" xml:space="preserve">
+    <value>Create</value>
+  </data>
   <data name="EnDescriptionLabel" xml:space="preserve">
     <value>Description (en)</value>
   </data>
   <data name="EnTitleLabel" xml:space="preserve">
     <value>Title (en)</value>
+  </data>
+  <data name="ImageCreatedOnLabel" xml:space="preserve">
+    <value>Created On</value>
   </data>
   <data name="LabelAddImage" xml:space="preserve">
     <value>Add photo</value>
@@ -146,6 +152,9 @@
   </data>
   <data name="LabelTravels" xml:space="preserve">
     <value>Travels</value>
+  </data>
+  <data name="MountainDropdownLabel" xml:space="preserve">
+    <value>Mountain</value>
   </data>
   <data name="MountainSearchLabel" xml:space="preserve">
     <value>Mountains</value>
@@ -171,8 +180,11 @@
   <data name="SortingDescendingLabel" xml:space="preserve">
     <value>Newest first</value>
   </data>
-  <data name="UploadedImage_1" xml:space="preserve">
+  <data name="UploadedImage1Label" xml:space="preserve">
     <value>Image 1</value>
+  </data>
+  <data name="UploadedImage1PreviewLabel" xml:space="preserve">
+    <value>Image 1 Peview</value>
   </data>
   <data name="UploadedImage_2" xml:space="preserve">
     <value>Image 2</value>

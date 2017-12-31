@@ -12,8 +12,7 @@ namespace TravelAlbum.Models
         private ICollection<TravelTranslationalInfo> translatedTravels;
 
         private ICollection<Image> images;
-
-
+        
         private ICollection<ApplicationUser> usersLiked;
 
         public Travel()
@@ -26,9 +25,6 @@ namespace TravelAlbum.Models
         public DateTime? StartDate { get; set; }
 
         public DateTime? EndDate { get; set; }
-
-        [Required]
-        public DateTime CreatedOn { get; set; }
 
         [InverseProperty("FavoriteTravels")]
         public virtual ICollection<ApplicationUser> UsersLiked

@@ -40,23 +40,24 @@ namespace TravelAlbum.Web.Models.ImageModels
         public string enDescription { get; set; }
 
         [Required]
-       //[Display(Name = "UploadedImage_1", ResourceType = typeof(GlobalResources))]
+        [Display(Name = "UploadedImage1Label", ResourceType = typeof(GlobalResources))]
         public HttpPostedFileBase UploadedImage { get; set; }
 
         [Required]
-        //[Display(Name = "UploadedImage_1", ResourceType = typeof(GlobalResources))]
+        [Display(Name = "UploadedImage1PreviewLabel", ResourceType = typeof(GlobalResources))]
         public HttpPostedFileBase UploadedPreviewImage { get; set; }
 
         public IEnumerable<Guid> MountainsIds { get; set; }
 
         public IEnumerable<SelectListItem> MountainsDropDown { get; set; }
-
+        
+        [Required]
+        [Display(Name = "ImageCreatedOnLabel", ResourceType = typeof(GlobalResources))]
         public DateTime CreatedOn { get; set; }
 
-        [DisplayName("Планина")]
+        [Display(Name = "MountainDropdownLabel", ResourceType = typeof(GlobalResources))]
         public Guid MountainId { get; set; }
 
-        [DisplayName("Планина")]
         public virtual Mountain Mountain { get; set; }        
     }
 }

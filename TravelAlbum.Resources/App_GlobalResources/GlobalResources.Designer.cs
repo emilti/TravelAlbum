@@ -79,6 +79,15 @@ namespace TravelAlbum.Resources.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Запази.
+        /// </summary>
+        public static string CreateImageButtonLabel {
+            get {
+                return ResourceManager.GetString("CreateImageButtonLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Описание (en).
         /// </summary>
         public static string EnDescriptionLabel {
@@ -93,6 +102,15 @@ namespace TravelAlbum.Resources.App_GlobalResources {
         public static string EnTitleLabel {
             get {
                 return ResourceManager.GetString("EnTitleLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Заснето на.
+        /// </summary>
+        public static string ImageCreatedOnLabel {
+            get {
+                return ResourceManager.GetString("ImageCreatedOnLabel", resourceCulture);
             }
         }
         
@@ -151,6 +169,15 @@ namespace TravelAlbum.Resources.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Планина.
+        /// </summary>
+        public static string MountainDropdownLabel {
+            get {
+                return ResourceManager.GetString("MountainDropdownLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Планини.
         /// </summary>
         public static string MountainSearchLabel {
@@ -205,15 +232,6 @@ namespace TravelAlbum.Resources.App_GlobalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Снимка 1.
-        /// </summary>
-        public static string UploadedImage_1 {
-            get {
-                return ResourceManager.GetString("UploadedImage_1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Снимка 2.
         /// </summary>
         public static string UploadedImage_2 {
@@ -237,6 +255,24 @@ namespace TravelAlbum.Resources.App_GlobalResources {
         public static string UploadedImage_4 {
             get {
                 return ResourceManager.GetString("UploadedImage_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Снимка 1.
+        /// </summary>
+        public static string UploadedImage1Label {
+            get {
+                return ResourceManager.GetString("UploadedImage1Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Снимка 1 превю.
+        /// </summary>
+        public static string UploadedImage1PreviewLabel {
+            get {
+                return ResourceManager.GetString("UploadedImage1PreviewLabel", resourceCulture);
             }
         }
     }

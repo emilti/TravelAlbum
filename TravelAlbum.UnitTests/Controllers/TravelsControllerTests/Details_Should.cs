@@ -28,8 +28,7 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
 
             Travel travelObjectMock = new Travel()
             {
-                TravelObjectId = travelId,
-                CreatedOn = DateTime.Now
+                TravelObjectId = travelId                
             };
 
             
@@ -57,8 +56,7 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
                 m => m.GetById((Guid?)travelObjectMock.TravelObjectId))
                 .Returns(new Travel()
                 {                    
-                    TravelObjectId = travelObjectMock.TravelObjectId,
-                    CreatedOn = DateTime.Now,
+                    TravelObjectId = travelObjectMock.TravelObjectId,                    
                     TranslatedTravels =
                     {
                         travelTranslationalInfoMock
@@ -108,8 +106,7 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
 
             Travel travelObjectMock = new Travel()
             {
-                TravelObjectId = travelId,
-                CreatedOn = DateTime.Now
+                TravelObjectId = travelId
             };
 
 
@@ -137,8 +134,7 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
                 m => m.GetById((Guid?)travelObjectMock.TravelObjectId))
                 .Returns(new Travel()
                 {
-                    TravelObjectId = travelObjectMock.TravelObjectId,
-                    CreatedOn = DateTime.Now,
+                    TravelObjectId = travelObjectMock.TravelObjectId,                    
                     TranslatedTravels =
                     {
                         travelTranslationalInfoMock
