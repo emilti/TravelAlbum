@@ -119,16 +119,7 @@ namespace TravelAlbum.Web.Controllers
             Image image = this.imageService.GetById(id);
             if (image != null)
             {
-                string query = Request.Url.PathAndQuery;
-
-                if (!(query.Contains("/en/")))
-                {
-                    return GetModelData(image, Language.Bulgarian);
-                }
-                else
-                {
-                    return GetModelData(image, Language.English);
-                }
+                return GetModelData(image);
             }
             else
             {
@@ -136,10 +127,11 @@ namespace TravelAlbum.Web.Controllers
             }
         }
 
-        private ActionResult GetModelData(Image image, Language language)
+        private ActionResult GetModelData(Image image)
         {
+            int language = GetCurrentLanguage();
             IEnumerable<ImageTranslationalInfo> imageTranslationalInfoes =
-                image.TranslatedInfoes.AsQueryable().Where(x => x.Language == language).ToList();
+                image.TranslatedInfoes.AsQueryable().Where(x => x.Language == (Language)language).ToList();
 
             if (imageTranslationalInfoes.ToList().Count > 1)
             {
@@ -168,19 +160,12 @@ namespace TravelAlbum.Web.Controllers
             // Create an empty list to hold result of the operation
             var selectList = new List<SelectListItem>();
 
-            string query = Request.Url.PathAndQuery;
+            int language = GetCurrentLanguage();
 
             var mountains = this.mountainsService.All().ToList();
             var mountainsTranslations = new List<MountainTranslationalInfo>();
-            if (!(query.Contains("/en")))
-            {
-                mountainsTranslations = mountains.SelectMany(a => a.TranslatedInfoes).Where(a => a.Language == Language.Bulgarian).ToList();
-            }
-            else
-            {
-                mountainsTranslations = mountains.SelectMany(a => a.TranslatedInfoes).Where(a => a.Language == Language.English).ToList();
-            }
 
+            mountainsTranslations = mountains.SelectMany(a => a.TranslatedInfoes).Where(a => a.Language == (Language)language).ToList();
 
             foreach (var mountain in mountains)
             {
@@ -193,6 +178,19 @@ namespace TravelAlbum.Web.Controllers
             }
 
             return selectList;
+        }
+
+        private int GetCurrentLanguage()
+        {
+            string query = Request.Url.PathAndQuery;
+            if (!(query.Contains("/en")))
+            {
+                return 2;
+            }
+            else
+            {
+                return 1;
+            }
         }
 
         [HttpGet]
@@ -245,16 +243,9 @@ namespace TravelAlbum.Web.Controllers
         {
             if (image.TranslatedInfoes != null)
             {
-                if (!(query.Contains("/en")))
-                {
-                    var translatedInfo = image.TranslatedInfoes.FirstOrDefault(a => a.Language == Language.Bulgarian);
-                    title = PopulateTitle(title, translatedInfo);
-                }
-                else
-                {
-                    var translatedInfo = image.TranslatedInfoes.FirstOrDefault(a => a.Language == Language.English);
-                    title = PopulateTitle(title, translatedInfo);
-                }
+                int language = GetCurrentLanguage();
+                var translatedInfo = image.TranslatedInfoes.FirstOrDefault(a => a.Language == (Language)language);
+                title = PopulateTitle(title, translatedInfo);
             }
 
             return title;
