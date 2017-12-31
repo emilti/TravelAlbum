@@ -73,7 +73,7 @@ namespace TravelAlbum.Web.Controllers
                 Image newImage = new Image
                 {
                     TravelObjectId = Guid.NewGuid(),
-                    CreatedOn = DateTime.Now,
+                    CreatedOn = imageForAdding.CreatedOn,
                     Content = imageData,
                     PreviewContent = previewImageData,
                     MountainId = mountain.MountainId,

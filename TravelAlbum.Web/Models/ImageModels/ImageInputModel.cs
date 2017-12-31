@@ -51,6 +51,8 @@ namespace TravelAlbum.Web.Models.ImageModels
 
         public IEnumerable<SelectListItem> MountainsDropDown { get; set; }
 
+        public DateTime CreatedOn { get; set; }
+
         [DisplayName("Планина")]
         public Guid MountainId { get; set; }
 
