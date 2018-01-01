@@ -51,7 +51,7 @@ namespace TravelAlbum.Web.Controllers
             Travel travel = this.travelService.GetById(id);
             if (travel != null)
             {
-                return GetModelData(travel);                
+                return GetModelData(travel);
             }
             else
             {
@@ -98,7 +98,7 @@ namespace TravelAlbum.Web.Controllers
         {
             Travel newTravel = new Travel
             {
-                TravelObjectId = Guid.NewGuid(),               
+                TravelObjectId = Guid.NewGuid(),
                 StartDate = travelForAdding.StartDate,
                 EndDate = travelForAdding.EndDate
             };
@@ -115,7 +115,7 @@ namespace TravelAlbum.Web.Controllers
             };
 
             travelTranslationalService.Add(newBgTravelInfo);
-            newTravel.TranslatedTravels.Add(newBgTravelInfo);            
+            newTravel.TranslatedTravels.Add(newBgTravelInfo);
 
             TravelTranslationalInfo newEnTravelInfo = new TravelTranslationalInfo()
             {
@@ -132,7 +132,7 @@ namespace TravelAlbum.Web.Controllers
         }
 
         private void GenerateImage(HttpPostedFileBase image, HttpPostedFileBase previewImage, DateTime createdOn, Travel newTravel)
-        {          
+        {
             byte[] imageData = null;
 
             using (var binaryReader = new BinaryReader(image.InputStream))
@@ -171,18 +171,10 @@ namespace TravelAlbum.Web.Controllers
                 foreach (var travel in orderedTravels)
                 {
                     TravelSummaryOutputViewModel travelSummaryOutputViewModel = new TravelSummaryOutputViewModel();
-                    // string query = Request.Url.PathAndQuery;
-
+                    
                     TranslatedData translatedData = new TranslatedData();
-                    //TODO: fix en and bg string conditions
-                    if (!(url.Contains("/en")))
-                    {
-                        translatedData = GetTranslatedTitle(travel, Language.Bulgarian);
-                    }
-                    else
-                    {
-                        translatedData = GetTranslatedTitle(travel, Language.English);
-                    }
+
+                    translatedData = GetTranslatedData(travel);
 
                     string imageData = Convert.ToBase64String(travel.Images.First().Content);
 
@@ -202,14 +194,15 @@ namespace TravelAlbum.Web.Controllers
         }
 
 
-        private TranslatedData GetTranslatedTitle(Travel travel, Language language)
+        private TranslatedData GetTranslatedData(Travel travel)
         {
+            int language = utils.GetCurrentLanguage(this);
             IEnumerable<TravelTranslationalInfo> infos =
-                                    travel.TranslatedTravels.Where(x => x.Language == language).ToList();
+                                    travel.TranslatedTravels.Where(x => x.Language == (Language)language).ToList();
             TravelTranslationalInfo travelTranslationalInfo = infos.First();
             TranslatedData translatedData = new TranslatedData(travelTranslationalInfo.Title, travelTranslationalInfo.Description);
-            return translatedData;           
-        }       
+            return translatedData;
+        }
 
         [HttpGet]
         public ActionResult All()

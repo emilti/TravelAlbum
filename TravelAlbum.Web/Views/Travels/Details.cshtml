@@ -1,16 +1,18 @@
 ﻿@model TravelAlbum.Web.Models.TravelModels.DetailsTravelOutputViewModel
-Details
 
-<br/>
+
+<br />
+<div class="col-md-12 text-center" style="font-size:24px;color:white;">
 @Model.Title
-<br />
--------------------<br />
-@Model.Description
-<br />
--------------------<br />
-<br/>
-<img src="@String.Format("data:image/jpg;base64,{0}", Model.ImageData)" />
+</div>
 
+<br />
+<div style="padding:10px;background: rgba(33, 30, 30, 0.8); width:33%; margin-left:auto; margin-right:auto;text-align:justify; color:white;font-size:18px">
+    @Model.Description
+</div>
+<br />
+
+<br />
 
 <div style="height:10px;clear:both;"></div>
 
