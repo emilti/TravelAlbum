@@ -3,6 +3,7 @@ using Moq;
 using System;
 using TravelAlbum.DataServices.Contracts;
 using TravelAlbum.Web.Controllers;
+using TravelAlbum.Web.Utils;
 
 namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
 {
@@ -16,9 +17,10 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
             var travelServiceMock = new Mock<ITravelService>();
             var travelTranslationalInfoServiceMock = new Mock<ITravelTranslationalInfoService>();
             var imageServiceMock = new Mock<IImageService>();
-            
+            var utilsMock = new Mock<IUtils>();
+
             // Act
-            TravelsController travelsController = new TravelsController(travelServiceMock.Object, travelTranslationalInfoServiceMock.Object, imageServiceMock.Object);
+            TravelsController travelsController = new TravelsController(travelServiceMock.Object, travelTranslationalInfoServiceMock.Object, imageServiceMock.Object, utilsMock.Object);
 
             // Assert
             Assert.IsNotNull(travelsController);
@@ -31,9 +33,10 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
             // Arrange
             var travelServiceMock = new Mock<ITravelService>();
             var travelTranslationalInfoServiceMock = new Mock<ITravelTranslationalInfoService>();
+            var utilsMock = new Mock<IUtils>();
 
             // Act
-            TravelsController travelsController = new TravelsController(travelServiceMock.Object, travelTranslationalInfoServiceMock.Object, null);
+            TravelsController travelsController = new TravelsController(travelServiceMock.Object, travelTranslationalInfoServiceMock.Object, null, utilsMock.Object);
 
             // Assert
             Assert.IsNotNull(travelsController);
@@ -46,9 +49,10 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
             // Arrange
             var travelServiceMock = new Mock<ITravelService>();
             var imageServiceMock = new Mock<IImageService>();
+            var utilsMock = new Mock<IUtils>();
 
             // Act
-            TravelsController travelsController = new TravelsController(travelServiceMock.Object, null, imageServiceMock.Object);
+            TravelsController travelsController = new TravelsController(travelServiceMock.Object, null, imageServiceMock.Object, utilsMock.Object);
 
             // Assert
             Assert.IsNotNull(travelsController);
@@ -61,9 +65,10 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
             // Arrange
             var travelTranslationalInfoServiceMock = new Mock<ITravelTranslationalInfoService>();
             var imageServiceMock = new Mock<IImageService>();
+            var utilsMock = new Mock<IUtils>();
 
             // Act
-            TravelsController travelsController = new TravelsController(null, travelTranslationalInfoServiceMock.Object, imageServiceMock.Object);
+            TravelsController travelsController = new TravelsController(null, travelTranslationalInfoServiceMock.Object, imageServiceMock.Object, utilsMock.Object);
 
             // Assert
             Assert.IsNotNull(travelsController);

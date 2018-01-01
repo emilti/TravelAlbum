@@ -7,7 +7,7 @@ using TravelAlbum.DataServices.Contracts;
 using TravelAlbum.Models;
 using TravelAlbum.Web.Helpers;
 using TravelAlbum.Web.Models.ImageModels;
-using TravelAlbum.Web.Models.ImageModels;
+
 
 namespace TravelAlbum.Web.Controllers
 {

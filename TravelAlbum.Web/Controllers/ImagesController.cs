@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using TravelAlbum.DataServices.Contracts;
 using TravelAlbum.Models;
 using TravelAlbum.Web.Models.ImageModels;
+using TravelAlbum.Web.Utils;
 
 namespace TravelAlbum.Web.Controllers
 {
@@ -21,17 +22,20 @@ namespace TravelAlbum.Web.Controllers
 
         private readonly ITravelService travelService;
 
-        public ImagesController(IImageService imageService, IMountainsService mountainsService, IImageTranslationalInfoService imageTranslationalInfoService, ITravelService travelService)
+        private readonly IUtils utils;
+
+        public ImagesController(IImageService imageService, IMountainsService mountainsService, IImageTranslationalInfoService imageTranslationalInfoService, ITravelService travelService, IUtils utils)
         {
             Guard.WhenArgument(imageService, "imageService").IsNull().Throw();
             Guard.WhenArgument(mountainsService, "mountainsService").IsNull().Throw();
             Guard.WhenArgument(imageTranslationalInfoService, "imageTranslationalInfoService").IsNull().Throw();
             Guard.WhenArgument(travelService, "travelService").IsNull().Throw();
-
+            Guard.WhenArgument(utils, "utils").IsNull().Throw();
             this.imageService = imageService;
             this.mountainsService = mountainsService;
             this.imageTranslationalInfoService = imageTranslationalInfoService;
             this.travelService = travelService;
+            this.utils = utils;
         }
 
         [Authorize(Roles = "Admin")]
@@ -137,7 +141,7 @@ namespace TravelAlbum.Web.Controllers
 
         private ActionResult GetModelData(Image image)
         {
-            int language = GetCurrentLanguage();
+            int language = this.utils.GetCurrentLanguage(this);
             IEnumerable<ImageTranslationalInfo> imageTranslationalInfoes =
                 image.TranslatedInfoes.AsQueryable().Where(x => x.Language == (Language)language).ToList();
 
@@ -168,7 +172,7 @@ namespace TravelAlbum.Web.Controllers
             // Create an empty list to hold result of the operation
             var selectList = new List<SelectListItem>();
 
-            int language = GetCurrentLanguage();
+            int language = this.utils.GetCurrentLanguage(this);
 
             var travels = this.travelService.All().ToList();
             var travelTranslations = new List<TravelTranslationalInfo>();
@@ -192,7 +196,7 @@ namespace TravelAlbum.Web.Controllers
             // Create an empty list to hold result of the operation
             var selectList = new List<SelectListItem>();
 
-            int language = GetCurrentLanguage();
+            int language = this.utils.GetCurrentLanguage(this);
 
             var mountains = this.mountainsService.All().ToList();
             var mountainsTranslations = new List<MountainTranslationalInfo>();
@@ -212,18 +216,18 @@ namespace TravelAlbum.Web.Controllers
             return selectList;
         }
 
-        private int GetCurrentLanguage()
-        {
-            string query = Request.Url.PathAndQuery;
-            if (!(query.Contains("/en")))
-            {
-                return 2;
-            }
-            else
-            {
-                return 1;
-            }
-        }
+        // private int GetCurrentLanguage()
+        // {
+        //     string query = Request.Url.PathAndQuery;
+        //     if (!(query.Contains("/en")))
+        //     {
+        //         return 2;
+        //     }
+        //     else
+        //     {
+        //         return 1;
+        //     }
+        // }
 
         [HttpGet]
         public ActionResult SearchImages(ImagesListViewModel model)
@@ -275,7 +279,7 @@ namespace TravelAlbum.Web.Controllers
         {
             if (image.TranslatedInfoes != null)
             {
-                int language = GetCurrentLanguage();
+                int language = this.utils.GetCurrentLanguage(this);
                 var translatedInfo = image.TranslatedInfoes.FirstOrDefault(a => a.Language == (Language)language);
                 title = PopulateTitle(title, translatedInfo);
             }

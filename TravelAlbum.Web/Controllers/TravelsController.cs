@@ -6,11 +6,11 @@ using TravelAlbum.Models;
 using System.Linq;
 using TravelAlbum.Web.Models.TravelModels;
 using System.IO;
-using TravelAlbum.Web.Models.TravelModels;
 using System.Web;
 using TravelAlbum.Web.Models;
 using System.Collections.Generic;
 using TravelAlbum.Web.Helpers;
+using TravelAlbum.Web.Utils;
 
 namespace TravelAlbum.Web.Controllers
 {
@@ -22,15 +22,19 @@ namespace TravelAlbum.Web.Controllers
 
         private readonly IImageService imageService;
 
-        public TravelsController(ITravelService travelService, ITravelTranslationalInfoService travelTranslationalService, IImageService imageService)
+        private readonly IUtils utils;
+
+        public TravelsController(ITravelService travelService, ITravelTranslationalInfoService travelTranslationalService, IImageService imageService, IUtils utils)
         {
             Guard.WhenArgument(travelService, "travelService").IsNull().Throw();
             Guard.WhenArgument(travelTranslationalService, "travelTranslationalService").IsNull().Throw();
             Guard.WhenArgument(imageService, "imageService").IsNull().Throw();
+            Guard.WhenArgument(utils, "utils").IsNull().Throw();
 
             this.travelService = travelService;
             this.travelTranslationalService = travelTranslationalService;
             this.imageService = imageService;
+            this.utils = utils;
         }
 
         [ValidateAntiForgeryTokenAttribute]
@@ -47,16 +51,7 @@ namespace TravelAlbum.Web.Controllers
             Travel travel = this.travelService.GetById(id);
             if (travel != null)
             {
-                string query = Request.Url.PathAndQuery;
-
-                if (!(query.Contains("/en/")))
-                {
-                    return GetModelData(travel, Language.Bulgarian);
-                }
-                else
-                {
-                    return GetModelData(travel, Language.English);
-                }
+                return GetModelData(travel);                
             }
             else
             {
@@ -64,10 +59,11 @@ namespace TravelAlbum.Web.Controllers
             }
         }
 
-        private ActionResult GetModelData(Travel travel, Language language)
+        private ActionResult GetModelData(Travel travel)
         {
+            int language = utils.GetCurrentLanguage(this);
             IEnumerable<TravelTranslationalInfo> travelTranslationalInfoes =
-                travel.TranslatedTravels.AsQueryable().Where(x => x.Language == language).ToList();
+                travel.TranslatedTravels.AsQueryable().Where(x => x.Language == (Language)language).ToList();
 
             if (travelTranslationalInfoes.ToList().Count > 1)
             {
@@ -132,24 +128,6 @@ namespace TravelAlbum.Web.Controllers
 
             travelTranslationalService.Add(newEnTravelInfo);
             newTravel.TranslatedTravels.Add(newEnTravelInfo);
-
-            // HttpPostedFileBase image_1 = travelForAdding.UploadedImage_1;
-            // HttpPostedFileBase image_1_preview = travelForAdding.UploadedPreviewImage_1;
-            // GenerateImage(image_1, image_1_preview, travelForAdding.Image1CreatedOn, newTravel);
-            // 
-            // HttpPostedFileBase image_2 = travelForAdding.UploadedImage_2;
-            // HttpPostedFileBase image_2_preview = travelForAdding.UploadedPreviewImage_2;
-            // GenerateImage(image_2, image_2_preview, travelForAdding.Image2CreatedOn, newTravel);
-            // 
-            // HttpPostedFileBase image_3 = travelForAdding.UploadedImage_3;
-            // HttpPostedFileBase image_3_preview = travelForAdding.UploadedPreviewImage_3;
-            // GenerateImage(image_3, image_3_preview, travelForAdding.Image3CreatedOn, newTravel);
-            // 
-            // HttpPostedFileBase image_4 = travelForAdding.UploadedImage_4;
-            // HttpPostedFileBase image_4_preview = travelForAdding.UploadedPreviewImage_4;
-            // GenerateImage(image_4, image_4_preview, travelForAdding.Image4CreatedOn, newTravel);
-
-            
             return this.RedirectToAction("Details", "Travels", new { id = newTravel.TravelObjectId });
         }
 

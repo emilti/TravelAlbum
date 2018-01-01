@@ -10,6 +10,7 @@ using TravelAlbum.DataServices.Contracts;
 using TravelAlbum.Models;
 using TravelAlbum.Web.Controllers;
 using TravelAlbum.Web.Models.TravelModels;
+using TravelAlbum.Web.Utils;
 
 namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
 {
@@ -23,6 +24,7 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
             var travelServiceMock = new Mock<ITravelService>();
             var imageServiceMock = new Mock<IImageService>();
             var travelTranslationalInfoServiceMock = new Mock<ITravelTranslationalInfoService>();
+            var utilsMock = new Mock<IUtils>();
 
             Guid travelId = Guid.NewGuid();
 
@@ -74,14 +76,17 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
                  new TravelsController(
                 travelServiceMock.Object,
                 travelTranslationalInfoServiceMock.Object,
-                imageServiceMock.Object);
-                      
+                imageServiceMock.Object,
+                utilsMock.Object);
+
+           
             HttpRequest httpRequest = new HttpRequest("", "http://localhost:56342/bg/Travels/Details/79cd1d5e-d2c2-425a-844b-0a0535b951e6", "");
             StringWriter stringWriter = new StringWriter();
             HttpResponse httpResponse = new HttpResponse(stringWriter);
             HttpContext httpContextMock = new HttpContext(httpRequest, httpResponse);
             travelsController.ControllerContext = new ControllerContext(new HttpContextWrapper(httpContextMock), new RouteData(), travelsController);
-            
+            utilsMock.Setup(a => a.GetCurrentLanguage(travelsController)).Returns(2);
+           
             // Act & Assert
             travelsController
                 .WithCallTo(b => b.Details(travelObjectMock.TravelObjectId))
@@ -101,6 +106,7 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
             var travelServiceMock = new Mock<ITravelService>();
             var imageServiceMock = new Mock<IImageService>();
             var travelTranslationalInfoServiceMock = new Mock<ITravelTranslationalInfoService>();
+            var utilsMock = new Mock<IUtils>();
 
             Guid travelId = Guid.NewGuid();
 
@@ -152,14 +158,16 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
                  new TravelsController(
                 travelServiceMock.Object,
                 travelTranslationalInfoServiceMock.Object,
-                imageServiceMock.Object);
+                imageServiceMock.Object,
+                utilsMock.Object);
 
             HttpRequest httpRequest = new HttpRequest("", "http://localhost:56342/en/Travels/Details/79cd1d5e-d2c2-425a-844b-0a0535b951e6", "");
             StringWriter stringWriter = new StringWriter();
             HttpResponse httpResponse = new HttpResponse(stringWriter);
             HttpContext httpContextMock = new HttpContext(httpRequest, httpResponse);
             travelsController.ControllerContext = new ControllerContext(new HttpContextWrapper(httpContextMock), new RouteData(), travelsController);
-
+            utilsMock.Setup(a => a.GetCurrentLanguage(travelsController)).Returns(1);
+                        
             // Act & Assert
             travelsController
                 .WithCallTo(b => b.Details(travelObjectMock.TravelObjectId))
@@ -178,12 +186,13 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
             var travelServiceMock = new Mock<ITravelService>();
             var imageServiceMock = new Mock<IImageService>();
             var travelTranslationalInfoServiceMock = new Mock<ITravelTranslationalInfoService>();
+            var utilsMock = new Mock<IUtils>();
 
             Guid id = Guid.NewGuid();
             
             travelServiceMock.Setup(m => m.GetById((Guid?)null)).Returns((Travel)null);
              
-            TravelsController travelsController = new TravelsController(travelServiceMock.Object, travelTranslationalInfoServiceMock.Object, imageServiceMock.Object);
+            TravelsController travelsController = new TravelsController(travelServiceMock.Object, travelTranslationalInfoServiceMock.Object, imageServiceMock.Object, utilsMock.Object);
                  
             // Act and Assert
             travelsController.WithCallTo(

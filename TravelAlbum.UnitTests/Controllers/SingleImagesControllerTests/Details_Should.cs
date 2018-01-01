@@ -1,11 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
@@ -14,7 +10,7 @@ using TravelAlbum.DataServices.Contracts;
 using TravelAlbum.Models;
 using TravelAlbum.Web.Controllers;
 using TravelAlbum.Web.Models.ImageModels;
-using TravelAlbum.Web.Models.ImageModels;
+using TravelAlbum.Web.Utils;
 
 namespace TravelAlbum.UnitTests.Controllers.ImagesControllerTests
 {
@@ -30,6 +26,7 @@ namespace TravelAlbum.UnitTests.Controllers.ImagesControllerTests
             var mountainsServiceMock = new Mock<IMountainsService>();
             var imageTranslationalInfoService = new Mock<IImageTranslationalInfoService>();
             var travelServiceMock = new Mock<ITravelService>();
+            var utilsMock = new Mock<IUtils>();
 
             Guid imageId = Guid.NewGuid();
 
@@ -70,13 +67,15 @@ namespace TravelAlbum.UnitTests.Controllers.ImagesControllerTests
                 imageServiceMock.Object,
                 mountainsServiceMock.Object,
                 imageTranslationalInfoService.Object,
-                travelServiceMock.Object);
+                travelServiceMock.Object,
+                utilsMock.Object);
 
             HttpRequest httpRequest = new HttpRequest("", "http://localhost:56342/bg/Images/Details/79cd1d5e-d2c2-425a-844b-0a0535b951e6", "");
             StringWriter stringWriter = new StringWriter();
             HttpResponse httpResponse = new HttpResponse(stringWriter);
             HttpContext httpContextMock = new HttpContext(httpRequest, httpResponse);
             imagesController.ControllerContext = new ControllerContext(new HttpContextWrapper(httpContextMock), new RouteData(), imagesController);
+            utilsMock.Setup(a => a.GetCurrentLanguage(imagesController)).Returns(2);
 
             // Act & Assert
             imagesController
@@ -97,6 +96,7 @@ namespace TravelAlbum.UnitTests.Controllers.ImagesControllerTests
             var mountainsServiceMock = new Mock<IMountainsService>();
             var imageTranslationalInfoService = new Mock<IImageTranslationalInfoService>();
             var travelServiceMock = new Mock<ITravelService>();
+            var utilsMock = new Mock<IUtils>();
 
             Guid imageId = Guid.NewGuid();
 
@@ -137,13 +137,15 @@ namespace TravelAlbum.UnitTests.Controllers.ImagesControllerTests
                 imageServiceMock.Object,
                 mountainsServiceMock.Object,
                 imageTranslationalInfoService.Object,
-                travelServiceMock.Object);
+                travelServiceMock.Object,
+                utilsMock.Object);
 
             HttpRequest httpRequest = new HttpRequest("", "http://localhost:56342/en/Images/Details/79cd1d5e-d2c2-425a-844b-0a0535b951e6", "");
             StringWriter stringWriter = new StringWriter();
             HttpResponse httpResponse = new HttpResponse(stringWriter);
             HttpContext httpContextMock = new HttpContext(httpRequest, httpResponse);
             imagesController.ControllerContext = new ControllerContext(new HttpContextWrapper(httpContextMock), new RouteData(), imagesController);
+            utilsMock.Setup(a => a.GetCurrentLanguage(imagesController)).Returns(1);
 
             // Act & Assert
             imagesController
@@ -164,12 +166,18 @@ namespace TravelAlbum.UnitTests.Controllers.ImagesControllerTests
             var mountainsServiceMock = new Mock<IMountainsService>();
             var imageTranslationalInfoService = new Mock<IImageTranslationalInfoService>();
             var travelServiceMock = new Mock<ITravelService>();
+            var utilsMock = new Mock<IUtils>();
 
             Guid id = Guid.NewGuid();
 
             imageServiceMock.Setup(m => m.GetById((Guid?)null)).Returns((Image)null);
 
-            ImagesController imagesController = new ImagesController(imageServiceMock.Object, mountainsServiceMock.Object, imageTranslationalInfoService.Object, travelServiceMock.Object);
+            ImagesController imagesController = new ImagesController(
+                imageServiceMock.Object,
+                mountainsServiceMock.Object,
+                imageTranslationalInfoService.Object,
+                travelServiceMock.Object,
+                utilsMock.Object);
 
             // Act and Assert
             imagesController.WithCallTo(

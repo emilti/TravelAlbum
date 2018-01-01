@@ -10,6 +10,7 @@ using TestStack.FluentMVCTesting;
 using TravelAlbum.DataServices.Contracts;
 using TravelAlbum.Models;
 using TravelAlbum.Web.Controllers;
+using TravelAlbum.Web.Utils;
 
 namespace TravelAlbum.UnitTests.Controllers.ImagesControllerTests
 {
@@ -23,8 +24,9 @@ namespace TravelAlbum.UnitTests.Controllers.ImagesControllerTests
             var mountainsServiceMock = new Mock<IMountainsService>();
             var imageTranslationalInfoServiceMock = new Mock<IImageTranslationalInfoService>();
             var travelServiceMock = new Mock<ITravelService>();
+            var utilsMock = new Mock<IUtils>();
 
-            ImagesController imagesController = new ImagesController(imageServiceMock.Object, mountainsServiceMock.Object, imageTranslationalInfoServiceMock.Object, travelServiceMock.Object);
+            ImagesController imagesController = new ImagesController(imageServiceMock.Object, mountainsServiceMock.Object, imageTranslationalInfoServiceMock.Object, travelServiceMock.Object, utilsMock.Object);
 
             Mountain rila = new Mountain()
             {
@@ -113,7 +115,7 @@ namespace TravelAlbum.UnitTests.Controllers.ImagesControllerTests
             HttpResponse httpResponse = new HttpResponse(stringWriter);
             HttpContext httpContextMock = new HttpContext(httpRequest, httpResponse);
             imagesController.ControllerContext = new ControllerContext(new HttpContextWrapper(httpContextMock), new RouteData(), imagesController);
-
+            utilsMock.Setup(a => a.GetCurrentLanguage(imagesController)).Returns(2);
             imagesController.WithCallTo(
                 b => b.Add()).ShouldRenderDefaultView();
         }

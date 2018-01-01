@@ -12,7 +12,8 @@ namespace TravelAlbum.Web.App_Start
     using System.Data.Entity;
     using TravelAlbum.Data;
     using TravelAlbum.DataServices.Contracts;
-    using TravelAlbum.DataServices;   
+    using TravelAlbum.DataServices;
+    using TravelAlbum.Web.Utils;
 
     public static class NinjectWebCommon 
     {
@@ -160,6 +161,7 @@ namespace TravelAlbum.Web.App_Start
             kernel.Bind<IApplicationUserService>().To<ApplicationUserService>();
             kernel.Bind<ICommentsService>().To<CommentsService>();
             kernel.Bind<IMountainsService>().To<MountainsService>();
+            kernel.Bind<IUtils>().To<Utils>();
         }
     }
 }
