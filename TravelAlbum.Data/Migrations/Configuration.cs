@@ -228,6 +228,8 @@
                     Content = malyovitsaImage1Content,
                     PreviewContent = malyovitsaImage1PreviewContent,
                     TravelObjectId = Guid.NewGuid(),
+                    Travel = malyovitsaTravel,
+                    TravelId = malyovitsaTravel.TravelObjectId,
                     CreatedOn = new DateTime(2017, 8, 15),
                     Mountain = rila,
                     MountainId = rila.MountainId                    

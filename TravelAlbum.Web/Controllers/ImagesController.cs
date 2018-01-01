@@ -19,16 +19,19 @@ namespace TravelAlbum.Web.Controllers
 
         private readonly IImageTranslationalInfoService imageTranslationalInfoService;
 
+        private readonly ITravelService travelService;
 
-        public ImagesController(IImageService imageService, IMountainsService mountainsService, IImageTranslationalInfoService imageTranslationalInfoService)
+        public ImagesController(IImageService imageService, IMountainsService mountainsService, IImageTranslationalInfoService imageTranslationalInfoService, ITravelService travelService)
         {
             Guard.WhenArgument(imageService, "imageService").IsNull().Throw();
             Guard.WhenArgument(mountainsService, "mountainsService").IsNull().Throw();
             Guard.WhenArgument(imageTranslationalInfoService, "imageTranslationalInfoService").IsNull().Throw();
+            Guard.WhenArgument(travelService, "travelService").IsNull().Throw();
 
             this.imageService = imageService;
             this.mountainsService = mountainsService;
             this.imageTranslationalInfoService = imageTranslationalInfoService;
+            this.travelService = travelService;
         }
 
         [Authorize(Roles = "Admin")]
@@ -38,8 +41,9 @@ namespace TravelAlbum.Web.Controllers
             var mountains = this.mountainsService.All().ToList();
             ImageInputModel model = new ImageInputModel();
             model.MountainsDropDown = this.GetMountainsSelectList();
+            model.TravelsDropDown = this.GetTravelsSelectList();
             return this.View(model);
-        }
+        }    
 
         [Authorize(Roles = "Admin")]
         [HttpPost]
@@ -70,6 +74,7 @@ namespace TravelAlbum.Web.Controllers
 
                 Mountain mountain = this.mountainsService.GetById(imageForAdding.MountainId);
 
+                Travel travel = this.travelService.GetById(imageForAdding.TravelObjectId);
                 Image newImage = new Image
                 {
                     TravelObjectId = Guid.NewGuid(),
@@ -77,10 +82,13 @@ namespace TravelAlbum.Web.Controllers
                     Content = imageData,
                     PreviewContent = previewImageData,
                     MountainId = mountain.MountainId,
-                    Mountain = mountain
+                    Mountain = mountain,
+                    TravelId = imageForAdding.TravelObjectId,
+                    Travel = travel
                 };
 
                 imageService.Add(newImage);
+                travel.Images.Add(newImage);
 
                 ImageTranslationalInfo newBgImageTranslationalInfo = new ImageTranslationalInfo()
                 {
@@ -153,6 +161,30 @@ namespace TravelAlbum.Web.Controllers
             };
 
             return this.View(imageOutputViewModel);
+        }
+
+        private IEnumerable<SelectListItem> GetTravelsSelectList()
+        {
+            // Create an empty list to hold result of the operation
+            var selectList = new List<SelectListItem>();
+
+            int language = GetCurrentLanguage();
+
+            var travels = this.travelService.All().ToList();
+            var travelTranslations = new List<TravelTranslationalInfo>();
+
+            travelTranslations = travels.SelectMany(a => a.TranslatedTravels).Where(a => a.Language == (Language)language).ToList();
+
+            foreach (var travel in travels)
+            {
+                selectList.Add(new SelectListItem
+                {
+                    Value = travel.TravelObjectId.ToString(),
+                    Text = travelTranslations.FirstOrDefault(a => a.TravelObjectId == travel.TravelObjectId).Title.ToString()
+                });
+            }
+
+            return selectList;
         }
 
         private IEnumerable<SelectListItem> GetMountainsSelectList()

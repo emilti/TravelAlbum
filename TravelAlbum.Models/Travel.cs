@@ -22,9 +22,9 @@ namespace TravelAlbum.Models
             this.UsersLiked = new HashSet<ApplicationUser>();
         }
         
-        public DateTime? StartDate { get; set; }
+        public DateTime StartDate { get; set; }
 
-        public DateTime? EndDate { get; set; }
+        public DateTime EndDate { get; set; }
 
         [InverseProperty("FavoriteTravels")]
         public virtual ICollection<ApplicationUser> UsersLiked

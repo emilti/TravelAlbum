@@ -58,5 +58,10 @@ namespace TravelAlbum.DataServices
             var orderedTravels = travels.OrderByDescending(a => a.StartDate).Skip(2 * pageIndex).Take(2).ToList();
             return orderedTravels;
         }
+
+        public IEnumerable<Travel> All()
+        {
+            return this.travelSetWrapper.All;
+        }
     }
 }

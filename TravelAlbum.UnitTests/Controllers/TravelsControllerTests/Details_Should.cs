@@ -65,8 +65,8 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
                     {
                         imageMock
                     },
-                    StartDate = null,
-                    EndDate = null                    
+                    StartDate = new DateTime(2017, 10, 20),
+                    EndDate = new DateTime(2017, 10, 21)
                 });
 
             // wrapperMock.Setup(m => m.GetById(travelId.Value)).Returns(new Travel() { TravelId = travelId.Value, CreatedOn = DateTime.Now });
@@ -143,8 +143,8 @@ namespace TravelAlbum.UnitTests.Controllers.TravelsControllerTests
                     {
                         imageMock
                     },
-                    StartDate = null,
-                    EndDate = null
+                    StartDate = new DateTime(2017, 7, 10),
+                    EndDate = new DateTime(2017, 7, 11)
                 });
 
             // wrapperMock.Setup(m => m.GetById(travelId.Value)).Returns(new Travel() { TravelId = travelId.Value, CreatedOn = DateTime.Now });

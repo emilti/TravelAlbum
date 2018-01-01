@@ -22,9 +22,9 @@ namespace TravelAlbum.UnitTests.Controllers.ImagesControllerTests
             var imageServiceMock = new Mock<IImageService>();
             var mountainsServiceMock = new Mock<IMountainsService>();
             var imageTranslationalInfoServiceMock = new Mock<IImageTranslationalInfoService>();
-            
+            var travelServiceMock = new Mock<ITravelService>();
 
-            ImagesController imagesController = new ImagesController(imageServiceMock.Object, mountainsServiceMock.Object, imageTranslationalInfoServiceMock.Object);
+            ImagesController imagesController = new ImagesController(imageServiceMock.Object, mountainsServiceMock.Object, imageTranslationalInfoServiceMock.Object, travelServiceMock.Object);
 
             Mountain rila = new Mountain()
             {

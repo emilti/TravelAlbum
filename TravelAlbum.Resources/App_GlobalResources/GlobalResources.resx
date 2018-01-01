@@ -126,11 +126,26 @@
   <data name="CreateImageButtonLabel" xml:space="preserve">
     <value>Запази</value>
   </data>
+  <data name="CreateTravelButtonLabel" xml:space="preserve">
+    <value>Запази</value>
+  </data>
   <data name="EnDescriptionLabel" xml:space="preserve">
     <value>Описание (en)</value>
   </data>
   <data name="EnTitleLabel" xml:space="preserve">
     <value>Заглавие (en)</value>
+  </data>
+  <data name="Image1CreatedOnLabel" xml:space="preserve">
+    <value>Снимка 1 заснета на</value>
+  </data>
+  <data name="Image2CreatedOnLabel" xml:space="preserve">
+    <value>Снимка 2 заснета на</value>
+  </data>
+  <data name="Image3CreatedOnLabel" xml:space="preserve">
+    <value>Снимка 3 заснета на</value>
+  </data>
+  <data name="Image4CreatedOnLabel" xml:space="preserve">
+    <value>Снимка 4 заснета на</value>
   </data>
   <data name="ImageCreatedOnLabel" xml:space="preserve">
     <value>Заснето на</value>
@@ -174,19 +189,34 @@
   <data name="SortingDescendingLabel" xml:space="preserve">
     <value>Първо най-новите</value>
   </data>
+  <data name="TravelEndDateLabel" xml:space="preserve">
+    <value>Крайна дата</value>
+  </data>
+  <data name="TravelStartDateLabel" xml:space="preserve">
+    <value>Начална дата</value>
+  </data>
   <data name="UploadedImage1Label" xml:space="preserve">
     <value>Снимка 1</value>
   </data>
   <data name="UploadedImage1PreviewLabel" xml:space="preserve">
     <value>Снимка 1 превю</value>
   </data>
-  <data name="UploadedImage_2" xml:space="preserve">
+  <data name="UploadedImage2Label" xml:space="preserve">
     <value>Снимка 2</value>
   </data>
-  <data name="UploadedImage_3" xml:space="preserve">
+  <data name="UploadedImage2PreviewLabel" xml:space="preserve">
+    <value>Снимка 2 превю</value>
+  </data>
+  <data name="UploadedImage3Label" xml:space="preserve">
     <value>Снимка 3</value>
   </data>
-  <data name="UploadedImage_4" xml:space="preserve">
+  <data name="UploadedImage3PreviewLabel" xml:space="preserve">
+    <value>Снимка 3 превю</value>
+  </data>
+  <data name="UploadedImage4Label" xml:space="preserve">
     <value>Снимка 4</value>
+  </data>
+  <data name="UploadedImage4PreviewLabel" xml:space="preserve">
+    <value>Снимка 4 превю</value>
   </data>
 </root>

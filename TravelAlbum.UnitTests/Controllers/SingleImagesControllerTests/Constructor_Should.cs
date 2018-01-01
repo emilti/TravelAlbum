@@ -16,9 +16,9 @@ namespace TravelAlbum.UnitTests.Controllers.ImagesControllerTests
             var imageServiceMock = new Mock<IImageService>();
             var mountainsServiceMock = new Mock<IMountainsService>();
             var imageTranslationalInfoServiceMock = new Mock<IImageTranslationalInfoService>();
-           
+            var travelServiceMock = new Mock<ITravelService>();
             // Act
-            ImagesController imageController = new ImagesController(imageServiceMock.Object, mountainsServiceMock.Object, imageTranslationalInfoServiceMock.Object);
+            ImagesController imageController = new ImagesController(imageServiceMock.Object, mountainsServiceMock.Object, imageTranslationalInfoServiceMock.Object, travelServiceMock.Object);
 
             // Assert
             Assert.IsNotNull(imageController);
@@ -31,9 +31,10 @@ namespace TravelAlbum.UnitTests.Controllers.ImagesControllerTests
             // Arrange
             var imageServiceMock = new Mock<IImageService>();
             var mountainsServiceMock = new Mock<IMountainsService>();
+            var travelServiceMock = new Mock<ITravelService>();
 
             // Act
-            ImagesController imageController = new ImagesController(imageServiceMock.Object, mountainsServiceMock.Object, null);
+            ImagesController imageController = new ImagesController(imageServiceMock.Object, mountainsServiceMock.Object, null, travelServiceMock.Object);
 
             // Assert
             Assert.IsNotNull(imageController);
@@ -45,8 +46,10 @@ namespace TravelAlbum.UnitTests.Controllers.ImagesControllerTests
         {
             var imageTranslationalInfoServiceMock = new Mock<IImageTranslationalInfoService>();
             var mountainsServiceMock = new Mock<IMountainsService>();
+            var travelServiceMock = new Mock<ITravelService>();
+
             // Act
-            ImagesController imageController = new ImagesController(null, mountainsServiceMock.Object, imageTranslationalInfoServiceMock.Object);
+            ImagesController imageController = new ImagesController(null, mountainsServiceMock.Object, imageTranslationalInfoServiceMock.Object, travelServiceMock.Object);
 
             // Assert
             Assert.IsNotNull(imageController);

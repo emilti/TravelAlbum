@@ -50,7 +50,9 @@ namespace TravelAlbum.Web.Models.ImageModels
         public IEnumerable<Guid> MountainsIds { get; set; }
 
         public IEnumerable<SelectListItem> MountainsDropDown { get; set; }
-        
+
+        public IEnumerable<SelectListItem> TravelsDropDown { get; set; }
+
         [Required]
         [Display(Name = "ImageCreatedOnLabel", ResourceType = typeof(GlobalResources))]
         public DateTime CreatedOn { get; set; }
@@ -58,6 +60,10 @@ namespace TravelAlbum.Web.Models.ImageModels
         [Display(Name = "MountainDropdownLabel", ResourceType = typeof(GlobalResources))]
         public Guid MountainId { get; set; }
 
-        public virtual Mountain Mountain { get; set; }        
+        public virtual Mountain Mountain { get; set; }
+          
+        public Guid TravelObjectId { get; set; }
+
+        public virtual Travel Travel { get; set; }
     }
 }
