@@ -355,6 +355,7 @@
     <Content Include="Views\Shared\_SingleCommentPartial.cshtml" />
     <Content Include="Views\Travels\GetTravels.cshtml" />
     <Content Include="Views\Images\SearchImages.cshtml" />
+    <Content Include="Views\Travels\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

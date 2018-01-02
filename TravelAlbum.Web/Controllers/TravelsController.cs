@@ -92,6 +92,26 @@ namespace TravelAlbum.Web.Controllers
         }
 
         [Authorize(Roles = "Admin")]
+        [HttpGet]
+        public ActionResult Edit(Guid id)
+        {
+            Travel travelForEdit = travelService.GetById(id);
+            TravelTranslationalInfo bgTravelInfo = travelForEdit.TranslatedTravels.FirstOrDefault(a => a.Language == Language.Bulgarian);
+            TravelTranslationalInfo enTravelInfo = travelForEdit.TranslatedTravels.FirstOrDefault(a => a.Language == Language.English);
+            TravelInputModel travelInputModel = new TravelInputModel()
+            {
+                bgTitle = bgTravelInfo.Title,
+                bgDescription = bgTravelInfo.Description,
+                enTitle = enTravelInfo.Title,
+                enDescription = enTravelInfo.Description,
+                StartDate = travelForEdit.StartDate,
+                EndDate = travelForEdit.EndDate
+            };
+
+            return this.View(travelInputModel);
+        }
+
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Add(TravelInputModel travelForAdding)

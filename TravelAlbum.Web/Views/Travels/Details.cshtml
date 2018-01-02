@@ -3,7 +3,7 @@
 
 <br />
 <div class="col-md-12 text-center" style="font-size:24px;color:white;">
-@Model.Title
+    @Model.Title
 </div>
 
 <br />
@@ -13,6 +13,11 @@
 <br />
 
 <br />
+
+@if (ViewContext.HttpContext.User.IsInRole("Admin"))
+{
+    @Html.ActionLink("Edit", "Edit", "Travels", new { id = Model.Id }, null);
+}
 
 <div style="height:10px;clear:both;"></div>
 
