@@ -19,5 +19,7 @@ namespace TravelAlbum.DataServices.Contracts
         IEnumerable<Travel> GetLatesTravels(int pageIndex);
 
         IEnumerable<Travel> All();
+
+        void SaveChanges();
     }
 }

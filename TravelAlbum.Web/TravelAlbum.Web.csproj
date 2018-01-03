@@ -231,6 +231,7 @@
     <Compile Include="Models\CommentModels\AddCommentInputModel.cs" />
     <Compile Include="Models\CommentModels\CommentViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\TravelModels\TravelEditModel.cs" />
     <Compile Include="Models\TravelModels\TravelInputModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ImageModels\ImagesListViewModel.cs" />

@@ -63,5 +63,10 @@ namespace TravelAlbum.DataServices
         {
             return this.travelSetWrapper.All;
         }
+
+        public void SaveChanges()
+        {
+            this.travelAlbumEfDbContextSaveChanges.SaveChanges();
+        }
     }
 }

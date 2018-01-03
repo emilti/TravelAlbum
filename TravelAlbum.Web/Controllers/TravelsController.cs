@@ -114,6 +114,30 @@ namespace TravelAlbum.Web.Controllers
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
+        public ActionResult Edit(TravelInputModel model)
+        {
+            if (this.ModelState.IsValid)
+            {
+                Travel travelForEdit = travelService.GetById(model.Id);
+                travelForEdit.StartDate = model.StartDate;
+                travelForEdit.EndDate = model.EndDate;
+
+                TravelTranslationalInfo bgTravelInfo = travelForEdit.TranslatedTravels.FirstOrDefault(a => a.Language == Language.Bulgarian);
+                bgTravelInfo.Title = model.bgTitle;
+                bgTravelInfo.Description = model.bgDescription;
+                TravelTranslationalInfo enTravelInfo = travelForEdit.TranslatedTravels.FirstOrDefault(a => a.Language == Language.English);
+                enTravelInfo.Title = model.enTitle;
+                enTravelInfo.Description = model.enDescription; this.travelService.SaveChanges();                
+            }
+
+            return this.RedirectToAction("Details", "Travels", new { id = model.Id });
+        }
+
+
+
+        [Authorize(Roles = "Admin")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Add(TravelInputModel travelForAdding)
         {
             Travel newTravel = new Travel

@@ -1,14 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TravelAlbum.Resources.App_GlobalResources;
 
 namespace TravelAlbum.Web.Models.TravelModels
 {
-    public class TravelInputModel
+    public class TravelEditModel
     {
-        public Guid? Id { get; set; }
+        public Guid Id { get; set; }
 
         [Required]
         [AllowHtml]

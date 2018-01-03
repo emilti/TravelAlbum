@@ -16,7 +16,7 @@
 
 @if (ViewContext.HttpContext.User.IsInRole("Admin"))
 {
-    @Html.ActionLink("Edit", "Edit", "Travels", new { id = Model.Id }, null);
+    @Html.ActionLink("Edit", "Edit", "Travels", new { id = Model.Id }, new { @class = "btn btn-primary" })
 }
 
 <div style="height:10px;clear:both;"></div>
