@@ -8,7 +8,7 @@
             <div class="clearfix travels-container">
                 <div class="travel-title">@travel.Title</div>
                 <img src="@String.Format("data:image/jpg;base64,{0}", travel.ImageData)" class="travels-image" />
-                <p class="travels-description">@travel.Description</p>
+                <p class="travels-description">@Html.Raw(@travel.Description.Replace(Environment.NewLine, "<br/>"))</p>
             </div>
         </a>
     }

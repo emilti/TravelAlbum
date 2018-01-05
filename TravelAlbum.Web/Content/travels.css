@@ -66,3 +66,16 @@
         text-decoration: none;
         color: black;
     }
+
+.image-in-travel{
+    float:left;
+    margin:10px
+}
+
+.travel-text {
+    padding: 10px;
+    background: rgba(33, 30, 30, 0.8);
+    text-align: justify;
+    color: white;
+    font-size: 18px
+}

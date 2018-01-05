@@ -9,12 +9,12 @@
 <br />
 <div class="row">
     <div class="col-md-3"></div>
-    <div class="text-center col-md-6 travel-text" data-id="@Model.Id" style="padding:10px;background: rgba(33, 30, 30, 0.8); text-align:justify; color:white;font-size:18px">
+    <div class="text-center col-md-6 travel-text" data-id="@Model.Id">
         @Html.Raw(Model.Description.Replace(Environment.NewLine, "<br/>"))
     </div>
     <div class="col-md-3"></div>
 </div>
-<div id="single-images-container" class="gallery"></div>
+<div class="gallery"></div>
 
 @if (ViewContext.HttpContext.User.IsInRole("Admin"))
 {
