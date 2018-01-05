@@ -25,9 +25,9 @@
 
 <div id="comments-container" data-id="@Model.ImageId" data-route="/Images/Details/"></div>
 
-<button id="show-comments-button" class="btn btn-primary">Show Comments</button>       
-        @*Html.ActionLink("Add Comment", "AddComment", "Comments", new { area = "Facilities", id = Model.Id }, new { @class = "btn btn-primary" })*@
-  
+<button id="show-comments-button" class="btn btn-primary">Show Comments</button>
+@*Html.ActionLink("Add Comment", "AddComment", "Comments", new { area = "Facilities", id = Model.Id }, new { @class = "btn btn-primary" })*@
+
 
 
 @*@ @foreach (var comment in Model.FacilityComments)
@@ -48,3 +48,9 @@
 @section CommentsSection{
     <script src="~/Scripts/Custom/comments-controller.js"></script>
 }
+
+
+
+
+
+

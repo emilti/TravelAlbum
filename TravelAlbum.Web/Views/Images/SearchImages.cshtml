@@ -41,17 +41,20 @@
                 <div class="row">
                     <div class="col-md-2"></div>
                     <div class='col-md-6'>
-                        <div class="single-image-container ">
-                            <a href="@Url.Action("Details", "Images", new { id = image.ImageId })">
-                                <img class='single-image' src='data:image/jpg;base64,@image.ImageData' />
-                                <div class='cover-container'>                                    
+                        <div class="single-image-container">
+                            <img class='single-image' src='data:image/jpg;base64,@image.ImageData' />
+                            <a href="@String.Format("data:image/jpg;base64,{0}", @image.ImageData)" data-lightbox="image-1" data-width="1024" data-height="768">
+                                <div class='cover-container-left'>
                                 </div>
                             </a>
-                            <div class='description'> @Html.DisplayFor(a => image.CreatedOn) </div>   
+                            <a href="@Url.Action("Details", "Images", new { id = image.ImageId })">
+                                <div class='cover-container-right'>
+                                </div>
+                            </a>
+                            <div class='description'> @Html.DisplayFor(a => image.CreatedOn) </div>
                             <div>@image.Title</div>
                         </div>
-                       
-                    </div>                    
+                    </div>
                     <div class="col-md-4"></div>
                 </div>
             }
@@ -111,4 +114,14 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+<script>
+    lightbox.option({
+      'resizeDuration': 1000,
+      'wrapAround': true,
+      'fitImagesInViewport': true,
+      'maxWidth': 1024,
+      'maxheight': 768
+    })
+</script>
 

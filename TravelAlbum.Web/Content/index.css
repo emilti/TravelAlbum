@@ -63,7 +63,6 @@
     text-align: left;
 }
 
-
 .single-image-container{    
     width:500px;     
     height:395px;         
@@ -71,7 +70,7 @@
     margin-bottom:20px
 }
 
-.cover-container {
+.cover-container-left {
     background: url('Images/magnifying_glass.png');
     background-repeat: no-repeat;
     background-position: center;
@@ -79,17 +78,47 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 50%;
     height: 100%;
     background-color: white;
-    opacity: 0.7;
-    border: 0px solid rgba(0,0,0,0.7);      
+    opacity: 0.3;
+    border: 0px solid rgba(0,0,0,0.7);
+}
+
+.cover-container-right {
+    background: url('Images/info.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    background-color: white;
+    opacity: 0.3;
+    border: 0px solid rgba(0,0,0,0.7);
 }
 
 
-.single-image-container:hover .cover-container {
+.single-image-container:hover .cover-container-left {
     display: inline-block;
-    z-index:2
+    z-index: 2;    
+}
+
+.single-image-container:hover .cover-container-right {
+    display: inline-block;
+    z-index: 2;
+}
+
+.cover-container-left:hover {
+    display: inline-block;
+    opacity: 0.7;
+}
+
+.cover-container-right:hover {
+    display: inline-block;
+    opacity: 0.7;
 }
 
 .cover-container:hover {
@@ -102,5 +131,3 @@
     border-bottom: 150px solid rgba(0,0,0,1);  
     transition-delay: 0.3s;
 }
-
-

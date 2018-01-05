@@ -253,5 +253,20 @@ namespace TravelAlbum.Web.Controllers
         {
             return this.View();
         }
+
+        [HttpGet]
+        public JsonResult GetImagesRelatedToTravel(Guid id)
+        {
+            var travel = this.travelService.GetById(id);
+            var images = travel.Images;             
+            var outputImages = images.Select(S => new {
+                Id = S.TravelObjectId,
+                CreatedOn = S.CreatedOn,                
+                ImageData = Convert.ToBase64String(S.PreviewContent)
+            });
+            var jsonResult = Json(outputImages, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;           
+        }
     }
 }

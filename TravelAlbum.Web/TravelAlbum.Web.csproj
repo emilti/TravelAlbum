@@ -255,6 +255,7 @@
     <Content Include="Content\Images\bg_flag.jpg" />
     <Content Include="Content\Images\close.png" />
     <Content Include="Content\Images\en_flag.jpg" />
+    <Content Include="Content\Images\info.png" />
     <Content Include="Content\Images\loading.gif" />
     <Content Include="Content\Images\magnifying_glass.png" />
     <Content Include="Content\Images\next.png" />
@@ -298,6 +299,7 @@
     <None Include="Properties\PublishProfiles\TravelAlbum - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Custom\comments-controller.js" />
+    <Content Include="Scripts\Custom\images-loader-section.js" />
     <Content Include="Scripts\Custom\single-images-loader.js" />
     <Content Include="Scripts\Custom\travels-loader.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
