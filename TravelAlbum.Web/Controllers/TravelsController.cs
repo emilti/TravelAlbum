@@ -258,11 +258,12 @@ namespace TravelAlbum.Web.Controllers
         public JsonResult GetImagesRelatedToTravel(Guid id)
         {
             var travel = this.travelService.GetById(id);
-            var images = travel.Images;             
+            var images = travel.Images.Where(x => x.TravelLabel != null);             
             var outputImages = images.Select(S => new {
                 Id = S.TravelObjectId,
                 CreatedOn = S.CreatedOn,                
-                ImageData = Convert.ToBase64String(S.PreviewContent)
+                ImageData = Convert.ToBase64String(S.PreviewContent),
+                TravelLabel = S.TravelLabel
             });
             var jsonResult = Json(outputImages, JsonRequestBehavior.AllowGet);
             jsonResult.MaxJsonLength = int.MaxValue;

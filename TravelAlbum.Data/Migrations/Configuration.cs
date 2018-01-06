@@ -203,8 +203,48 @@
                     TravelObject = malyovitsaTravel,
                     TravelObjectId = malyovitsaTravel.TravelObjectId,
                     Language = Language.Bulgarian,
-                    Title = "Мъгливата Мальовица",                    
-                    Description = "адйакдйк кафйфкахй кафхйкахй кафйхйкахй кафхкйхакйфхйак айкхфакйхайкфх айхфйкафхйкха йахфйкафх фйакфхкй лкйклай какфй."
+                    Title = "Почти до връх Мальовица",                    
+                    Description =
+                    "&emsp;Лошото време в средата на август провали планивете ми за няколко дневен излет в Рила, но в крайна сметка реших да не се отказвам и вместо да направя дълъг преход от 7-те рилски езера до Боровец съкратих маршрута си. Крайната цел на екскурзията беше хижа Мальовица, като планирах да тръгна от началната станция на лифта при 7-те рилски езера, да стигна до Раздела и от там по билото на Урдиния циркус да стигна до хижа Мальовица. Бях ходил до 7-те езера и Раздела, но не бях минавал по този път към хижа Мальовица. Обмислях два варианта за прибиране – Урдиния циркус, по който съм дошъл или от хижа Мальовица да продължа до Централна планинска школа и от там по пътеката за хижа Вада да стигна обратно до началната станция на лифта при 7-те рилски езера, като на място щях да избера по-подходящия./img1/" +
+                    "&emsp;Към 11 часа сутринта пристигнах на началаната станция на лифта при хижа Пионерска. Въпреки облачното време се беше образувала опашка. Хванах пътечката, " +
+                    "която започва на около петедесетина метра вдясно от началната станция и с добро темпо започнах да се придвижвам към езерата. За по-малко от час  стигнах до горната станция. Постепенно започна да се появява мъгла. Пътечката, " +
+                    "по която вървах към Езерата, " +
+                    "представлява черен път, " +
+                    "който за съжаление се използва от местните за превоз на туристи така, " +
+                    "че ако човек има непоносимост към шумни, " +
+                    "вдигащи прах джипове, " +
+                    "е по-добре да търси друг вариант за придвижване до 7-те рилски езера. След по-малко от час стигнах до новата хижа 7-те рилски езера. Хапнах набързо една пилешка супа и с нови сили тръгнах към езерото Бъбрека. Имаше много туристи, " +
+                    "като доста от тях бяха от чужбина – френска, " +
+                    "немска и някаква източно - европейска реч, " +
+                    "може би чешка, " +
+                    "преобладаваха. Пътят, " +
+                    "който води към Бъбрека, " +
+                    "предлага панорамна гледка към езерата Дoлното и Рибното, " +
+                    "но облаците, " +
+                    "които се спускаха, " +
+                    "скриваха от части красотата, " +
+                    "която се открива от това място. Стигнах до Бъбрека и отново имах чувството, " +
+                    "че съм в София, " +
+                    "заради огромното количество хора около езерото. Набързо подминах Бъбрека, " +
+                    "а след това и Окото и Сълзата. На Сълзата имах кратък разговор с един англичанин. Питаше дали няма друг път за връщане, " +
+                    "с който да обиколи малко повече, " +
+                    "но имайки предвид че беше по дънки и сандали го посъветвах да се върне по пътя, " +
+                    "по който е дошъл/img2/. Стигнах Раздела от там от Урдините езера не се виждаше нищо, " +
+                    "но пък се откриваше отлична панорама към масива на Калините. Направих няколко снимки и потеглих нататък. За съжаление мъглата започна да се спуска все повече и от Дамга до Додов връх не се виждаше нищо на повече от няколко десетки метра, " +
+                    "Изкачих Мермерите и реших да не се отклонявам до връх Мальовица, " +
+                    "защото така или иначе нищо не се виждаше на повече от 5-10 метра. В един момент в близост чух някакви гласове от малка група, " +
+                    "но така и не срещнах никого. Вниманието си бях насочил да не изтърва разклона за хижа Мальовица, " +
+                    "защото в един момент пътеката се разделя на две и левият път продължава към хижата, " +
+                    "а десният продължаваше към спане на открито. След неприятно слизане по камънаците стигнах до Еленино езеро, " +
+                    "където имаше руска група, " +
+                    "опънала палатки. Започна лека-полека да се свечерява и към 7 и половина стигнах хижа Мальовица. Хижата беше пълна, " +
+                    "хапнах и доволен легнах да спя./img3/" +
+                    "&emsp;Поредното трудно ранно ставане, " +
+                    "но няма как – трябваше да се прибирам в София. Избрах да мина през ЦПШ и хижа Вада до началната станция на лифта при хижа Пионерска. Това разстояние отнема 3-4 часа. През по-голямата част от пътя времето беше отлично. За съжаление този маршрут не ми е от любимите, " +
+                    "защото преминава изцяло през гора и няма много какво да се види. Самият път е добре обозначен. Когато се ходи от ЦПШ към хижа Пионерска има едно отклонение вляво след Яворова поляна, " +
+                    "за което трябва да се внимава. " +
+                    "След няколко часа ходене стигнах до началнато станция на лифта, " +
+                    "а от там и поех по обратния път за София."
                 };
 
                 TravelTranslationalInfo malyovitsaTravelEn = new TravelTranslationalInfo()
@@ -213,16 +253,15 @@
                     TravelObject = malyovitsaTravel,
                     TravelObjectId = malyovitsaTravel.TravelObjectId,
                     Language = Language.English,
-                    Title = "Foggy Malyovitsa",
-                    Description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,"
+                    Title = "To Malyovitsa peak almost",
+                    Description = "Not translated"
                 };
 
                 var basePath = AppDomain.CurrentDomain.BaseDirectory;
-               
-                byte[] malyovitsaImage1Content = File.ReadAllBytes(basePath + @"/Content/DBImages/SL373530.JPG");
-                byte[] malyovitsaImage1PreviewContent = File.ReadAllBytes(basePath + @"/Content/DBImages/SL373530_preview.JPG");
 
-
+                byte[] malyovitsaImage1Content = File.ReadAllBytes(basePath + @"/Content/DBImages/SL373490.JPG");
+                byte[] malyovitsaImage1PreviewContent = File.ReadAllBytes(basePath + @"/Content/DBImages/SL373490.JPG");
+                
                 Image malyovitsaImage1 = new Image()
                 {
                     Content = malyovitsaImage1Content,
@@ -230,13 +269,87 @@
                     TravelObjectId = Guid.NewGuid(),
                     Travel = malyovitsaTravel,
                     TravelId = malyovitsaTravel.TravelObjectId,
-                    CreatedOn = new DateTime(2017, 8, 15),
+                    CreatedOn = new DateTime(2017, 8, 14),
                     Mountain = rila,
                     MountainId = rila.MountainId                    
                 };
 
 
                 rila.Images.Add(malyovitsaImage1);
+
+                byte[] malyovitsaImage2Content = File.ReadAllBytes(basePath + @"/Content/DBImages/SL373498.JPG");
+                byte[] malyovitsaImage2PreviewContent = File.ReadAllBytes(basePath + @"/Content/DBImages/SL373498.JPG");
+
+                Image malyovitsaImage2 = new Image()
+                {
+                    Content = malyovitsaImage2Content,
+                    PreviewContent = malyovitsaImage2PreviewContent,
+                    TravelObjectId = Guid.NewGuid(),
+                    Travel = malyovitsaTravel,
+                    TravelId = malyovitsaTravel.TravelObjectId,
+                    CreatedOn = new DateTime(2017, 8, 14),
+                    Mountain = rila,
+                    MountainId = rila.MountainId,
+                    TravelLabel = "/img1/"
+                };
+
+
+                rila.Images.Add(malyovitsaImage2);
+
+                byte[] malyovitsaImage3Content = File.ReadAllBytes(basePath + @"/Content/DBImages/SL373503.JPG");
+                byte[] malyovitsaImage3PreviewContent = File.ReadAllBytes(basePath + @"/Content/DBImages/SL373503.JPG");
+
+                Image malyovitsaImage3 = new Image()
+                {
+                    Content = malyovitsaImage3Content,
+                    PreviewContent = malyovitsaImage3PreviewContent,
+                    TravelObjectId = Guid.NewGuid(),
+                    Travel = malyovitsaTravel,
+                    TravelId = malyovitsaTravel.TravelObjectId,
+                    CreatedOn = new DateTime(2017, 8, 14),
+                    Mountain = rila,
+                    MountainId = rila.MountainId
+                };
+
+                rila.Images.Add(malyovitsaImage3);
+
+                byte[] malyovitsaImage4Content = File.ReadAllBytes(basePath + @"/Content/DBImages/SL373514.JPG");
+                byte[] malyovitsaImage4PreviewContent = File.ReadAllBytes(basePath + @"/Content/DBImages/SL373514.JPG");
+
+                Image malyovitsaImage4 = new Image()
+                {
+                    Content = malyovitsaImage4Content,
+                    PreviewContent = malyovitsaImage4PreviewContent,
+                    TravelObjectId = Guid.NewGuid(),
+                    Travel = malyovitsaTravel,
+                    TravelId = malyovitsaTravel.TravelObjectId,
+                    CreatedOn = new DateTime(2017, 8, 14),
+                    Mountain = rila,
+                    MountainId = rila.MountainId,
+                    TravelLabel = "/img2/"
+                };
+
+                rila.Images.Add(malyovitsaImage4);
+
+                byte[] malyovitsaImage5Content = File.ReadAllBytes(basePath + @"/Content/DBImages/SL373530.JPG");
+                byte[] malyovitsaImage5PreviewContent = File.ReadAllBytes(basePath + @"/Content/DBImages/SL373530_preview.JPG");
+
+
+                Image malyovitsaImage5 = new Image()
+                {
+                    Content = malyovitsaImage5Content,
+                    PreviewContent = malyovitsaImage5PreviewContent,
+                    TravelObjectId = Guid.NewGuid(),
+                    Travel = malyovitsaTravel,
+                    TravelId = malyovitsaTravel.TravelObjectId,
+                    CreatedOn = new DateTime(2017, 8, 15),
+                    Mountain = rila,
+                    MountainId = rila.MountainId,
+                    TravelLabel = "/img3/"
+                };
+
+
+                rila.Images.Add(malyovitsaImage5);
 
                 byte[] imageContent = File.ReadAllBytes(basePath + @"/Content/DBImages/SL373229.JPG");
                 byte[] imagePreviewContent = File.ReadAllBytes(basePath + @"/Content/DBImages/SL373229_preview.JPG");
@@ -334,6 +447,10 @@
                 context.Mountains.Add(vitosha);
 
                 malyovitsaTravel.Images.Add(malyovitsaImage1);
+                malyovitsaTravel.Images.Add(malyovitsaImage2);
+                malyovitsaTravel.Images.Add(malyovitsaImage3);
+                malyovitsaTravel.Images.Add(malyovitsaImage4);
+                malyovitsaTravel.Images.Add(malyovitsaImage5);
 
 
                 malyovitsaTravel.TranslatedTravels.Add(malyovitsaTravelBg);
@@ -369,6 +486,10 @@
                 context.TravelObjects.Add(image5);
                 context.TravelObjects.Add(image6);
                 context.TravelObjects.Add(malyovitsaImage1);
+                context.TravelObjects.Add(malyovitsaImage2);
+                context.TravelObjects.Add(malyovitsaImage3);
+                context.TravelObjects.Add(malyovitsaImage4);
+                context.TravelObjects.Add(malyovitsaImage5);
                 context.TravelObjects.Add(malyovitsaTravel);
                 context.TravelTranslatinalInfoes.Add(malyovitsaTravelEn);
                 context.TravelTranslatinalInfoes.Add(malyovitsaTravelBg);

@@ -26,7 +26,7 @@ function GetData() {
                         "<div class='description'>" + data[i].CreatedOn + "</div>" +
                         "</div>";
 
-                    text = text.replace("/img" + (i + 1) + "/", imageContainer);
+                    text = text.replace(data[i].TravelLabel, imageContainer);
                 }
 
                 $(".travel-text").html(text);

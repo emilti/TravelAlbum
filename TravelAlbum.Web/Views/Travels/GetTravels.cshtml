@@ -1,7 +1,6 @@
 ﻿@model TravelAlbum.Web.Models.TravelModels.TravelsOutputViewModel
 
 <div id="screen">
-
     @foreach (var travel in Model.travels)
     {
         <a href="@Url.Action("Details", "Travels", new { id = @travel.Id })" class="single-travel-link">

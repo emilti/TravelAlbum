@@ -31,6 +31,8 @@ namespace TravelAlbum.Models
 
         public Guid? MountainId { get; set; }
 
+        public string TravelLabel { get; set; }
+
         [ForeignKey("MountainId")]
         public virtual Mountain Mountain { get; set; }       
 
