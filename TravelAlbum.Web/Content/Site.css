@@ -1,18 +1,36 @@
-﻿body {     
-    padding-bottom: 20px;
+﻿body {
+    padding: 0; /* remove any pre-existing padding, just in case */
+    min-width: 100%;
+    min-height: 100%;
 }
 
-#bg {
+#bg {    
     position: fixed;
     top: 0;
     left: 0;
     /* Preserve aspet ratio */
     min-width: 100%;
     min-height: 100%;
-    -webkit-filter: sepia(0.55) blur(3px);
-    filter: sepia(0.55) blur(3px); 
-    z-index:-1000;
+    width:100%;
+    height:100%;   
+    z-index: -1000;
 }
+
+#bg-log-in {
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* Preserve aspet ratio */
+    min-width: 99%;
+    min-height: 99%;
+    width: 99%;
+    height: 99%;
+    z-index: -1000;
+    -webkit-filter: sepia(0.55) blur(3px);
+    filter: sepia(0.55) blur(3px);
+}
+
+
 
 /* Set padding to keep content from hitting the edges */
 .body-content {

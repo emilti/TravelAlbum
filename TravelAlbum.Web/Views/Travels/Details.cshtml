@@ -1,8 +1,9 @@
 ﻿@model TravelAlbum.Web.Models.TravelModels.DetailsTravelOutputViewModel
+<img src="@String.Format("data:image/jpg;base64,{0}", @Model.BackgroundData)" id="bg-travels" />
 
 
 <br />
-<div class="col-md-12 text-center" style="font-size:24px;color:white;">
+<div class="col-md-12 text-center travel-details-title">
     @Model.Title
 </div>
 

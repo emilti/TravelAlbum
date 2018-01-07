@@ -60,6 +60,8 @@ namespace TravelAlbum.Web.Models
 
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
+
+        public string BackgroundData { get; set; }
     }
 
     public class RegisterViewModel
@@ -86,6 +88,9 @@ namespace TravelAlbum.Web.Models
 
         [Required]
         public string Avatar { get; set; }
+
+        public string BackgroundData { get; set; }
+
     }
 
     public class ResetPasswordViewModel

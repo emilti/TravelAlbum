@@ -164,6 +164,9 @@ namespace TravelAlbum.Web.Controllers
                 Description = description
             };
 
+            byte[] backgroundImageContent = this.utils.GetFile("/Content/DBImages/SL373229_preview.JPG");
+            string backgroundData = Convert.ToBase64String(backgroundImageContent);
+            imageOutputViewModel.BackgroundData = backgroundData;
             return this.View(imageOutputViewModel);
         }
 
@@ -214,20 +217,7 @@ namespace TravelAlbum.Web.Controllers
             }
 
             return selectList;
-        }
-
-        // private int GetCurrentLanguage()
-        // {
-        //     string query = Request.Url.PathAndQuery;
-        //     if (!(query.Contains("/en")))
-        //     {
-        //         return 2;
-        //     }
-        //     else
-        //     {
-        //         return 1;
-        //     }
-        // }
+        }    
 
         [HttpGet]
         public ActionResult SearchImages(ImagesListViewModel model)
@@ -241,7 +231,7 @@ namespace TravelAlbum.Web.Controllers
             }
 
             if (model.MountainsIds != null)
-            {
+            {                
                 var images = this.imageService.GetImagesByMountain(model.MountainsIds.ToList(), (int)(model.SelectedSorting)).ToList();
                 model.TotalPages = images.Count() / model.SelectedPageSize;
                 if (images.Count() % model.SelectedPageSize > 0)
@@ -272,6 +262,9 @@ namespace TravelAlbum.Web.Controllers
                 model.MountainsIds = new List<Guid>();
             }
 
+            byte[] backgroundImageContent = this.utils.GetFile("/Content/DBImages/SL373580.JPG");
+            string backgroundData = Convert.ToBase64String(backgroundImageContent);
+            model.BackgroundData = backgroundData;
             return this.View(model);
         }
 

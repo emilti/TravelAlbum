@@ -81,6 +81,10 @@ namespace TravelAlbum.Web.Controllers
                 ImageData = imageData
             };
 
+            byte[] backgroundImageContent = this.utils.GetFile("/Content/DBImages/SL373235_preview.JPG");
+            string backgroundData = Convert.ToBase64String(backgroundImageContent);
+            travelViewModel.BackgroundData = backgroundData;
+
             return this.View(travelViewModel);
         }
 
@@ -210,6 +214,11 @@ namespace TravelAlbum.Web.Controllers
             var orderedTravels = this.travelService.GetLatesTravels(pageIndex);
 
             TravelsOutputViewModel travelsOutputViewModel = new TravelsOutputViewModel();
+
+            byte[] backgroundImageContent = this.utils.GetFile("/Content/DBImages/SL373554.JPG");
+
+            string backgroundData = Convert.ToBase64String(backgroundImageContent);
+            travelsOutputViewModel.BackgroundData = backgroundData;
             if (orderedTravels != null && orderedTravels.Count() > 0)
             {
                 foreach (var travel in orderedTravels)

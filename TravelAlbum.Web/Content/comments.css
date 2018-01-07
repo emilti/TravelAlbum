@@ -19,8 +19,9 @@
 }
 
 .comment-content {
-    display:flex;
-    width:70%;
+    display:inline-block;
+    width:40%;
+    min-width:250px;
     vertical-align: top;
     height:100px;
     word-wrap: break-word; 
@@ -39,21 +40,27 @@
 }
 
 .add-comment-textarea {
+    width: 40%;
     max-width: 100%;
-    display: flex;    
+    min-width:250px;
+    display: block;  
     margin-left: auto;
     margin-right: auto
 }
 
 .submit-comment-button {
     display: flex;
-    margin-left: 67%;
+    width: 250px;
+    margin-left: auto;
     margin-right: auto;
-    margin-top:5px;
-    margin-bottom:5px
+    margin-top: 5px;
+    margin-bottom: 5px
 }
 
 #show-comments-button {
+    width: 250px;
     display: flex;
-    margin-left: 43%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align:center
 }

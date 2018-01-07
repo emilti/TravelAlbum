@@ -4,6 +4,7 @@
 }
 
 <h2>@ViewBag.Title.</h2>
+<img src="@String.Format("data:image/jpg;base64,{0}", @Model.BackgroundData)" id="bg-log-in" />
 
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {

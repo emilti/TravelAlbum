@@ -76,7 +76,7 @@ namespace TravelAlbum.UnitTests.Controllers.ImagesControllerTests
             HttpContext httpContextMock = new HttpContext(httpRequest, httpResponse);
             imagesController.ControllerContext = new ControllerContext(new HttpContextWrapper(httpContextMock), new RouteData(), imagesController);
             utilsMock.Setup(a => a.GetCurrentLanguage(imagesController)).Returns(2);
-
+            utilsMock.Setup(a => a.GetCurrentLanguage(null)).Returns(null);
             // Act & Assert
             imagesController
             .WithCallTo(b => b.Details(imageObjectMock.TravelObjectId))

@@ -1,12 +1,12 @@
 ﻿.search-group {
     display: block;
     margin-left: 10px;
-    margin-bottom: 10px; 
-    width:100%
+    margin-bottom: 10px;
+    width: 100%
 }
 
-.content-container{
-    margin-right:0px
+.content-container {
+    margin-right: 0px
 }
 
 .label-mountain-checkbox {
@@ -31,24 +31,23 @@
 
 
 .paging-container {
-    position: relative; 
-    
+    position: relative;
 }
 
 
 #single-images-container {
     margin-bottom: 10px;
-    z-index: 1;   
+    z-index: 1;
 }
 
 #progress {
-    clear:both
+    clear: both
 }
 
 .single-image {
-    width:100%;
+    width: 100%;
     height: 100%;
-    display: block;   
+    display: block;
 }
 
 .description {
@@ -63,11 +62,11 @@
     text-align: left;
 }
 
-.single-image-container{    
-    width:500px;     
-    height:395px;         
-    position:relative;
-    margin-bottom:20px
+.single-image-container {
+    width: 80%;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto
 }
 
 .cover-container-left {
@@ -103,7 +102,7 @@
 
 .single-image-container:hover .cover-container-left {
     display: inline-block;
-    z-index: 2;    
+    z-index: 2;
 }
 
 .single-image-container:hover .cover-container-right {
@@ -121,13 +120,6 @@
     opacity: 0.7;
 }
 
-.cover-container:hover {
-    display: inline-block;
-    transition: border 0.4s ease-in-out;
-    -webkit-transition: border 0.4s ease-in-out;
-    -moz-transition: border 0.4s ease-in-out;
-    -o-transition: border 0.4s ease-in-out;
-    border-top: 150px solid rgba(0,0,0,1);
-    border-bottom: 150px solid rgba(0,0,0,1);  
-    transition-delay: 0.3s;
+.image-details-background{
+    display:none
 }

@@ -10,6 +10,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using TravelAlbum.Models;
 using TravelAlbum.Web.Models;
+using TravelAlbum.Web.Utils;
+using Bytes2you.Validation;
 
 namespace TravelAlbum.Web.Controllers
 {
@@ -17,10 +19,15 @@ namespace TravelAlbum.Web.Controllers
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
+
         private ApplicationUserManager _userManager;
 
-        public AccountController()
+        private readonly IUtils utils;
+
+        public AccountController(IUtils utils)
         {
+            Guard.WhenArgument(utils, "utils").IsNull().Throw();
+            this.utils = utils;
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
@@ -59,7 +66,11 @@ namespace TravelAlbum.Web.Controllers
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
-            return View();
+            LoginViewModel model = new LoginViewModel();            
+            byte[] backgroundImageContent = this.utils.GetFile("/Content/DBImages/SL373233_preview.JPG");
+            string backgroundData = Convert.ToBase64String(backgroundImageContent);
+            model.BackgroundData = backgroundData;
+            return View(model);
         }
 
         //
@@ -140,7 +151,11 @@ namespace TravelAlbum.Web.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+            RegisterViewModel model = new RegisterViewModel();
+            byte[] backgroundImageContent = this.utils.GetFile("/Content/DBImages/SL373233_preview.JPG");
+            string backgroundData = Convert.ToBase64String(backgroundImageContent);
+            model.BackgroundData = backgroundData;
+            return View(model);
         }
 
         //

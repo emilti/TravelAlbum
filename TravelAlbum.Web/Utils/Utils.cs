@@ -20,5 +20,12 @@ namespace TravelAlbum.Web.Utils
                 return 1;
             }
         }
+
+        public byte[] GetFile(string address)
+        {
+            var basePath = AppDomain.CurrentDomain.BaseDirectory;
+            var background = System.IO.File.ReadAllBytes(basePath + @address);
+            return background;
+        }
     }
 }

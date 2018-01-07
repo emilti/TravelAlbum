@@ -1,12 +1,13 @@
 ﻿@model TravelAlbum.Web.Models.ImageModels.ImageOutputViewModel
-<a href="@String.Format("data:image/jpg;base64,{0}", Model.ImageData)" data-lightbox="image-1">
+<img src="@String.Format("data:image/jpg;base64,{0}", @Model.BackgroundData)" id="bg-single-image-details"/>
+<a href="@String.Format("data:image/jpg;base64,{0}", Model.ImageData)">
     <img class="single-image-img" src="@String.Format("data:image/jpg;base64,{0}", Model.ImageData)" />
 </a>
 <br />
-<div class="description">@Model.Description</div>
-<br />
-<div class="description">@Html.DisplayFor(model => model.CreatedOn)</div>
-<br />
+<div class="row">
+    <div class="description-details-image col-md-offset-3 col-md-6">@Model.Description</div>
+    <div class="date-details-image col-md-3">@Html.DisplayFor(model => model.CreatedOn)</div>
+</div>
 <div class="clear row">
     <div class="col-md-4">
         @if (ViewContext.HttpContext.User.IsInRole("Admin"))
@@ -48,6 +49,26 @@
 @section CommentsSection{
     <script src="~/Scripts/Custom/comments-controller.js"></script>
 }
+
+@section BackgroundSection{
+    <script>
+       // $("#bg").attr("src", "~/Content/DBImages/SL373554_preview.JPG")
+       //     .css("position", "fixed")
+       //     .css("top", "0")
+       //     .css("left", "0")        
+       //     .css("min-width", "100%")
+       //     .css("min-height", "100%")
+       //     .css("width", "100%")
+       //     .css("height", "100%")
+       //     .css("-webkit-filter", "sepia(0.55) blur(3px)")
+       //     .css("filter", "sepia(0.55) blur(3px)")
+       //     .css("z-index", "-1000");        
+    </script>
+}
+
+
+
+
 
 
 

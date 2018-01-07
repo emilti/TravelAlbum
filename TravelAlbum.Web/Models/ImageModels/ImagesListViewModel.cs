@@ -34,6 +34,8 @@ namespace TravelAlbum.Web.Models.ImageModels
 
         public int CurrentPage { get; set; }
 
-        public int TotalPages { get; set; }       
+        public int TotalPages { get; set; }
+
+        public string BackgroundData { get; set; }
     }
 }

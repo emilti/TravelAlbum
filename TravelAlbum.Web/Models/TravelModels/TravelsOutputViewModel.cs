@@ -11,5 +11,7 @@ namespace TravelAlbum.Web.Models.TravelModels
         }
 
         public List<TravelSummaryOutputViewModel> travels { get; set; }
+
+        public string BackgroundData { get; set; }
     }
 }

@@ -15,5 +15,7 @@ namespace TravelAlbum.Web.Models.TravelModels
         public string Description { get; set; }
 
         public string ImageData { get; set; }
+
+        public string BackgroundData { get; set; }
     }
 }

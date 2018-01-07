@@ -67,7 +67,7 @@
     <Compile Include="TravelAlbumEfDbContextSaveChanges.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="Migrations\App.config" />
     <None Include="packages.config" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

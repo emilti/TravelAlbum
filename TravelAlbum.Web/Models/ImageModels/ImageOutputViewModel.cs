@@ -15,5 +15,7 @@ namespace TravelAlbum.Web.Models.ImageModels
         public DateTime CreatedOn { get; set; }
 
         public string TravelLabel { get; set; }
+
+        public string BackgroundData { get; set; }
     }
 }

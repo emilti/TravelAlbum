@@ -256,6 +256,9 @@
     <Content Include="Content\DBImages\SL373498.JPG" />
     <Content Include="Content\DBImages\SL373503.JPG" />
     <Content Include="Content\DBImages\SL373514.JPG" />
+    <Content Include="Content\DBImages\SL373577.JPG" />
+    <Content Include="Content\DBImages\SL373577_preview.jpg" />
+    <Content Include="Content\DBImages\SL373580.JPG" />
     <Content Include="Content\Images\bg_flag.jpg" />
     <Content Include="Content\Images\close.png" />
     <Content Include="Content\Images\en_flag.jpg" />
@@ -266,6 +269,8 @@
     <Content Include="Content\Images\prev.png" />
     <Content Include="Content\Images\topimage.jpg" />
     <Content Include="Content\index.css" />
+    <Content Include="Content\jquery.fancybox.css" />
+    <Content Include="Content\jquery.fancybox.min.css" />
     <Content Include="Content\lightbox.css" />
     <Content Include="Content\nav-bar.css" />
     <Content Include="Content\DBImages\SL373229.JPG" />
@@ -303,6 +308,7 @@
     <None Include="Properties\PublishProfiles\TravelAlbum - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Custom\comments-controller.js" />
+    <Content Include="Scripts\Custom\fancybox-options.js" />
     <Content Include="Scripts\Custom\images-loader-section.js" />
     <Content Include="Scripts\Custom\single-images-loader.js" />
     <Content Include="Scripts\Custom\travels-loader.js" />
@@ -310,6 +316,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.endless-scroll.js" />
+    <Content Include="Scripts\jquery.fancybox.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />

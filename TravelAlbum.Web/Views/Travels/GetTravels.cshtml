@@ -1,5 +1,7 @@
 ﻿@model TravelAlbum.Web.Models.TravelModels.TravelsOutputViewModel
 
+<img src="@String.Format("data:image/jpg;base64,{0}", @Model.BackgroundData)" id="bg-travels" />
+
 <div id="screen">
     @foreach (var travel in Model.travels)
     {
