@@ -262,7 +262,7 @@ namespace TravelAlbum.Web.Controllers
                 model.MountainsIds = new List<Guid>();
             }
 
-            byte[] backgroundImageContent = this.utils.GetFile("/Content/DBImages/SL373580.JPG");
+            byte[] backgroundImageContent = this.utils.GetFile("/Content/DBImages/SL373580_preview.JPG");
             string backgroundData = Convert.ToBase64String(backgroundImageContent);
             model.BackgroundData = backgroundData;
             return this.View(model);
