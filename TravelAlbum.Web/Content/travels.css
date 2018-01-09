@@ -86,7 +86,8 @@
 
 .image-in-travel{
     float:left;
-    margin:10px
+    margin:10px;
+    width:50%
 }
 
 .travel-text {
@@ -97,8 +98,7 @@
     font-size: 20px;  
 }
 
-.single-image-container-in-travel {
-    width: 50%;
+.single-image-container-in-travel {    
     position: relative;
     margin-left: auto;
     margin-right: auto

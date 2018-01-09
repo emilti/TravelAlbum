@@ -27,16 +27,18 @@ function GetData() {
                         value.getFullYear();
 
                     var imageContainer =
-                        "<div class='single-image-container-in-travel image-in-travel'>" +
-                        "<img class='single-image' src='data:image/jpg;base64," + data[i].ImageData + "' />" +
-                        "<a id='single_image' href='data:image/jpg;base64," + data[i].ImageData + "'>" +
-                        "<div class='cover-container-left'>" + "</div>" +
-                        "</a>" +
-                        "<a href='Images/Details/" + data[i].Id + "'>" +
-                        "<div class='cover-container-right' data-id='" + data[i].Id + "'>" +
-                        "</div>" +
-                        "</a>" +
-                        "<div class='description'>" + date + "</div>" +
+                        "<div class='image-in-travel'>" +
+                            "<div class='single-image-container-in-travel'>" +
+                                "<img class='single-image' src='data:image/jpg;base64," + data[i].ImageData + "' />" +
+                                "<a id='single_image' href='data:image/jpg;base64," + data[i].ImageData + "'>" +
+                                    "<div class='cover-container-left'>" + "</div>" +
+                                "</a>" +
+                                "<a href='Images/Details/" + data[i].Id + "'>" +
+                                    "<div class='cover-container-right' data-id='" + data[i].Id + "'>" +
+                                    "</div>" +
+                                "</a>" +
+                                "<div class='description'>" + date + "</div>" +
+                            "</div>" +
                         "</div>";
 
                     text = text.replace(data[i].TravelLabel, imageContainer);
