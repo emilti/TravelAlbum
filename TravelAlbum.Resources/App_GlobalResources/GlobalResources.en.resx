@@ -129,6 +129,9 @@
   <data name="CreateTravelButtonLabel" xml:space="preserve">
     <value>Create</value>
   </data>
+  <data name="EmailLabel" xml:space="preserve">
+    <value>Email</value>
+  </data>
   <data name="EnDescriptionLabel" xml:space="preserve">
     <value>Description (en)</value>
   </data>
@@ -168,11 +171,26 @@
   <data name="LabelTravels" xml:space="preserve">
     <value>Travels</value>
   </data>
+  <data name="LoginLabel" xml:space="preserve">
+    <value>Log in</value>
+  </data>
   <data name="MountainDropdownLabel" xml:space="preserve">
     <value>Mountain</value>
   </data>
   <data name="MountainSearchLabel" xml:space="preserve">
     <value>Mountains</value>
+  </data>
+  <data name="PasswordLabel" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="RegisterAsANewUserLabel" xml:space="preserve">
+    <value>"Register as a new user"</value>
+  </data>
+  <data name="RegisterLabel" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="RememberMeLabel" xml:space="preserve">
+    <value>Remember Me</value>
   </data>
   <data name="SearchButtonLabel" xml:space="preserve">
     <value>Search</value>

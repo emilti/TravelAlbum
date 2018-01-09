@@ -97,6 +97,15 @@ namespace TravelAlbum.Resources.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Имейл.
+        /// </summary>
+        public static string EmailLabel {
+            get {
+                return ResourceManager.GetString("EmailLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Описание (en).
         /// </summary>
         public static string EnDescriptionLabel {
@@ -214,6 +223,15 @@ namespace TravelAlbum.Resources.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Влез.
+        /// </summary>
+        public static string LoginLabel {
+            get {
+                return ResourceManager.GetString("LoginLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Планина.
         /// </summary>
         public static string MountainDropdownLabel {
@@ -228,6 +246,42 @@ namespace TravelAlbum.Resources.App_GlobalResources {
         public static string MountainSearchLabel {
             get {
                 return ResourceManager.GetString("MountainSearchLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Парола.
+        /// </summary>
+        public static string PasswordLabel {
+            get {
+                return ResourceManager.GetString("PasswordLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Регистрирай се като нов потребител.
+        /// </summary>
+        public static string RegisterAsANewUserLabel {
+            get {
+                return ResourceManager.GetString("RegisterAsANewUserLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Регистрирай се.
+        /// </summary>
+        public static string RegisterLabel {
+            get {
+                return ResourceManager.GetString("RegisterLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Запомни ме.
+        /// </summary>
+        public static string RememberMeLabel {
+            get {
+                return ResourceManager.GetString("RememberMeLabel", resourceCulture);
             }
         }
         

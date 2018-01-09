@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using TravelAlbum.Resources.App_GlobalResources;
 
 namespace TravelAlbum.Web.Models
 {
@@ -49,16 +50,16 @@ namespace TravelAlbum.Web.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Email")]
+        [Display(Name = "EmailLabel", ResourceType = typeof(GlobalResources))]        
         [EmailAddress]
         public string Email { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "PasswordLabel", ResourceType = typeof(GlobalResources))]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
+        [Display(Name = "RememberMeLabel", ResourceType = typeof(GlobalResources))]
         public bool RememberMe { get; set; }
 
         public string BackgroundData { get; set; }

@@ -52,8 +52,12 @@
                                 <div class='cover-container-right'>
                                 </div>
                             </a>
-                            <div class='description'> @Html.DisplayFor(a => image.CreatedOn) </div>
-                            <div>@image.Title</div>
+                            <div class='description'>@Html.DisplayFor(a => image.CreatedOn)
+                                @if (@image.Title != null && @image.Title != String.Empty) 
+                                {<span>|</span> @image.Title 
+                                }
+                            </div>
+                           
                         </div>
                     </div>
                     <div class="col-md-2"></div>

@@ -62,11 +62,23 @@
     text-align: left;
 }
 
+.title {
+    position: absolute;
+    top: 95%;    
+    margin-bottom: 10px;
+    display: block;
+    color: white;
+    font: bold 15px arial;
+    word-wrap: break-word;
+    text-align: center;
+}
+
 .single-image-container {
     width: 80%;
     position: relative;
     margin-left: auto;
-    margin-right: auto
+    margin-right: auto;
+    margin-bottom:10px;
 }
 
 .cover-container-left {

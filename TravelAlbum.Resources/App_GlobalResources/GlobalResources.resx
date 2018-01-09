@@ -129,6 +129,9 @@
   <data name="CreateTravelButtonLabel" xml:space="preserve">
     <value>Запази</value>
   </data>
+  <data name="EmailLabel" xml:space="preserve">
+    <value>Имейл</value>
+  </data>
   <data name="EnDescriptionLabel" xml:space="preserve">
     <value>Описание (en)</value>
   </data>
@@ -168,11 +171,26 @@
   <data name="LabelTravels" xml:space="preserve">
     <value>Пътувания</value>
   </data>
+  <data name="LoginLabel" xml:space="preserve">
+    <value>Влез</value>
+  </data>
   <data name="MountainDropdownLabel" xml:space="preserve">
     <value>Планина</value>
   </data>
   <data name="MountainSearchLabel" xml:space="preserve">
     <value>Планини</value>
+  </data>
+  <data name="PasswordLabel" xml:space="preserve">
+    <value>Парола</value>
+  </data>
+  <data name="RegisterAsANewUserLabel" xml:space="preserve">
+    <value>Регистрирай се като нов потребител</value>
+  </data>
+  <data name="RegisterLabel" xml:space="preserve">
+    <value>Регистрирай се</value>
+  </data>
+  <data name="RememberMeLabel" xml:space="preserve">
+    <value>Запомни ме</value>
   </data>
   <data name="SearchButtonLabel" xml:space="preserve">
     <value>Търси</value>

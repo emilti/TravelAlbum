@@ -459,6 +459,7 @@
                 ImageTranslationalInfo image1Bg = new ImageTranslationalInfo()
                 {
                     ImageTranslationalInfoId = Guid.NewGuid(),
+                    Title = "Konyarnika, Vitosha",
                     Description = "Sunset over Stara planina captured from Vitosha nearby Cherni vrah",
                     Language = Language.English,
                     Image = image1,
@@ -468,6 +469,7 @@
                 ImageTranslationalInfo image1En = new ImageTranslationalInfo()
                 {
                     ImageTranslationalInfoId = Guid.NewGuid(),
+                    Title = "Конярника, Витоша",
                     Description = "Залез над Стара планина, заснет от Витоша близо до Черни връх",
                     Language = Language.Bulgarian,
                     Image = image1,
