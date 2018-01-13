@@ -85,6 +85,11 @@ namespace TravelAlbum.DataServices
                 var images = this.imageSetWrapper.All.Where(a => mountainsIds.Contains((Guid)a.MountainId)).OrderByDescending(a => a.CreatedOn).ToList();
                 return images;
             }            
-        }       
+        }
+
+        public void SaveChanges()
+        {
+            this.travelAlbumEfDbContextSaveChanges.SaveChanges();
+        }
     }
 }

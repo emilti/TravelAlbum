@@ -47,7 +47,7 @@ namespace TravelAlbum.Web.Controllers
             model.MountainsDropDown = this.GetMountainsSelectList();
             model.TravelsDropDown = this.GetTravelsSelectList();
             return this.View(model);
-        }    
+        }
 
         [Authorize(Roles = "Admin")]
         [HttpPost]
@@ -82,7 +82,7 @@ namespace TravelAlbum.Web.Controllers
                 Image newImage = new Image
                 {
                     TravelObjectId = Guid.NewGuid(),
-                    CreatedOn = imageForAdding.CreatedOn,                   
+                    CreatedOn = imageForAdding.CreatedOn,
                     Content = imageData,
                     PreviewContent = previewImageData,
                     MountainId = mountain.MountainId,
@@ -217,7 +217,7 @@ namespace TravelAlbum.Web.Controllers
             }
 
             return selectList;
-        }    
+        }
 
         [HttpGet]
         public ActionResult SearchImages(ImagesListViewModel model)
@@ -231,7 +231,7 @@ namespace TravelAlbum.Web.Controllers
             }
 
             if (model.MountainsIds != null)
-            {                
+            {
                 var images = this.imageService.GetImagesByMountain(model.MountainsIds.ToList(), (int)(model.SelectedSorting)).ToList();
                 model.TotalPages = images.Count() / model.SelectedPageSize;
                 if (images.Count() % model.SelectedPageSize > 0)
@@ -252,7 +252,7 @@ namespace TravelAlbum.Web.Controllers
 
                     imagePreviewOutputViewModel.ImageId = image.TravelObjectId;
                     imagePreviewOutputViewModel.ImageData = imagePreviewData;
-                    imagePreviewOutputViewModel.CreatedOn = image.CreatedOn;                     
+                    imagePreviewOutputViewModel.CreatedOn = image.CreatedOn;
                     imagePreviewOutputViewModel.Title = title;
                     model.ImagePreviews.Add(imagePreviewOutputViewModel);
                 }
@@ -266,6 +266,91 @@ namespace TravelAlbum.Web.Controllers
             string backgroundData = Convert.ToBase64String(backgroundImageContent);
             model.BackgroundData = backgroundData;
             return this.View(model);
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpGet]
+        public ActionResult Edit(Guid id)
+        {
+            Image imageForEdit = imageService.GetById(id);
+
+            var imageInfoes = imageForEdit.TranslatedInfoes.ToList();
+            ImageTranslationalInfo bgImageInfo = imageInfoes.FirstOrDefault(a => a.Language == Language.Bulgarian);
+            ImageTranslationalInfo enImageInfo = imageInfoes.FirstOrDefault(a => a.Language == Language.English);
+
+            string bgTitle = bgImageInfo != null ? bgImageInfo.Title : null;
+            string enTitle = enImageInfo != null ? enImageInfo.Title : null;
+
+            string bgDescription = bgImageInfo != null ? bgImageInfo.Description : null;
+            string enDescription = enImageInfo != null ? enImageInfo.Description : null;
+
+            EditImageInputModel editImageInputModel = new EditImageInputModel()
+            {  
+                Id = id,
+                bgTitle = bgTitle,
+                bgDescription = bgDescription,
+                enTitle = enTitle,
+                enDescription = enDescription,
+                CreatedOn = imageForEdit.CreatedOn,
+                TravelsDropDown = this.GetTravelsSelectList()
+            };
+
+            return this.View(editImageInputModel);
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(EditImageInputModel model)
+        {
+            if (this.ModelState.IsValid)
+            {
+                Image imageForEdit = imageService.GetById(model.Id);
+                imageForEdit.CreatedOn = model.CreatedOn;
+                ImageTranslationalInfo bgImageInfo = imageForEdit.TranslatedInfoes.FirstOrDefault(a => a.Language == Language.Bulgarian);
+                if(bgImageInfo == null)
+                {
+                    bgImageInfo = new ImageTranslationalInfo()
+                    {
+                        ImageTranslationalInfoId = Guid.NewGuid(),                        
+                        Image = imageForEdit,
+                        TravelObjectId = imageForEdit.TravelObjectId,
+                        Language = Language.Bulgarian
+                    };
+
+                    this.imageTranslationalInfoService.Add(bgImageInfo);
+                    imageForEdit.TranslatedInfoes.Add(bgImageInfo);
+                }
+
+                bgImageInfo.Title = model.bgTitle;
+                bgImageInfo.Description = model.bgDescription;
+
+                ImageTranslationalInfo enImageInfo = imageForEdit.TranslatedInfoes.FirstOrDefault(a => a.Language == Language.English);
+                if (enImageInfo == null)
+                {
+                    enImageInfo = new ImageTranslationalInfo()
+                    {
+                        ImageTranslationalInfoId = Guid.NewGuid(),
+                        Image = imageForEdit,
+                        TravelObjectId = imageForEdit.TravelObjectId,
+                        Language = Language.English
+                    };
+
+                    this.imageTranslationalInfoService.Add(enImageInfo);
+                    imageForEdit.TranslatedInfoes.Add(enImageInfo);
+                }
+
+                enImageInfo.Title = model.enTitle;
+                enImageInfo.Description = model.enDescription;
+
+                Travel travel = this.travelService.GetById(model.TravelObjectId);
+                imageForEdit.Travel = travel;
+                imageForEdit.TravelId = model.TravelObjectId;
+
+                this.imageService.SaveChanges();
+            }
+
+            return this.RedirectToAction("Details", "Images", new { id = model.Id });
         }
 
         private string ValidateTranslatedInfo(Image image, string query, string title)

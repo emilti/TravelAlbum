@@ -12,7 +12,7 @@
     <div class="col-md-4">
         @if (ViewContext.HttpContext.User.IsInRole("Admin"))
         {
-            @Html.ActionLink("Edit Single Image", "EditImage", "ImagesController", null, new { @class = "btn btn-primary pull-right" })
+            @Html.ActionLink("Edit Single Image", "Edit", "Images", new { id = Model.ImageId }, new { @class = "btn btn-primary pull-right" })
         }
     </div>
 </div>

@@ -100,8 +100,10 @@ namespace TravelAlbum.Web.Controllers
         public ActionResult Edit(Guid id)
         {
             Travel travelForEdit = travelService.GetById(id);
-            TravelTranslationalInfo bgTravelInfo = travelForEdit.TranslatedTravels.FirstOrDefault(a => a.Language == Language.Bulgarian);
-            TravelTranslationalInfo enTravelInfo = travelForEdit.TranslatedTravels.FirstOrDefault(a => a.Language == Language.English);
+
+            var travelsInfo = travelForEdit.TranslatedTravels.ToList();
+            TravelTranslationalInfo bgTravelInfo = travelsInfo.FirstOrDefault(a => a.Language == Language.Bulgarian);
+            TravelTranslationalInfo enTravelInfo = travelsInfo.FirstOrDefault(a => a.Language == Language.English);
             TravelInputModel travelInputModel = new TravelInputModel()
             {
                 bgTitle = bgTravelInfo.Title,

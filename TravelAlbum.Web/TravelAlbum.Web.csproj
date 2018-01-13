@@ -231,6 +231,7 @@
     <Compile Include="Models\CommentModels\AddCommentInputModel.cs" />
     <Compile Include="Models\CommentModels\CommentViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ImageModels\EditImageInputModel.cs" />
     <Compile Include="Models\TravelModels\TravelEditModel.cs" />
     <Compile Include="Models\TravelModels\TravelInputModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -374,6 +375,7 @@
     <Content Include="Views\Travels\GetTravels.cshtml" />
     <Content Include="Views\Images\SearchImages.cshtml" />
     <Content Include="Views\Travels\Edit.cshtml" />
+    <Content Include="Views\Images\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

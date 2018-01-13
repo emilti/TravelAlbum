@@ -17,5 +17,7 @@ namespace TravelAlbum.DataServices.Contracts
         Image GetById(Guid? id);
 
         IEnumerable<Image> GetImagesByMountain(List<Guid> mountainsIds, int sorting);
+
+        void SaveChanges();
     }
 }
