@@ -9,6 +9,10 @@
         @using (Html.BeginForm("SearchImages", "Images", null, FormMethod.Get, new { @class = "form-horizontal", role = "form" }))
         {
             <div class="search-group">
+                @Html.TextBoxFor(a => a.SearchedTitle, new { @class = "form-control", placeholder = Html.DisplayNameFor(n => n.SearchedTitle) })
+            </div>
+
+            <div class="search-group">
                 @Html.EnumDropDownListFor(a => a.SelectedSorting, GlobalResources.SelectSortingLabel, new { @class = "form-control" })
             </div>
 

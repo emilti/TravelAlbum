@@ -9,7 +9,7 @@ using TravelAlbum.Resources.App_GlobalResources;
 
 namespace TravelAlbum.Web.Models.ImageModels
 {
-    public class ImageInputModel
+    public class AddImageInputModel
     {
         public Guid? ImageId { get; set; }
 

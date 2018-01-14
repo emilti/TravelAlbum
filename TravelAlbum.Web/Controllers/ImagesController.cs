@@ -9,6 +9,7 @@ using TravelAlbum.DataServices.Contracts;
 using TravelAlbum.Models;
 using TravelAlbum.Web.Models.ImageModels;
 using TravelAlbum.Web.Utils;
+using TravelAlbum.Web.Helpers;
 
 namespace TravelAlbum.Web.Controllers
 {
@@ -43,7 +44,7 @@ namespace TravelAlbum.Web.Controllers
         public ActionResult Add()
         {
             var mountains = this.mountainsService.All().ToList();
-            ImageInputModel model = new ImageInputModel();
+            AddImageInputModel model = new AddImageInputModel();
             model.MountainsDropDown = this.GetMountainsSelectList();
             model.TravelsDropDown = this.GetTravelsSelectList();
             return this.View(model);
@@ -51,7 +52,7 @@ namespace TravelAlbum.Web.Controllers
 
         [Authorize(Roles = "Admin")]
         [HttpPost]
-        public ActionResult Add(ImageInputModel imageForAdding)
+        public ActionResult Add(AddImageInputModel imageForAdding)
         {
             if (this.ModelState.IsValid)
             {
@@ -191,6 +192,8 @@ namespace TravelAlbum.Web.Controllers
                 });
             }
 
+            selectList.Add(new SelectListItem() { Value = null, Text = "Not assigned to travel" });
+
             return selectList;
         }
 
@@ -232,12 +235,18 @@ namespace TravelAlbum.Web.Controllers
 
             if (model.MountainsIds != null)
             {
-                var images = this.imageService.GetImagesByMountain(model.MountainsIds.ToList(), (int)(model.SelectedSorting)).ToList();
+                var images = this.imageService.GetImagesByMountain(model.MountainsIds.ToList(), (int)(model.SelectedSorting), model.SearchedTitle).ToList();
                 model.TotalPages = images.Count() / model.SelectedPageSize;
                 if (images.Count() % model.SelectedPageSize > 0)
                 {
                     model.TotalPages = model.TotalPages + 1;
                 }
+
+
+                // if (model.SearchedTitle != null && model.SearchedTitle != String.Empty)
+                // {
+                //     var filteredImagesByTitle = images.Where(a => a.TranslatedInfoes.Where(b => b.Title.Contains(model.SearchedTitle)).ToList().Count > 0).ToList();
+                // }
 
                 images = images.Skip((model.CurrentPage - 1) * model.SelectedPageSize).Take(model.SelectedPageSize).ToList().ToList();
                 foreach (var image in images)
@@ -285,7 +294,7 @@ namespace TravelAlbum.Web.Controllers
             string enDescription = enImageInfo != null ? enImageInfo.Description : null;
 
             EditImageInputModel editImageInputModel = new EditImageInputModel()
-            {  
+            {
                 Id = id,
                 bgTitle = bgTitle,
                 bgDescription = bgDescription,
@@ -308,11 +317,11 @@ namespace TravelAlbum.Web.Controllers
                 Image imageForEdit = imageService.GetById(model.Id);
                 imageForEdit.CreatedOn = model.CreatedOn;
                 ImageTranslationalInfo bgImageInfo = imageForEdit.TranslatedInfoes.FirstOrDefault(a => a.Language == Language.Bulgarian);
-                if(bgImageInfo == null)
+                if (bgImageInfo == null)
                 {
                     bgImageInfo = new ImageTranslationalInfo()
                     {
-                        ImageTranslationalInfoId = Guid.NewGuid(),                        
+                        ImageTranslationalInfoId = Guid.NewGuid(),
                         Image = imageForEdit,
                         TravelObjectId = imageForEdit.TravelObjectId,
                         Language = Language.Bulgarian

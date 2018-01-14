@@ -30,7 +30,7 @@ namespace TravelAlbum.Web.Models.ImageModels
         [Display(Name = "ImageCreatedOnLabel", ResourceType = typeof(GlobalResources))]
         public DateTime CreatedOn { get; set; }
      
-        public Guid TravelObjectId { get; set; }
+        public Guid? TravelObjectId { get; set; }
 
         public virtual Travel Travel { get; set; }
     }

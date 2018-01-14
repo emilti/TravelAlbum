@@ -15,13 +15,17 @@ namespace TravelAlbum.DataServices
 
         private readonly ITravelAlbumEfDbContextSaveChanges travelAlbumEfDbContextSaveChanges;
 
-        public ImageService(IEfDbSetWrapper<Image> imageSetWrapper, ITravelAlbumEfDbContextSaveChanges travelAlbumEfDbContextSaveChanges)
+        private readonly IImageTranslationalInfoService imageTranslationalInfoService;
+
+        public ImageService(IEfDbSetWrapper<Image> imageSetWrapper, ITravelAlbumEfDbContextSaveChanges travelAlbumEfDbContextSaveChanges, IImageTranslationalInfoService imageTranslationalInfoService)
         {
             Guard.WhenArgument(imageSetWrapper, "imageSetWrapper").IsNull().Throw();
             Guard.WhenArgument(travelAlbumEfDbContextSaveChanges, "travelAlbumEfDbContextSaveChanges").IsNull().Throw();
+            Guard.WhenArgument(imageTranslationalInfoService, "IImageTranslationalInfoService").IsNull().Throw();
 
             this.imageSetWrapper = imageSetWrapper;
             this.travelAlbumEfDbContextSaveChanges = travelAlbumEfDbContextSaveChanges;
+            this.imageTranslationalInfoService = imageTranslationalInfoService;
         }
 
         // public Travel GetById(Guid? id)
@@ -73,23 +77,27 @@ namespace TravelAlbum.DataServices
             return result;
         }
 
-        public IEnumerable<Image> GetImagesByMountain(List<Guid> mountainsIds, int sorting)
-        {            
-            if (sorting == 1)
+        public IEnumerable<Image> GetImagesByMountain(List<Guid> mountainsIds, int selectedSorting, string searchedTitle)
+        {
+            var images = this.imageSetWrapper.All.Where(a => mountainsIds.Contains((Guid)a.MountainId)).ToList();
+            var filteredImagesByTitle = images;
+            if (searchedTitle != null && searchedTitle != String.Empty)
             {
-                var images = this.imageSetWrapper.All.Where(a => mountainsIds.Contains((Guid)a.MountainId)).OrderBy(a => a.CreatedOn).ToList();
-                return images;
+                filteredImagesByTitle = images.AsQueryable().Where(a => a.TranslatedInfoes.Where(b => b.Title.ToLower().Contains(searchedTitle.ToLower())).ToList().Count > 0).ToList();
             }
-            else
-            {
-                var images = this.imageSetWrapper.All.Where(a => mountainsIds.Contains((Guid)a.MountainId)).OrderByDescending(a => a.CreatedOn).ToList();
-                return images;
-            }            
+
+            filteredImagesByTitle = filteredImagesByTitle.OrderByWithDirection(a => a.CreatedOn, selectedSorting).ToList();
+            return filteredImagesByTitle;                      
         }
 
         public void SaveChanges()
         {
             this.travelAlbumEfDbContextSaveChanges.SaveChanges();
+        }
+
+        public IQueryable<Image> All()
+        {
+            return this.imageSetWrapper.All;
         }
     }
 }

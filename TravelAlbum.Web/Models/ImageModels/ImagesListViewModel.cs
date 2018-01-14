@@ -19,6 +19,9 @@ namespace TravelAlbum.Web.Models.ImageModels
             // this.Mountains = new HashSet<Mountains>();
         }
 
+        [Display(Name = "Search")]
+        public string SearchedTitle { get; set; }
+
         [Display(Name = "MountainSearchLabel", ResourceType = typeof(GlobalResources))]
         public IEnumerable<Guid> MountainsIds { get; set; }
 

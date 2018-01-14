@@ -61,6 +61,7 @@
     <Compile Include="Contracts\ITravelService.cs" />
     <Compile Include="Contracts\ITravelTranslationalInfoService.cs" />
     <Compile Include="Contracts\IImageService.cs" />
+    <Compile Include="IqueryableExtension.cs" />
     <Compile Include="MountainsService.cs" />
     <Compile Include="ImageService.cs" />
     <Compile Include="ImageTranslationalInfoService.cs" />
