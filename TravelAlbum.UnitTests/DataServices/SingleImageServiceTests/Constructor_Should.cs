@@ -3,6 +3,7 @@ using Moq;
 using System;
 using TravelAlbum.Data;
 using TravelAlbum.DataServices;
+using TravelAlbum.DataServices.Contracts;
 using TravelAlbum.Models;
 
 namespace TravelAlbum.UnitTests.DataServices.ImageServiceTests
@@ -16,9 +17,10 @@ namespace TravelAlbum.UnitTests.DataServices.ImageServiceTests
             // Arrange
             var wrapperMock = new Mock<IEfDbSetWrapper<Image>>();
             var dbContextMock = new Mock<ITravelAlbumEfDbContextSaveChanges>();
+            var imageTranslationalInfoService = new Mock<IImageTranslationalInfoService>();
 
             // Act
-            ImageService imageService = new ImageService(wrapperMock.Object, dbContextMock.Object);
+            ImageService imageService = new ImageService(wrapperMock.Object, dbContextMock.Object, imageTranslationalInfoService.Object);
 
             // Assert
             Assert.IsNotNull(imageService);
@@ -30,9 +32,11 @@ namespace TravelAlbum.UnitTests.DataServices.ImageServiceTests
         {
             // Arrange
             var dbContextMock = new Mock<ITravelAlbumEfDbContextSaveChanges>();
+            var imageTranslationalInfoService = new Mock<IImageTranslationalInfoService>();
+
 
             // Act & Assert
-            ImageService imageService = new ImageService(null, dbContextMock.Object);
+            ImageService imageService = new ImageService(null, dbContextMock.Object, imageTranslationalInfoService.Object);
         }
 
         [TestMethod]
@@ -41,9 +45,10 @@ namespace TravelAlbum.UnitTests.DataServices.ImageServiceTests
         {
             // Arrange
             var wrapperMock = new Mock<IEfDbSetWrapper<Image>>();
+            var imageTranslationalInfoService = new Mock<IImageTranslationalInfoService>();
 
             // Act & Assert
-            ImageService imageService = new ImageService(wrapperMock.Object, null);
+            ImageService imageService = new ImageService(wrapperMock.Object, null, imageTranslationalInfoService.Object);
         }
     }
 }

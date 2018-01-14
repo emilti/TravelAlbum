@@ -21,7 +21,7 @@ namespace TravelAlbum.DataServices
         {
             Guard.WhenArgument(imageSetWrapper, "imageSetWrapper").IsNull().Throw();
             Guard.WhenArgument(travelAlbumEfDbContextSaveChanges, "travelAlbumEfDbContextSaveChanges").IsNull().Throw();
-            Guard.WhenArgument(imageTranslationalInfoService, "IImageTranslationalInfoService").IsNull().Throw();
+            Guard.WhenArgument(imageTranslationalInfoService, "imageTranslationalInfoService").IsNull().Throw();
 
             this.imageSetWrapper = imageSetWrapper;
             this.travelAlbumEfDbContextSaveChanges = travelAlbumEfDbContextSaveChanges;

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TravelAlbum.Data;
 using TravelAlbum.DataServices;
+using TravelAlbum.DataServices.Contracts;
 using TravelAlbum.Models;
 
 namespace TravelAlbum.UnitTests.DataServices.ImageServiceTests
@@ -18,6 +19,7 @@ namespace TravelAlbum.UnitTests.DataServices.ImageServiceTests
             var wrapperMock = new Mock<IEfDbSetWrapper<Image>>();
            //  var ImageServiceMock = new Mock<IImageService>();
             var dbContextMock = new Mock<ITravelAlbumEfDbContextSaveChanges>();
+            var imageTranslationalInfoService = new Mock<IImageTranslationalInfoService>();
 
 
             Image image = new Image()
@@ -60,7 +62,7 @@ namespace TravelAlbum.UnitTests.DataServices.ImageServiceTests
 
             wrapperMock.Setup(m => m.All).Returns(images.AsQueryable);
 
-            ImageService imageService = new ImageService(wrapperMock.Object, dbContextMock.Object);
+            ImageService imageService = new ImageService(wrapperMock.Object, dbContextMock.Object, imageTranslationalInfoService.Object);
             var result = imageService.GetLatesImages(0);
             Assert.AreEqual(3, result.Count());
             Assert.AreEqual(new DateTime(2017, 10, 10), result.First().CreatedOn);
